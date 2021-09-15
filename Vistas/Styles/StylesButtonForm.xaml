@@ -3,19 +3,26 @@
     <Style x:Key="ButtonFormBlack" TargetType="{x:Type Button}">
 
         <Style.Setters>
-            <Setter Property="Control.Background" Value="#121212" />
+            
+            <Setter Property="Control.Width" Value="120" />
+            <Setter Property="Control.Height" Value="40" />
             <Setter Property="Control.HorizontalAlignment" Value="Center" />
             <Setter Property="Control.VerticalAlignment" Value="Center" />
-            <Setter Property="Control.BorderBrush" Value="Gray"/>
+            <Setter Property="Control.HorizontalContentAlignment" Value="Center"/>
+            
+            <Setter Property="Control.Background" Value="#121212" />
+            <Setter Property="Control.BorderBrush" Value="Black"/>
+            <Setter Property="Control.FontFamily" Value="Fonts/#FreeSans"/>
             <Setter Property="Control.FontWeight" Value="Bold"/>
+            <Setter Property="Control.FontSize" Value="14" />
             <Setter Property="Control.Foreground" Value="#eeeeee"/>
-            <Setter Property="Control.FontFamily" Value="FreeSans"/>
+                
         </Style.Setters>
 
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="true">
-                <Setter Property = "FontSize" Value="15"/>
-                <Setter Property = "Foreground" Value="#d7a50f"/>
+                <Setter Property = "FontSize" Value="16"/>
+                <Setter Property = "Foreground" Value="#000000"/>
             </Trigger>
         </Style.Triggers>
     </Style>
