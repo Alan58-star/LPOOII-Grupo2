@@ -1,0 +1,13 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Style x:Key="StyleLabelForm">
+        <Setter Property="Control.Height" Value="40" />
+        <Setter Property="Control.VerticalAlignment" Value="Center" />
+        <Setter Property="Control.HorizontalAlignment" Value="Right" />
+        <Setter Property="Control.Margin" Value="10,0" />
+        <Setter Property="Control.FontFamily" Value="Century Gothic" />
+        <Setter Property="Control.FontSize" Value="17" />
+        <Setter Property="Control.Foreground" Value="#BFBFBF" />
+        <Setter Property="Control.VerticalContentAlignment" Value="Center" />
+    </Style>
+</ResourceDictionary>

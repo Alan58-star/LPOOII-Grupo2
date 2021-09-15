@@ -1,0 +1,79 @@
+﻿<Window x:Class="Vistas.winMesas"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:CD="clr-namespace:Vistas"
+        Title="winMesas" Height="450" Width="454" Background="#FF313131" MinHeight="450" MinWidth="454"
+        WindowStartupLocation="CenterScreen" WindowStyle="None" >
+   
+ <Grid >
+        <DockPanel Height="40" Name="dockPanel1" Width="auto" HorizontalAlignment="Stretch" VerticalAlignment="Top" FlowDirection="RightToLeft">
+            <Ellipse Height="15" HorizontalAlignment="Right" Name="btnClose" Fill="#FFFF4B6A" Width="15" Margin="10,0,5,0" MouseLeftButtonDown="closeWindow"/>
+            <Ellipse Height="15" HorizontalAlignment="Left" Name="btnMaximize" Fill="#EEEEEE" Width="15" Margin="5,0,5,0"  MouseLeftButtonDown="minimizeWindow"/>
+            <Label Name="lblWinTitle" Content="HOLDEM - Sistema de Administración" Padding="20,0" HorizontalAlignment="Right" FontFamily="FreeSans" FontSize="12" VerticalContentAlignment="Center" Foreground="#EEEEEE"/>
+        </DockPanel>
+        <Grid Margin="0,40,0,0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="41*" />
+            <RowDefinition Height="320*" />
+            <RowDefinition Height="50*" />
+        </Grid.RowDefinitions>
+        <Label 
+            Name="txtTitle"
+            Foreground="White"
+            Content="LISTADO DE MESAS"
+            FontFamily="FreeSans"
+            FontSize="18"
+            FontWeight="Bold"
+            VerticalAlignment="Center"
+            HorizontalAlignment="Center"/>
+
+
+        <!--Grid mesas-->
+        <Grid x:Name="grdMesas"  Margin="16,0,10,131" Grid.Row="1" Loaded="grdMesas_Loaded">
+            <!--<Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+-->
+            <!--diseño final (?-->
+
+           <!-- <Button Style="{StaticResource BotondeMesa}" Background="#99ff76" Content="Mesa 1" Click="preguntarMesa"></Button>
+            <Button Style="{StaticResource BotondeMesa}" Background="#99ff76" Content="Mesa 2" Name="btnMesa2" Grid.Row="0" Grid.Column="1"  Click="preguntarMesa"/>
+            <Button Style="{StaticResource BotondeMesa}" Background="#99ff76" Content="Mesa 3" Name="btnMesa3" Grid.Row="0" Grid.Column="2"  Click="preguntarMesa"/>
+            <Button Style="{StaticResource BotondeMesa}" Background="#99ff76" Content="Mesa 4" Name="btnMesa4" Grid.Row="0" Grid.Column="3"  Click="preguntarMesa"/>
+            <Button Style="{StaticResource BotondeMesa}" Background="#99ff76" Content="Mesa 5" Name="btnMesa5" Grid.Row="1" Grid.Column="0"  Click="preguntarMesa"/>
+            <Button Style="{StaticResource BotondeMesa}" Background="#99ff76" Content="Mesa 6" Name="btnMesa6" Grid.Row="1" Grid.Column="1"  Click="preguntarMesa"/>
+            <Button Style="{StaticResource BotondeMesa}" Background="#99ff76" Content="Mesa 7"  Name="btnMesa7" Grid.Row="1" Grid.Column="2"  Click="preguntarMesa"/>
+            <Button Style="{StaticResource BotondeMesa}" Background="#99ff76" Content="Mesa 8" Name="btnMesa8" Grid.Row="1" Grid.Column="3"  Click="preguntarMesa"/>
+            <Button Style="{StaticResource BotondeMesa}" Background="#99ff76" Content="Mesa 9" Name="btnMesa9" Grid.Row="2" Grid.Column="0"  Click="preguntarMesa"/>
+            <Button Style="{StaticResource BotondeMesa}" Background="#99ff76" Content="Mesa 10" Name="btnMesa10" Grid.Row="2" Grid.Column="1"  Click="preguntarMesa"/>
+            <Button Style="{StaticResource BotondeMesa}" Background="#99ff76" Content="Mesa 11" Name="btnMesa11" Grid.Row="2" Grid.Column="2"  Click="preguntarMesa"/>
+            <Button Style="{StaticResource BotondeMesa}" Background="#99ff76" Content="Mesa 12" Name="btnMesa12" Grid.Row="2" Grid.Column="3"  Click="preguntarMesa"/>
+            <Button Style="{StaticResource BotondeMesa}" Background="#99ff76" Content="Mesa 13" Name="btnMesa13" Grid.Row="3" Grid.Column="0"  Click="preguntarMesa"/>
+            <Button Style="{StaticResource BotondeMesa}" Background="#99ff76" Content="Mesa 14"  Name="btnMesa14" Grid.Row="3" Grid.Column="1"  Click="preguntarMesa"/>
+            <Button Style="{StaticResource BotondeMesa}" Background="#99ff76" Content="Mesa 15" Name="btnMesa15" Grid.Row="3" Grid.Column="2"  Click="preguntarMesa"/>
+            <Button Style="{StaticResource BotondeMesa}" Background="#99ff76" Content="Mesa 16" Name="btnMesa16" Grid.Row="3" Grid.Column="3"  Click="preguntarMesa"/>
+            <Button Style="{StaticResource BotondeMesa}" Background="#99ff76" Content="Mesa 17" Name="btnMesa17" Grid.Row="4" Grid.Column="0"  Click="preguntarMesa"/>
+            <Button Style="{StaticResource BotondeMesa}" Background="#99ff76" Content="Mesa 18" Name="btnMesa18" Grid.Row="4" Grid.Column="1"  Click="preguntarMesa"/>
+            <Button Style="{StaticResource BotondeMesa}" Background="#99ff76" Content="Mesa 19" Name="btnMesa19" Grid.Row="4" Grid.Column="2"  Click="preguntarMesa"/>
+            <Button Style="{StaticResource BotondeMesa}" Background="#99ff76" Content="Mesa 20" Name="btnMesa20" Grid.Row="4" Grid.Column="3"  Click="preguntarMesa"/>
+-->         </Grid>
+
+        <StackPanel Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Horizontal">
+            <Ellipse Height="20" Name="ellLibre" Stroke="#99ff76" Width="20" />
+            <Label Content="Libre" Margin="0,0,50,0" Foreground="White"/>
+            <Ellipse Height="20" Name="ellOcup" Stroke="Tomato" Width="20" />
+            <Label Content="Ocupada" Foreground="White"/>
+        </StackPanel>
+    </Grid>
+    </Grid>
+</Window>
