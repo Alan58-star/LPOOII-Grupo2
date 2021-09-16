@@ -1,13 +1,16 @@
 ﻿<Window x:Class="Vistas.winWaiterMenu"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-           Title="Menú de Empleado - HOLDEM" 
-        Height="464" Width="833" Background="#FF313131" MinWidth="833" MinHeight="464" WindowState="Normal" Topmost="False" WindowStartupLocation="CenterScreen" WindowStyle="None">
-    <Grid>
-
+        Title="Menú de Administrador - NOMBRE DE LA EMPRESA" WindowStyle="None" Height="464" Width="833" Background="#FF313131" AllowsTransparency="True" MinWidth="833" MouseLeftButtonDown="moveWindow" MinHeight="464" WindowState="Normal"  Topmost="False" WindowStartupLocation="CenterScreen">
+     <Grid>
+        <DockPanel Height="40" Name="dockPanel1" Width="auto" HorizontalAlignment="Stretch" VerticalAlignment="Top" FlowDirection="RightToLeft">
+            <Ellipse Height="15" HorizontalAlignment="Right" Name="btnClose" Fill="#FFFF4B6A" Width="15" Margin="10,0,5,0" MouseLeftButtonDown="closeWindow"/>
+            <Ellipse Height="15" HorizontalAlignment="Left" Name="btnMaximize" Fill="#EEEEEE" Width="15" Margin="5,0,5,0"  MouseLeftButtonDown="minimizeWindow"/>
+            <Label Name="lblWinTitle" Content="HOLDEM - Sistema de Administración" Padding="20,0" HorizontalAlignment="Right" FontFamily="FreeSans" FontSize="12" VerticalContentAlignment="Center" Foreground="#EEEEEE"/>
+        </DockPanel>
         <!--menú superior-->
         <!--Grid de menú principal-->
-        <Grid HorizontalAlignment="Stretch" Margin="0,0,0,0" Name="mainGrid" VerticalAlignment="Stretch" Height="auto" Width="auto">
+        <Grid HorizontalAlignment="Stretch" Margin="0,40,0,0" Name="mainGrid" VerticalAlignment="Stretch" Height="auto" Width="auto">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="208*" MaxWidth="220" />
                 <ColumnDefinition Width="603*" />
