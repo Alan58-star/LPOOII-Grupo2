@@ -179,11 +179,11 @@
     <Resource Include="Images\mesita.png" />
   </ItemGroup>
   <ItemGroup>
-    <SplashScreen Include="Images\splash.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Fonts\*.ttf" />
     <Resource Include="Fonts\*.otf" />
+  </ItemGroup>
+  <ItemGroup>
+    <SplashScreen Include="Images\splash.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
