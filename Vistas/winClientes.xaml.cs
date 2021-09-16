@@ -29,7 +29,7 @@ namespace Vistas
         private void btnGuardar_Click(object sender, RoutedEventArgs e)
         {
 
-            MessageBoxResult result = MessageBox.Show("¿Desea guardar estos datos?", "Guardar", MessageBoxButton.YesNo, MessageBoxImage.Question);
+            MessageBoxResult result = MessageBox.Show("¿Desea guardar estos datos?", "Guardar Cliente", MessageBoxButton.YesNo, MessageBoxImage.Question);
             if (result == MessageBoxResult.Yes)
             {
                 oClientes.Cli_Apellido = txtApellidos.Text;

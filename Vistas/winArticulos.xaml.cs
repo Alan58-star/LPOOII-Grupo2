@@ -36,14 +36,18 @@ namespace Vistas
  
             oArticulo.Art_Descrip = txtDescripcion.Text;
 
-            MessageBoxResult result = MessageBox.Show("Desea guardar los datos cargados?", "Guardar", MessageBoxButton.YesNo, MessageBoxImage.Question);
+            MessageBoxResult result = MessageBox.Show("¿Desea guardar estos datos?", "Guardar Artículo", MessageBoxButton.YesNo, MessageBoxImage.Question);
             if (result == MessageBoxResult.Yes)
             {
                 if (chkStock.IsChecked == true) oArticulo.Art_Manejo_Stock = true;
                 else oArticulo.Art_Manejo_Stock = false;
-                
 
-                MessageBox.Show("Familia: " + oArticulo.Fam_Id + "\nUnidad de medida: " + oArticulo.Um_Id + "\nPrecio: " + oArticulo.Art_Precio + "\nStock: " + oArticulo.Art_Manejo_Stock + "\nDescripcion: " + oArticulo.Art_Descrip);
+
+                MessageBox.Show("Se ha añadido el siguiente artículo:\nFamilia: " + oArticulo.Fam_Id + "\nUnidad de medida: " + oArticulo.Um_Id + "\nPrecio: " + oArticulo.Art_Precio + "\nStock: " + oArticulo.Art_Manejo_Stock + "\nDescripcion: " + oArticulo.Art_Descrip, "¡Datos Guardados con éxito!", MessageBoxButton.OK, MessageBoxImage.Information);
+
+                txtDescripcion.Text = "";
+                txtPrecio.Text = "";
+                chkStock.IsChecked = false;
             }
 
         }

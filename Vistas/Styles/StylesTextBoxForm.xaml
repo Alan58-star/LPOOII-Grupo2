@@ -9,7 +9,7 @@
             <Setter Property="Control.HorizontalAlignment" Value="Left" />
             <Setter Property="Control.Margin" Value="10" />
             <Setter Property="Control.Width" Value="150" />
-            <Setter Property="Control.FontFamily" Value="FreeSans" />
+            <Setter Property="Control.FontFamily" Value="/Fonts/#FreeSans" />
             <Setter Property="Control.FontSize" Value="15"/>
             <Setter Property="Control.Padding" Value="3"/>
             <Setter Property="Control.Foreground" Value="White" />

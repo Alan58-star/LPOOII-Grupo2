@@ -105,6 +105,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Styles\StylesWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="winAdminMenu.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -148,6 +152,10 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <Resource Include="Fonts\FreeSans.otf" />
+    <Resource Include="Fonts\BebasNeue-Regular.ttf" />
+    <Resource Include="Fonts\AlteHaasGroteskBold.ttf" />
+    <Resource Include="Fonts\FreeSansBold.otf" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -160,7 +168,6 @@
       <Name>ClasesBase</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <Resource Include="Images\holdemlogo.png" />
   </ItemGroup>
@@ -170,6 +177,13 @@
     <Resource Include="Images\logoaaa.png" />
     <Resource Include="Images\Logo_horizontal_blanco_fondo_Transparente-01.png" />
     <Resource Include="Images\mesita.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <SplashScreen Include="Images\splash.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Fonts\*.ttf" />
+    <Resource Include="Fonts\*.otf" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

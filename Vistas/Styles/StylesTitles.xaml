@@ -9,8 +9,8 @@
             <Setter Property="Control.HorizontalAlignment" Value="Center"></Setter>
             <Setter Property="Control.VerticalAlignment" Value="Center"></Setter>
             <Setter Property="Control.HorizontalContentAlignment" Value="Center"></Setter>
-            
-            <Setter Property="Control.FontFamily" Value="FreeSans Bold"></Setter>
+
+            <Setter Property="Control.FontFamily" Value="/Fonts/#Alte Haas Grotesk"></Setter>
             <Setter Property="Control.FontSize" Value="30"></Setter>
             <Setter Property="Control.Foreground" Value="#EEEEEE"></Setter>
             
@@ -25,8 +25,8 @@
             <Setter Property="Control.HorizontalAlignment" Value="Center"></Setter>
             <Setter Property="Control.VerticalAlignment" Value="Center"></Setter>
             <Setter Property="Control.HorizontalContentAlignment" Value="Center"></Setter>
-
-            <Setter Property="Control.FontFamily" Value="FreeSans"></Setter>
+            
+            <Setter Property="Control.FontFamily" Value="/Fonts/#FreeSans"></Setter>
             <Setter Property="Control.FontSize" Value="15"></Setter>
             <Setter Property="Control.Foreground" Value="#CCCCCC"></Setter>
 

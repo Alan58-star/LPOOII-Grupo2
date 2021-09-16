@@ -21,6 +21,7 @@ namespace Vistas
     {
         public winLogin()
         {
+            System.Threading.Thread.Sleep(700);
             InitializeComponent();
 
 

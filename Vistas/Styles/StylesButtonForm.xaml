@@ -11,7 +11,7 @@
             
             <Setter Property="Control.Background" Value="#121212" />
             <Setter Property="Control.BorderBrush" Value="Black"/>
-            <Setter Property="Control.FontFamily" Value="FreeSans"/>
+            <Setter Property="Control.FontFamily" Value="/Fonts/#FreeSans"/>
             <Setter Property="Control.FontWeight" Value="Bold"/>
             <Setter Property="Control.FontSize" Value="14" />
             <Setter Property="Control.Foreground" Value="#eeeeee"/>
