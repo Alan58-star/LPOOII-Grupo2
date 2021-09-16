@@ -21,7 +21,7 @@ namespace Vistas
     {
         public winLogin()
         {
-            System.Threading.Thread.Sleep(700);
+            System.Threading.Thread.Sleep(700); //Pausa del sistema para visibilizar el splash y que no sea una vista instantánea
             InitializeComponent();
 
 
