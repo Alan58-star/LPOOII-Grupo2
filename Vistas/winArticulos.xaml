@@ -64,7 +64,7 @@
                 <TextBox Style="{StaticResource StyleTextBoxForm}" Name="txtDescripcion" HorizontalAlignment="Center" VerticalContentAlignment="Top" Width="269" MinHeight="60" FontSize="13" />
             </StackPanel>
 
-            <Button Grid.Row="2" Content="GUARDAR" Name="btnGuardar" Click="btnGuardar_Click" Margin="0,0,10,4" Style="{StaticResource ButtonFormBlack}"/>
+            <Button Grid.Row="2" Content="GUARDAR" Name="btnGuardar" HorizontalAlignment="Center" Click="btnGuardar_Click"  Style="{StaticResource ButtonFormBlack}"/>
 
         </Grid>
     </Grid>

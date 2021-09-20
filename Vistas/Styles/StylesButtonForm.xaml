@@ -9,17 +9,16 @@
             <Setter Property="Control.VerticalAlignment" Value="Center" />
             <Setter Property="Control.HorizontalContentAlignment" Value="Center"/>
             
-            <Setter Property="Control.Background" Value="#121212" />
-            <Setter Property="Control.BorderBrush" Value="Black"/>
+            <Setter Property="Control.Background" Value="Black" />
             <Setter Property="Control.FontFamily" Value="/Fonts/#FreeSans"/>
             <Setter Property="Control.FontWeight" Value="Bold"/>
             <Setter Property="Control.FontSize" Value="14" />
-            <Setter Property="Control.Foreground" Value="#eeeeee"/>
+            <Setter Property="Control.Foreground" Value="#BFBFBF"/>
             
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type Button}">
-                        <Border Background="{TemplateBinding Background}" BorderBrush="Black" BorderThickness="1">
+                        <Border Background="{TemplateBinding Background}" BorderBrush="#EEEEEE" BorderThickness="2" CornerRadius="5">
                             <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"></ContentPresenter>
                         </Border>
                     </ControlTemplate>

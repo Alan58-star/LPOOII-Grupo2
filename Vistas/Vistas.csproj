@@ -64,6 +64,9 @@
     <Compile Include="winClientes.xaml.cs">
       <DependentUpon>winClientes.xaml</DependentUpon>
     </Compile>
+    <Compile Include="winFamilias.xaml.cs">
+      <DependentUpon>winFamilias.xaml</DependentUpon>
+    </Compile>
     <Compile Include="winLogin.xaml.cs">
       <DependentUpon>winLogin.xaml</DependentUpon>
     </Compile>
@@ -93,6 +96,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Styles\StylesFormGrid.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\StylesFormWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Styles\StylesLabelsForm.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -118,6 +129,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="winClientes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="winFamilias.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

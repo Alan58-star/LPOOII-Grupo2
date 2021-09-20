@@ -1,7 +1,7 @@
 ﻿<Application x:Class="Vistas.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             StartupUri="winLogin.xaml">
+             StartupUri="winFamilias.xaml">
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -11,6 +11,8 @@
                 <ResourceDictionary Source="Styles/StylesButtonForm.xaml"></ResourceDictionary>
                 <ResourceDictionary Source="Styles/StylesTitles.xaml"></ResourceDictionary>
                 <ResourceDictionary Source="Styles/StylesWindow.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="Styles/StylesFormWindow.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="Styles/StylesFormGrid.xaml"></ResourceDictionary>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>
