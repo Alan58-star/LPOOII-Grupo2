@@ -18,11 +18,17 @@ namespace Vistas
     /// </summary>
     public partial class winMesas : Window
     {
+        int numMesas = 0;
         public winMesas()
         {
             InitializeComponent();
         }
 
+        public winMesas(int numeroMesas)
+        {
+            InitializeComponent();
+            numMesas = numeroMesas;
+        }
 
        /* private void Grid_Loaded(object sender, RoutedEventArgs e)
         {
@@ -45,7 +51,7 @@ namespace Vistas
             Button mesa = sender as Button;
 
 
-            if (mesa.Background == Brushes.Tomato)
+            if (mesa.Style == (Style)Application.Current.Resources["BotondeMesaRoja"])
             {
                 MessageBox.Show("Esta mesa esta Ocupada");
             }
@@ -96,18 +102,76 @@ namespace Vistas
 
         private void grdMesas_Loaded(object sender, RoutedEventArgs e)
         {
+            //se definen numero de filas y columnas del grid de acuerdo al numero de mesas ingresadas
 
-            
+            int cols = 0, rows = 0;
 
-            btnMesa17.Background = Brushes.Tomato;
-            btnMesa11.Background = Brushes.Tomato;
-    
-    
-            
-            
+            if (numMesas == 1)
+            {
+                cols = rows = 1;
+            }
+            else if (numMesas <= 4)
+            {
+                cols = rows = 2;
+            }
+            else if (numMesas <= 9)
+            {
+                cols = rows = 3;
+            }
+            else if (numMesas <= 16)
+            {
+                cols = rows = 4;
+            }
+            else if (numMesas <= 20)
+            {
+                cols = 4;
+                rows = 5;
+            }
+
+
+            //se crean las filas y columnas en el grid
+            int cont = 0, contb = 0;
+            while (cont < cols)
+            {
+                grdMesas.ColumnDefinitions.Add(new ColumnDefinition());
+                cont++;
+            }
+            while (contb < rows)
+            {
+                grdMesas.RowDefinitions.Add(new RowDefinition());
+                contb++;
+            }
+
+            //Se recorre el grid y se agregan los botones de mesas
+            int contc = 0;
+            for (int i = 0; i < rows; i++)
+            {
+                for (int j = 0; j < cols; j++)
+                {
+                    if (contc < numMesas)
+                    {
+                        contc++;
+                        Button btn = new Button();
+                        btn.Content = "Mesa " + contc;
+                        if (contc == 11 || contc == 17)
+                        {
+                            btn.Style = (Style)Application.Current.Resources["BotondeMesaRoja"];
+                        }
+                        else
+                        {
+                            btn.Style = (Style)Application.Current.Resources["BotondeMesaVerde"];
+                        }
+                        btn.Click += preguntarMesa;
+                        grdMesas.Children.Add(btn);
+                        Grid.SetRow(btn, i);
+                        Grid.SetColumn(btn, j);
+                        
+                    }
+                }
+            }
+
            
         }
 
-        
     }
 }

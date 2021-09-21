@@ -27,7 +27,7 @@
 
             <!--Grid mesas-->
             <Grid x:Name="grdMesas"  Grid.Row="1" Margin="20,0" Loaded="grdMesas_Loaded">
-                <Grid.RowDefinitions>
+                <!--<Grid.RowDefinitions>
                     <RowDefinition />
                     <RowDefinition />
                     <RowDefinition />
@@ -41,7 +41,7 @@
                     <ColumnDefinition />
                 </Grid.ColumnDefinitions>
 
-                <!--diseño final (?-->
+               
 
                 <Button Style="{StaticResource BotondeMesa}" Background="#99ff76" Content="Mesa 1" Click="preguntarMesa"></Button>
                 <Button Style="{StaticResource BotondeMesa}" Background="#99ff76" Content="Mesa 2" Name="btnMesa2" Grid.Row="0" Grid.Column="1"  Click="preguntarMesa"/>
@@ -63,6 +63,7 @@
                 <Button Style="{StaticResource BotondeMesa}" Background="#99ff76" Content="Mesa 18" Name="btnMesa18" Grid.Row="4" Grid.Column="1"  Click="preguntarMesa"/>
                 <Button Style="{StaticResource BotondeMesa}" Background="#99ff76" Content="Mesa 19" Name="btnMesa19" Grid.Row="4" Grid.Column="2"  Click="preguntarMesa"/>
                 <Button Style="{StaticResource BotondeMesa}" Background="#99ff76" Content="Mesa 20" Name="btnMesa20" Grid.Row="4" Grid.Column="3"  Click="preguntarMesa"/>
+            -->
             </Grid>
 
             <StackPanel Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Horizontal">
