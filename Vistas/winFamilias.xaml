@@ -15,10 +15,10 @@
                 <RowDefinition Height="200*"/>
                 <RowDefinition Height="100*"/>
             </Grid.RowDefinitions>
-            <Grid >
+            <Grid Grid.Row="0">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="180*"/>
-                    <ColumnDefinition Width="200*"/>
+                    <ColumnDefinition Width="45*"/>
+                    <ColumnDefinition Width="55*"/>
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="80*"/>
@@ -28,14 +28,14 @@
                 <Label Name="lblNewFamTitle" Content="Nueva Familia"  Style="{StaticResource FormTitle}" Grid.ColumnSpan="2" Margin="94,23,90,59" />
                 <Label Name="lblNewFamDescrip" Content="Ingrese los datos de la Familia"  Style="{StaticResource FormDescription}" Grid.ColumnSpan="2" Margin="77,72,69,33" Width="237" />
 
-                <Label Content="Nombre de Familia" Name="lblFamNombre" Grid.Row="1" Style="{StaticResource StyleLabelForm}" Grid.Column="0" Width="Auto" />
-                <TextBox Name="txtFamNombre" Grid.Row="1" Grid.Column="1" Style="{StaticResource StyleTextBoxForm}" />
+                <Label Content="Descripción " Name="lblFamDescrip" Grid.Row="1" Style="{StaticResource StyleLabelForm}" Grid.Column="0" Width="Auto" />
+                <TextBox Name="txtFamDescrip" Grid.Row="1" Grid.Column="1" Style="{StaticResource StyleTextBoxForm}" />
 
             </Grid>
 
             
 
-            <DockPanel Grid.Row="2">
+            <DockPanel Grid.Row="1">
                 <Button Content="GUARDAR" Name="btnGuardar" Click="btnGuardar_Click" HorizontalAlignment="Center" Style="{StaticResource ButtonFormBlack}"></Button>
             </DockPanel>
         </Grid>
