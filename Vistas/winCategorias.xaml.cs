@@ -15,41 +15,41 @@ using ClasesBase;
 namespace Vistas
 {
     /// <summary>
-    /// Interaction logic for winFamilias.xaml
+    /// Interaction logic for winCategorias.xaml
     /// </summary>
-    public partial class winFamilias : Window
+    public partial class winCategorias : Window
     {
-        Familia oFamilias = new Familia();
+        Categoria oCategorias = new Categoria();
 
-        public winFamilias()
+        public winCategorias()
         {
             InitializeComponent();
         }
 
         private void btnGuardar_Click(object sender, RoutedEventArgs e)
         {
-            MessageBoxResult result = MessageBox.Show("¿Desea guardar estos datos?", "Guardar Familia", MessageBoxButton.YesNo, MessageBoxImage.Question);
+
+            MessageBoxResult result = MessageBox.Show("¿Desea guardar estos datos?", "Guardar Cliente", MessageBoxButton.YesNo, MessageBoxImage.Question);
             if (result == MessageBoxResult.Yes)
             {
-                oFamilias.Fam_Descrip = txtFamDescrip.Text;
+                oCategorias.Cat_Descrip = txtCatDescrip.Text;
+                
+                MessageBox.Show("Se ha añadido la siguiente categoria:\nDescripcion: " + oCategorias.Cat_Descrip, "¡Datos Guardados con éxito!", MessageBoxButton.OK, MessageBoxImage.Information);
 
-                MessageBox.Show("Se ha añadido la siguiente familia:\Descripción: " + oFamilias.Fam_Descrip, "¡Datos Guardados con éxito!", MessageBoxButton.OK, MessageBoxImage.Information);
-
-                txtFamDescrip.Text = "";
+                txtCatDescrip.Text = "";
 
             }
         }
 
-        private void closeWindow(object sender, MouseButtonEventArgs e)
+        private void moveWindow(object sender, MouseButtonEventArgs e)
         {
             try
             {
-                Close();
+                DragMove();
             }
             catch (Exception ex)
             {
-
-                //throw;
+                MessageBox.Show(ex.Message);
             }
         }
 
@@ -66,15 +66,16 @@ namespace Vistas
             }
         }
 
-        private void moveWindow(object sender, MouseButtonEventArgs e)
+        private void closeWindow(object sender, MouseButtonEventArgs e)
         {
             try
             {
-                DragMove();
+                Close();
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+
+                //throw;
             }
         }
     }

@@ -10,6 +10,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using ClasesBase;
 
 namespace Vistas
 {
@@ -18,9 +19,25 @@ namespace Vistas
     /// </summary>
     public partial class winUnidadesDeMedida : Window
     {
+        Unidad_Medida oUnidadDeMedida = new Unidad_Medida();
+
         public winUnidadesDeMedida()
         {
             InitializeComponent();
+        }
+
+        private void btnGuardar_Click(object sender, RoutedEventArgs e)
+        {
+
+            MessageBoxResult result = MessageBox.Show("¿Desea guardar estos datos?", "Guardar Unidades de Medida", MessageBoxButton.YesNo, MessageBoxImage.Question);
+            if (result == MessageBoxResult.Yes)
+            {
+                oUnidadDeMedida.Um_Descrip = txtUMDescrip.Text;
+                oUnidadDeMedida.Um_Abrev = txtUMAbrev.Text;
+                MessageBox.Show("Se ha añadido la siguiente Unidad de Medida:\nDescripción: " + oUnidadDeMedida.Um_Descrip + "\nAbreviatura: " + oUnidadDeMedida.Um_Abrev, "¡Datos Guardados con éxito!", MessageBoxButton.OK, MessageBoxImage.Information);
+                oUnidadDeMedida.Um_Descrip = txtUMDescrip.Text;
+                oUnidadDeMedida.Um_Abrev = txtUMAbrev.Text;
+            }
         }
 
         private void closeWindow(object sender, MouseButtonEventArgs e)
@@ -61,11 +78,5 @@ namespace Vistas
             }
         }
 
-        private void btnGuardar_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-      
     }
 }
