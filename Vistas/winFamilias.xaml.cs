@@ -33,7 +33,7 @@ namespace Vistas
             {
                 oFamilias.Fam_Descrip = txtFamDescrip.Text;
 
-                MessageBox.Show("Se ha añadido la siguiente familia:\Descripción: " + oFamilias.Fam_Descrip, "¡Datos Guardados con éxito!", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show("Se ha añadido la siguiente familia:\nDescripción: " + oFamilias.Fam_Descrip, "¡Datos Guardados con éxito!", MessageBoxButton.OK, MessageBoxImage.Information);
 
                 txtFamDescrip.Text = "";
 
