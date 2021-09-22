@@ -55,6 +55,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Controls\UCLogin.xaml.cs">
+      <DependentUpon>UCLogin.xaml</DependentUpon>
+    </Compile>
     <Compile Include="winAdminMenu.xaml.cs">
       <DependentUpon>winAdminMenu.xaml</DependentUpon>
     </Compile>
@@ -85,6 +88,10 @@
     <Compile Include="winWaiterMenu.xaml.cs">
       <DependentUpon>winWaiterMenu.xaml</DependentUpon>
     </Compile>
+    <Page Include="Controls\UCLogin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -220,6 +227,11 @@
   </ItemGroup>
   <ItemGroup>
     <SplashScreen Include="Images\splash.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Images\guardar.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -1,6 +1,7 @@
 ﻿<Window x:Class="Vistas.winLogin"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"        
+        xmlns:UC="clr-namespace:Vistas.Controls"
     Title="Bienvenido" Style="{StaticResource BasicWindowStyle}" WindowStyle="None" AllowsTransparency="True" Background="#00000000" Height="580" Width="424" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" MouseLeftButtonDown="moveWindow">
     <Grid>
         <Border BorderBrush="Black" BorderThickness="1" CornerRadius="10">
@@ -24,9 +25,8 @@
                 <RowDefinition Height="120*" />
                 <RowDefinition Height="70*" />
                 <RowDefinition Height="30*" />
-                <RowDefinition Height="20*" />
-                <RowDefinition Height="40*" />
-                <RowDefinition Height="40*" />
+                <RowDefinition Height="10*" />
+                <RowDefinition Height="80*" />
                 <RowDefinition Height="53*" />
                 <RowDefinition Height="10*" />
             </Grid.RowDefinitions>
@@ -36,10 +36,15 @@
             <TextBlock Grid.Row="1" Name="tblWelcome" Text="Bienvenido" FontSize="56" Style="{StaticResource FormTitle}" />
             <TextBlock Grid.Row="2" Name="tblWelcomeInfo" Text="Por favor, introduzca sus credenciales para ingresar" FontSize="16" Foreground="#BFBFBF" VerticalAlignment="Center" HorizontalAlignment="Center" />
 
+            <UC:UCLogin Grid.Row="4" x:Name="userlogin" ></UC:UCLogin>
+            
+            
+            <!--
             <TextBox Grid.Row="4" Name="txtUserLogin" FontSize="16" Foreground="#EEEEEE" BorderBrush="#ffd46f" Height="35" Width="240" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="Black" GotFocus="UsrGotFocus" LostFocus="UsrLostFocus" />
             <PasswordBox Grid.Row="5" Name="pwdPassLogin" FontSize="16" Foreground="#EEEEEE" BorderBrush="#ffd46f" Height="35" Width="240" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="Black" GotFocus="PwdGotFocus" LostFocus="PwdLostFocus" />
-
-            <Button Grid.Row="6" Content="Iniciar Sesión" Style="{StaticResource ButtonFormBlack}" Click="login"/>
+            -->
+            
+            <Button Grid.Row="5" Content="Iniciar Sesión" Style="{StaticResource ButtonFormBlack}" Click="login"/>
 
         </Grid>
     </Grid>

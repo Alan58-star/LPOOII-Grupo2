@@ -60,7 +60,7 @@
             </Grid>
 
             <DockPanel Grid.Row="6" Grid.ColumnSpan="2">
-                <Button Content="GUARDAR" Name="btnGuardar"  Click="btnGuardar_Click" Style="{StaticResource ButtonFormBlack}"/>
+                <Button Content="GUARDAR" Foreground="#eeeeee" FontSize="18" FontWeight="Bold" Name="btnGuardar" Click="btnGuardar_Click" Style="{StaticResource ResourceKey=tmplClientes}"/>
             </DockPanel>
 
         </Grid>

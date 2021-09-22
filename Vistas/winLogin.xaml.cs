@@ -25,14 +25,15 @@ namespace Vistas
             InitializeComponent();
 
 
-
-
+            /*
             txtUserLogin.Text = "Usuario";
             txtUserLogin.Foreground = Brushes.Gray;
 
             pwdPassLogin.Password = "PWD";
 
             pwdPassLogin.Foreground = Brushes.Gray;
+             */
+
         }
 
         private void moveWindow(object sender, MouseButtonEventArgs e)
@@ -73,6 +74,7 @@ namespace Vistas
             }
         }
 
+        /*
         private void UsrGotFocus(object sender, RoutedEventArgs e)
         {
             if (txtUserLogin.Text == "Usuario")
@@ -127,9 +129,13 @@ namespace Vistas
                 pwdPassLogin.Foreground = Brushes.Gray;
             }
         }
+         * */
 
         private void login(object sender, RoutedEventArgs e)
         {
+            String username = userlogin.txtUserLogin.Text;
+            String password = userlogin.pwdPassLogin.Password;
+
             Usuario oUser1 = new Usuario();
             oUser1.Usr_NombreUsuario = "Admin";
             oUser1.Usr_Password = "123";
@@ -140,7 +146,7 @@ namespace Vistas
             oUser3.Usr_NombreUsuario = "Vendedor";
             oUser3.Usr_Password = "123";
 
-            if (txtUserLogin.Text == oUser1.Usr_NombreUsuario && pwdPassLogin.Password == oUser1.Usr_Password)
+            if (username == oUser1.Usr_NombreUsuario && password == oUser1.Usr_Password)
             {
                 MessageBox.Show("Sesión iniciada como Administrador", "Bienvenido", MessageBoxButton.OK, MessageBoxImage.Information);
                 winAdminMenu winAdminMenu = new winAdminMenu();
@@ -149,7 +155,7 @@ namespace Vistas
             }
             else
             {
-                if (txtUserLogin.Text == oUser2.Usr_NombreUsuario && pwdPassLogin.Password == oUser2.Usr_Password)
+                if (username == oUser2.Usr_NombreUsuario && password == oUser2.Usr_Password)
                 {
                     MessageBox.Show("Sesión iniciada como Mozo", "Bienvenido", MessageBoxButton.OK, MessageBoxImage.Information);
                     winWaiterMenu winMozoVendedorMenu = new winWaiterMenu();
@@ -158,7 +164,7 @@ namespace Vistas
                 }
                 else
                 {
-                    if (txtUserLogin.Text == oUser3.Usr_NombreUsuario && pwdPassLogin.Password == oUser3.Usr_Password)
+                    if (username == oUser3.Usr_NombreUsuario && password == oUser3.Usr_Password)
                     {
                         MessageBox.Show("Sesión iniciada como Vendedor", "Bienvenido", MessageBoxButton.OK, MessageBoxImage.Information);
                         winWaiterMenu winMozoVendedorMenu = new winWaiterMenu();

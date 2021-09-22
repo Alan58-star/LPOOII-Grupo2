@@ -9,7 +9,7 @@
             <Setter Property="Control.VerticalAlignment" Value="Center" />
             <Setter Property="Control.HorizontalContentAlignment" Value="Center"/>
             
-            <Setter Property="Control.Background" Value="Black" />
+            <Setter Property="Control.Background" Value="#252525" />
             <Setter Property="Control.FontFamily" Value="/Fonts/#FreeSans"/>
             <Setter Property="Control.FontWeight" Value="Bold"/>
             <Setter Property="Control.FontSize" Value="14" />
@@ -18,7 +18,7 @@
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type Button}">
-                        <Border Background="{TemplateBinding Background}" BorderBrush="#EEEEEE" BorderThickness="2" CornerRadius="5">
+                        <Border Background="{TemplateBinding Background}" BorderBrush="#000000" BorderThickness="1">
                             <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"></ContentPresenter>
                         </Border>
                     </ControlTemplate>
@@ -33,7 +33,42 @@
                 <Setter Property="Background" Value="#FFD46F"></Setter>
                 <Setter Property="FontSize" Value="16"></Setter>
             </Trigger>
-        </Style.Triggers>        
-       
+        </Style.Triggers>
     </Style>
+    
+    
+    
+    <ControlTemplate x:Key="btnClientes" TargetType="{x:Type Button}">
+        <Border x:Name="brdButton"
+            Background="#232323" 
+            BorderBrush="#050505" 
+            BorderThickness="2" 
+            CornerRadius="10" 
+            Padding="3"
+            Margin="3"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            Width="200"
+            Height="70"
+            >
+             <Grid>
+                <Grid.RowDefinitions>
+                    
+                </Grid.RowDefinitions>
+                    <ContentPresenter Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center"></ContentPresenter>
+             </Grid>
+        </Border>
+        
+        <ControlTemplate.Triggers>
+            <Trigger Property="IsMouseOver" Value="true">
+                <Setter Property="Background" Value="#121212" TargetName="brdButton"></Setter>
+            </Trigger>
+        </ControlTemplate.Triggers>
+        
+    </ControlTemplate>
+    
+    <Style x:Key="tmplClientes" TargetType="Button">
+        <Setter Property="Template" Value="{StaticResource ResourceKey=btnClientes}"/>
+    </Style>
+    
 </ResourceDictionary>

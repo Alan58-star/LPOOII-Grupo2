@@ -34,6 +34,7 @@ namespace Vistas
         }
 
 
+
         private void informacionClick(object sender, RoutedEventArgs e)
         {
             if (rb1.IsChecked == true)
@@ -121,6 +122,24 @@ namespace Vistas
             winArticulos winArticulos = new winArticulos();
             winArticulos.Show();
             
+        }
+
+        private void openFamMenu(object sender, RoutedEventArgs e)
+        {
+            winFamilias winFamilias = new winFamilias();
+            winFamilias.Show();
+        }
+
+        private void openCatMenu(object sender, RoutedEventArgs e)
+        {
+            winCategorias winCategorias = new winCategorias();
+            winCategorias.Show();
+        }
+
+        private void openUMMenu(object sender, RoutedEventArgs e)
+        {
+            winUnidadesDeMedida winnUnidadesDeMedida = new winUnidadesDeMedida();
+            winnUnidadesDeMedida.Show();
         }
 
 

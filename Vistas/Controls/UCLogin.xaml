@@ -1,0 +1,18 @@
+﻿<UserControl x:Class="Vistas.Controls.UCLogin"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="97" d:DesignWidth="254"
+             >
+    <Grid Height="96">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50*" />
+            <RowDefinition Height="50*" />
+        </Grid.RowDefinitions>
+        <TextBox Grid.Row="0" Name="txtUserLogin" FontSize="16" Foreground="#EEEEEE" BorderBrush="#ffd46f" Height="35" Width="240" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="Black" GotFocus="UsrGotFocus" LostFocus="UsrLostFocus" />
+        <PasswordBox Grid.Row="1" Name="pwdPassLogin" FontSize="16" Foreground="#EEEEEE" BorderBrush="#ffd46f" Height="35" Width="240" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="Black" GotFocus="PwdGotFocus" LostFocus="PwdLostFocus" />
+        
+    </Grid>
+</UserControl>
