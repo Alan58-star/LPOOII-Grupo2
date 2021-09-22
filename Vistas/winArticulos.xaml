@@ -1,7 +1,7 @@
 ﻿<Window x:Class="Vistas.winArticulos"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Modulo de Artículos"  Style="{StaticResource BasicWindowStyle}" WindowStyle="None" AllowsTransparency="True" Background="Transparent" MouseLeftButtonDown="moveWindow" Height="594" Width="419" Topmost="False" WindowStartupLocation="CenterScreen" MinHeight="315" MinWidth="402">
+        Title="Modulo de Artículos" Style="{StaticResource MainWindowStyle}" MouseLeftButtonDown="moveWindow" Height="594" Width="419" WindowStartupLocation="CenterScreen" MinHeight="594" MinWidth="419">
     
     <Grid>
         <Border BorderBrush="Black" BorderThickness="1" CornerRadius="10">

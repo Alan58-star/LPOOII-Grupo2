@@ -29,5 +29,44 @@ namespace Vistas
             winMesas.Show();
             this.Close();
         }
+
+        private void closeWindow(object sender, MouseButtonEventArgs e)
+        {
+            try
+            {
+                Close();
+            }
+            catch (Exception ex)
+            {
+
+                //throw;
+            }
+        }
+
+        private void minimizeWindow(object sender, MouseButtonEventArgs e)
+        {
+            try
+            {
+                this.WindowState = WindowState.Minimized;
+            }
+            catch (Exception ex)
+            {
+
+                //throw;
+            }
+        }
+
+        private void moveWindow(object sender, MouseButtonEventArgs e)
+        {
+
+            try
+            {
+                DragMove();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
     }
 }

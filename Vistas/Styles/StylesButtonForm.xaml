@@ -48,8 +48,8 @@
             Margin="3"
             HorizontalAlignment="Center"
             VerticalAlignment="Center"
-            Width="200"
-            Height="70"
+            Width="130"
+            Height="50"
             >
              <Grid>
                 <Grid.RowDefinitions>
