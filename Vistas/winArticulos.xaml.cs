@@ -42,12 +42,12 @@ namespace Vistas
                 if (chkStock.IsChecked == true) oArticulo.Art_Manejo_Stock = true;
                 else oArticulo.Art_Manejo_Stock = false;
 
-
-                MessageBox.Show("Se ha añadido el siguiente artículo:\nFamilia: " + oArticulo.Fam_Id + "\nUnidad de medida: " + oArticulo.Um_Id + "\nPrecio: " + oArticulo.Art_Precio + "\nStock: " + oArticulo.Art_Manejo_Stock + "\nDescripcion: " + oArticulo.Art_Descrip, "¡Datos Guardados con éxito!", MessageBoxButton.OK, MessageBoxImage.Information);
+                TrabajarArticulos.add_articulo(oArticulo);
 
                 txtDescripcion.Text = "";
                 txtPrecio.Text = "";
                 chkStock.IsChecked = false;
+
             }
 
         }
