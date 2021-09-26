@@ -1,8 +1,41 @@
 ﻿<Window x:Class="Vistas.winClientes"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:svc="clr-namespace:ClasesBase;assembly=ClasesBase"
         Title="Formulario Cliente" WindowStyle="None" AllowsTransparency="True" ResizeMode="CanResizeWithGrip" Background="Transparent" Height="582" Width="400" WindowStartupLocation="CenterScreen" MinWidth="400" MinHeight="582" MouseLeftButtonDown="moveWindow">
-    
+    <Window.Resources>
+        <ObjectDataProvider
+            x:Key="Data_Cliente"
+            ObjectType="{x:Type svc:TrabajarCliente}"
+            MethodName="TraerCliente">
+        </ObjectDataProvider>
+        <ControlTemplate x:Key="TextBoxErrorTemplate">
+            <DockPanel>
+                <Ellipse DockPanel.Dock="Right" Margin="2,0" Width="10" Height="10">
+                    <Ellipse.Fill>
+                        <LinearGradientBrush>
+                            <GradientStop Color="#11FF1111" Offset="0" />
+                            <GradientStop Color="#FFFF0000" Offset="1" />
+                        </LinearGradientBrush>
+                    </Ellipse.Fill>
+                </Ellipse>
+                <AdornedElementPlaceholder />
+            </DockPanel>
+        </ControlTemplate>
+
+        <Style x:Key="EstiloError" TargetType="TextBox" BasedOn="{StaticResource ResourceKey=StyleTextBoxForm}">
+            <Setter Property="Validation.ErrorTemplate" Value="{StaticResource TextBoxErrorTemplate}" />
+            <Style.Triggers>
+                <Trigger Property="Validation.HasError" Value="True">
+                    <Setter Property="ToolTip">
+                        <Setter.Value>
+                            <Binding Path="(Validation.Errors)[0].ErrorContent" RelativeSource="{x:Static RelativeSource.Self}" />
+                        </Setter.Value>
+                    </Setter>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
     <Grid>
         <Border BorderBrush="Black" BorderThickness="1" CornerRadius="10">
             <DockPanel Height="40" Name="dockPanel1" Width="auto" HorizontalAlignment="Stretch" VerticalAlignment="Top" FlowDirection="RightToLeft">
@@ -43,7 +76,12 @@
                 <Label Name="lblNewCliDescrip" Content="Ingrese los datos del Cliente"  Style="{StaticResource FormDescription}" Grid.ColumnSpan="2" Margin="77,71,64,33" Width="237" />
 
                 <Label Content="Apellido/s" Name="label1" Grid.Row="1" Style="{StaticResource StyleLabelForm}" Grid.Column="0" Width="Auto" />
-                <TextBox Name="txtApellidos" Grid.Row="1" Grid.Column="1" Style="{StaticResource StyleTextBoxForm}" />
+                <TextBox Name="txtApellidos" Grid.Row="1" Grid.Column="1" Style="{StaticResource EstiloError}" DataContext="{StaticResource Data_Cliente}">
+                    <TextBox.Text>
+                        <Binding Path="Cli_Apellido" UpdateSourceTrigger="PropertyChanged"
+                        ValidatesOnExceptions="true" ValidatesOnDataErrors="true"></Binding>
+                    </TextBox.Text>
+                </TextBox>
 
                 <Label Content="Nombre/s" Name="label2" Grid.Row="2" Style="{StaticResource StyleLabelForm}" Grid.Column="0" />
                 <TextBox Name="txtNombres" Grid.Row="2" Grid.Column="1" Style="{StaticResource StyleTextBoxForm}"/>

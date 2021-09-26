@@ -44,6 +44,8 @@ namespace Vistas
 
                 TrabajarArticulos.add_articulo(oArticulo);
 
+                MessageBox.Show("Artículo guardado con éxito");
+
                 txtDescripcion.Text = "";
                 txtPrecio.Text = "";
                 chkStock.IsChecked = false;

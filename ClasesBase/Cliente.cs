@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.ComponentModel;
 
 namespace ClasesBase
 {
-    public class Cliente
+    public class Cliente:IDataErrorInfo
     {
         private int cli_Id;
 
@@ -48,6 +49,48 @@ namespace ClasesBase
         {
             get { return cli_Email; }
             set { cli_Email = value; }
+        }
+
+        public string Error
+        {
+            get { throw new NotImplementedException(); }
+        }
+
+        public string this[string columnName]
+        {
+            get 
+            {
+                string msg_error = null;
+
+                switch (columnName)
+                { 
+                    case "Cli_Apellido":
+                        msg_error = validar_Apellido();
+                        break;
+                    case "Cli_Nombre":
+                        msg_error = validar_Nombre();
+                        break;
+                }
+
+                return msg_error;
+            }
+        }
+
+        private string validar_Apellido() 
+        {
+            if (String.IsNullOrEmpty(Cli_Apellido)) {
+                return "El valor del campo Apellido es obligatorio";
+            }
+            return null;
+        }
+
+        private string validar_Nombre()
+        {
+            if (String.IsNullOrEmpty(Cli_Nombre))
+            {
+                return "El valor del campo Nombre es obligatorio";
+            }
+            return null;
         }
     }
 }
