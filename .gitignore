@@ -149,14 +149,11 @@ csx/
 AppPackages/
 
 # Others
-sql/
 *.Cache
 ClientBin/
 [Ss]tyle[Cc]op.*
 ~$*
 *~
-*.dbmdl
-*.dbproj.schemaview
 *.pfx
 *.publishsettings
 node_modules/
@@ -172,9 +169,6 @@ Backup*/
 UpgradeLog*.XML
 UpgradeLog*.htm
 
-# SQL Server files
-*.mdf
-*.ldf
 
 # Business Intelligence projects
 *.rdl.data
