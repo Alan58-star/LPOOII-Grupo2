@@ -69,7 +69,7 @@ namespace Vistas
         {
             try
             {
-                this.WindowState = WindowState.Minimized;
+                this.WindowState = WindowState.Maximized;
             }
             catch (Exception ex)
             {
