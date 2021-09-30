@@ -18,8 +18,7 @@ namespace Vistas
     /// Interaction logic for winClientes.xaml
     /// </summary>
     public partial class winClientes : Window
-    {
-        Cliente oClientes = new Cliente();
+    {        
 
         public winClientes()
         {
@@ -32,20 +31,25 @@ namespace Vistas
             MessageBoxResult result = MessageBox.Show("¿Desea guardar estos datos?", "Guardar Cliente", MessageBoxButton.YesNo, MessageBoxImage.Question);
             if (result == MessageBoxResult.Yes)
             {
-                oClientes.Cli_Apellido = txtApellidos.Text;
-                oClientes.Cli_Nombre = txtNombres.Text;
-                oClientes.Cli_Telefono = txtTel.Text;
-                oClientes.Cli_Domicilio = txtDomicilio.Text;
-                oClientes.Cli_Email = txtMail.Text;
-                MessageBox.Show("Se ha añadido al siguiente cliente:\nApellido/s: " + oClientes.Cli_Apellido + "\nNombre/s: " + oClientes.Cli_Nombre + "\nDomicilio: " + oClientes.Cli_Domicilio + "\nTelefono: " + oClientes.Cli_Telefono +
-                    "\nE-mail: " + oClientes.Cli_Email, "¡Datos Guardados con éxito!", MessageBoxButton.OK, MessageBoxImage.Information);
+                Cliente oCliente = new Cliente();
+
+                oCliente.Cli_Apellido = txtApellidos.Text;
+                oCliente.Cli_Nombre = txtNombres.Text;
+                oCliente.Cli_Telefono = txtTel.Text;
+                oCliente.Cli_Domicilio = txtDomicilio.Text;
+                oCliente.Cli_Email = txtMail.Text;
+
+
+                TrabajarClientes.add_cliente(oCliente);
+
+                MessageBox.Show("Cliente guardado con éxito");
 
                 txtApellidos.Text = "";
                 txtNombres.Text = "";
-                txtTel.Text = "";
                 txtDomicilio.Text = "";
+                txtTel.Text = "";
                 txtMail.Text = "";
-                
+
             }
         }
         private void moveWindow(object sender, MouseButtonEventArgs e)

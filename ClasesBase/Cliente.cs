@@ -64,16 +64,35 @@ namespace ClasesBase
 
                 switch (columnName)
                 { 
+                    case "Cli_Id":
+                        msg_error = validar_Id();
+                        break;
                     case "Cli_Apellido":
                         msg_error = validar_Apellido();
                         break;
                     case "Cli_Nombre":
                         msg_error = validar_Nombre();
                         break;
+                    case "Cli_Telefono":
+                        msg_error = validar_Telefono();
+                        break;
                 }
 
                 return msg_error;
             }
+        }
+
+        private string validar_Id()
+        {
+            if (Cli_Id==null)
+            {
+                return "El valor del campo Id es obligatorio";
+            }
+            else if(Cli_Id<1)
+            {
+                return "El valor del ID debe ser mayor o igual a 1";
+            }
+            return null;
         }
 
         private string validar_Apellido() 
@@ -89,6 +108,15 @@ namespace ClasesBase
             if (String.IsNullOrEmpty(Cli_Nombre))
             {
                 return "El valor del campo Nombre es obligatorio";
+            }
+            return null;
+        }
+
+        private string validar_Telefono()
+        {
+            if (String.IsNullOrEmpty(Cli_Telefono))
+            {
+                return "El valor del campo Telefono es obligatorio";
             }
             return null;
         }

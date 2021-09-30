@@ -6,35 +6,9 @@
     <Window.Resources>
         <ObjectDataProvider
             x:Key="Data_Cliente"
-            ObjectType="{x:Type svc:TrabajarCliente}"
+            ObjectType="{x:Type svc:TrabajarClientes}"
             MethodName="TraerCliente">
         </ObjectDataProvider>
-        <ControlTemplate x:Key="TextBoxErrorTemplate">
-            <DockPanel>
-                <Ellipse DockPanel.Dock="Right" Margin="2,0" Width="10" Height="10">
-                    <Ellipse.Fill>
-                        <LinearGradientBrush>
-                            <GradientStop Color="#11FF1111" Offset="0" />
-                            <GradientStop Color="#FFFF0000" Offset="1" />
-                        </LinearGradientBrush>
-                    </Ellipse.Fill>
-                </Ellipse>
-                <AdornedElementPlaceholder />
-            </DockPanel>
-        </ControlTemplate>
-
-        <Style x:Key="EstiloError" TargetType="TextBox" BasedOn="{StaticResource ResourceKey=StyleTextBoxForm}">
-            <Setter Property="Validation.ErrorTemplate" Value="{StaticResource TextBoxErrorTemplate}" />
-            <Style.Triggers>
-                <Trigger Property="Validation.HasError" Value="True">
-                    <Setter Property="ToolTip">
-                        <Setter.Value>
-                            <Binding Path="(Validation.Errors)[0].ErrorContent" RelativeSource="{x:Static RelativeSource.Self}" />
-                        </Setter.Value>
-                    </Setter>
-                </Trigger>
-            </Style.Triggers>
-        </Style>
     </Window.Resources>
     <Grid>
         <Border BorderBrush="Black" BorderThickness="1" CornerRadius="10">
@@ -84,14 +58,22 @@
                 </TextBox>
 
                 <Label Content="Nombre/s" Name="label2" Grid.Row="2" Style="{StaticResource StyleLabelForm}" Grid.Column="0" />
-                <TextBox Name="txtNombres" Grid.Row="2" Grid.Column="1" Style="{StaticResource StyleTextBoxForm}"/>
-
+                <TextBox Name="txtNombres" Grid.Row="2" Grid.Column="1" Style="{StaticResource EstiloError}" DataContext="{StaticResource Data_Cliente}">
+                    <TextBox.Text>
+                        <Binding Path="Cli_Nombre" UpdateSourceTrigger="PropertyChanged"
+                        ValidatesOnExceptions="true" ValidatesOnDataErrors="true"></Binding>
+                    </TextBox.Text>
+                </TextBox>
                 <Label Content="Domicilio" Name="label3" Grid.Row="3" Style="{StaticResource StyleLabelForm}"  Grid.Column="0" />
                 <TextBox Name="txtDomicilio" Grid.Row="3" Grid.Column="1" Style="{StaticResource StyleTextBoxForm}" />
 
                 <Label Content="Telefono" Name="label4" Grid.Row="4" Style="{StaticResource StyleLabelForm}" Grid.Column="0" />
-                <TextBox Name="txtTel" Grid.Row="4"  Grid.Column="1" Style="{StaticResource StyleTextBoxForm}" />
-
+                <TextBox Name="txtTel" Grid.Row="4"  Grid.Column="1" Style="{StaticResource EstiloError}" DataContext="{StaticResource Data_Cliente}">
+                    <TextBox.Text>
+                        <Binding Path="Cli_Telefono" UpdateSourceTrigger="PropertyChanged"
+                        ValidatesOnExceptions="true" ValidatesOnDataErrors="true"></Binding>
+                    </TextBox.Text>
+                </TextBox>
                 <Label Content="E-mail" Name="label5" Grid.Row="5" Style="{StaticResource StyleLabelForm}"  Grid.Column="0" />
                 <TextBox Name="txtMail" Grid.Row="5" Grid.Column="1" Style="{StaticResource StyleTextBoxForm}" />
                 

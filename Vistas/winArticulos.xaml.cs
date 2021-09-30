@@ -19,8 +19,6 @@ namespace Vistas
     /// </summary>
     public partial class winArticulos : Window
     {
-        Articulo oArticulo = new Articulo();
-
 
         public winArticulos()
         {
@@ -30,15 +28,16 @@ namespace Vistas
 
         private void btnGuardar_Click(object sender, RoutedEventArgs e)
         {
-            oArticulo.Fam_Id = Convert.ToInt32(cboFlia.SelectedIndex.ToString());
-            oArticulo.Art_Precio = Convert.ToDecimal(txtPrecio.Text);
-            oArticulo.Um_Id = Convert.ToInt32(cboMedida.SelectedIndex.ToString());
- 
-            oArticulo.Art_Descrip = txtDescripcion.Text;
 
             MessageBoxResult result = MessageBox.Show("¿Desea guardar estos datos?", "Guardar Artículo", MessageBoxButton.YesNo, MessageBoxImage.Question);
             if (result == MessageBoxResult.Yes)
             {
+                Articulo oArticulo = new Articulo();
+                oArticulo.Fam_Id = Convert.ToInt32(cboFlia.SelectedIndex.ToString());
+                oArticulo.Art_Precio = Convert.ToDecimal(txtPrecio.Text);
+                oArticulo.Um_Id = Convert.ToInt32(cboMedida.SelectedIndex.ToString());
+                oArticulo.Art_Descrip = txtDescripcion.Text;
+
                 if (chkStock.IsChecked == true) oArticulo.Art_Manejo_Stock = true;
                 else oArticulo.Art_Manejo_Stock = false;
 
