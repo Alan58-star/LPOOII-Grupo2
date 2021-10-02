@@ -9,10 +9,19 @@ namespace ClasesBase
 {
     public class TrabajarArticulos
     {
+        public Articulo TraerArticulo()
+        {
+            Articulo oArticulo = new Articulo();
+            //oArticulo.Art_Id = ;
+            oArticulo.Art_Precio = 0;
+            oArticulo.Art_Descrip = "";
+            return oArticulo;
+        }
+
         //GUARDA ARTICULO EN BD
         public static void add_articulo(Articulo art)
         {
-            
+
             SqlConnection cnn = new SqlConnection(ClasesBase.Properties.Settings.Default.pasteleriaConnectionString);
             SqlCommand cmd = new SqlCommand();
             cmd.CommandText = "alta_articulo";
@@ -28,4 +37,5 @@ namespace ClasesBase
             cnn.Close();
         }
     }
+        
 }

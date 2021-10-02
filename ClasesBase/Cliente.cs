@@ -64,9 +64,9 @@ namespace ClasesBase
 
                 switch (columnName)
                 { 
-                    case "Cli_Id":
-                        msg_error = validar_Id();
-                        break;
+                    //case "Cli_Id":
+                    //    msg_error = validar_Id();
+                    //    break;
                     case "Cli_Apellido":
                         msg_error = validar_Apellido();
                         break;
@@ -82,18 +82,18 @@ namespace ClasesBase
             }
         }
 
-        private string validar_Id()
-        {
-            if (Cli_Id==null)
-            {
-                return "El valor del campo Id es obligatorio";
-            }
-            else if(Cli_Id<1)
-            {
-                return "El valor del ID debe ser mayor o igual a 1";
-            }
-            return null;
-        }
+        //private string validar_Id()
+        //{
+        //    if (Cli_Id==null)
+        //    {
+        //        return "El valor del campo Id es obligatorio";
+        //    }
+        //    else if(Cli_Id<1)
+        //    {
+        //        return "El valor del ID debe ser mayor o igual a 1";
+        //    }
+        //    return null;
+        //}
 
         private string validar_Apellido() 
         {

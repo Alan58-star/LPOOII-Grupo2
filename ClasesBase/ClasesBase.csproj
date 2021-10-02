@@ -61,8 +61,11 @@
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
     <Compile Include="Rol.cs" />
+    <Compile Include="TrabajarFamilias.cs" />
     <Compile Include="TrabajarArticulos.cs" />
+    <Compile Include="TrabajarCategorias.cs" />
     <Compile Include="TrabajarClientes.cs" />
+    <Compile Include="TrabajarUM.cs" />
     <Compile Include="Unidad_Medida.cs" />
     <Compile Include="Usuario.cs" />
   </ItemGroup>

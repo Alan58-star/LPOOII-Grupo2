@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.ComponentModel;
 
 namespace ClasesBase
 {
-    public class Familia
+    public class Familia:IDataErrorInfo
     {
         private int fam_Id;
 
@@ -20,6 +21,41 @@ namespace ClasesBase
         {
             get { return fam_Descrip; }
             set { fam_Descrip = value; }
+        }
+    
+        public string  Error
+        {
+	        get { throw new NotImplementedException(); }
+        }
+
+
+         public string this[string columnName]
+        {
+            get
+            {
+                string msg_error = null;
+
+                switch (columnName)
+                {
+                    //case "Cat_Id":
+                    //    msg_error = validar_Id();
+                    //    break;
+                    case "Fam_Descrip":
+                        msg_error = validar_Descrip();
+                        break;
+                }
+
+                return msg_error;
+            }
+        }
+
+        private string validar_Descrip()
+        {
+            if (String.IsNullOrEmpty(Fam_Descrip))
+            {
+                return "El valor del campo Descripción es obligatorio";
+            }
+            return null;
         }
     }
 }
