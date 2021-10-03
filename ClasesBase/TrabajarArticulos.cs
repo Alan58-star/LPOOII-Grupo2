@@ -36,6 +36,22 @@ namespace ClasesBase
             cmd.ExecuteNonQuery();
             cnn.Close();
         }
+
+        //TRAE TODOS LOS ARTICULOS
+        public DataTable traerArticulos() 
+        {
+            SqlConnection cnn = new SqlConnection(ClasesBase.Properties.Settings.Default.pasteleriaConnectionString);
+
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = "listar_articulos";
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Connection = cnn;
+
+            SqlDataAdapter ds = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            ds.Fill(dt);
+            return dt;
+        }
     }
         
 }
