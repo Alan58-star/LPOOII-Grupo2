@@ -163,7 +163,7 @@ namespace Vistas
             }
             catch (Exception ex)
             {
-
+                MessageBox.Show(ex.Message);
                 //throw;
             }
         }
@@ -176,7 +176,7 @@ namespace Vistas
             }
             catch (Exception ex)
             {
-
+                MessageBox.Show(ex.Message);
                 //throw;
             }
         }

@@ -199,10 +199,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Resource Include="Fonts\FreeSans.otf" />
-    <Resource Include="Fonts\BebasNeue-Regular.ttf" />
-    <Resource Include="Fonts\AlteHaasGroteskBold.ttf" />
-    <Resource Include="Fonts\FreeSansBold.otf" />
+  
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
