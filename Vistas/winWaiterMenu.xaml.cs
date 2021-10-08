@@ -134,7 +134,6 @@ namespace Vistas
         {
             winConsultaMesas winConsultaMesas = new winConsultaMesas();
             winConsultaMesas.Show();
-
         }
 
         private void moveWindow(object sender, MouseButtonEventArgs e)

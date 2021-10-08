@@ -27,4 +27,17 @@
         </Style.Triggers>
         
     </Style>
+    
+    <Style x:Key="StyleListBox">
+        <Style.Setters>
+            <Setter Property="Control.HorizontalAlignment" Value="Center" />
+            <Setter Property="Control.HorizontalContentAlignment" Value="Center" />
+            <Setter Property="Control.VerticalContentAlignment" Value="Center" />
+            <Setter Property="Control.Margin" Value="10" />
+            <Setter Property="Control.FontFamily" Value="/Fonts/#FreeSans" />
+            <Setter Property="Control.Foreground" Value="White" />
+            <Setter Property="Control.Background" Value="#202020" />
+            <Setter Property="Control.BorderBrush" Value="Black"/>
+        </Style.Setters>
+    </Style>
 </ResourceDictionary>

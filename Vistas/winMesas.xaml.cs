@@ -10,6 +10,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Globalization;
 
 namespace Vistas
 {
@@ -28,6 +29,33 @@ namespace Vistas
         {
             InitializeComponent();
             numMesas = numeroMesas;
+        }
+
+
+        [ValueConversion (typeof(string), typeof(Brush))]
+        public class ConversorDeEstados : IValueConverter
+        {
+            public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+            {
+                if (value is string)
+                {
+                    switch (value.ToString()){
+                        case "Libre": return Brushes.Green; break;
+                        case "Reservada": return Brushes.Goldenrod; break;
+                        case "Ocupada": return Brushes.Red; break;
+                        case "Pidiendo": return Brushes.Fuchsia; break;
+                        case "En espera": return Brushes.Honeydew; break;
+                        case "Servidos": return Brushes.Salmon; break;
+                        case "Esperando Cuenta": return Brushes.RoyalBlue; break;
+                        case "Pagando": return Brushes.DarkOliveGreen; break;
+                    }                        
+                }
+                return value;
+            }
+            public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+            {
+                throw new NotImplementedException();
+            }
         }
 
        /* private void Grid_Loaded(object sender, RoutedEventArgs e)

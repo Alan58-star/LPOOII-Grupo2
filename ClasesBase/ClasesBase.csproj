@@ -44,6 +44,7 @@
     <Compile Include="Articulo.cs" />
     <Compile Include="Categoria.cs" />
     <Compile Include="Cliente.cs" />
+    <Compile Include="ConversorDeEstados.cs" />
     <Compile Include="Familia.cs" />
     <Compile Include="Historial_Login.cs" />
     <Compile Include="Item_Pedido.cs" />
