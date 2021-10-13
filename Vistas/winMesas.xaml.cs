@@ -31,7 +31,7 @@ namespace Vistas
             numMesas = numeroMesas;
         }
 
-
+        /*
         [ValueConversion (typeof(string), typeof(Brush))]
         public class ConversorDeEstados : IValueConverter
         {
@@ -40,14 +40,14 @@ namespace Vistas
                 if (value is string)
                 {
                     switch (value.ToString()){
-                        case "Libre": return Brushes.Green; break;
-                        case "Reservada": return Brushes.Goldenrod; break;
-                        case "Ocupada": return Brushes.Red; break;
-                        case "Pidiendo": return Brushes.Fuchsia; break;
-                        case "En espera": return Brushes.Honeydew; break;
-                        case "Servidos": return Brushes.Salmon; break;
-                        case "Esperando Cuenta": return Brushes.RoyalBlue; break;
-                        case "Pagando": return Brushes.DarkOliveGreen; break;
+                        case "Libre": return Brushes.Green;
+                        case "Reservada": return Brushes.Goldenrod;
+                        case "Ocupada": return Brushes.Red;
+                        case "Pidiendo": return Brushes.Fuchsia;
+                        case "En espera": return Brushes.Honeydew;
+                        case "Servidos": return Brushes.Salmon;
+                        case "Esperando Cuenta": return Brushes.RoyalBlue;
+                        case "Pagando": return Brushes.DarkOliveGreen;
                     }                        
                 }
                 return value;
@@ -57,7 +57,7 @@ namespace Vistas
                 throw new NotImplementedException();
             }
         }
-
+        */
        /* private void Grid_Loaded(object sender, RoutedEventArgs e)
         {
 
