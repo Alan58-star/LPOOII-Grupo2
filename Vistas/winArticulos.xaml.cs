@@ -11,6 +11,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using ClasesBase;
+using System.ComponentModel;
+using System.Collections.ObjectModel;
 
 namespace Vistas
 {
@@ -33,9 +35,9 @@ namespace Vistas
             if (result == MessageBoxResult.Yes)
             {
                 Articulo oArticulo = new Articulo();
-                oArticulo.Fam_Id = Convert.ToInt32(cboFlia.SelectedIndex.ToString());
+                oArticulo.Fam_Id = Convert.ToInt32(cboFlia.SelectedValue.ToString());
                 oArticulo.Art_Precio = Convert.ToDecimal(txtPrecio.Text);
-                oArticulo.Um_Id = Convert.ToInt32(cboMedida.SelectedIndex.ToString());
+                oArticulo.Um_Id = Convert.ToInt32(cboMedida.SelectedValue.ToString());
                 oArticulo.Art_Descrip = txtDescripcion.Text;
 
                 if (chkStock.IsChecked == true) oArticulo.Art_Manejo_Stock = true;
@@ -89,7 +91,32 @@ namespace Vistas
                 //throw;
             }
         }
-       
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            Load_ComboFamilias();
+            Load_ComboUM();
+        }
+
+        private void Load_ComboFamilias()
+        {
+            
+            var data = (TrabajarArticulos.list_familias() as System.ComponentModel.IListSource).GetList();
+            cboFlia.DisplayMemberPath = "fam_descripcion";
+            cboFlia.SelectedValuePath = "fam_id";
+            cboFlia.ItemsSource = data;
+        }
+
+        private void Load_ComboUM()
+        {
+            var data2 = (TrabajarArticulos.list_UM() as System.ComponentModel.IListSource).GetList();
+            cboMedida.DisplayMemberPath = "UM_descripcion";
+            cboMedida.SelectedValuePath = "UM_id";
+            cboMedida.ItemsSource = data2;
+
+        }
+
+
 
     }
 }

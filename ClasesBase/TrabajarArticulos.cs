@@ -38,7 +38,7 @@ namespace ClasesBase
         }
 
         //TRAE TODOS LOS ARTICULOS
-        public DataTable traerArticulos() 
+        public static DataTable traerArticulos() 
         {
             SqlConnection cnn = new SqlConnection(ClasesBase.Properties.Settings.Default.pasteleriaConnectionString);
 
@@ -52,6 +52,42 @@ namespace ClasesBase
             ds.Fill(dt);
             return dt;
         }
+
+
+        //CARGA FAMILIA EN COMBO BOX
+        public static DataTable list_familias()
+        {
+            SqlConnection cnn = new SqlConnection(ClasesBase.Properties.Settings.Default.pasteleriaConnectionString);
+
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = "listar_familias";
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Connection = cnn;
+
+            SqlDataAdapter ds = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            ds.Fill(dt);
+            return dt;
+        }
+
+
+        //CARGA UM EN COMBO BOX
+        public static DataTable list_UM()
+        {
+            SqlConnection cnn = new SqlConnection(ClasesBase.Properties.Settings.Default.pasteleriaConnectionString);
+
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = "listar_UM";
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Connection = cnn;
+
+            SqlDataAdapter ds = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            ds.Fill(dt);
+            return dt;
+        }
+
+
     }
         
 }
