@@ -23,6 +23,14 @@ namespace ClasesBase
             set { cat_Descrip = value; }
         }
 
+        public Categoria() { }
+
+        public Categoria(int catID, string catDescrip)
+        {
+            cat_Id = catID;
+            cat_Descrip = catDescrip;
+        }
+
         public string Error
         {
             get { throw new NotImplementedException(); }

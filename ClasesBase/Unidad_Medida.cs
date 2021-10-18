@@ -30,6 +30,15 @@ namespace ClasesBase
             set { um_Abrev = value; }
         }
 
+        public Unidad_Medida() { }
+
+        public Unidad_Medida(int umID, string umDescrip, string umAbrev)
+        {
+            um_Id = umID;
+            um_Descrip = um_Descrip;
+            um_Abrev = umAbrev;
+        }
+
         public string Error
         {
             get { throw new NotImplementedException(); }
