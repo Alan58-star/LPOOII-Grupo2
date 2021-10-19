@@ -36,6 +36,44 @@ namespace Vistas
             Vista = (CollectionView)CollectionViewSource.GetDefaultView(contentGrid.DataContext);
         }
 
+        private void moveWindow(object sender, MouseButtonEventArgs e)
+        {
+            try
+            {
+                DragMove();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void minimizeWindow(object sender, MouseButtonEventArgs e)
+        {
+            try
+            {
+                this.WindowState = WindowState.Maximized;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                //throw;
+            }
+        }
+
+        private void closeWindow(object sender, MouseButtonEventArgs e)
+        {
+            try
+            {
+                Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                //throw;
+            }
+        }
+
         private void btn_first_Click(object sender, RoutedEventArgs e)
         {
             Vista.MoveCurrentToFirst();

@@ -133,15 +133,18 @@ namespace ClasesBase
                 cat.Cat_Id=Convert.ToInt32(dt.Rows[i]["cat_id"]);
                 cat.Cat_Descrip = dt.Rows[i]["cat_descripcion"].ToString();
                 art.Categoria = cat;
+
                 Unidad_Medida Um = new Unidad_Medida();
                 Um.Um_Id=Convert.ToInt32(dt.Rows[i]["UM_id"]);
                 Um.Um_Descrip=dt.Rows[i]["UM_descripcion"].ToString();
                 Um.Um_Abrev = dt.Rows[i]["UM_abreviatura"].ToString();
                 art.Unidad_Medida = Um;
+
                 Familia fam = new Familia();
                 fam.Fam_Id = Convert.ToInt32(dt.Rows[i]["fam_id"]);
                 fam.Fam_Descrip = dt.Rows[i]["fam_descripcion"].ToString();
                 art.Familia = fam;
+
                 listaArticulos.Add(art);
             }
             

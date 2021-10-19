@@ -84,6 +84,9 @@
     <Compile Include="winArticulos.xaml.cs">
       <DependentUpon>winArticulos.xaml</DependentUpon>
     </Compile>
+    <Compile Include="winBusquedaArt.xaml.cs">
+      <DependentUpon>winBusquedaArt.xaml</DependentUpon>
+    </Compile>
     <Compile Include="winCategorias.xaml.cs">
       <DependentUpon>winCategorias.xaml</DependentUpon>
     </Compile>
@@ -169,6 +172,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="winArticulos.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="winBusquedaArt.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
