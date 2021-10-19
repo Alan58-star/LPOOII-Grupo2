@@ -24,7 +24,7 @@
             </Grid.ColumnDefinitions>
             
             <StackPanel Grid.Column="0" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="center">
-                <Button Content="Nuevo" Margin="7,0" Height="30" Width="70"></Button>
+                <Button Content="Nuevo" Margin="7,0" Height="30" Width="70" Click="btn_Agregar"></Button>
                 <Button Content="Nuevo" Margin="7,0" Height="30" Width="70"></Button>
                 <Button Content="Nuevo" Margin="7,0" Height="30" Width="70"></Button>
             </StackPanel>
@@ -59,9 +59,9 @@
 
             <TextBlock Text="{Binding Art_Id}" Grid.Column="1" Grid.Row="0" Width="auto" Height="30" ></TextBlock>
             <TextBlock Text="{Binding Art_Descrip}" Grid.Column="1" Grid.Row="1" Width="auto" Height="30"></TextBlock>
-            <TextBlock Text="{Binding Fam_Id}" Grid.Column="1" Grid.Row="2" Width="auto" Height="30"></TextBlock>
+            <TextBlock Text="{Binding Familia.Fam_Descrip}" Grid.Column="1" Grid.Row="2" Width="auto" Height="30"></TextBlock>
             <TextBlock Text="{Binding Categoria.Cat_Descrip}" Grid.Column="1" Grid.Row="3" Width="auto" Height="30"></TextBlock>
-            <TextBlock Text="{Binding Um_Id}" Grid.Column="1" Grid.Row="4" Width="auto" Height="30"></TextBlock>
+            <TextBlock Text="{Binding Unidad_Medida.Um_Descrip}" Grid.Column="1" Grid.Row="4" Width="auto" Height="30"></TextBlock>
             <TextBlock Text="{Binding Art_Precio}" Grid.Column="1" Grid.Row="5" Height="30" Margin="0,7"></TextBlock>
         </Grid>
         

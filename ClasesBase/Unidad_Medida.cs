@@ -35,7 +35,7 @@ namespace ClasesBase
         public Unidad_Medida(int umID, string umDescrip, string umAbrev)
         {
             um_Id = umID;
-            um_Descrip = um_Descrip;
+            um_Descrip = umDescrip;
             um_Abrev = umAbrev;
         }
 

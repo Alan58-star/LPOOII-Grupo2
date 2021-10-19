@@ -37,7 +37,7 @@ namespace ClasesBase
             get { return fam_Id; }
             set { 
                 fam_Id = value;
-                Notificador("Fam_Id");
+                
             }
         }
 
@@ -208,6 +208,14 @@ namespace ClasesBase
                 return "El valor del campo Precio  debe ser mayor 0";
             }
             return null;
+        }
+
+        private int cat_Id;
+
+        public int Cat_Id
+        {
+            get { return cat_Id; }
+            set { cat_Id = value; }
         }
     }
 }

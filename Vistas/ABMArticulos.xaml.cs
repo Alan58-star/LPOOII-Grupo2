@@ -56,6 +56,13 @@ namespace Vistas
             Vista.MoveCurrentToLast();
         }
 
+        private void btn_Agregar(object sender, RoutedEventArgs e)
+        {
+            winArticulos winArticulos = new winArticulos();
+            winArticulos.Show();
+            this.Close();
+        }
+
 
  
     }

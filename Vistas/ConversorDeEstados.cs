@@ -17,14 +17,14 @@ namespace Vistas
             if (value != null)
             {
                 switch (estado.ToString()){
-                    case "Libre": return new SolidColorBrush(Colors.Green); break;
-                    case "Reservada": return new SolidColorBrush(Colors.Orange); break;
-                    case "Ocupada": return new SolidColorBrush(Colors.Red); break;
-                    case "Pidiendo": return new SolidColorBrush(Colors.Fuchsia); break;
-                    case "En espera": return new SolidColorBrush(Colors.GreenYellow); break;
-                    case "Servidos": return new SolidColorBrush(Colors.Salmon); break;
-                    case "Esperando Cuenta": return new SolidColorBrush(Colors.RoyalBlue); break;
-                    case "Pagando": return new SolidColorBrush(Colors.Olive); break;
+                    case "Libre": return new SolidColorBrush(Colors.Green); 
+                    case "Reservada": return new SolidColorBrush(Colors.Orange); 
+                    case "Ocupada": return new SolidColorBrush(Colors.Red); 
+                    case "Pidiendo": return new SolidColorBrush(Colors.Fuchsia); 
+                    case "En espera": return new SolidColorBrush(Colors.GreenYellow); 
+                    case "Servidos": return new SolidColorBrush(Colors.Salmon); 
+                    case "Esperando Cuenta": return new SolidColorBrush(Colors.RoyalBlue); 
+                    case "Pagando": return new SolidColorBrush(Colors.Olive); 
                 }
             }
             return Binding.DoNothing;

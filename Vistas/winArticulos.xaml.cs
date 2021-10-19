@@ -38,6 +38,7 @@ namespace Vistas
                 oArticulo.Fam_Id = Convert.ToInt32(cboFlia.SelectedValue.ToString());
                 oArticulo.Art_Precio = Convert.ToDecimal(txtPrecio.Text);
                 oArticulo.Um_Id = Convert.ToInt32(cboMedida.SelectedValue.ToString());
+                oArticulo.Cat_Id = Convert.ToInt32(cboCategoria.SelectedValue.ToString());
                 oArticulo.Art_Descrip = txtDescripcion.Text;
 
                 if (chkStock.IsChecked == true) oArticulo.Art_Manejo_Stock = true;
@@ -96,6 +97,7 @@ namespace Vistas
         {
             Load_ComboFamilias();
             Load_ComboUM();
+            Load_ComboCategorias();
         }
 
         private void Load_ComboFamilias()
@@ -106,7 +108,14 @@ namespace Vistas
             cboFlia.SelectedValuePath = "fam_id";
             cboFlia.ItemsSource = data;
         }
+        private void Load_ComboCategorias()
+        {
 
+            var data = (TrabajarArticulos.list_categorias() as System.ComponentModel.IListSource).GetList();
+            cboCategoria.DisplayMemberPath = "cat_descripcion";
+            cboCategoria.SelectedValuePath = "cat_id";
+            cboCategoria.ItemsSource = data;
+        }
         private void Load_ComboUM()
         {
             var data2 = (TrabajarArticulos.list_UM() as System.ComponentModel.IListSource).GetList();
@@ -115,6 +124,8 @@ namespace Vistas
             cboMedida.ItemsSource = data2;
 
         }
+
+       
 
 
 

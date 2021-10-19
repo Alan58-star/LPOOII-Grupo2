@@ -33,6 +33,7 @@ namespace ClasesBase
             cmd.Parameters.AddWithValue("@stock", art.Art_Manejo_Stock);
             cmd.Parameters.AddWithValue("@fam", art.Fam_Id);
             cmd.Parameters.AddWithValue("@UM", art.Um_Id);
+            cmd.Parameters.AddWithValue("@cat", art.Cat_Id);
             cnn.Open();
             cmd.ExecuteNonQuery();
             cnn.Close();
@@ -62,6 +63,22 @@ namespace ClasesBase
 
             SqlCommand cmd = new SqlCommand();
             cmd.CommandText = "listar_familias";
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Connection = cnn;
+
+            SqlDataAdapter ds = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            ds.Fill(dt);
+            return dt;
+        }
+
+        //CARGA CATEGORIA EN COMBO BOX
+        public static DataTable list_categorias()
+        {
+            SqlConnection cnn = new SqlConnection(ClasesBase.Properties.Settings.Default.pasteleriaConnectionString);
+
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = "listar_categorias";
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Connection = cnn;
 
@@ -111,9 +128,20 @@ namespace ClasesBase
                 art.Art_Descrip = dt.Rows[i]["art_descripcion"].ToString();
                 art.Art_Precio = Convert.ToDecimal(dt.Rows[i]["art_precio"]);
                 art.Art_Manejo_Stock = Convert.ToBoolean(dt.Rows[i]["art_stock"]);
-                art.Fam_Id = Convert.ToInt32(dt.Rows[i]["fam_id"]);
-                art.Um_Id = Convert.ToInt32(dt.Rows[i]["UM_id"]);
-
+                
+                Categoria cat = new Categoria();
+                cat.Cat_Id=Convert.ToInt32(dt.Rows[i]["cat_id"]);
+                cat.Cat_Descrip = dt.Rows[i]["cat_descripcion"].ToString();
+                art.Categoria = cat;
+                Unidad_Medida Um = new Unidad_Medida();
+                Um.Um_Id=Convert.ToInt32(dt.Rows[i]["UM_id"]);
+                Um.Um_Descrip=dt.Rows[i]["UM_descripcion"].ToString();
+                Um.Um_Abrev = dt.Rows[i]["UM_abreviatura"].ToString();
+                art.Unidad_Medida = Um;
+                Familia fam = new Familia();
+                fam.Fam_Id = Convert.ToInt32(dt.Rows[i]["fam_id"]);
+                fam.Fam_Descrip = dt.Rows[i]["fam_descripcion"].ToString();
+                art.Familia = fam;
                 listaArticulos.Add(art);
             }
             

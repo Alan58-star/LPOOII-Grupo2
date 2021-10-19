@@ -58,7 +58,10 @@
                                 <RowDefinition Height="12*" />
                                 <RowDefinition Height="12*" />
                                 <RowDefinition Height="12*" />
+                                <RowDefinition Height="12*" />
+                                <RowDefinition Height="12*" />
                                 <RowDefinition Height="24*" />
+                                
                             </Grid.RowDefinitions>
 
                             <Label Name="lblNewArtTitle" Width="auto" Content="Nuevo Artículo" VerticalAlignment="Top" Margin="0,20,0,0" Style="{StaticResource FormTitle}" Grid.ColumnSpan="2" Height="50" />
@@ -66,10 +69,12 @@
 
                             <Label HorizontalAlignment="Right" Grid.Row="1" Content="Familia:" Name="label2" Style="{StaticResource StyleLabelForm}" Margin="0,3,11,6" />
                             <Label HorizontalAlignment="Right" Grid.Row="2" Content="Unidad de Medida:" Name="label3" Style="{StaticResource StyleLabelForm}" />
-                            <Label HorizontalAlignment="Right" Content="Precio:" Name="label4" Grid.Row="3" Style="{StaticResource StyleLabelForm}" />
-                            <Label HorizontalAlignment="Right" Content="Stock:" Name="label5" Grid.Row="4" Style="{StaticResource StyleLabelForm}"  />
-                            <CheckBox Margin="6" HorizontalAlignment="Left" Name="chkStock" VerticalAlignment="Center" Grid.Row="4" Grid.Column="1" />
-                            <TextBox Width="120" Name="txtPrecio" VerticalAlignment="Center"  Grid.Column="1" Margin="5,0,0,0" Grid.Row="3" DataContext="{StaticResource Data_Articulo}" Style="{StaticResource EstiloError}">
+                        <Label HorizontalAlignment="Right" Grid.Row="3" Content="Categoria:" Name="lblCategoria" Style="{StaticResource StyleLabelForm}" />
+
+                        <Label HorizontalAlignment="Right" Content="Precio:" Name="label4" Grid.Row="4" Style="{StaticResource StyleLabelForm}" />
+                            <Label HorizontalAlignment="Right" Content="Stock:" Name="label5" Grid.Row="5" Style="{StaticResource StyleLabelForm}"  />
+                            <CheckBox Margin="6" HorizontalAlignment="Left" Name="chkStock" VerticalAlignment="Center" Grid.Row="5" Grid.Column="1" />
+                            <TextBox Width="120" Name="txtPrecio" VerticalAlignment="Center"  Grid.Column="1" Margin="5,0,0,0" Grid.Row="4" DataContext="{StaticResource Data_Articulo}" Style="{StaticResource EstiloError}">
                                 <TextBox.Text>
                                     <Binding Path="Art_Precio" UpdateSourceTrigger="PropertyChanged"
                                  ValidatesOnExceptions="true" ValidatesOnDataErrors="true"></Binding>
@@ -79,10 +84,12 @@
                             <ComboBox HorizontalAlignment="Left" Name="cboFlia" Grid.Column="1" Grid.Row="1" Margin="5,0" Height="23" Width="120"/>
                                 
                             <ComboBox Height="23" HorizontalAlignment="Left" Margin="5,0,0,0" Name="cboMedida" VerticalAlignment="Center" Grid.Row="2" Grid.Column="1" BorderBrush="#FFE53535" Width="120" />
-                                
 
-                            <Label Grid.Row="5" Grid.ColumnSpan="2" VerticalAlignment="Top" Content="Descripción del Artículo:" Name="label6" Style="{StaticResource StyleLabelForm}" HorizontalAlignment="Center" />
-                            <TextBox Grid.Row="5" Grid.ColumnSpan="2" DataContext="{StaticResource Data_Articulo}" Style="{StaticResource EstiloError}" Name="txtDescripcion" 
+                        <ComboBox Height="23" HorizontalAlignment="Left" Margin="5,0,0,0" Name="cboCategoria" VerticalAlignment="Center" Grid.Row="3" Grid.Column="1" BorderBrush="#FFE53535" Width="120" />
+
+
+                        <Label Grid.Row="6" Grid.ColumnSpan="2" VerticalAlignment="Top" Content="Descripción del Artículo:" Name="label6" Style="{StaticResource StyleLabelForm}" HorizontalAlignment="Center" />
+                            <TextBox Grid.Row="7" Grid.ColumnSpan="2" DataContext="{StaticResource Data_Articulo}" Style="{StaticResource EstiloError}" Name="txtDescripcion" 
                                  HorizontalAlignment="Center" VerticalAlignment="Bottom" VerticalContentAlignment="Top" Width="191" MinHeight="60" FontSize="13">
                                 <TextBox.Text>
                                     <Binding Path="Art_Descrip" UpdateSourceTrigger="PropertyChanged"
@@ -114,8 +121,8 @@
                 </Grid>
             </Grid>
             
-            <ListView Name="lvwArticulos" Grid.Column="1" Height="200" Width="500" Background="Black"
-                      ItemsSource="{Binding Source={StaticResource list_articulos}}" Foreground="White" FontFamily="Century Gothic" HorizontalContentAlignment="Center" BorderBrush="Black">
+            <ListView Name="lvwArticulos" Grid.Column="1" Height="200" Background="Black"
+                      ItemsSource="{Binding Source={StaticResource list_articulos}}" Foreground="White" FontFamily="Century Gothic" HorizontalContentAlignment="Center" BorderBrush="Black" Margin="0,155,25,156" >
                 <ListView.View>
                     <GridView>
                         <GridViewColumn Width="30" Header="ID" DisplayMemberBinding="{Binding Path=art_id}"/>
@@ -123,7 +130,8 @@
                         <GridViewColumn Width="40" Header="UM" DisplayMemberBinding="{Binding Path=UM_abreviatura}"/>
                         <GridViewColumn Width="60" Header="Precio" DisplayMemberBinding="{Binding Path=art_precio}"/>
                         <GridViewColumn Width="60" Header="Stock" DisplayMemberBinding="{Binding Path=art_stock}"/>
-                        <GridViewColumn Width="110" Header="Familia" DisplayMemberBinding="{Binding Path=fam_descripcion}"/>
+                        <GridViewColumn Width="90" Header="Familia" DisplayMemberBinding="{Binding Path=fam_descripcion}"/>
+                        <GridViewColumn Width="90" Header="Categoria" DisplayMemberBinding="{Binding Path=cat_descripcion}"/>
                     </GridView>
                 </ListView.View>
             </ListView>
