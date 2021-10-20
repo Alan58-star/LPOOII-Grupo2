@@ -50,7 +50,7 @@ namespace Vistas
 
         private void btnArticulos_Click(object sender, RoutedEventArgs e)
         {
-            winArticulos winArticulos = new winArticulos();
+            winArticulos winArticulos = new winArticulos(0);
             winArticulos.Show();
             this.Close();
         }

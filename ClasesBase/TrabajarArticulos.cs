@@ -39,6 +39,27 @@ namespace ClasesBase
             cnn.Close();
         }
 
+        //GUARDA ARTICULO EN BD
+        public static void edit_articulo(Articulo art)
+        {
+
+            SqlConnection cnn = new SqlConnection(ClasesBase.Properties.Settings.Default.pasteleriaConnectionString);
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = "modificar_articulo";
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Connection = cnn;
+            cmd.Parameters.AddWithValue("@idarticulo", art.Art_Id);
+            cmd.Parameters.AddWithValue("@descrip", art.Art_Descrip);
+            cmd.Parameters.AddWithValue("@precio", art.Art_Precio);
+            cmd.Parameters.AddWithValue("@stock", art.Art_Manejo_Stock);
+            cmd.Parameters.AddWithValue("@fam", art.Fam_Id);
+            cmd.Parameters.AddWithValue("@UM", art.Um_Id);
+            cmd.Parameters.AddWithValue("@cat", art.Cat_Id);
+            cnn.Open();
+            cmd.ExecuteNonQuery();
+            cnn.Close();
+        }
+
         //TRAE TODOS LOS ARTICULOS
         public static DataTable traerArticulos() 
         {
@@ -70,6 +91,48 @@ namespace ClasesBase
             DataTable dt = new DataTable();
             ds.Fill(dt);
             return dt;
+        }
+
+        //TRAER UN SOLO ARTICULO POR ID
+        public static Articulo obtener_articulo(int idarticulo)
+        {
+            SqlConnection cnn = new SqlConnection(ClasesBase.Properties.Settings.Default.pasteleriaConnectionString);
+
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = "obtener_articulo";
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Connection = cnn;
+            cmd.Parameters.AddWithValue("@idarticulo", idarticulo);
+            SqlDataAdapter ds = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            ds.Fill(dt);
+
+            Articulo art1 = new Articulo();
+            Unidad_Medida um = new Unidad_Medida();
+            Categoria cat = new Categoria();
+            Familia fam = new Familia();
+
+            if (dt.Rows.Count > 0) {
+                DataRow row = dt.Rows[0];
+                art1.Art_Id = (int)row[0];
+                art1.Art_Descrip = (string)row[1];
+                um.Um_Abrev = (string)row[2];
+                art1.Art_Precio = (decimal)row[3];
+                art1.Art_Manejo_Stock = (bool)row[4];
+                fam.Fam_Descrip = (string)row[5];
+                um.Um_Id = (int)row[6];
+                cat.Cat_Id = (int)row[7];
+                cat.Cat_Descrip = (string)row[8];
+                fam.Fam_Id =(int)row[9];
+                um.Um_Descrip = (string)row[10];
+
+                art1.Unidad_Medida = um;
+                art1.Familia = fam;
+                art1.Categoria = cat;
+            }
+        
+            
+            return art1;
         }
 
         //CARGA CATEGORIA EN COMBO BOX

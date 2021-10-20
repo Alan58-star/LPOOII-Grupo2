@@ -22,15 +22,38 @@ namespace Vistas
     public partial class winArticulos : Window
     {
 
-        public winArticulos()
+        Articulo art1 = new Articulo();
+        public winArticulos(int idarticulo)
         {
-           
             InitializeComponent();
+            int idart=idarticulo;
+            if (idart == 0)
+            {
+                btneditart.IsEnabled = false;
+                btneditart.Visibility = Visibility.Hidden;
+            }
+            else {
+                art1 = TrabajarArticulos.obtener_articulo(idarticulo);
+                lblNewArtTitle.Content = "Editar Articulos";
+                btnagregarart.IsEnabled = false;
+                btnagregarart.Visibility = Visibility.Hidden;
+                txtPrecio.Text = art1.Art_Precio.ToString();
+                chkStock.IsChecked=art1.Art_Manejo_Stock;
+                txtDescripcion.Text = art1.Art_Descrip;
+                cboFlia.SelectedIndex = art1.Familia.Fam_Id-1;
+  
+                cboMedida.SelectedIndex = art1.Unidad_Medida.Um_Id-1;
+          
+                cboCategoria.SelectedIndex = art1.Categoria.Cat_Id-1;
+         
+            }
         }
+
+        
 
         private void btnGuardar_Click(object sender, RoutedEventArgs e)
         {
-
+            
             MessageBoxResult result = MessageBox.Show("¿Desea guardar estos datos?", "Guardar Artículo", MessageBoxButton.YesNo, MessageBoxImage.Question);
             if (result == MessageBoxResult.Yes)
             {
@@ -84,7 +107,9 @@ namespace Vistas
         {
             try
             {
-                Close();
+                ABMArticulos winABM = new ABMArticulos();
+                winABM.Show();
+                this.Close();
             }
             catch (Exception ex)
             {
@@ -123,6 +148,30 @@ namespace Vistas
             cboMedida.SelectedValuePath = "UM_id";
             cboMedida.ItemsSource = data2;
 
+        }
+
+        private void btnEditar_Click(object sender, RoutedEventArgs e)
+        {
+
+            MessageBoxResult result = MessageBox.Show("¿Desea guardar estos datos?", "Guardar Artículo", MessageBoxButton.YesNo, MessageBoxImage.Question);
+            if (result == MessageBoxResult.Yes)
+            {
+                Articulo oArticulo1 = new Articulo();
+                oArticulo1.Art_Id = art1.Art_Id;
+                oArticulo1.Fam_Id = Convert.ToInt32(cboFlia.SelectedValue.ToString());
+                oArticulo1.Art_Precio = Convert.ToDecimal(txtPrecio.Text);
+                oArticulo1.Um_Id = Convert.ToInt32(cboMedida.SelectedValue.ToString());
+                oArticulo1.Cat_Id = Convert.ToInt32(cboCategoria.SelectedValue.ToString());
+                oArticulo1.Art_Descrip = txtDescripcion.Text;
+
+                if (chkStock.IsChecked == true) oArticulo1.Art_Manejo_Stock = true;
+                else oArticulo1.Art_Manejo_Stock = false;
+
+                TrabajarArticulos.edit_articulo(oArticulo1);
+
+                MessageBox.Show("Artículo editado con sexo");
+
+            }
         }
 
        

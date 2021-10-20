@@ -43,7 +43,7 @@
 
                 <StackPanel Grid.Column="0" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="center">
                     <Button x:Name="btnNuevoArt" Content="Nuevo" Margin="7,0" Height="30" Width="70" Click="btn_Agregar"></Button>
-                    <Button x:Name="btnModifArt" Content="Modificar" Margin="7,0" Height="30" Width="70"></Button>
+                    <Button x:Name="btnModifArt" Content="Modificar" Margin="7,0" Height="30" Width="70" Click="btnModifArt_Click"></Button>
                     <Button x:Name="btnDeleteArt" Content="Eliminar" Margin="7,0" Height="30" Width="70"></Button>
                 </StackPanel>
                 <StackPanel Grid.Column="1" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="center">
@@ -75,7 +75,7 @@
                 <Label Style="{StaticResource StyleLabelForm}" FontWeight="Bold" Grid.Column="0" Grid.Row="4" Content="Unidad de Medida" HorizontalAlignment="Center"></Label>
                 <Label Style="{StaticResource StyleLabelForm}" FontWeight="Bold" Grid.Column="0" Grid.Row="5" Content="Costo" HorizontalAlignment="Center"></Label>
 
-                <TextBlock Style="{StaticResource StyleLabelForm}" Text="{Binding Art_Id}" Grid.Column="1" Grid.Row="0" Width="auto" Height="auto" VerticalAlignment="Center" HorizontalAlignment="Center" ></TextBlock>
+                <TextBlock Name="txbCodigo" Style="{StaticResource StyleLabelForm}" Text="{Binding Art_Id}" Grid.Column="1" Grid.Row="0" Width="auto" Height="auto" VerticalAlignment="Center" HorizontalAlignment="Center" ></TextBlock>
                 <TextBlock Style="{StaticResource StyleLabelForm}" Text="{Binding Art_Descrip}" Grid.Column="1" Grid.Row="1" Width="auto" Height="auto" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
                 <TextBlock Style="{StaticResource StyleLabelForm}" Text="{Binding Familia.Fam_Descrip}" Grid.Column="1" Grid.Row="2" Width="auto" Height="auto" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
                 <TextBlock Style="{StaticResource StyleLabelForm}" Text="{Binding Categoria.Cat_Descrip}" Grid.Column="1" Grid.Row="3" Width="auto" Height="auto" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>

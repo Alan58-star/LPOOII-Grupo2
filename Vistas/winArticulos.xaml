@@ -110,7 +110,8 @@
                 
                 <!-- grid botones-->
                 <Grid Margin="5" Grid.Row="2">
-                    <Button Grid.Column="0" Click="btnGuardar_Click" Content="AÑADIR ARTÍCULO" Style="{StaticResource ButtonFormBlack}" Width="160" HorizontalAlignment="Center"></Button>
+                    <Button Name="btneditart" Grid.Column="0" Click="btnEditar_Click" Content="EDITAR ARTÍCULO" Style="{StaticResource ButtonFormBlack}" Width="160" HorizontalAlignment="Center"></Button>
+                    <Button Name="btnagregarart" Grid.Column="0" Click="btnGuardar_Click" Content="AÑADIR ARTÍCULO" Style="{StaticResource ButtonFormBlack}" Width="160" HorizontalAlignment="Center"></Button>
                 </Grid>
             </Grid>
             

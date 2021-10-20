@@ -82,11 +82,19 @@ namespace Vistas
         private void btn_prev_Click(object sender, RoutedEventArgs e)
         {
             Vista.MoveCurrentToPrevious();
+            if (Vista.IsCurrentBeforeFirst) {
+                Vista.MoveCurrentToLast();
+            }
+            
         }
 
         private void btn_next_Click(object sender, RoutedEventArgs e)
         {
             Vista.MoveCurrentToNext();
+            if (Vista.IsCurrentAfterLast)
+            {
+                Vista.MoveCurrentToFirst();
+            }
         }
 
         private void btn_last_Click(object sender, RoutedEventArgs e)
@@ -96,9 +104,18 @@ namespace Vistas
 
         private void btn_Agregar(object sender, RoutedEventArgs e)
         {
-            winArticulos winArticulos = new winArticulos();
+            winArticulos winArticulos = new winArticulos(0);
             winArticulos.Show();
             this.Close();
+        }
+
+        private void btnModifArt_Click(object sender, RoutedEventArgs e)
+        {
+            int idarticulo = Convert.ToInt32(txbCodigo.Text);
+            winArticulos winArticulosEdit = new winArticulos(idarticulo);
+            winArticulosEdit.Show();
+            this.Close();
+            
         }
 
 
