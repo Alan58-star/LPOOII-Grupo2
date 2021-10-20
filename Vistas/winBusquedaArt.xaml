@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:svc="clr-namespace:ClasesBase;assembly=ClasesBase"
         xmlns:componentModel="clr-namespace:System.ComponentModel;assembly=WindowsBase"
-        Title="winBusquedaArt" Height="500" Width="700" Style="{StaticResource MainWindowStyle}" WindowState="Maximized">
+        Title="winBusquedaArt" Height="500" Width="700" Style="{StaticResource MainWindowStyle}" WindowStartupLocation="CenterScreen">
     <Window.Resources>
         <ObjectDataProvider
             x:Key="LIST_ARTICULO"

@@ -68,7 +68,9 @@ namespace Vistas
         {
             try
             {
-                Close();
+                ABMArticulos winABM = new ABMArticulos();
+                winABM.Show();
+                this.Close();
             }
             catch (Exception ex)
             {

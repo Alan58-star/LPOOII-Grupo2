@@ -39,7 +39,7 @@ namespace ClasesBase
             cnn.Close();
         }
 
-        //GUARDA ARTICULO EN BD
+        //ATUALIZA ARTICULO EN BD
         public static void edit_articulo(Articulo art)
         {
 
@@ -58,6 +58,25 @@ namespace ClasesBase
             cnn.Open();
             cmd.ExecuteNonQuery();
             cnn.Close();
+        }
+
+        //ELIMINAR ARTICULO DE LA BD
+        public static DataTable delete_articulo(int artID)
+        {
+            SqlConnection cnn = new SqlConnection(ClasesBase.Properties.Settings.Default.pasteleriaConnectionString);
+
+            SqlDataAdapter dAdapter = new SqlDataAdapter(); //primero el dataadapter
+            dAdapter.SelectCommand = new SqlCommand();      // despues se agrega el command
+            dAdapter.SelectCommand.Connection = cnn;        // y despues se le establece la conexion
+
+            dAdapter.SelectCommand.CommandText = "eliminar_articulo";
+            dAdapter.SelectCommand.CommandType = CommandType.StoredProcedure;
+            dAdapter.SelectCommand.Parameters.AddWithValue("@aid", artID);
+
+            DataTable dTable = new DataTable();
+            dAdapter.Fill(dTable);
+            return dTable;
+
         }
 
         //TRAE TODOS LOS ARTICULOS
@@ -168,6 +187,7 @@ namespace ClasesBase
             return dt;
         }
 
+        //Creando la colección
         public ObservableCollection<Articulo> TraerArticulosColeccion()
         {
             DataTable dt = traerArticulos();
