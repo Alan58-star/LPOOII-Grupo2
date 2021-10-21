@@ -33,6 +33,7 @@ namespace Vistas
                 btneditart.Visibility = Visibility.Hidden;
             }
             else {
+                lblWinTitle.Content = "Editar Artículo";
                 art1 = TrabajarArticulos.obtener_articulo(idarticulo);
                 lblNewArtTitle.Content = "Editar Artículos";
                 btnagregarart.IsEnabled = false;
@@ -40,7 +41,6 @@ namespace Vistas
 
 
                 txtPrecio.Text = ((art1.Art_Precio)).ToString().Replace(",",".");
-                MessageBox.Show(art1.Art_Precio.ToString());
 
                 chkStock.IsChecked=art1.Art_Manejo_Stock;
                 txtDescripcion.Text = art1.Art_Descrip;
