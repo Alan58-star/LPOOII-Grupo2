@@ -78,6 +78,9 @@
       <DependentUpon>UCLogin.xaml</DependentUpon>
     </Compile>
     <Compile Include="ConversorDeEstados.cs" />
+    <Compile Include="winABMMesas.xaml.cs">
+      <DependentUpon>winABMMesas.xaml</DependentUpon>
+    </Compile>
     <Compile Include="winAdminMenu.xaml.cs">
       <DependentUpon>winAdminMenu.xaml</DependentUpon>
     </Compile>
@@ -105,8 +108,14 @@
     <Compile Include="winMesas.xaml.cs">
       <DependentUpon>winMesas.xaml</DependentUpon>
     </Compile>
+    <Compile Include="winPedidos.xaml.cs">
+      <DependentUpon>winPedidos.xaml</DependentUpon>
+    </Compile>
     <Compile Include="winUnidadesDeMedida.xaml.cs">
       <DependentUpon>winUnidadesDeMedida.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="winVistaPrevia.xaml.cs">
+      <DependentUpon>winVistaPrevia.xaml</DependentUpon>
     </Compile>
     <Compile Include="winWaiterMenu.xaml.cs">
       <DependentUpon>winWaiterMenu.xaml</DependentUpon>
@@ -167,6 +176,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="winABMMesas.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="winAdminMenu.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -203,7 +216,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="winPedidos.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="winUnidadesDeMedida.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="winVistaPrevia.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

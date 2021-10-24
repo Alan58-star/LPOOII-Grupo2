@@ -93,14 +93,8 @@ namespace Vistas
 
         private void minimizeWindow(object sender, MouseButtonEventArgs e)
         {
-            try
             {
-                this.WindowState = WindowState.Maximized;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-                //throw;
+                this.WindowState = WindowState.Minimized;
             }
         }
 
