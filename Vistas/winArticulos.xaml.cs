@@ -124,6 +124,7 @@ namespace Vistas
         {
             
             var data = (TrabajarArticulos.list_familias() as System.ComponentModel.IListSource).GetList();
+            
             cboFlia.DisplayMemberPath = "fam_descripcion";
             cboFlia.SelectedValuePath = "fam_id";
             cboFlia.ItemsSource = data;

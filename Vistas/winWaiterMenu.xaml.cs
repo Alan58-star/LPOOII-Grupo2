@@ -132,8 +132,8 @@ namespace Vistas
 
         private void rb3_Click(object sender, RoutedEventArgs e)
         {
-            winConsultaMesas winConsultaMesas = new winConsultaMesas();
-            winConsultaMesas.Show();
+            winMesas winMesa = new winMesas();
+            winMesa.Show();
         }
 
         private void moveWindow(object sender, MouseButtonEventArgs e)

@@ -11,6 +11,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Globalization;
+using System.Collections.ObjectModel;
+using ClasesBase;
 
 namespace Vistas
 {
@@ -19,59 +21,40 @@ namespace Vistas
     /// </summary>
     public partial class winMesas : Window
     {
-        int numMesas = 0;
+        int numMesas = 1, cols = 0,rows = 0,limite=0;
+        int columna = 5, fila = 5;
+        int contc = 0;
+        Button btnAdd = new Button();
+
+        ObservableCollection<Mesa> listaMesas;
         public winMesas()
         {
             InitializeComponent();
+            cargarColeccion();
+           
         }
 
+        
+
+       
+
+        private void cargarColeccion()
+        {
+            listaMesas = TrabajarMesas.traerMesasColeccion();
+            
+       }
+
+     
+
+      
         public winMesas(int numeroMesas)
         {
             InitializeComponent();
             numMesas = numeroMesas;
         }
-
-        /*
-        [ValueConversion (typeof(string), typeof(Brush))]
-        public class ConversorDeEstados : IValueConverter
-        {
-            public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
-            {
-                if (value is string)
-                {
-                    switch (value.ToString()){
-                        case "Libre": return Brushes.Green;
-                        case "Reservada": return Brushes.Goldenrod;
-                        case "Ocupada": return Brushes.Red;
-                        case "Pidiendo": return Brushes.Fuchsia;
-                        case "En espera": return Brushes.Honeydew;
-                        case "Servidos": return Brushes.Salmon;
-                        case "Esperando Cuenta": return Brushes.RoyalBlue;
-                        case "Pagando": return Brushes.DarkOliveGreen;
-                    }                        
-                }
-                return value;
-            }
-            public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
-            {
-                throw new NotImplementedException();
-            }
-        }
-        */
-       /* private void Grid_Loaded(object sender, RoutedEventArgs e)
-        {
-
-           
-            Button btn = new Button();
-            btn.Name = "Prueba";
-            btn.Content = "Prueba";
-            btn.Background = Brushes.Green;
-            btn.Click += preguntarMesa;
-            grdMesas.Children.Add(btn);
-
-            //btnMesa17.Background = Brushes.Tomato;
-            //btnMesa11.Background = Brushes.Tomato;
-        }*/
+        
+       
+       
 
         private void preguntarMesa(object sender, RoutedEventArgs e)
         {
@@ -130,7 +113,7 @@ namespace Vistas
 
         private void grdMesas_Loaded(object sender, RoutedEventArgs e)
         {
-            //se definen numero de filas y columnas del grid de acuerdo al numero de mesas ingresadas
+            /*//se definen numero de filas y columnas del grid de acuerdo al numero de mesas ingresadas
 
             int cols = 0, rows = 0;
 
@@ -196,9 +179,102 @@ namespace Vistas
                         
                     }
                 }
+                
+            }*/
+            
+            int cont = 0, contb = 0;
+            while (cont < columna)
+            {
+                grdMesas.ColumnDefinitions.Add(new ColumnDefinition());
+                cont++;
+            }
+            while (contb < fila)
+            {
+                grdMesas.RowDefinitions.Add(new RowDefinition());
+                contb++;
+            }
+            cargarGrilla();
+           
+        }
+        private  void cargarGrilla()
+        {
+
+            numMesas = listaMesas.Count;
+            
+            for (int i = 0; i < fila; i++)
+            {
+                for (int j = 0; j < columna; j++)
+                {
+                    if (contc < numMesas)
+                    {
+                        Button btn = new Button();
+                        btn.Content = "Mesa " + listaMesas[contc].Mesa_Id;
+                        if (listaMesas[contc].Mesa_Estado == "Libre")
+                        {
+                            btn.Style = (Style)Application.Current.Resources["BotondeMesaVerde"];
+                        }
+                        btn.Click += preguntarMesa;
+                        grdMesas.Children.Add(btn);
+                        Grid.SetRow(btn, i);
+                        Grid.SetColumn(btn, j);
+                        contc++;
+                        limite++;
+                        if (limite == 5)
+                        {
+                            rows++;
+                            limite = 0;
+                        }
+                        cols = limite;
+
+
+
+                    }
+                }
             }
 
-           
+            btnAdd.Content = "Agregar";
+            btnAdd.Style = (Style)Application.Current.Resources["BotondeMesaVerde"];
+            btnAdd.Click += crearMesa;
+            grdMesas.Children.Add(btnAdd);
+            Grid.SetRow(btnAdd, rows);
+            Grid.SetColumn(btnAdd, cols);
+            
+        }
+        private void crearMesa(object sender, RoutedEventArgs e)
+        {
+
+                Mesa mesa = new Mesa();
+                mesa.Mesa_Estado = "Libre";
+                mesa.Mesa_Posicion = cols;
+                TrabajarMesas.add_mesa(mesa);
+                Console.WriteLine(listaMesas[contc-1].Mesa_Id);
+                cargarColeccion();
+                Button btnMesa = new Button();
+
+               
+                btnMesa.Content = "Mesa " + listaMesas[contc].Mesa_Id;
+                if (listaMesas[contc].Mesa_Estado == "Libre")
+                {
+                    btnMesa.Style = (Style)Application.Current.Resources["BotondeMesaVerde"];
+                }
+                btnMesa.Click += preguntarMesa;
+                grdMesas.Children.Add(btnMesa);
+                Grid.SetRow(btnMesa, rows);
+                Grid.SetColumn(btnMesa, cols);
+                cols++;
+                Grid.SetRow(btnAdd, rows);
+                Grid.SetColumn(btnAdd, cols);
+                numMesas++;
+                limite++;
+                if (limite >= columna)
+                {
+                    rows++;
+                    cols = 0;
+                    limite = 0;
+                    Grid.SetRow(btnAdd, rows);
+                    Grid.SetColumn(btnAdd, cols);
+                }
+                contc++;
         }
 
     }

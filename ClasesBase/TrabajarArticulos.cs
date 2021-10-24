@@ -39,7 +39,7 @@ namespace ClasesBase
             cnn.Close();
         }
 
-        //ATUALIZA ARTICULO EN BD
+        //ACTUALIZA ARTICULO EN BD
         public static void edit_articulo(Articulo art)
         {
 

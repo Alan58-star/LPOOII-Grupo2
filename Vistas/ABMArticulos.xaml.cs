@@ -37,7 +37,7 @@ namespace Vistas
         {
             ObjectDataProvider odp = (ObjectDataProvider)this.Resources["LIST_ARTICULO"];
             listaArticulos = odp.Data as ObservableCollection<Articulo>;
-
+            
             Vista = (CollectionView)CollectionViewSource.GetDefaultView(contentGrid.DataContext);
         }
 
