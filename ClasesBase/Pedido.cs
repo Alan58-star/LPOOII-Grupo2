@@ -49,12 +49,12 @@ namespace ClasesBase
             get { return ped_Fecha_Entrega; }
             set { ped_Fecha_Entrega = value; }
         }
-        private int ped_Comesales;
+        private int ped_Comensales;
 
-        public int Ped_Comesales
+        public int Ped_Comensales
         {
-            get { return ped_Comesales; }
-            set { ped_Comesales = value; }
+            get { return ped_Comensales; }
+            set { ped_Comensales = value; }
         }
         private bool ped_Facturado;
 

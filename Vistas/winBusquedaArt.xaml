@@ -42,7 +42,8 @@
         <Grid Margin="40,60,40,40">
             <Grid.RowDefinitions>
                 <RowDefinition Height="40*"></RowDefinition>
-                <RowDefinition Height="70*"></RowDefinition>
+                <RowDefinition Height="50*"></RowDefinition>
+                <RowDefinition Height="10*"></RowDefinition>
             </Grid.RowDefinitions>
             
             <StackPanel Grid.Row="0">
@@ -51,7 +52,7 @@
                 <TextBox Margin="10" x:Name="txtSearch" Width="200" HorizontalAlignment="Center" Style="{StaticResource StyleTextBoxForm}" TextChanged="txtSearch_TextChanged"></TextBox>
             </StackPanel>
 
-            <ListView Grid.Row="1" Name="lvwArticulos" Width="598" VerticalAlignment="Top" HorizontalAlignment="Center" Grid.Column="1" Height="auto" Background="Black" Foreground="White"  ItemsSource="{Binding Source= {StaticResource VISTA_ARTICULO}}" HorizontalContentAlignment="Center" IsSynchronizedWithCurrentItem="True"  BorderBrush="Black" >
+            <ListView Grid.Row="1" Name="lvwArticulos" Width="598" VerticalAlignment="Top" HorizontalAlignment="Center" Grid.Column="1" Height="auto" Background="Black" Foreground="White"  ItemsSource="{Binding Source= {StaticResource VISTA_ARTICULO}}" HorizontalContentAlignment="Center" IsSynchronizedWithCurrentItem="True"  BorderBrush="Black" SelectionChanged="lvwArticulos_SelectionChanged">
                 <ListView.View>
                     <GridView>
                         <GridViewColumn Width="30" Header="ID" DisplayMemberBinding="{Binding Art_Id}"/>
@@ -64,7 +65,7 @@
                     </GridView>
                 </ListView.View>
             </ListView>
-
+            <Button Content="Vista previa" Grid.Row="2" Style="{StaticResource ButtonFormBlack}" Height="30" HorizontalAlignment="Center" Name="btnVistaImpresion" VerticalAlignment="Center" Width="100" Click="btnVistaImpresion_Click" />
         </Grid>
         
         

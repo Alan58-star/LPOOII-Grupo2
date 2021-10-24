@@ -61,8 +61,11 @@
     <Compile Include="TrabajarArticulos.cs" />
     <Compile Include="TrabajarCategorias.cs" />
     <Compile Include="TrabajarClientes.cs" />
+    <Compile Include="TrabajarItemPedido.cs" />
     <Compile Include="TrabajarMesas.cs" />
+    <Compile Include="TrabajarPedido.cs" />
     <Compile Include="TrabajarUM.cs" />
+    <Compile Include="TrabajarUsuarios.cs" />
     <Compile Include="Unidad_Medida.cs" />
     <Compile Include="Usuario.cs" />
   </ItemGroup>

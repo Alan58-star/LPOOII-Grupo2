@@ -79,5 +79,19 @@ namespace Vistas
             }
         }
 
+        private void btnVistaImpresion_Click(object sender, RoutedEventArgs e)
+        {
+            winVistaPrevia winVP = new winVistaPrevia();
+            winVP.Show();
+        }
+
+
+        //codigo para sacar el id de la fila seleccionada
+        private void lvwArticulos_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Articulo art = (Articulo)lvwArticulos.SelectedItems[0];
+            MessageBox.Show("ID: " + art.Art_Id);
+        }
+
     }
 }

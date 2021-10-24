@@ -11,6 +11,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using ClasesBase;
+using System.Data;
 
 namespace Vistas
 {
@@ -136,47 +137,52 @@ namespace Vistas
             String username = userlogin.txtUserLogin.Text;
             String password = userlogin.pwdPassLogin.Password;
 
-            Usuario oUser1 = new Usuario();
-            oUser1.Usr_NombreUsuario = "Admin";
-            oUser1.Usr_Password = "123";
-            Usuario oUser2 = new Usuario();
-            oUser2.Usr_NombreUsuario = "Mozo";
-            oUser2.Usr_Password = "123";
-            Usuario oUser3 = new Usuario();
-            oUser3.Usr_NombreUsuario = "Vendedor";
-            oUser3.Usr_Password = "123";
+            DataTable dt = new DataTable();
+            dt = TrabajarUsuarios.login(username, password);
 
-            if (username == oUser1.Usr_NombreUsuario && password == oUser1.Usr_Password)
+            if (dt.Rows.Count == 0)
             {
-                MessageBox.Show("Sesión iniciada como Administrador", "Bienvenido", MessageBoxButton.OK, MessageBoxImage.Information);
-                winAdminMenu winAdminMenu = new winAdminMenu();
-                winAdminMenu.Show();
-                this.Close();
+                MessageBox.Show("Usuario y/o contraseña incorrectos");
             }
             else
             {
-                if (username == oUser2.Usr_NombreUsuario && password == oUser2.Usr_Password)
+                if (dt.Rows[0][2].ToString() == "1")
                 {
-                    MessageBox.Show("Sesión iniciada como Mozo", "Bienvenido", MessageBoxButton.OK, MessageBoxImage.Information);
-                    winWaiterMenu winMozoVendedorMenu = new winWaiterMenu();
-                    winMozoVendedorMenu.Show();
+                    
+                    MessageBox.Show("Sesión iniciada como Administrador", "Bienvenido/a " + dt.Rows[0][3].ToString(), MessageBoxButton.OK, MessageBoxImage.Information);
+                    winAdminMenu winAdminMenu = new winAdminMenu();
+                    winAdminMenu.Show();
                     this.Close();
+
                 }
                 else
                 {
-                    if (username == oUser3.Usr_NombreUsuario && password == oUser3.Usr_Password)
+                    if (dt.Rows[0][2].ToString() == "2")
                     {
-                        MessageBox.Show("Sesión iniciada como Vendedor", "Bienvenido", MessageBoxButton.OK, MessageBoxImage.Information);
+                        
+                        MessageBox.Show("Sesión iniciada como Mozo", "Bienvenido/a " + dt.Rows[0][3].ToString(), MessageBoxButton.OK, MessageBoxImage.Information);
                         winWaiterMenu winMozoVendedorMenu = new winWaiterMenu();
                         winMozoVendedorMenu.Show();
                         this.Close();
                     }
                     else
                     {
-                        MessageBox.Show("Contraseña y/o Usuario inválidos", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                        if (dt.Rows[0][2].ToString() == "3")
+                        {
+                            
+                            MessageBox.Show("Sesión iniciada como Vendedor", "Bienvenido/a " + dt.Rows[0][3].ToString(), MessageBoxButton.OK, MessageBoxImage.Information);
+                            winWaiterMenu winMozoVendedorMenu = new winWaiterMenu();
+                            winMozoVendedorMenu.Show();
+                            this.Close();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Contraseña y/o Usuario inválidos", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                        }
                     }
                 }
             }
+
         }
     }
 }
