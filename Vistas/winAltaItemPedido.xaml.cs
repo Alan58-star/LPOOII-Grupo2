@@ -10,24 +10,20 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Data;
+
+using ClasesBase;
 
 namespace Vistas
 {
     /// <summary>
-    /// Interaction logic for winPedidos.xaml
+    /// Interaction logic for winAltaItemPedido.xaml
     /// </summary>
-    public partial class winPedidos : Window
+    public partial class winAltaItemPedido : Window
     {
-        public winPedidos()
+        public winAltaItemPedido()
         {
             InitializeComponent();
-        }
-
-        private void btnAddItems_Click(object sender, RoutedEventArgs e)
-        {
-            winAltaItemPedido winAltaitemPedido = new winAltaItemPedido();
-            winAltaitemPedido.Show();
-
         }
 
         private void moveWindow(object sender, MouseButtonEventArgs e)
@@ -61,5 +57,24 @@ namespace Vistas
                 //throw;
             }
         }
+
+        private void btnAdd_Click(object sender, RoutedEventArgs e)
+        {
+            ////No logra castear de datarow a articulo
+            //Articulo art = (Articulo)lvwArticulos.SelectedItem;
+            //System.Windows.MessageBox.Show(art.Art_Descrip);
+        }
+
+
+        private void lvwArticulos_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            ////no reconoce la columna
+            //DataRowView drv = (DataRowView)lvwArticulos.SelectedItem;
+            //MessageBox.Show(drv["id"].ToString());
+
+        }
+
+        //las dos funciones de arriba tienen errores
+
     }
 }

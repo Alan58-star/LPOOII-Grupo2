@@ -84,6 +84,9 @@
     <Compile Include="winAdminMenu.xaml.cs">
       <DependentUpon>winAdminMenu.xaml</DependentUpon>
     </Compile>
+    <Compile Include="winAltaItemPedido.xaml.cs">
+      <DependentUpon>winAltaItemPedido.xaml</DependentUpon>
+    </Compile>
     <Compile Include="winArticulos.xaml.cs">
       <DependentUpon>winArticulos.xaml</DependentUpon>
     </Compile>
@@ -181,6 +184,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="winAdminMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="winAltaItemPedido.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
