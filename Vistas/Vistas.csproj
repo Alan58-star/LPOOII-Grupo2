@@ -78,9 +78,6 @@
       <DependentUpon>UCLogin.xaml</DependentUpon>
     </Compile>
     <Compile Include="ConversorDeEstados.cs" />
-    <Compile Include="winABMMesas.xaml.cs">
-      <DependentUpon>winABMMesas.xaml</DependentUpon>
-    </Compile>
     <Compile Include="winAdminMenu.xaml.cs">
       <DependentUpon>winAdminMenu.xaml</DependentUpon>
     </Compile>
@@ -176,10 +173,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Styles\StylesWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="winABMMesas.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -61,8 +61,8 @@ namespace Vistas
         private void btnAdd_Click(object sender, RoutedEventArgs e)
         {
             ////No logra castear de datarow a articulo
-            //Articulo art = (Articulo)lvwArticulos.SelectedItem;
-            //System.Windows.MessageBox.Show(art.Art_Descrip);
+            Articulo art = (Articulo)lvwArticulos.SelectedItem;
+            System.Windows.MessageBox.Show(art.Art_Descrip);
         }
 
 

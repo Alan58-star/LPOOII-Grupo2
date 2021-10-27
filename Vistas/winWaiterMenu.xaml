@@ -26,7 +26,7 @@
                 </Grid.RowDefinitions>
                 <StackPanel Orientation="Vertical" VerticalAlignment="Top" MinWidth="0" Height="325">
                     <RadioButton Content="Inicio" FontSize="20" Height="50" Foreground="White" Style="{StaticResource BotondeMenu}" Checked="informacionClick" Name="rb1" MouseEnter="rb1_MouseEnter"></RadioButton>
-                    <RadioButton Content="Gestion de Pedidos" FontSize="12" Height="50" Foreground="White" Style="{StaticResource BotondeMenu}" Checked="informacionClick" Name="rb2" MouseEnter="rb2_MouseEnter"></RadioButton>
+                    <RadioButton Content="Gestion de Pedidos" FontSize="12" Height="50" Foreground="White" Style="{StaticResource BotondeMenu}" Checked="informacionClick" Name="rb2" MouseEnter="rb2_MouseEnter" Click="rb2_Click"></RadioButton>
                     <RadioButton Content="Gestion de Mesas" FontSize="12" Height="50" Foreground="White" Style="{StaticResource BotondeMenu}" Checked="informacionClick" Name="rb3" MouseEnter="rb3_MouseEnter" Click="rb3_Click"></RadioButton>
                     <RadioButton Content="Gestion de Clientes" FontSize="12" Height="50" Foreground="White" Style="{StaticResource BotondeMenu}" Checked="informacionClick"  HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" Name="rb4" MouseEnter="rb4_MouseEnter" Click="rb4_Click"></RadioButton>
                 </StackPanel>

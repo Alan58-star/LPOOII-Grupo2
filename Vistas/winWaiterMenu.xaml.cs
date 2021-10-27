@@ -174,5 +174,11 @@ namespace Vistas
             }
         }
 
+        private void rb2_Click(object sender, RoutedEventArgs e)
+        {
+            winPedidos winPedido = new winPedidos();
+            winPedido.Show();
+        }
+
     }
 }

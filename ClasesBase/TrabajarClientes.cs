@@ -36,6 +36,20 @@ namespace ClasesBase
             cmd.ExecuteNonQuery();
             cnn.Close();
         }
+        public static DataTable traerClientes()
+        {
+            SqlConnection cnn = new SqlConnection(ClasesBase.Properties.Settings.Default.pasteleriaConnectionString);
+
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = "listar_clientes";
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Connection = cnn;
+
+            SqlDataAdapter ds = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            ds.Fill(dt);
+            return dt;
+        }
 
     }
 }
