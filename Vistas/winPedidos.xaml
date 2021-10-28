@@ -120,7 +120,7 @@
                     </ListView.View>
                 </ListView>
                 <Button Content="Añadir Ítems" Style="{StaticResource ButtonFormBlack}" Grid.Column="1" Height="23" HorizontalAlignment="Left" Margin="106,439,0,0" Name="button1" VerticalAlignment="Top" Click="btnAddItems_Click"/>
-                <Button Content="Ver Pedido" Style="{StaticResource ButtonFormBlack}" Width="100"  Grid.Column="1" Height="23" HorizontalAlignment="Left" Margin="354,471,0,0" Name="button2" VerticalAlignment="Top" />
+                <Button Content="Ver Pedido" Style="{StaticResource ButtonFormBlack}" Width="100"  Grid.Column="1" Height="23" HorizontalAlignment="Left" Margin="354,471,0,0" Name="verPedido" VerticalAlignment="Top" Click="verPedido_Click" />
             </Grid>
 
         </Grid>

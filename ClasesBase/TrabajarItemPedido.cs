@@ -81,7 +81,7 @@ namespace ClasesBase
 
             dAdapter.SelectCommand.CommandText = "listar_items_pedido";
             dAdapter.SelectCommand.CommandType = CommandType.StoredProcedure;
-            dAdapter.SelectCommand.Parameters.AddWithValue("@item_pedido_id", id);
+            dAdapter.SelectCommand.Parameters.AddWithValue("@idpedido", id);
 
             DataTable dTable = new DataTable();
             dAdapter.Fill(dTable);

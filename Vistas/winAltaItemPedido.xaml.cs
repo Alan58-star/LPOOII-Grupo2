@@ -41,6 +41,8 @@ namespace Vistas
         private void cargarColeccion()
         {
             listaItems = TrabajarItemPedido.TraerItemsColeccion(ped.Ped_Id);
+            lvwitems.ItemsSource = listaItems;
+           
         }
 
 
@@ -78,15 +80,8 @@ namespace Vistas
 
         private void btnAdd_Click(object sender, RoutedEventArgs e)
         {
-            Articulo art = (Articulo)lvwArticulos.SelectedItems[0];
-
-            item.Art_Id = art.Art_Id;
-            item.Ped_Id = ped.Ped_Id;
-            item.Item_Ped_Precio = art.Art_Precio;
-            item.Item_Ped_Cantidad = 1;
-            item.Item_Ped_Importe = art.Art_Precio * item.Item_Ped_Cantidad;
-
-            TrabajarItemPedido.add_item_pedido(item);
+            Dialogo.IsOpen = true;
+            
 
 
         }
@@ -96,6 +91,31 @@ namespace Vistas
         {
             Articulo art = (Articulo)lvwArticulos.SelectedItems[0];
         }
+
+        private void btnDel_Click(object sender, RoutedEventArgs e)
+        {
+
+
+            Dialogo.IsOpen = true;
+        }
+
+        private void btnGuardarCant_Click(object sender, RoutedEventArgs e)
+        {
+            Articulo art = (Articulo)lvwArticulos.SelectedItems[0];
+
+            item.Art_Id = art.Art_Id;
+            item.Ped_Id = ped.Ped_Id;
+            item.Item_Ped_Precio = art.Art_Precio;
+            item.Item_Ped_Cantidad = Convert.ToInt32(txtCantidad.Text);
+            item.Item_Ped_Importe = art.Art_Precio * item.Item_Ped_Cantidad;
+
+            TrabajarItemPedido.add_item_pedido(item);
+            
+            cargarColeccion();
+            
+            Dialogo.IsOpen = false;
+        }
+       
 
 
     }

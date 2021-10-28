@@ -66,8 +66,11 @@ namespace Vistas
             {
                 MessageBox.Show("Esta mesa esta Ocupada");
             }
-            else
+            else if (mesa.Style == (Style)Application.Current.Resources["BotondeMesaEnEspera"])
             {
+                MessageBox.Show("Esta mesa esta en espera");
+            }
+            else {
                 MessageBox.Show("Esta mesa esta Desocupada");
             }
         }
@@ -211,7 +214,19 @@ namespace Vistas
                         btn.Content = "Mesa " + listaMesas[contc].Mesa_Id;
                         if (listaMesas[contc].Mesa_Estado == "Libre")
                         {
+                            /* case "Libre": return new SolidColorBrush(Colors.Green); 
+                    case "Reservada": return new SolidColorBrush(Colors.Orange); 
+                    case "Ocupada": return new SolidColorBrush(Colors.Red); 
+                    case "Pidiendo": return new SolidColorBrush(Colors.Fuchsia); 
+                    case "En espera": return new SolidColorBrush(Colors.GreenYellow); 
+                    case "Servidos": return new SolidColorBrush(Colors.Salmon); 
+                    case "Esperando Cuenta": return new SolidColorBrush(Colors.RoyalBlue); 
+                    case "Pagando": return new SolidColorBrush(Colors.Olive); */
                             btn.Style = (Style)Application.Current.Resources["BotondeMesaVerde"];
+                            
+                        }
+                        else if (listaMesas[contc].Mesa_Estado=="En espera"){
+                            btn.Style = (Style)Application.Current.Resources["BotondeMesaEnEspera"];
                         }
                         btn.Click += preguntarMesa;
                         grdMesas.Children.Add(btn);

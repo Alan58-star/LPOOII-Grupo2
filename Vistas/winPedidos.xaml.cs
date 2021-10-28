@@ -29,15 +29,14 @@ namespace Vistas
         private void btnAddItems_Click(object sender, RoutedEventArgs e)
         {
             Pedido ped = (Pedido)lvwPedidos.SelectedItem;
-            System.Windows.MessageBox.Show(ped.Ped_Id.ToString());
-
+           
             winAltaItemPedido winAltaitemPedido = new winAltaItemPedido(ped);
             winAltaitemPedido.Show();
         }
 
         private void Load_ComboMesas()
         {
-            var data2 = (TrabajarMesas.traerMesas() as System.ComponentModel.IListSource).GetList();
+            var data2 = (TrabajarMesas.traerMesasHabilitadas() as System.ComponentModel.IListSource).GetList();
             cboMesas.DisplayMemberPath = "mesa_id";
             cboMesas.SelectedValuePath = "mesa_id";
             cboMesas.ItemsSource = data2;
@@ -90,7 +89,10 @@ namespace Vistas
             if (result == MessageBoxResult.Yes)
             {
                 Pedido oPedido = new Pedido();
+                Mesa mesa =TrabajarMesas.obtener_mesa(Convert.ToInt32(cboMesas.SelectedValue.ToString()));
                 oPedido.Mesa_Id = Convert.ToInt32(cboMesas.SelectedValue.ToString());
+                mesa.Mesa_Estado = "En espera";
+                TrabajarMesas.edit_mesa(mesa);
                 oPedido.Cli_Id = Convert.ToInt32(cboCliente.SelectedValue.ToString());
                 oPedido.Ped_Fecha_Emision = DateTime.Now;
                 if (chkFacturado.IsChecked == true) oPedido.Ped_Facturado = true;
@@ -107,8 +109,18 @@ namespace Vistas
                 txtComensal.Text = "";
                 
                 chkFacturado.IsChecked = false;
+                Load_ComboMesas();
 
             }
+        }
+
+        private void verPedido_Click(object sender, RoutedEventArgs e)
+        {
+            Pedido ped = (Pedido)lvwPedidos.SelectedItem;
+           
+            winVistaPreviaPedido vp = new winVistaPreviaPedido(ped);
+            vp.Show();
+            this.Close();
         }
     }
 }

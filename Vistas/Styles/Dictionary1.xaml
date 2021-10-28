@@ -28,7 +28,7 @@
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
-                        <Button Background="#99ff76" Margin="10,5">
+                        <Button Background="Green" Margin="10,5">
                             <Grid>
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="80*" />
@@ -49,6 +49,26 @@
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
                         <Button Background="Tomato" Margin="10,5">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="80*" />
+                                    <RowDefinition Height="220*" />
+                                </Grid.RowDefinitions>
+                                <TextBlock FontFamily="Arial" Foreground="Black" Height="Auto" HorizontalAlignment="Center" Name="textBlock1" Text="{TemplateBinding Content}" FontSize="15" VerticalAlignment="Stretch"/>
+                                <Image Grid.Row="1" Name="image1" Source="/Vistas;component/Images/mesita.png"/>
+                            </Grid>
+                        </Button>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style.Setters>
+    </Style>
+    <Style TargetType="{x:Type Button}" x:Key="BotondeMesaEnEspera">
+        <Style.Setters>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Button Background="GreenYellow" Margin="10,5">
                             <Grid>
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="80*" />

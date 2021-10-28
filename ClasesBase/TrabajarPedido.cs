@@ -31,7 +31,39 @@ namespace ClasesBase
             cmd.ExecuteNonQuery();
             cnn.Close();
         }
+        //TRAER UN SOLO PEDIDO POR ID
+        public static Pedido obtener_pedido(int idpedido)
+        {
+            SqlConnection cnn = new SqlConnection(ClasesBase.Properties.Settings.Default.pasteleriaConnectionString);
 
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = "obtener_pedido";
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Connection = cnn;
+            cmd.Parameters.AddWithValue("@idarticulo", idpedido);
+            SqlDataAdapter ds = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            ds.Fill(dt);
+
+            Pedido ped1 = new Pedido();
+            Mesa mesa = new Mesa();
+            Usuario usu = new Usuario();
+
+            if (dt.Rows.Count > 0)
+            {
+                DataRow row = dt.Rows[0];
+                ped1.Ped_Id = (int)row[0];
+                ped1.Ped_Fecha_Emision = (DateTime)row[1];
+                mesa.Mesa_Id = (int)row[5];
+                usu.Usr_NombreUsuario = (string)row[8];
+                ped1.Usuario = usu;
+                ped1.Mesa = mesa;
+
+            }
+
+
+            return ped1;
+        }
         //ELIMINAR PEDIDO DE LA BD
         public static DataTable delete_pedido(int pedido_ID)
         {
