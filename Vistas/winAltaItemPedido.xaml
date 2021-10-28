@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:svc="clr-namespace:ClasesBase;assembly=ClasesBase"
         xmlns:componentModel="clr-namespace:System.ComponentModel;assembly=WindowsBase"
-        Title="winAltaItemPedido" Height="auto" Width="600"  Style="{StaticResource MainWindowStyle}"  WindowStartupLocation="CenterScreen" MouseLeftButtonDown="moveWindow"
+        Title="winAltaItemPedido" Height="650" Width="600"  Style="{StaticResource MainWindowStyle}"  WindowStartupLocation="CenterScreen" MouseLeftButtonDown="moveWindow"
         >
     <Window.Resources>
         <ObjectDataProvider
@@ -38,11 +38,19 @@
         </Border>
         
         <StackPanel Margin="10,50,10,10">
-            <Label Name="lblNewArtTitle" Width="auto" Content="Nuevo Pedido" VerticalAlignment="Top" Style="{StaticResource FormTitle}" Grid.ColumnSpan="2" Height="50" />
-            <Label Name="lblNewArtDescrip" Content="Ingrese los datos del Artículo" VerticalAlignment="Bottom" Style="{StaticResource FormDescription}" Grid.ColumnSpan="2" Width="237" />
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Label Name="lblNewItemTitle" Width="auto" Content="Pedido N°: " VerticalAlignment="Top" Style="{StaticResource FormTitle}" Height="50" Margin="120,6,0,0" />
+                <TextBlock Name="txbNumPedido" Foreground="White" Height="32" Width="66" Style="{StaticResource FormTitle}" Margin="6,6,207,18" Grid.Column="1"></TextBlock>
+
+            </Grid>
+           <Label Name="lblNewArtDescrip" Content="Ingrese los datos del Artículo" Style="{StaticResource FormDescription}" Grid.ColumnSpan="2" Width="237" />
         
 
-            <ListView Grid.Row="1" Name="lvwArticulos" Width="598" VerticalAlignment="Top" HorizontalAlignment="Center" Grid.Column="1" Height="auto" Background="Black" Foreground="White"  ItemsSource="{Binding Source= {StaticResource VISTA_ARTICULO}}" HorizontalContentAlignment="Center" IsSynchronizedWithCurrentItem="True"  BorderBrush="Black" SelectionChanged="lvwArticulos_SelectionChanged">
+            <ListView Grid.Row="1" Name="lvwArticulos" Width="598" Grid.Column="1" Height="auto" Background="Black" Foreground="White"  ItemsSource="{Binding Source= {StaticResource VISTA_ARTICULO}}" HorizontalContentAlignment="Center" IsSynchronizedWithCurrentItem="True"  BorderBrush="Black" SelectionChanged="lvwArticulos_SelectionChanged">
                 <ListView.View>
                     <GridView>
                         <GridViewColumn Width="30" Header="ID" DisplayMemberBinding="{Binding Art_Id}"/>
@@ -57,43 +65,31 @@
             </ListView>
             
             <StackPanel Margin="20" Orientation="Horizontal" HorizontalAlignment="Center">
-                <Button Name="btnAdd" Content="+" Width="40" Click="btnAdd_Click"></Button>
-                <Button Name ="btnDel" Content="-" Width="40" Click="btnDel_Click"></Button>
+                <Button Name="btnAdd" Content="+" Width="40" Click="btnAdd_Click" Style="{StaticResource ButtonFormBlack}" ></Button>
             </StackPanel>
-            <Popup Name="Dialogo" StaysOpen="True" Placement="Center" MaxWidth="200">
+            <Popup Name="Dialogo" StaysOpen="True" Placement="Center" MaxWidth="800" MaxHeight="1000">
                 <Grid>
                     
                     <Grid.RowDefinitions>
                         <RowDefinition Height="200*"/>
                         <RowDefinition Height="100*"/>
+                        <RowDefinition Height="100*"/>
                     </Grid.RowDefinitions>
-                    <Grid Grid.Row="0">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="45*"/>
-                            <ColumnDefinition Width="55*"/>
-                        </Grid.ColumnDefinitions>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="80*"/>
-                            <RowDefinition Height="30*"/>
-                        </Grid.RowDefinitions>
+     
+                        
+                        <TextBlock Name="txbCantidad" HorizontalAlignment="Center"  Text="Ingrese Cantidad"  Style="{StaticResource FormDescription}" Grid.Row="0"  Width="237" />
 
-                        <Label Name="lblCantidadTitle" Content="Cantidad"  Style="{StaticResource FormTitle}" Grid.ColumnSpan="2" Margin="94,23,90,59" />
-                        <Label Name="lblCantidad" Content="Ingrese Cantidad"  Style="{StaticResource FormDescription}" Grid.ColumnSpan="2" Margin="77,72,69,33" Width="237" />
-
-                        <TextBox Name="txtCantidad" Grid.Row="1" Grid.Column="1"  Style="{StaticResource EstiloError}">
+                        <TextBox Name="txtCantidad" Grid.Row="1" HorizontalAlignment="Center"  Grid.Column="1" Style="{StaticResource EstiloError}">
                             
                         </TextBox>
-
-                    
-
-
-
-                    <DockPanel Grid.Row="1">
+                    <DockPanel Grid.Row="2" >
                         <Button Content="GUARDAR" Name="btnGuardarCant"  HorizontalAlignment="Center" Style="{StaticResource ButtonFormBlack}" Click="btnGuardarCant_Click"></Button>
+                        <Button Content="CANCELAR" Name="btnCancelarCant"  HorizontalAlignment="Center" Style="{StaticResource ButtonFormBlack}" Click="btnCancelarCant_Click"></Button>
+
                     </DockPanel>
                 </Grid>
 
-    </Grid>
+    
     </Popup>
 
             <ListView  IsSynchronizedWithCurrentItem="True" Name="lvwitems" Grid.Column="1" Height="200" Background="Black" Foreground="White" FontSize="10" HorizontalContentAlignment="Center" BorderBrush="Black">
@@ -107,7 +103,7 @@
                 </ListView.View>
             </ListView>
             
-            <Button Name="btnFinish" Content="Finalizar" Margin="30" Style="{StaticResource ButtonFormBlack}"></Button>
+            <Button Name="btnFinish" Content="Finalizar" Margin="30" Style="{StaticResource ButtonFormBlack}" Click="btnFinish_Click"></Button>
             
         </StackPanel>
         

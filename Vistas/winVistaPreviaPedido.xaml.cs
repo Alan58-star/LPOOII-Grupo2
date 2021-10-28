@@ -42,9 +42,14 @@ namespace Vistas
             txbMozo.Text = ped.Usuario.Usr_NombreUsuario;
             txbMesaNumero.Text = ped.Mesa.Mesa_Id.ToString();
             txbFechaEntrega.Text = ped.Ped_Fecha_Emision.ToString();
-            
-
+            decimal total = 0;
+            for (int i = 0; i < listaItems.Count();i++ )
+            {
+                total = total + listaItems[i].Item_Ped_Importe;
+            }
+            txbTotal.Text = total.ToString();
 
         }
+
     }
 }

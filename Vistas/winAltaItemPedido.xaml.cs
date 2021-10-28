@@ -36,6 +36,7 @@ namespace Vistas
             InitializeComponent();
             ped = pedido;
             cargarColeccion();
+            txbNumPedido.Text = pedido.Ped_Id.ToString() ;
         }
 
         private void cargarColeccion()
@@ -112,8 +113,20 @@ namespace Vistas
             TrabajarItemPedido.add_item_pedido(item);
             
             cargarColeccion();
+            txtCantidad.Text = "";
             
             Dialogo.IsOpen = false;
+        }
+        private void btnCancelarCant_Click(object sender, RoutedEventArgs e)
+        {
+            
+
+            Dialogo.IsOpen = false;
+        }
+
+        private void btnFinish_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
        
 

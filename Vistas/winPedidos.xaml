@@ -107,7 +107,7 @@
                     </Grid>
                 </Grid>
 
-                <ListView ItemsSource="{Binding Source={StaticResource VISTA_PEDIDO}}" Name="lvwPedidos" Grid.Column="1" Height="200" Background="Black" Foreground="White" FontFamily="Century Gothic" HorizontalContentAlignment="Center" BorderBrush="Black" Margin="2,193,23,168">
+                <ListView ItemsSource="{Binding Source={StaticResource VISTA_PEDIDO}}" Name="lvwPedidos" Grid.Column="1" Height="200" Background="Black" Foreground="White" FontFamily="Century Gothic" HorizontalContentAlignment="Center" BorderBrush="Black" Margin="2,193,23,168" SelectionChanged="lvwPedidos_SelectionChanged">
                     <ListView.View>
                         <GridView>
                             <GridViewColumn Width="30" Header="ID" DisplayMemberBinding="{Binding Ped_Id}"/>
@@ -119,8 +119,8 @@
                         </GridView>
                     </ListView.View>
                 </ListView>
-                <Button Content="Añadir Ítems" Style="{StaticResource ButtonFormBlack}" Grid.Column="1" Height="23" HorizontalAlignment="Left" Margin="106,439,0,0" Name="button1" VerticalAlignment="Top" Click="btnAddItems_Click"/>
-                <Button Content="Ver Pedido" Style="{StaticResource ButtonFormBlack}" Width="100"  Grid.Column="1" Height="23" HorizontalAlignment="Left" Margin="354,471,0,0" Name="verPedido" VerticalAlignment="Top" Click="verPedido_Click" />
+                <Button IsEnabled="false" Content="Ver Ítems" Style="{StaticResource ButtonFormBlack}" Grid.Column="1" Height="45" HorizontalAlignment="Left" Margin="106,439,0,0" Name="btnAddItem" VerticalAlignment="Top" Click="btnAddItems_Click" Width="123" />
+                <Button IsEnabled="false" Content="Imprimir Pedido" Style="{StaticResource ButtonFormBlack}" Width="116"  Grid.Column="1" Height="40" HorizontalAlignment="Left" Margin="393,442,0,0" Name="btnverPedido" VerticalAlignment="Top" Click="verPedido_Click" />
             </Grid>
 
         </Grid>

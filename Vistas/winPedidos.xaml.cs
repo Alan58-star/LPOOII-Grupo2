@@ -28,6 +28,7 @@ namespace Vistas
 
         private void btnAddItems_Click(object sender, RoutedEventArgs e)
         {
+            
             Pedido ped = (Pedido)lvwPedidos.SelectedItem;
            
             winAltaItemPedido winAltaitemPedido = new winAltaItemPedido(ped);
@@ -74,6 +75,8 @@ namespace Vistas
         {
             try
             {
+                winWaiterMenu wm = new winWaiterMenu();
+                wm.Show();
                 this.Close();
             }
             catch (Exception ex)
@@ -117,10 +120,16 @@ namespace Vistas
         private void verPedido_Click(object sender, RoutedEventArgs e)
         {
             Pedido ped = (Pedido)lvwPedidos.SelectedItem;
-           
             winVistaPreviaPedido vp = new winVistaPreviaPedido(ped);
             vp.Show();
-            this.Close();
+            
+        }
+
+        private void lvwPedidos_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            btnAddItem.IsEnabled = true;
+            btnverPedido.IsEnabled = true;
+                
         }
     }
 }
