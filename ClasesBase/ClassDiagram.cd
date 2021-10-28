@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="ClasesBase.Usuario">
-    <Position X="0.5" Y="0.5" Width="1.5" />
+    <Position X="15.25" Y="4.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AQBAAAEAQAAAAMAAAABAAgAAAACAAAAAAAAAAAAAgAA=</HashCode>
       <FileName>Usuario.cs</FileName>
@@ -59,7 +59,7 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="ClasesBase.Cliente">
-    <Position X="16" Y="0.75" Width="1.5" />
+    <Position X="18.5" Y="8.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>gAAAAACBAQAAgQAASAEAAAAAAABAAAAAQAwAAIAMAAA=</HashCode>
       <FileName>Cliente.cs</FileName>
@@ -67,25 +67,37 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="ClasesBase.Mesa">
-    <Position X="18.5" Y="0.75" Width="1.5" />
+    <Position X="22.25" Y="4.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAEAAAABAAAAAAAQAEAAEABAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAEAAAABgAAAAAAQAEIAEABAAAA=</HashCode>
       <FileName>Mesa.cs</FileName>
     </TypeIdentifier>
+    <Lollipop Position="0.2" />
   </Class>
   <Class Name="ClasesBase.Pedido">
-    <Position X="21" Y="0.75" Width="1.5" />
+    <Position X="18.5" Y="1.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>gAAAIIAAgAAIAEgAAAFAAAABAAAEAAgAgACAAIAAAEA=</HashCode>
+      <HashCode>gAAAIAAAoAAIAEgAAAHAAAABoAAEAIwAAAKEAIAAAEA=</HashCode>
       <FileName>Pedido.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Usuario" />
+      <Property Name="Cliente" />
+      <Property Name="Mesa" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
   </Class>
   <Class Name="ClasesBase.Item_Pedido">
-    <Position X="23.5" Y="0.75" Width="1.5" />
+    <Position X="15.25" Y="0.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>ABAJAAAAgAAAAAEAABABAACAAAAAgAgAAACAAAAAAQA=</HashCode>
+      <HashCode>ABEJAAAAgAAAAAEAABABAACAAAAAgAgAAACAAAAAAQA=</HashCode>
       <FileName>Item_Pedido.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Pedido" />
+      <Property Name="Articulo" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
   </Class>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>

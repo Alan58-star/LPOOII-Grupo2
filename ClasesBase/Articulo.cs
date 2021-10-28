@@ -74,9 +74,6 @@ namespace ClasesBase
             }
         }
 
-
-
-
         private Familia familia;
         public Familia Familia
         {
@@ -111,6 +108,7 @@ namespace ClasesBase
         }
 
         public Articulo() { }
+
         public Articulo(int artId, string artDescrip, int famId, int umId, decimal artPrecio, Boolean artManejoStock)
         {
             art_Id = artId;

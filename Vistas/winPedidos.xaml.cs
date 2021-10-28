@@ -28,9 +28,11 @@ namespace Vistas
 
         private void btnAddItems_Click(object sender, RoutedEventArgs e)
         {
-            winAltaItemPedido winAltaitemPedido = new winAltaItemPedido();
-            winAltaitemPedido.Show();
+            Pedido ped = (Pedido)lvwPedidos.SelectedItem;
+            System.Windows.MessageBox.Show(ped.Ped_Id.ToString());
 
+            winAltaItemPedido winAltaitemPedido = new winAltaItemPedido(ped);
+            winAltaitemPedido.Show();
         }
 
         private void Load_ComboMesas()
@@ -108,9 +110,5 @@ namespace Vistas
 
             }
         }
-
-        
-
-     
     }
 }

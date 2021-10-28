@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Data.SqlClient;
 using System.Data;
+using System.Collections.ObjectModel;
 
 namespace ClasesBase
 {
@@ -70,5 +71,52 @@ namespace ClasesBase
             return importe_item;
         }
 
+        public static DataTable traer_items(int id)
+        {
+            SqlConnection cnn = new SqlConnection(ClasesBase.Properties.Settings.Default.pasteleriaConnectionString);
+            
+            SqlDataAdapter dAdapter = new SqlDataAdapter(); //primero el dataadapter
+            dAdapter.SelectCommand = new SqlCommand();      // despues se agrega el command
+            dAdapter.SelectCommand.Connection = cnn;        // y despues se le establece la conexion
+
+            dAdapter.SelectCommand.CommandText = "listar_items_pedido";
+            dAdapter.SelectCommand.CommandType = CommandType.StoredProcedure;
+            dAdapter.SelectCommand.Parameters.AddWithValue("@item_pedido_id", id);
+
+            DataTable dTable = new DataTable();
+            dAdapter.Fill(dTable);
+            return dTable;
+        }
+
+        //Coleccion item pedido
+        public static ObservableCollection<Item_Pedido> TraerItemsColeccion(int id)
+        {
+            DataTable dt = traer_items(id);
+
+            ObservableCollection<Item_Pedido> listaItems = new ObservableCollection<Item_Pedido>();
+
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                Item_Pedido item = new Item_Pedido();
+                item.Item_Ped_Id= Convert.ToInt32(dt.Rows[i]["itemPed_id"]);
+                item.Item_Ped_Cantidad = Convert.ToInt32(dt.Rows[i]["itemPed_cantidad"]);
+                item.Item_Ped_Importe = Convert.ToDecimal(dt.Rows[i]["itemPed_importe"]);
+                item.Item_Ped_Precio = Convert.ToDecimal(dt.Rows[i]["itemPed_precio"]);
+
+                Pedido ped = new Pedido();
+                ped.Ped_Id = Convert.ToInt32(dt.Rows[i]["ped_id"]);
+
+                Articulo art = new Articulo();
+                art.Art_Id = Convert.ToInt32(dt.Rows[i]["art_id"]);
+                art.Art_Descrip = dt.Rows[i]["art_descripcion"].ToString();
+
+                item.Pedido = ped;
+                item.Articulo = art;
+
+                listaItems.Add(item);
+            }
+
+            return listaItems;
+        }
     }
 }

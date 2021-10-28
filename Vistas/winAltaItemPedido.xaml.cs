@@ -10,6 +10,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Collections.ObjectModel;
 using System.Data;
 
 using ClasesBase;
@@ -21,10 +22,27 @@ namespace Vistas
     /// </summary>
     public partial class winAltaItemPedido : Window
     {
+        Pedido ped;
+        Item_Pedido item = new Item_Pedido();
+
+        ObservableCollection<Item_Pedido> listaItems;
         public winAltaItemPedido()
         {
             InitializeComponent();
         }
+
+        public winAltaItemPedido(Pedido pedido)
+        {
+            InitializeComponent();
+            ped = pedido;
+            cargarColeccion();
+        }
+
+        private void cargarColeccion()
+        {
+            listaItems = TrabajarItemPedido.TraerItemsColeccion(ped.Ped_Id);
+        }
+
 
         private void moveWindow(object sender, MouseButtonEventArgs e)
         {
@@ -60,21 +78,25 @@ namespace Vistas
 
         private void btnAdd_Click(object sender, RoutedEventArgs e)
         {
-            ////No logra castear de datarow a articulo
-            Articulo art = (Articulo)lvwArticulos.SelectedItem;
-            System.Windows.MessageBox.Show(art.Art_Descrip);
+            Articulo art = (Articulo)lvwArticulos.SelectedItems[0];
+
+            item.Art_Id = art.Art_Id;
+            item.Ped_Id = ped.Ped_Id;
+            item.Item_Ped_Precio = art.Art_Precio;
+            item.Item_Ped_Cantidad = 1;
+            item.Item_Ped_Importe = art.Art_Precio * item.Item_Ped_Cantidad;
+
+            TrabajarItemPedido.add_item_pedido(item);
+
+
         }
 
 
         private void lvwArticulos_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            ////no reconoce la columna
-            //DataRowView drv = (DataRowView)lvwArticulos.SelectedItem;
-            //MessageBox.Show(drv["id"].ToString());
-
+            Articulo art = (Articulo)lvwArticulos.SelectedItems[0];
         }
 
-        //las dos funciones de arriba tienen errores
 
     }
 }

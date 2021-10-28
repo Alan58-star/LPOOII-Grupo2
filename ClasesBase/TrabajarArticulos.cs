@@ -229,8 +229,7 @@ namespace ClasesBase
                 art.Familia = fam;
 
                 listaArticulos.Add(art);
-            }
-            
+            }            
             return listaArticulos;
         }
 
