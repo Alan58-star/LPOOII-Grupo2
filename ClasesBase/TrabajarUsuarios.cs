@@ -9,6 +9,15 @@ namespace ClasesBase
 {
     public class TrabajarUsuarios
     {
+        public Usuario TraerUsuario()
+        {
+            Usuario oUsuario = new Usuario();
+            oUsuario.Usr_ApellidoNombre= "";
+            oUsuario.Usr_NombreUsuario = "";
+            oUsuario.Usr_Password = "";
+            return oUsuario;
+        }
+
         //GUARDA USUARIO EN BD
         public static void add_usuario(Usuario usuario)
         {

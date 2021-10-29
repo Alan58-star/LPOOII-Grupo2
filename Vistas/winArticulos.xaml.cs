@@ -75,6 +75,9 @@ namespace Vistas
                 txtDescripcion.Text = "";
                 txtPrecio.Text = "";
                 chkStock.IsChecked = false;
+                cboCategoria.SelectedItem = null;
+                cboFlia.SelectedItem = null;
+                cboMedida.SelectedItem = null;
 
             }
 
