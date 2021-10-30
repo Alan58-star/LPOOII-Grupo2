@@ -92,5 +92,15 @@ namespace Vistas
             
         }
 
+        private void btnPrint_Click(object sender, RoutedEventArgs e)
+        {
+            PrintDialog pDialog = new PrintDialog();
+
+            if (pDialog.ShowDialog() == true)
+            {
+                pDialog.PrintDocument(((IDocumentPaginatorSource)fdocArticulosPreview).DocumentPaginator, "Imprimir");
+            }
+        }
+
     }
 }

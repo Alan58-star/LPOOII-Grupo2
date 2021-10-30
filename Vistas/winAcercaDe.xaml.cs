@@ -10,6 +10,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace Vistas
 {
@@ -18,9 +19,19 @@ namespace Vistas
     /// </summary>
     public partial class winAcercaDe : Window
     {
+        DispatcherTimer timer;
         public winAcercaDe()
         {
             InitializeComponent();
+            timer = new DispatcherTimer();
+            timer.Interval = TimeSpan.FromMilliseconds(500);
+            timer.Tick += new EventHandler(timer_Tick);
+
+        }
+
+        void timer_Tick(object sender, EventArgs e)
+        {
+            slider1.Value = mediaElement1.Position.TotalSeconds;
         }
 
         private void moveWindow(object sender, MouseButtonEventArgs e)
@@ -59,6 +70,61 @@ namespace Vistas
                 MessageBox.Show(ex.Message);
                 //throw;
             }
+        }
+
+        private void button1_Click(object sender, RoutedEventArgs e)
+        {
+            mediaElement1.Play();
+        }
+
+        private void button2_Click(object sender, RoutedEventArgs e)
+        {
+            mediaElement1.Pause();
+        }
+
+        private void button3_Click(object sender, RoutedEventArgs e)
+        {
+            mediaElement1.Stop();
+        }
+
+        private void slider2_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            mediaElement1.Volume = (double)slider2.Value; 
+        }
+
+        private void slider1_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            mediaElement1.Position = TimeSpan.FromSeconds(slider1.Value);
+        }
+
+        private void Window_Drop(object sender, DragEventArgs e)
+        {
+            string filename = "C:/Users/danie/Videos/video/Dani2.mp4";
+            mediaElement1.Source = new Uri(filename);
+
+            mediaElement1.LoadedBehavior = MediaState.Manual;
+            mediaElement1.UnloadedBehavior = MediaState.Manual;
+            mediaElement1.Volume = (double)slider2.Value;
+            mediaElement1.Play();
+
+        }
+
+        private void mediaElement1_MediaOpened(object sender, RoutedEventArgs e)
+        {
+            TimeSpan ts = mediaElement1.NaturalDuration.TimeSpan;
+            slider1.Maximum = ts.TotalSeconds;
+            timer.Start();
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            string name = "C:/Users/danie/Desktop/LPOOII-Grupo2/Vistas/Images/videoplayback.mp4";
+            mediaElement1.Source = new Uri(name);
+
+            mediaElement1.LoadedBehavior = MediaState.Manual;
+            mediaElement1.UnloadedBehavior = MediaState.Manual;
+            mediaElement1.Volume = (double)slider2.Value;
+            mediaElement1.Play();
         }
 
     }

@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:svc="clr-namespace:ClasesBase;assembly=ClasesBase"
         xmlns:componentModel="clr-namespace:System.ComponentModel;assembly=WindowsBase"
-        Title="winBusquedaArt" Height="500" Width="700" Style="{StaticResource MainWindowStyle}" WindowStartupLocation="CenterScreen">
+        Title="winBusquedaArt" Height="600" Width="700" Style="{StaticResource MainWindowStyle}" WindowStartupLocation="CenterScreen">
     <Window.Resources>
         <ObjectDataProvider
             x:Key="LIST_ARTICULO"
@@ -41,9 +41,9 @@
 
         <Grid Margin="40,60,40,40">
             <Grid.RowDefinitions>
-                <RowDefinition Height="40*"></RowDefinition>
-                <RowDefinition Height="50*"></RowDefinition>
+                <RowDefinition Height="5*"></RowDefinition>
                 <RowDefinition Height="10*"></RowDefinition>
+                <RowDefinition Height="2*"></RowDefinition>
             </Grid.RowDefinitions>
             
             <StackPanel Grid.Row="0">
@@ -52,7 +52,12 @@
                 <TextBox Margin="10" x:Name="txtSearch" Width="200" HorizontalAlignment="Center" Style="{StaticResource StyleTextBoxForm}" TextChanged="txtSearch_TextChanged"></TextBox>
             </StackPanel>
 
-            <ListView Grid.Row="1" Name="lvwArticulos" Width="598" VerticalAlignment="Top" HorizontalAlignment="Center" Grid.Column="1" Height="auto" Background="Black" Foreground="White"  ItemsSource="{Binding Source= {StaticResource VISTA_ARTICULO}}" HorizontalContentAlignment="Center" IsSynchronizedWithCurrentItem="True"  BorderBrush="Black" SelectionChanged="lvwArticulos_SelectionChanged">
+
+            <FlowDocumentReader Grid.Row="1" Height="Auto" Foreground="White" Background="#090909" BorderBrush="#090909" BorderThickness="2" Zoom="90">
+                <FlowDocument Name="fdocArticulosPreview" Background="White">
+                    <Paragraph Foreground="Black" Style="{StaticResource FormDescription}">Listado de Artículos</Paragraph>
+                    <BlockUIContainer>
+              <ListView Grid.Row="1" Name="lvwArticulos" Width="598" VerticalAlignment="Top" HorizontalAlignment="Center" Grid.Column="1" Height="auto" ItemsSource="{Binding Source= {StaticResource VISTA_ARTICULO}}" HorizontalContentAlignment="Center" IsSynchronizedWithCurrentItem="True" SelectionChanged="lvwArticulos_SelectionChanged">
                 <ListView.View>
                     <GridView>
                         <GridViewColumn Width="30" Header="ID" DisplayMemberBinding="{Binding Art_Id}"/>
@@ -65,9 +70,10 @@
                     </GridView>
                 </ListView.View>
             </ListView>
-            <Button Content="Vista previa" Grid.Row="2" Style="{StaticResource ButtonFormBlack}" Height="30" HorizontalAlignment="Center" Name="btnVistaImpresion" VerticalAlignment="Center" Width="100" Click="btnVistaImpresion_Click" />
+                    </BlockUIContainer>
+                </FlowDocument>
+            </FlowDocumentReader>
+            <Button Name="btnPrint" Content="Imprimir Lista" Style="{StaticResource ButtonFormBlack}" Click="btnPrint_Click" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="2"></Button>
         </Grid>
-        
-        
     </Grid>
 </Window>
