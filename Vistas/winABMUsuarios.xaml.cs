@@ -85,48 +85,61 @@ namespace Vistas
 
         private void btn_first_Click(object sender, RoutedEventArgs e)
         {
-           // Vista.MoveCurrentToFirst();
+           Users.MoveCurrentToFirst();
         }
 
         private void btn_prev_Click(object sender, RoutedEventArgs e)
         {
-           // Vista.MoveCurrentToPrevious();
-            //if (Vista.IsCurrentBeforeFirst)
-            //{
-            //    Vista.MoveCurrentToLast();
-            //}
+            Users.MoveCurrentToPrevious();
+            if (Users.IsCurrentBeforeFirst)
+            {
+                Users.MoveCurrentToLast();
+            }
 
         }
 
         private void btn_next_Click(object sender, RoutedEventArgs e)
         {
-            //Vista.MoveCurrentToNext();
-            //if (Vista.IsCurrentAfterLast)
-            //{
-            //    Vista.MoveCurrentToFirst();
-            //}
+            Users.MoveCurrentToNext();
+            if (Users.IsCurrentAfterLast)
+            {
+                Users.MoveCurrentToFirst();
+            }
         }
 
         private void btn_last_Click(object sender, RoutedEventArgs e)
         {
-            //Vista.MoveCurrentToLast();
+            Users.MoveCurrentToLast();
         }
 
         private void btn_NuevoUsuario(object sender, RoutedEventArgs e)
         {
-            winUsuarios newUsuario = new winUsuarios();
+            winUsuarios newUsuario = new winUsuarios(0);
             newUsuario.Show();
             this.Close();
         }
 
         private void btn_ModifUsuario(object sender, RoutedEventArgs e)
         {
-
+            int UserID = Convert.ToInt32(txtUsrID.Text);
+            winUsuarios editUsuario = new winUsuarios(UserID);
+            editUsuario.Show();
+            this.Close();
         }
 
         private void btn_ElimUsuario(object sender, RoutedEventArgs e)
         {
+            int UserID = Convert.ToInt32(txtUsrID.Text);
+            var confirmResult = MessageBox.Show("¿Está seguro de eliminar este usuario?", "Confirmar", MessageBoxButton.YesNo, MessageBoxImage.Exclamation);
 
+            if (confirmResult == MessageBoxResult.Yes)
+            
+                TrabajarUsuarios.delete_usuario(UserID);
+                MessageBox.Show("Usuario eliminado con éxito", "Usuario Eliminado", MessageBoxButton.OK, MessageBoxImage.Information);
+                (FindResource("LIST_USUARIO") as ObjectDataProvider).Refresh();
+
+                cargarColeccion();
         }
     }
 }
+

@@ -76,8 +76,8 @@
 
                 <TextBlock Style="{StaticResource StyleLabelForm}" Text="{Binding Usr_ApellidoNombre}" Grid.Column="1" Grid.Row="0" Width="auto" Height="auto" VerticalAlignment="Center" HorizontalAlignment="Center" ></TextBlock>
                 <TextBlock Style="{StaticResource StyleLabelForm}" Text="{Binding Usr_NombreUsuario}" Grid.Column="1" Grid.Row="1" Width="auto" Height="auto" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
-                <TextBlock Style="{StaticResource StyleLabelForm}" Text="{Binding Usr_Id}" Grid.Column="1" Grid.Row="2" Width="auto" Height="auto" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
-                <TextBlock Style="{StaticResource StyleLabelForm}" Text="{Binding }" Grid.Column="1" Grid.Row="3" Width="auto" Height="auto" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+                <TextBlock Style="{StaticResource StyleLabelForm}" Text="{Binding Rol.Rol_Descrip}" Grid.Column="1" Grid.Row="2" Width="auto" Height="auto" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+                <TextBlock x:Name="txtUsrID" Style="{StaticResource StyleLabelForm}" Text="{Binding Usr_Id}" Grid.Column="1" Grid.Row="3" Width="auto" Height="auto" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
                 <TextBlock Style="{StaticResource StyleLabelForm}" Text="{Binding }" Grid.Column="1" Grid.Row="4" Width="auto" Height="auto" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
                 <TextBlock Style="{StaticResource StyleLabelForm}" Text="{Binding }" Grid.Column="1" Grid.Row="5" Height="auto" Margin="0,7" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
 

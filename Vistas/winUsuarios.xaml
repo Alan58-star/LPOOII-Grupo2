@@ -46,8 +46,8 @@
                     <RowDefinition Height="30*"/>
                 </Grid.RowDefinitions>
 
-                <Label Grid.Row="0" Name="lblNewCliTitle" Content="Nuevo Usuario"  Style="{StaticResource FormTitle}" Grid.ColumnSpan="2" Margin="94,23,78,59" />
-                <Label Grid.Row="0" Name="lblNewCliDescrip" Content="Ingrese los datos del Usuario"  Style="{StaticResource FormDescription}" Grid.ColumnSpan="2" Margin="77,71,64,33" Width="237" />
+                <Label Grid.Row="0" Name="lblNewUserTitle" Content="Nuevo Usuario"  Style="{StaticResource FormTitle}" Grid.ColumnSpan="2" Margin="94,23,78,59" />
+                <Label Grid.Row="0" Name="lblNewUserDescrip" Content="Ingrese los datos del Usuario"  Style="{StaticResource FormDescription}" Grid.ColumnSpan="2" Margin="77,71,64,33" Width="237" />
 
                 <Label Content="Apellido y Nombre" Name="lblApNombre" Grid.Row="1" Style="{StaticResource StyleLabelForm}" Grid.Column="0" Width="Auto" />
                 <TextBox Name="txtApellidoNombre" Grid.Row="1" Grid.Column="1" Style="{StaticResource EstiloError}" DataContext="{StaticResource Data_Usuario}">
@@ -94,9 +94,9 @@
 
             </Grid>
             
-            <DockPanel Grid.Row="1">
-                <Button Content="GUARDAR" Foreground="#eeeeee" FontSize="18" FontWeight="Bold" Name="btnGuardar" Click="btnGuardar_Click" Style="{StaticResource ResourceKey=tmplClientes}"/>
-            </DockPanel>
+            <Button Grid.Row="1" Content="GUARDAR" Foreground="#eeeeee" FontSize="18" FontWeight="Bold" Name="btnGuardar" Click="btnGuardar_Click" Style="{StaticResource ResourceKey=tmplClientes}"/>
+            <Button Grid.Row="1" Content="ACTUALIZAR" Foreground="#eeeeee" FontSize="18" FontWeight="Bold" Name="btnEditar" Click="btnEditar_Click" Style="{StaticResource ResourceKey=tmplClientes}"/>
+
         </Grid>
     </Grid>
 </Window>

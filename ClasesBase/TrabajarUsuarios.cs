@@ -37,6 +37,26 @@ namespace ClasesBase
             cnn.Close();
         }
 
+        //GUARDA USUARIO EN BD
+        public static void edit_usuario(Usuario usuario)
+        {
+
+            SqlConnection cnn = new SqlConnection(ClasesBase.Properties.Settings.Default.pasteleriaConnectionString);
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = "modificar_usuario";
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Connection = cnn;
+            cmd.Parameters.AddWithValue("@idusuario", usuario.Usr_Id);
+            cmd.Parameters.AddWithValue("@idrol", usuario.Rol_Id);
+            cmd.Parameters.AddWithValue("@username", usuario.Usr_NombreUsuario);
+            cmd.Parameters.AddWithValue("@password", usuario.Usr_Password);
+            cmd.Parameters.AddWithValue("@nombreapellido", usuario.Usr_ApellidoNombre);
+
+            cnn.Open();
+            cmd.ExecuteNonQuery();
+            cnn.Close();
+        }
+
         //ELIMINAR USUARIO DE LA BD
         public static DataTable delete_usuario(int usuario_ID)
         {
@@ -72,6 +92,38 @@ namespace ClasesBase
             return dt;
         }
 
+        //Traer un solo usuario por ID
+        public static Usuario obtener_usuario(int uid)
+        {
+            SqlConnection cnn = new SqlConnection(ClasesBase.Properties.Settings.Default.pasteleriaConnectionString);
+
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = "obtener_usuario";
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Connection = cnn;
+            cmd.Parameters.AddWithValue("@idusuario", uid);
+            SqlDataAdapter ds = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            ds.Fill(dt);
+
+            Usuario user = new Usuario();
+            Rol rol = new Rol();
+
+            if (dt.Rows.Count > 0)
+            {
+                DataRow row = dt.Rows[0];
+                user.Usr_Id = (int)row[0];
+                user.Usr_ApellidoNombre = (string)row[1];
+                user.Usr_NombreUsuario = (string)row[2];
+                user.Usr_Password = (string)row[3];
+                rol.Rol_Descrip = (string)row[4];
+                rol.Rol_Id = (int)row[5];
+                user.Rol = rol;
+            }
+
+            return user;
+        }
+
         //CARGA ROLES EN COMBO BOX
         public static DataTable list_roles()
         {
@@ -105,6 +157,7 @@ namespace ClasesBase
 
                 Rol rol = new Rol();
                 rol.Rol_Id = Convert.ToInt32(dt.Rows[i]["rol_id"]);
+                rol.Rol_Descrip = dt.Rows[i]["rol_descripcion"].ToString();
                 usu.Rol = rol;
 
                 listaUsuarios.Add(usu);
