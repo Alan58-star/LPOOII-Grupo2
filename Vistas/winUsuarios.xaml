@@ -74,7 +74,21 @@
                 </TextBox>
 
                 <Label Content="Rol" Name="lblRol" Grid.Row="4" Style="{StaticResource StyleLabelForm}" Grid.Column="0" />
-                <ComboBox Height="26" HorizontalAlignment="Left" Margin="10,0,0,0" Name="cboRol" VerticalAlignment="Center" Grid.Row="4" Grid.Column="1"  Width="150" />
+                <ComboBox Height="26" HorizontalAlignment="Left" Margin="10,0,0,0" Name="cboRol" VerticalAlignment="Center" Grid.Row="4" Grid.Column="1"  Width="150">
+                   <!-- <ComboBox.Template>
+                        <ControlTemplate TargetType="{x:Type ComboBox}">
+                            <Border Background="Black" BorderBrush="#FFD46F" CornerRadius="2" BorderThickness="2">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="90*"/>
+                                        <ColumnDefinition Width="10*"/>
+                                    </Grid.ColumnDefinitions>                                    
+                                    <TextBlock Foreground="#ffd46f" Text="q" FontFamily="Wingdings 3" Grid.Column="1" VerticalAlignment="Center" FontSize="10"></TextBlock>
+                                </Grid>                                
+                            </Border>
+                        </ControlTemplate>
+                    </ComboBox.Template>-->
+                </ComboBox>
 
 
 

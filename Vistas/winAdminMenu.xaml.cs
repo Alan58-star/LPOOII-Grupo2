@@ -117,6 +117,13 @@ namespace Vistas
             
         }
 
+        private void openUsrMenu(object sender, RoutedEventArgs e)
+        {
+            winABMUsuarios wABMUsers = new winABMUsuarios();
+            wABMUsers.Show();
+            this.Close();
+        }
+
         private void rb3_Click(object sender, RoutedEventArgs e)
         {
             ABMArticulos winABMArticulos = new ABMArticulos();

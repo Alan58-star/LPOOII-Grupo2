@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Data.SqlClient;
 using System.Data;
+using System.Collections.ObjectModel;
 
 namespace ClasesBase
 {
@@ -86,6 +87,31 @@ namespace ClasesBase
             ds.Fill(dt);
             return dt;
         }
+
+        //Creando la colección
+        public ObservableCollection<Usuario> TraerUsuariosColeccion()
+        {
+            DataTable dt = traer_usuarios();
+
+            ObservableCollection<Usuario> listaUsuarios = new ObservableCollection<Usuario>();
+
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                Usuario usu = new Usuario();
+                usu.Usr_Id = Convert.ToInt32(dt.Rows[i]["usu_id"]);
+                usu.Usr_ApellidoNombre = dt.Rows[i]["usu_apnombre"].ToString();
+                usu.Usr_NombreUsuario = dt.Rows[i]["usu_usuario"].ToString();
+                usu.Usr_Password = dt.Rows[i]["usu_password"].ToString();
+
+                Rol rol = new Rol();
+                rol.Rol_Id = Convert.ToInt32(dt.Rows[i]["rol_id"]);
+                usu.Rol = rol;
+
+                listaUsuarios.Add(usu);
+            }
+            return listaUsuarios;
+        }
+
 
 
         public static DataTable login(string usuario, string password)

@@ -1,0 +1,90 @@
+﻿<Window x:Class="Vistas.winABMUsuarios"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:svc="clr-namespace:ClasesBase;assembly=ClasesBase"
+        Title="winABMUsuarios" Height="450" Width="600" Style="{StaticResource MainWindowStyle}"  WindowStartupLocation="CenterScreen" MouseLeftButtonDown="moveWindow" Loaded="Window_Loaded">
+    <Window.Resources>
+        <ObjectDataProvider
+        x:Key="LIST_USUARIO"
+        ObjectType="{x:Type svc:TrabajarUsuarios}"
+        MethodName="TraerUsuariosColeccion">
+        </ObjectDataProvider>
+    </Window.Resources>
+    
+    <Grid>
+        <Border BorderBrush="Black" BorderThickness="1" CornerRadius="10">
+            <DockPanel Height="40" Name="dockPanel1" Width="auto" HorizontalAlignment="Stretch" VerticalAlignment="Top" FlowDirection="RightToLeft">
+                <Ellipse Height="15" HorizontalAlignment="Right" Name="btnClose" Fill="#FFFF4B6A" Width="15" Margin="10,0,5,0" MouseLeftButtonDown="closeWindow"/>
+                <Ellipse Height="15" HorizontalAlignment="Left" Name="btnMaximize" Fill="#EEEEEE" Width="15" Margin="5,0,5,0" MouseLeftButtonDown="minimizeWindow"/>
+                <Label Name="lblWinTitle" Content="Usuarios" Padding="20,0" HorizontalAlignment="Right" FontFamily="FreeSans" FontSize="12" VerticalContentAlignment="Center" Foreground="#EEEEEE"/>
+            </DockPanel>
+            <Border.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#232323" Offset="0.6" />
+                    <GradientStop Color="#121212" Offset="0.9" />
+                    <GradientStop Color="#070707" Offset="1" />
+                </LinearGradientBrush>
+            </Border.Background>
+        </Border>
+
+        <Grid Margin="0,50,0,0" Name="contentGrid" DataContext="{Binding Source={StaticResource ResourceKey=LIST_USUARIO}}">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="10*"></RowDefinition>
+                <RowDefinition Height="90*"></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="328*"></ColumnDefinition>
+                    <ColumnDefinition Width="250*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <StackPanel Grid.Column="0" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="center">
+                    <Button x:Name="btnNuevoUsr" Content="Nuevo" Margin="3,0" Height="30" Width="70" Click="btn_NuevoUsuario"></Button>
+                    <Button x:Name="btnModifUsr" Content="Modificar" Margin="3,0" Height="30" Width="70" Click="btn_ModifUsuario"></Button>
+                    <Button x:Name="btnDeleteusr" Content="Eliminar" Margin="3,0" Height="30" Width="70" Click="btn_ElimUsuario"></Button>
+                </StackPanel>
+                <StackPanel Grid.Column="1" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="center">
+                    <Button x:Name="btn_first" Content="|&lt;" Margin="7,0" Height="30" Width="30" Click="btn_first_Click"></Button>
+                    <Button x:Name="btn_prev" Content="&lt;" Margin="7,0" Height="30" Width="30" Click="btn_prev_Click"></Button>
+                    <Button x:Name="btn_next" Content=">" Margin="7,0" Height="30" Width="30" Click="btn_next_Click"></Button>
+                    <Button x:Name="btn_last" Content=">|" Margin="7,0" Height="30" Width="30" Click="btn_last_Click"></Button>
+                </StackPanel>
+            </Grid>
+
+            <Grid Name="grdArticulos" Grid.Row="1" Margin="80,20" Background="#262627">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+
+                <Label Style="{StaticResource StyleLabelForm}" FontWeight="Bold" Grid.Column="0" Grid.Row="0" Content="Nombre y Apellido" HorizontalAlignment="Center"></Label>
+                <Label Style="{StaticResource StyleLabelForm}" FontWeight="Bold" Grid.Column="0" Grid.Row="1" Content="Usuario" HorizontalAlignment="Center"></Label>
+                <Label Style="{StaticResource StyleLabelForm}" FontWeight="Bold" Grid.Column="0" Grid.Row="2" Content="Rol" HorizontalAlignment="Center"></Label>
+                <Label Style="{StaticResource StyleLabelForm}" FontWeight="Bold" Grid.Column="0" Grid.Row="3" Content="ID" HorizontalAlignment="Center"></Label>
+                <Label Style="{StaticResource StyleLabelForm}" Grid.Column="0" Grid.Row="4" Content="unused" HorizontalAlignment="Center"></Label>
+                <Label Style="{StaticResource StyleLabelForm}" Grid.Column="0" Grid.Row="5" Content="unused" HorizontalAlignment="Center"></Label>
+
+                <TextBlock Style="{StaticResource StyleLabelForm}" Text="{Binding Usr_ApellidoNombre}" Grid.Column="1" Grid.Row="0" Width="auto" Height="auto" VerticalAlignment="Center" HorizontalAlignment="Center" ></TextBlock>
+                <TextBlock Style="{StaticResource StyleLabelForm}" Text="{Binding Usr_NombreUsuario}" Grid.Column="1" Grid.Row="1" Width="auto" Height="auto" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+                <TextBlock Style="{StaticResource StyleLabelForm}" Text="{Binding Usr_Id}" Grid.Column="1" Grid.Row="2" Width="auto" Height="auto" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+                <TextBlock Style="{StaticResource StyleLabelForm}" Text="{Binding }" Grid.Column="1" Grid.Row="3" Width="auto" Height="auto" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+                <TextBlock Style="{StaticResource StyleLabelForm}" Text="{Binding }" Grid.Column="1" Grid.Row="4" Width="auto" Height="auto" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+                <TextBlock Style="{StaticResource StyleLabelForm}" Text="{Binding }" Grid.Column="1" Grid.Row="5" Height="auto" Margin="0,7" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+
+
+
+            </Grid>
+        </Grid>
+
+    </Grid>
+</Window>

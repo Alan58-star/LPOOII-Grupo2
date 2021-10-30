@@ -1,14 +1,18 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="ClasesBase.Usuario">
-    <Position X="15.25" Y="4.75" Width="1.5" />
+    <Position X="5" Y="4.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AQBAAAEAQAAAAMAAAABAAgAAAACAAAAAAAAAAAAAgAA=</HashCode>
+      <HashCode>AQhAAAEAQAAAAcAACABAAgAAAACAAgAAAAAAAAAAhAA=</HashCode>
       <FileName>Usuario.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Rol" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
   </Class>
   <Class Name="ClasesBase.Rol">
-    <Position X="3" Y="0.5" Width="1.5" />
+    <Position X="2" Y="5.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAIAAAAAAAAIAAAAAAIAAAAAAAAAAAAAAAAAAAgAA=</HashCode>
       <FileName>Rol.cs</FileName>
@@ -75,7 +79,13 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="ClasesBase.Pedido">
-    <Position X="18.5" Y="1.5" Width="1.5" />
+    <Position X="18.5" Y="1.75" Width="1.5" />
+    <AssociationLine Name="Cliente" Type="ClasesBase.Cliente" FixedFromPoint="true">
+      <Path>
+        <Point X="19.25" Y="7.67" />
+        <Point X="19.25" Y="8.25" />
+      </Path>
+    </AssociationLine>
     <TypeIdentifier>
       <HashCode>gAAAIAAAoAAIAEgAAAHAAAABoAAEAIwAAAKEAIAAAEA=</HashCode>
       <FileName>Pedido.cs</FileName>
@@ -88,9 +98,9 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="ClasesBase.Item_Pedido">
-    <Position X="15.25" Y="0.75" Width="1.5" />
+    <Position X="14" Y="0.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>ABEJAAAAgAAAAAEAABABAACAAAAAgAgAAACAAAAAAQA=</HashCode>
+      <HashCode>ABEJAAAAgQAAAAEAABABAACAgAAAgAgAAAKAAAABAQA=</HashCode>
       <FileName>Item_Pedido.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
