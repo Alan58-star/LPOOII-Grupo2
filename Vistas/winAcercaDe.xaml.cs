@@ -99,7 +99,8 @@ namespace Vistas
 
         private void Window_Drop(object sender, DragEventArgs e)
         {
-            string filename = "C:/Users/danie/Videos/video/Dani2.mp4";
+            string filename = (string)((DataObject)e.Data).GetFileDropList()[0];
+
             mediaElement1.Source = new Uri(filename);
 
             mediaElement1.LoadedBehavior = MediaState.Manual;
@@ -118,7 +119,7 @@ namespace Vistas
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            string name = "C:/Users/danie/Desktop/LPOOII-Grupo2/Vistas/Images/videoplayback.mp4";
+            string name = "D:/-N-/Trabajos/TorresIsmael-RíosDaniel-Jira.mp4";
             mediaElement1.Source = new Uri(name);
 
             mediaElement1.LoadedBehavior = MediaState.Manual;
