@@ -11,6 +11,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Windows.Threading;
+using System.IO;
 
 namespace Vistas
 {
@@ -119,7 +120,7 @@ namespace Vistas
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            string name = "D:/-N-/Trabajos/TorresIsmael-RíosDaniel-Jira.mp4";
+            string name = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + @"\Media\queso.mp4"; //Obteniendo la ruta del dispositivo, independientemente de dónde se ejecute
             mediaElement1.Source = new Uri(name);
 
             mediaElement1.LoadedBehavior = MediaState.Manual;

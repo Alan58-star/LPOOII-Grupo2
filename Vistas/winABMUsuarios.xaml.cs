@@ -20,13 +20,39 @@ namespace Vistas
     /// </summary>
     public partial class winABMUsuarios : Window
     {
+       // private CollectionViewSource usuariosColeccionFiltrada;
+
         public winABMUsuarios()
         {
             InitializeComponent();
+           // usuariosColeccionFiltrada = Resources["VISTA_USUARIO"] as CollectionViewSource; 
         }
 
         CollectionView Users;
         ObservableCollection<Usuario> listaUsuarios;
+
+        //private void txtSearchUser_TextChanged(object sender, TextChangedEventArgs e)
+        //{
+        //    if (usuariosColeccionFiltrada != null)
+        //    {
+        //        usuariosColeccionFiltrada.Filter += eventVistaUsuario_Filter;
+        //    }
+        //}
+
+        //private void eventVistaUsuario_Filter(object sender, FilterEventArgs e)
+        //{
+        //    Usuario usr = new Usuario();
+
+        //    if (usr.Usr_NombreUsuario.StartsWith(txtSearchUser.Text, StringComparison.CurrentCultureIgnoreCase))
+        //    {
+        //        e.Accepted = true;
+        //    }
+        //    else
+        //    {
+        //        e.Accepted = false;
+        //    }
+        //}
+
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
@@ -58,7 +84,8 @@ namespace Vistas
         {
             try
             {
-                this.WindowState = WindowState.Maximized;
+                this.WindowState = WindowState.Minimized;
+
             }
             catch (Exception ex)
             {
@@ -82,12 +109,7 @@ namespace Vistas
                 //throw;
             }
         }
-
-        private void btn_first_Click(object sender, RoutedEventArgs e)
-        {
-           Users.MoveCurrentToFirst();
-        }
-
+        
         private void btn_prev_Click(object sender, RoutedEventArgs e)
         {
             Users.MoveCurrentToPrevious();
@@ -107,11 +129,6 @@ namespace Vistas
             }
         }
 
-        private void btn_last_Click(object sender, RoutedEventArgs e)
-        {
-            Users.MoveCurrentToLast();
-        }
-
         private void btn_NuevoUsuario(object sender, RoutedEventArgs e)
         {
             winUsuarios newUsuario = new winUsuarios(0);
@@ -121,7 +138,7 @@ namespace Vistas
 
         private void btn_ModifUsuario(object sender, RoutedEventArgs e)
         {
-            int UserID = Convert.ToInt32(txtUsrID.Text);
+            int UserID = Convert.ToInt32(txtUsrID.Content);
             winUsuarios editUsuario = new winUsuarios(UserID);
             editUsuario.Show();
             this.Close();
@@ -129,17 +146,19 @@ namespace Vistas
 
         private void btn_ElimUsuario(object sender, RoutedEventArgs e)
         {
-            int UserID = Convert.ToInt32(txtUsrID.Text);
+            int UserID = Convert.ToInt32(txtUsrID.Content);
             var confirmResult = MessageBox.Show("¿Está seguro de eliminar este usuario?", "Confirmar", MessageBoxButton.YesNo, MessageBoxImage.Exclamation);
 
             if (confirmResult == MessageBoxResult.Yes)
-            
+            {
                 TrabajarUsuarios.delete_usuario(UserID);
                 MessageBox.Show("Usuario eliminado con éxito", "Usuario Eliminado", MessageBoxButton.OK, MessageBoxImage.Information);
                 (FindResource("LIST_USUARIO") as ObjectDataProvider).Refresh();
 
                 cargarColeccion();
+            }
         }
+        
     }
 }
 

@@ -123,6 +123,9 @@
     <Compile Include="winPedidos.xaml.cs">
       <DependentUpon>winPedidos.xaml</DependentUpon>
     </Compile>
+    <Compile Include="winStartupScreen.xaml.cs">
+      <DependentUpon>winStartupScreen.xaml</DependentUpon>
+    </Compile>
     <Compile Include="winUnidadesDeMedida.xaml.cs">
       <DependentUpon>winUnidadesDeMedida.xaml</DependentUpon>
     </Compile>
@@ -246,6 +249,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="winStartupScreen.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="winUnidadesDeMedida.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -346,6 +353,11 @@
       <ProductName>Windows Installer 3.1</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Media\bruh.wav" />
+    <Content Include="Media\El baile del troleo - EXTENDED.mp4" />
+    <Content Include="Media\queso.mp4" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

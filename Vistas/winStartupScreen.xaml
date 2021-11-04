@@ -1,0 +1,8 @@
+﻿<Window x:Class="Vistas.winStartupScreen"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+           Title="SplashScreen" Height="247" Width="500" Loaded="Window_Loaded" WindowStyle="None" WindowStartupLocation="CenterScreen" AllowsTransparency="True" Background="Transparent">
+    <Grid>
+        <Image Height="196" HorizontalAlignment="Left" Margin="12,12,0,0" Name="imgSplash" Stretch="Fill" VerticalAlignment="Top" Width="461" Source="file:///D:/-N-/Trabajos/3°%20APU/LPOO%20II/TRABAJO%20PRÁCTICO/LPOOII-Grupo2/Vistas/Images/splash.png" />
+    </Grid>
+</Window>
