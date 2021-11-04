@@ -34,6 +34,7 @@ namespace ClasesBase
             cmd.Parameters.AddWithValue("@fam", art.Fam_Id);
             cmd.Parameters.AddWithValue("@UM", art.Um_Id);
             cmd.Parameters.AddWithValue("@cat", art.Cat_Id);
+            cmd.Parameters.AddWithValue("@imagen", art.Art_Imagen);
             cnn.Open();
             cmd.ExecuteNonQuery();
             cnn.Close();
@@ -55,6 +56,7 @@ namespace ClasesBase
             cmd.Parameters.AddWithValue("@fam", art.Fam_Id);
             cmd.Parameters.AddWithValue("@UM", art.Um_Id);
             cmd.Parameters.AddWithValue("@cat", art.Cat_Id);
+            cmd.Parameters.AddWithValue("@imagen", art.Art_Imagen);
             cnn.Open();
             cmd.ExecuteNonQuery();
             cnn.Close();
@@ -144,6 +146,7 @@ namespace ClasesBase
                 cat.Cat_Descrip = (string)row[8];
                 fam.Fam_Id =(int)row[9];
                 um.Um_Descrip = (string)row[10];
+                art1.Art_Imagen = (string)row[11];
 
                 art1.Unidad_Medida = um;
                 art1.Familia = fam;
@@ -211,6 +214,7 @@ namespace ClasesBase
                 art.Art_Descrip = dt.Rows[i]["art_descripcion"].ToString();
                 art.Art_Precio = Convert.ToDecimal(dt.Rows[i]["art_precio"]);
                 art.Art_Manejo_Stock = Convert.ToBoolean(dt.Rows[i]["art_stock"]);
+                art.Art_Imagen = dt.Rows[i]["art_imagen"].ToString();
                 
                 Categoria cat = new Categoria();
                 cat.Cat_Id=Convert.ToInt32(dt.Rows[i]["cat_id"]);

@@ -13,6 +13,7 @@ using System.Windows.Shapes;
 using ClasesBase;
 using System.ComponentModel;
 using System.Collections.ObjectModel;
+using Microsoft.Win32;
 
 namespace Vistas
 {
@@ -46,7 +47,9 @@ namespace Vistas
                 txtDescripcion.Text = art1.Art_Descrip;
                 cboFlia.SelectedIndex = art1.Familia.Fam_Id-1;  
                 cboMedida.SelectedIndex = art1.Unidad_Medida.Um_Id-1;          
-                cboCategoria.SelectedIndex = art1.Categoria.Cat_Id-1;         
+                cboCategoria.SelectedIndex = art1.Categoria.Cat_Id-1;
+                Uri resourceUri = new Uri(art1.Art_Imagen);
+                imgArticulo.Source = new BitmapImage(resourceUri);
             }
         }
 
@@ -67,7 +70,7 @@ namespace Vistas
 
                 if (chkStock.IsChecked == true) oArticulo.Art_Manejo_Stock = true;
                 else oArticulo.Art_Manejo_Stock = false;
-
+                oArticulo.Art_Imagen = imgArticulo.Source.ToString();
                 TrabajarArticulos.add_articulo(oArticulo);
 
                 MessageBox.Show("Artículo Guardado con éxito", "Datos Creados", MessageBoxButton.OK, MessageBoxImage.Information);
@@ -165,12 +168,27 @@ namespace Vistas
 
                 if (chkStock.IsChecked == true) oArticulo1.Art_Manejo_Stock = true;
                 else oArticulo1.Art_Manejo_Stock = false;
-
+                oArticulo1.Art_Imagen = imgArticulo.Source.ToString();
                 TrabajarArticulos.edit_articulo(oArticulo1);
 
                 MessageBox.Show("Artículo actualizado con éxito", "Datos Actualizados", MessageBoxButton.OK, MessageBoxImage.Information);
 
             }
+        }
+
+        private void btnImagen_Click(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.gif;*.tif;...";
+         
+            openFileDialog.Title = "Por favor Seleccione una Imagen";
+
+            if (openFileDialog.ShowDialog() == true)
+            {
+                Uri fileUri = new Uri(openFileDialog.FileName);
+                imgArticulo.Source = new BitmapImage(fileUri);
+            }
+
         }
 
        

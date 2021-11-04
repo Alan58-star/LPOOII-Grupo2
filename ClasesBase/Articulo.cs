@@ -119,12 +119,13 @@ namespace ClasesBase
             art_Manejo_Stock = artManejoStock;
         }
 
-        public Articulo(int artId, string artDescrip, int famId, int umId, decimal artPrecio, Boolean artManejoStock, Familia fam, Categoria cat, Unidad_Medida um)
+        public Articulo(int artId, string artDescrip, int famId, int umId, decimal artPrecio, Boolean artManejoStock, Familia fam, Categoria cat, Unidad_Medida um, string imagen)
         {
             art_Id = artId;
             art_Descrip = artDescrip;
             fam_Id = famId;
             um_Id = umId;
+            art_Imagen = imagen;
             art_Precio = artPrecio;
             art_Manejo_Stock = artManejoStock;
             familia = fam;
@@ -214,6 +215,16 @@ namespace ClasesBase
         {
             get { return cat_Id; }
             set { cat_Id = value; }
+        }
+
+        private String art_Imagen;
+
+        public String Art_Imagen
+        {
+            get { return art_Imagen; }
+            set { art_Imagen = value;
+            Notificador("Art_Imagen");
+            }
         }
     }
 }

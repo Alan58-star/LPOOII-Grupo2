@@ -248,7 +248,7 @@ namespace Vistas
             }
 
             btnAdd.Content = "Agregar";
-            btnAdd.Style = (Style)Application.Current.Resources["BotondeMesaVerde"];
+            btnAdd.Style = (Style)Application.Current.Resources["BotonAgregar"];
             btnAdd.Click += crearMesa;
             grdMesas.Children.Add(btnAdd);
             Grid.SetRow(btnAdd, rows);

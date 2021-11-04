@@ -55,8 +55,8 @@
                                 <RowDefinition Height="12*" />
                                 <RowDefinition Height="12*" />
                                 <RowDefinition Height="24*" />
-                                
-                            </Grid.RowDefinitions>
+                                <RowDefinition Height="24*" />
+                        </Grid.RowDefinitions>
 
                             <Label Name="lblNewArtTitle" Width="auto" Content="Nuevo Artículo" VerticalAlignment="Top" Margin="0,20,0,0" Style="{StaticResource FormTitle}" Grid.ColumnSpan="2" Height="50" />
                             <Label Name="lblNewArtDescrip" Content="Ingrese los datos del Artículo" VerticalAlignment="Bottom" Style="{StaticResource FormDescription}" Grid.ColumnSpan="2" Margin="53,0,43,7" Width="237" />
@@ -82,7 +82,7 @@
                         <ComboBox Height="23" HorizontalAlignment="Left" Margin="5,0,0,0" Name="cboCategoria" VerticalAlignment="Center" Grid.Row="3" Grid.Column="1" BorderBrush="#FFE53535" Width="120" />
 
 
-                        <Label Grid.Row="6" Grid.ColumnSpan="2" VerticalAlignment="Top" Content="Descripción del Artículo:" Name="label6" Style="{StaticResource StyleLabelForm}" HorizontalAlignment="Center" />
+                        <Label Grid.Row="6" Grid.ColumnSpan="2" VerticalAlignment="Top" Content="Descripción del Artículo:" Name="label6" Style="{StaticResource StyleLabelForm}" HorizontalAlignment="Center" Margin="10,4,10,0" Grid.RowSpan="2" />
                             <TextBox Grid.Row="7" Grid.ColumnSpan="2" DataContext="{StaticResource Data_Articulo}" Style="{StaticResource EstiloError}" Name="txtDescripcion" 
                                  HorizontalAlignment="Center" VerticalAlignment="Bottom" VerticalContentAlignment="Top" Width="191" MinHeight="60" FontSize="13">
                                 <TextBox.Text>
@@ -90,8 +90,18 @@
                                  ValidatesOnExceptions="true" ValidatesOnDataErrors="true"></Binding>
                                 </TextBox.Text>
                             </TextBox>
+                        <Label Grid.Row="8"  VerticalAlignment="Top" Content="Imagen del Artículo:" Name="lblImagen" Style="{StaticResource StyleLabelForm}" HorizontalAlignment="Center" Margin="10,4,10,0" Grid.RowSpan="2" />
+                        <Grid Grid.Row="8" Grid.Column="2">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="12*" />
+                                <RowDefinition Height="12*" />
+                            </Grid.RowDefinitions>
+                            <Image Grid.Row="0" Name="imgArticulo"/>
+                            <Button Name="btnImagen" Grid.Row="1"  Content="SELECCIONAR IMAGEN" Style="{StaticResource ButtonFormBlack}" Width="160" HorizontalAlignment="Center" Click="btnImagen_Click"></Button>
 
                         </Grid>
+        
+                    </Grid>
                     
                     <!--
                     <StackPanel Grid.RowSpan="2" Name="stackPanel1" Orientation="Vertical" Grid.Row="1">

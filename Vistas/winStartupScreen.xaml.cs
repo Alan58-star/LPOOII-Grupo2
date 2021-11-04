@@ -32,7 +32,6 @@ namespace Vistas
 
             //SFX de prueba xd
             sp.SoundLocation = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + @"\Media\bruh.wav"; // SACAR 'Directory.GetParent' AL COMPILAR EL RELEASE
-
             sp.Play();
         }
     }

@@ -98,8 +98,7 @@ namespace Vistas
                 TrabajarMesas.edit_mesa(mesa);
                 oPedido.Cli_Id = Convert.ToInt32(cboCliente.SelectedValue.ToString());
                 oPedido.Ped_Fecha_Emision = DateTime.Now;
-                if (chkFacturado.IsChecked == true) oPedido.Ped_Facturado = true;
-                else oPedido.Ped_Facturado = false;
+                 oPedido.Ped_Facturado = false;
 
                 oPedido.Ped_Fecha_Entrega = Convert.ToDateTime(dpFecha.SelectedDate);
                 oPedido.Ped_Comensales = Convert.ToInt32(txtComensal.Text);
@@ -110,8 +109,7 @@ namespace Vistas
                 MessageBox.Show("Artículo Guardado con éxito", "Datos Creados", MessageBoxButton.OK, MessageBoxImage.Information);
 
                 txtComensal.Text = "";
-                
-                chkFacturado.IsChecked = false;
+              
                 Load_ComboMesas();
 
             }

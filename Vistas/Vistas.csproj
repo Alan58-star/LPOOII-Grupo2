@@ -355,8 +355,8 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Media\bruh.wav" />
-    <Content Include="Media\El baile del troleo - EXTENDED.mp4" />
+    <Resource Include="Media\bruh.wav" />
+    <Resource Include="Images\Agregar.png" />
     <Content Include="Media\queso.mp4" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
