@@ -320,7 +320,7 @@
     <Resource Include="Fonts\*.otf" />
   </ItemGroup>
   <ItemGroup>
-    <SplashScreen Include="Images\splash.png" />
+    <Resource Include="Images\splash.png" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Images\guardar.png">
@@ -357,6 +357,7 @@
   <ItemGroup>
     <Resource Include="Media\bruh.wav" />
     <Resource Include="Images\Agregar.png" />
+    <Resource Include="Images\04de2e31234507.564a1d23645bf.gif" />
     <Content Include="Media\queso.mp4" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

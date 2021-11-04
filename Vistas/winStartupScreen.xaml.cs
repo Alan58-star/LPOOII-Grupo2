@@ -13,6 +13,7 @@ using System.Windows.Shapes;
 using System.Media;
 using System.Reflection;
 using System.IO;
+using System.Windows.Threading;
 
 namespace Vistas
 {
@@ -21,18 +22,30 @@ namespace Vistas
     /// </summary>
     public partial class winStartupScreen : Window
     {
+        DispatcherTimer timer = new DispatcherTimer();
+        
+
         public winStartupScreen()
         {
             InitializeComponent();
+            timer.Tick += new EventHandler(timer_Tick);
+            timer.Interval = new TimeSpan(0,0,2);
+            timer.Start();
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             SoundPlayer sp = new SoundPlayer();
-
-            //SFX de prueba xd
-            sp.SoundLocation = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + @"\Media\bruh.wav"; // SACAR 'Directory.GetParent' AL COMPILAR EL RELEASE
+            sp.SoundLocation = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + @"\Media\startup.wav"; // SACAR 'Directory.GetParent' AL COMPILAR EL RELEASE
             sp.Play();
+        }
+
+        private void timer_Tick(object sender, EventArgs e)
+        {
+            winLogin oWinLogin = new winLogin();
+            oWinLogin.Show();
+            timer.Stop();
+            this.Close();
         }
     }
 }

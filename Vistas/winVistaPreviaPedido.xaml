@@ -2,45 +2,59 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
          xmlns:svc="clr-namespace:ClasesBase;assembly=ClasesBase"
-        Title="winVistaPreviaPedido" Height="400" Width="600"     WindowStartupLocation="CenterScreen" >
-    
-       <FixedDocument>
+        Title="winVistaPreviaPedido" Height="auto" Width="500" WindowStartupLocation="CenterScreen" >
+
+    <FixedDocument>
           
         <PageContent>
             
             <FixedPage>
             
                     <Grid>
-        <StackPanel>
-            <TextBlock Name="txbEmpresa" Text="Holdem" Margin="0,0,0,0" FontWeight="Bold" FontSize="14" FontFamily="Consolas" Height="23" />
-            <TextBlock Name="txbDireccion" Text="Salta 731" Margin="0,0,0,0" FontWeight="Bold" FontFamily="Consolas" />
-            <TextBlock Name="txbTelefono" Text="3884132" Margin="0,0,0,0" FontFamily="Consolas" />
-            <TextBlock Name="txbEmail" Text="holde@email.com" Margin="0,0,0,0" FontFamily="Consolas" />
-        </StackPanel>
-        <Label Name="lblNumeroPedido"  HorizontalAlignment="left" Margin="10,80,0,0" Content="NumeroPedido" VerticalAlignment="Top" FontFamily="Consolas" />
+        <StackPanel Margin="40,0">
+            <TextBlock Name="txbEmpresa" Text="HOLDEM" HorizontalAlignment="Center" FontWeight="Bold" FontSize="30" FontFamily="Consolas" Height="auto" />
+            <TextBlock Name="txbDireccion" Margin="5" Text="Salta 731" HorizontalAlignment="Center" FontWeight="Bold" FontFamily="Consolas" Height="auto" />
+            <TextBlock Name="txbTelefono" Margin="5" Text="3884583948" HorizontalAlignment="Center" FontFamily="Consolas" Height="auto" />
+            <TextBlock Name="txbEmail" Margin="5" Text="contacto@holdem.com" HorizontalAlignment="Center" FontFamily="Consolas" Height="auto" />
 
-            <TextBlock Name="txbNumeroPedido"  HorizontalAlignment="Right" Margin="0,90,473,0" VerticalAlignment="Top" FontFamily="Consolas" />
-            <Label Name="lblFechaEntrega" Margin="20,100,178,0" Content="Fecha y hora: " VerticalAlignment="Top" FontFamily="Consolas" />
-            <TextBlock Name="txbFechaEntrega"  HorizontalAlignment="Right" Margin="0,110,451,0"  VerticalAlignment="Top" FontFamily="Consolas" />
+            <StackPanel Orientation="Horizontal">
+                <Label Name="lblNumeroPedido"  HorizontalAlignment="left" Content="N° Pedido:" FontFamily="Consolas" />
+                <TextBlock Name="txbNumeroPedido"  HorizontalAlignment="Right" FontFamily="Consolas" />
+            </StackPanel>
 
-            <Label Name="lblMesaNumero" HorizontalAlignment="Left" Margin="20,130,0,0" Content="Número de Mesa: " VerticalAlignment="Top" FontFamily="Consolas" />
+            <StackPanel Orientation="Horizontal">
+                <Label Name="lblFechaEntrega" Content="Fecha y hora:"  FontFamily="Consolas" />
+                <TextBlock Name="txbFechaEntrega"  HorizontalAlignment="Right" FontFamily="Consolas" />
+            </StackPanel>
 
-            <TextBlock Name="txbMesaNumero" HorizontalAlignment="Right" Margin="0,136,439,0"  VerticalAlignment="Top" FontFamily="Consolas" />
-            <Label Name="lblMozo" HorizontalAlignment="Left" Margin="20,160,0,0" Content="Mozo:"  VerticalAlignment="Top" FontFamily="Consolas" FontWeight="Bold" />
+            <StackPanel Orientation="Horizontal">
+                <Label Name="lblMesaNumero" HorizontalAlignment="Left" Content="Número de Mesa: " FontFamily="Consolas" />
+                <TextBlock Name="txbMesaNumero" HorizontalAlignment="Right" FontFamily="Consolas" />
+            </StackPanel>
 
-            <TextBlock Name="txbMozo" HorizontalAlignment="Right" Margin="0,165,179,0" VerticalAlignment="Top" FontFamily="Consolas" FontWeight="Bold" />
-            <ListView  IsSynchronizedWithCurrentItem="True" Name="lvwitems" Background="White" Foreground="Black" FontSize="10" HorizontalContentAlignment="Center" BorderBrush="Black" Margin="12,180,14,71">
+            <StackPanel Orientation="Horizontal">
+                <Label Name="lblMozo" HorizontalAlignment="Left" Content="Mozo:" FontFamily="Consolas" FontWeight="Bold" />
+                <TextBlock Name="txbMozo" HorizontalAlignment="Right" FontFamily="Consolas" FontWeight="Bold" />
+            </StackPanel>
+            
+            <ListView Margin="0,10" IsSynchronizedWithCurrentItem="True" Name="lvwitems" Background="White" Foreground="Black" FontSize="10" HorizontalContentAlignment="Center" BorderBrush="Black">
                 <ListView.View>
                     <GridView>
-                        <GridViewColumn Width="50" Header="Cant." DisplayMemberBinding="{Binding Item_Ped_Cantidad}"/>
-                        <GridViewColumn Width="200" Header="Descripción" DisplayMemberBinding="{Binding Articulo.Art_Descrip}" />
-                         <GridViewColumn Width="200" Header="Precio" DisplayMemberBinding="{Binding Item_Ped_Precio}" />
-                                <GridViewColumn Width="200" Header="Importe" DisplayMemberBinding="{Binding Item_Ped_Importe}" />
-                            </GridView>
+                        <GridViewColumn Width="30" Header="Cant." DisplayMemberBinding="{Binding Item_Ped_Cantidad}"/>
+                        <GridViewColumn Width="180" Header="Descripción" DisplayMemberBinding="{Binding Articulo.Art_Descrip}" />
+                        <GridViewColumn Width="90" Header="Precio" DisplayMemberBinding="{Binding Item_Ped_Precio}" />
+                        <GridViewColumn Width="90" Header="Importe" DisplayMemberBinding="{Binding Item_Ped_Importe}" />
+                    </GridView>
                 </ListView.View>
             </ListView>
-        <TextBlock Name="txbTotal" HorizontalAlignment="Right" Margin="0,120,152,0"  VerticalAlignment="Top" FontFamily="Consolas" Height="14" Width="27" />
-        <Label Name="lblTotal" Content="Total: " FontFamily="Consolas" Margin="338,110,157,227" />
+            
+            <DockPanel>
+                <Label Name="lblTotal" FontSize="16" FontWeight="Bold" Content="SUBTOTAL: " FontFamily="Consolas"/>
+                <TextBlock Name="txbTotal" FontSize="16" FontWeight="Bold"  HorizontalAlignment="Right" FontFamily="Consolas"/>
+            </DockPanel>
+        </StackPanel>
+        
+            
     </Grid>
 
        </FixedPage>
