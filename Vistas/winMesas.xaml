@@ -69,10 +69,35 @@
                 </StackPanel>
 
                 <!--Sección de las Mesas-->
-                <Grid x:Name="grdMesas"  Grid.Column="1" Margin="20,0" Loaded="grdMesas_Loaded"/>
-                
-                
+                <Grid x:Name="grdMesas"  Grid.Column="1" Margin="20,7,20,-7" Loaded="grdMesas_Loaded"/>
+                <Popup Name="Dialogo" StaysOpen="True" Placement="Center" Width="300" Height="500">
+                    <Grid>
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="200*"/>
+                            <RowDefinition Height="100*"/>
+                            <RowDefinition Height="100*"/>
+                        </Grid.RowDefinitions>
+                        
+
+
+                        <TextBlock Name="txbEstado" HorizontalAlignment="Center"  Text="Seleccione un estado"  Style="{StaticResource FormDescription}" Grid.Row="0"  Width="237" />
+
+                        <ComboBox Grid.Row="1" Height="25" Name="cmbEstadoMesas" Width="130" ItemsSource="{Binding Source={StaticResource estado_Mesa}, XPath= estado/@name}"/>
+
+
+                        <DockPanel Grid.Row="2" >
+                            <Button Content="ACTUALIZAR" Name="btnActualizar"  HorizontalAlignment="Center" Style="{StaticResource ButtonFormBlack}" Click="btnActualizar_Click"></Button>
+                            <Button Content="CANCELAR" Name="btnCancelar"   HorizontalAlignment="Center" Style="{StaticResource ButtonFormBlack}" Click="btnCancelar_Click"></Button>
+
+                        </DockPanel>
+                    </Grid>
+
+
+                </Popup>
+
             </Grid>
+            
             
         </Grid>
     </Grid>

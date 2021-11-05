@@ -184,5 +184,12 @@ namespace Vistas
             }
 
         }
+
+        private void acercaDe(object sender, RoutedEventArgs e)
+        {
+            winAcercaDe acerca = new winAcercaDe();
+            acerca.Show();
+            this.Close();
+        }
     }
 }

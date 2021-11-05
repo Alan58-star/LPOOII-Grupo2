@@ -64,7 +64,10 @@ namespace Vistas
         {
             try
             {
-                Close();
+                winLogin login = new winLogin();
+                login.Show();
+                this.Close();
+                
             }
             catch (Exception ex)
             {
@@ -128,6 +131,8 @@ namespace Vistas
             mediaElement1.Volume = (double)slider2.Value;
             mediaElement1.Play();
         }
+
+        
 
     }
 }

@@ -24,6 +24,7 @@ namespace Vistas
         int numMesas = 1, cols = 0,rows = 0,limite=0;
         int columna = 5, fila = 5;
         int contc = 0;
+        int id;
         Button btnAdd = new Button();
 
         ObservableCollection<Mesa> listaMesas;
@@ -61,18 +62,18 @@ namespace Vistas
 
             Button mesa = sender as Button;
 
-
-            if (mesa.Style == (Style)Application.Current.Resources["BotondeMesaRoja"])
+            if (mesa.Style == (Style)Application.Current.Resources["BotondeMesaVerde"])
             {
-                MessageBox.Show("Esta mesa esta Ocupada");
+                winPedidos pedido = new winPedidos();
+                pedido.Show();
+                this.Close();
             }
-            else if (mesa.Style == (Style)Application.Current.Resources["BotondeMesaEnEspera"])
+            else
             {
-                MessageBox.Show("Esta mesa esta en espera");
+                id = Convert.ToInt32(mesa.Content.ToString());
+                Dialogo.IsOpen = true;
             }
-            else {
-                MessageBox.Show("Esta mesa esta Desocupada");
-            }
+           
         }
         private void moveWindow(object sender, MouseButtonEventArgs e)
         {
@@ -211,7 +212,8 @@ namespace Vistas
                     if (contc < numMesas)
                     {
                         Button btn = new Button();
-                        btn.Content = "Mesa " + listaMesas[contc].Mesa_Id;
+                        
+                        btn.Content = listaMesas[contc].Mesa_Id.ToString();
                         if (listaMesas[contc].Mesa_Estado == "Libre")
                         {
                             /* case "Libre": return new SolidColorBrush(Colors.Green); 
@@ -291,6 +293,22 @@ namespace Vistas
                 }
                 contc++;
         }
+
+        private void btnActualizar_Click(object sender, RoutedEventArgs e)
+        {
+            Mesa mesa = new Mesa();
+            Dialogo.IsOpen = false;
+            mesa=TrabajarMesas.obtener_mesa(id);
+            mesa.Mesa_Estado = Convert.ToString(cmbEstadoMesas.SelectedValue);
+            TrabajarMesas.edit_mesa(mesa);
+        }
+
+        private void btnCancelar_Click(object sender, RoutedEventArgs e)
+        {
+            Dialogo.IsOpen = false;
+        }
+
+        
 
     }
 }
