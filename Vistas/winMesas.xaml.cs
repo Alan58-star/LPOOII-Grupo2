@@ -214,6 +214,7 @@ namespace Vistas
                         Button btn = new Button();
                         
                         btn.Content = listaMesas[contc].Mesa_Id.ToString();
+                        
                         if (listaMesas[contc].Mesa_Estado == "Libre")
                         {
                             /* case "Libre": return new SolidColorBrush(Colors.Green); 
@@ -229,6 +230,30 @@ namespace Vistas
                         }
                         else if (listaMesas[contc].Mesa_Estado=="En espera"){
                             btn.Style = (Style)Application.Current.Resources["BotondeMesaEnEspera"];
+                        }
+                        else if (listaMesas[contc].Mesa_Estado == "Ocupada")
+                        {
+                            btn.Style = (Style)Application.Current.Resources["BotondeMesaRoja"];
+                        }
+                        else if (listaMesas[contc].Mesa_Estado == "Pidiendo")
+                        {
+                            btn.Style = (Style)Application.Current.Resources["BotondeMesaPidiendo"];
+                        }
+                        else if (listaMesas[contc].Mesa_Estado == "Reservada")
+                        {
+                            btn.Style = (Style)Application.Current.Resources["BotondeMesaReservada"];
+                        }
+                        else if (listaMesas[contc].Mesa_Estado == "Servidos")
+                        {
+                            btn.Style = (Style)Application.Current.Resources["BotondeMesaServidos"];
+                        }
+                        else if (listaMesas[contc].Mesa_Estado == "Esperando Cuenta")
+                        {
+                            btn.Style = (Style)Application.Current.Resources["BotondeMesaEsperandoCuenta"];
+                        }
+                        else if (listaMesas[contc].Mesa_Estado == "Pagando")
+                        {
+                            btn.Style = (Style)Application.Current.Resources["BotondeMesaPagando"];
                         }
                         btn.Click += preguntarMesa;
                         grdMesas.Children.Add(btn);
@@ -301,6 +326,7 @@ namespace Vistas
             mesa=TrabajarMesas.obtener_mesa(id);
             mesa.Mesa_Estado = Convert.ToString(cmbEstadoMesas.SelectedValue);
             TrabajarMesas.edit_mesa(mesa);
+            
         }
 
         private void btnCancelar_Click(object sender, RoutedEventArgs e)
