@@ -18,6 +18,10 @@ namespace Vistas
     /// </summary>
     public partial class winAdminMenu : Window
     {
+
+        int idUsuarioLog = 0;
+        string nombreUsuarioLog = "";
+
         public winAdminMenu()
         {
             InitializeComponent();
@@ -25,6 +29,19 @@ namespace Vistas
             rb1.IsChecked = true;
             logoholdem.Visibility = System.Windows.Visibility.Visible;
         }
+
+        public winAdminMenu(string usuario, int idUsuario)
+        {
+            InitializeComponent();
+            ocultarGrid();
+            rb1.IsChecked = true;
+            logoholdem.Visibility = System.Windows.Visibility.Visible;
+
+            idUsuarioLog = idUsuario;
+            nombreUsuarioLog = usuario;
+            txbUsuario.Text = nombreUsuarioLog;
+        }
+
 
         private void btnArticulos_Click(object sender, RoutedEventArgs e)
         {

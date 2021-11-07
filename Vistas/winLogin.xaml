@@ -45,9 +45,9 @@
             <TextBox Grid.Row="4" Name="txtUserLogin" FontSize="16" Foreground="#EEEEEE" BorderBrush="#ffd46f" Height="35" Width="240" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="Black" GotFocus="UsrGotFocus" LostFocus="UsrLostFocus" />
             <PasswordBox Grid.Row="5" Name="pwdPassLogin" FontSize="16" Foreground="#EEEEEE" BorderBrush="#ffd46f" Height="35" Width="240" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="Black" GotFocus="PwdGotFocus" LostFocus="PwdLostFocus" />
             -->
-            
-            <Button Grid.Row="5" Content="Iniciar Sesión" Style="{StaticResource ButtonFormBlack}" Click="login" Margin="140,18,140,12" />
-            <Button Grid.Row="6" Content="Acerca de Nosotros" Style="{StaticResource ButtonFormBlack}"  Margin="140,18,140,12" Click="acercaDe" />
+
+            <Button Grid.Row="5" Content="Iniciar Sesión" Style="{StaticResource ButtonFormBlack}" Click="login" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <Button Grid.Row="6" Content="Acerca de Nosotros" Style="{StaticResource ButtonFormBlack}" Click="acercaDe" Width="158" HorizontalAlignment="Center" VerticalAlignment="Top" />
 
         </Grid>
     </Grid>

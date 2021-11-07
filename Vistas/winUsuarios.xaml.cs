@@ -150,6 +150,9 @@ namespace Vistas
                 txtUsuario.Text = "";
                 cboRol.SelectedItem = null;
 
+                winABMUsuarios winABMU = new winABMUsuarios();
+                winABMU.Show();
+                this.Close();
             }
         }
     }

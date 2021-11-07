@@ -142,15 +142,19 @@ namespace Vistas
 
             if (dt.Rows.Count == 0)
             {
-                MessageBox.Show("Usuario y/o contraseña incorrectos");
+                MessageBox.Show("Contraseña y/o Usuario inválidos", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
             else
             {
+                string nombreUsuario="";
+                int idUsuario=0;
+
                 if (dt.Rows[0][2].ToString() == "1")
                 {
-                    
                     MessageBox.Show("Sesión iniciada como Administrador", "Bienvenido/a " + dt.Rows[0][3].ToString(), MessageBoxButton.OK, MessageBoxImage.Information);
-                    winAdminMenu winAdminMenu = new winAdminMenu();
+                    nombreUsuario = dt.Rows[0][3].ToString();
+                    idUsuario = Convert.ToInt32(dt.Rows[0][4].ToString());
+                    winAdminMenu winAdminMenu = new winAdminMenu(nombreUsuario,idUsuario);
                     winAdminMenu.Show();
                     this.Close();
 
@@ -161,7 +165,9 @@ namespace Vistas
                     {
                         
                         MessageBox.Show("Sesión iniciada como Mozo", "Bienvenido/a " + dt.Rows[0][3].ToString(), MessageBoxButton.OK, MessageBoxImage.Information);
-                        winWaiterMenu winMozoVendedorMenu = new winWaiterMenu();
+                        nombreUsuario = dt.Rows[0][3].ToString();
+                        idUsuario = Convert.ToInt32(dt.Rows[0][4].ToString());
+                        winWaiterMenu winMozoVendedorMenu = new winWaiterMenu(nombreUsuario,idUsuario);
                         winMozoVendedorMenu.Show();
                         this.Close();
                     }
@@ -171,16 +177,34 @@ namespace Vistas
                         {
                             
                             MessageBox.Show("Sesión iniciada como Vendedor", "Bienvenido/a " + dt.Rows[0][3].ToString(), MessageBoxButton.OK, MessageBoxImage.Information);
-                            winWaiterMenu winMozoVendedorMenu = new winWaiterMenu();
+                            nombreUsuario = dt.Rows[0][3].ToString();
+                            idUsuario = Convert.ToInt32(dt.Rows[0][4].ToString());
+                            winWaiterMenu winMozoVendedorMenu = new winWaiterMenu(nombreUsuario,idUsuario);
                             winMozoVendedorMenu.Show();
                             this.Close();
                         }
                         else
                         {
-                            MessageBox.Show("Contraseña y/o Usuario inválidos", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                            if (dt.Rows[0][2].ToString() == "4")
+                            {
+                                MessageBox.Show("Sesión iniciada como Auditor", "Bienvenido/a " + dt.Rows[0][3].ToString(), MessageBoxButton.OK, MessageBoxImage.Information);
+                                nombreUsuario = dt.Rows[0][3].ToString();
+                                idUsuario = Convert.ToInt32(dt.Rows[0][4].ToString());
+                                winAuditorMenu winAuditorMenu = new winAuditorMenu(nombreUsuario, idUsuario);
+                                winAuditorMenu.Show();
+                                this.Close();
+                            }
                         }
                     }
                 }
+
+                Historial_Login log = new Historial_Login();
+                log.Log_Fecha_Hora = DateTime.Now;
+                log.Log_Descrip="Sin observaciones";
+                log.Usr_Id = idUsuario;
+
+                TrabajarHistorialLogin.add_log(log);
+
             }
 
         }

@@ -35,5 +35,32 @@ namespace ClasesBase
             get { return log_Descrip; }
             set { log_Descrip = value; }
         }
+
+        private Usuario usuario;
+        public Usuario Usuario
+        {
+            get { return usuario; }
+            set { usuario = value;}
+        }
+
+        public Historial_Login() { }
+
+        public Historial_Login(int logId, DateTime fechaHora, string descrip, int usuId)
+        {
+            log_Id = logId;
+            log_Fecha_Hora = fechaHora;
+            log_Descrip = descrip;
+            usr_Id = usuId;
+
+        }
+
+        public Historial_Login(int logId, DateTime fechaHora, string descrip, int usuId, Usuario usu)
+        {
+            log_Id = logId;
+            log_Fecha_Hora = fechaHora;
+            log_Descrip = descrip;
+            usr_Id = usuId;
+            usuario = usu;
+        }
     }
 }

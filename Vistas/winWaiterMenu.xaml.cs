@@ -17,6 +17,7 @@ namespace Vistas
     /// <summary>
     /// Interaction logic for winWaiterMenu.xaml
     /// </summary>
+   
     public partial class winWaiterMenu : Window
     {
         
@@ -40,12 +41,27 @@ namespace Vistas
             WinLogin.Show();
             this.Close();
         }*/
+
+        int idUsuarioLog = 0;
+        string nombreUsuarioLog = "";
         public winWaiterMenu()
         {
             InitializeComponent();
             ocultarGrid();
             rb1.IsChecked = true;
             logoholdem.Visibility = System.Windows.Visibility.Visible;
+        }
+
+        public winWaiterMenu(string usuario, int idUsuario)
+        {
+            InitializeComponent();
+            ocultarGrid();
+            rb1.IsChecked = true;
+            logoholdem.Visibility = System.Windows.Visibility.Visible;
+
+            idUsuarioLog = idUsuario;
+            nombreUsuarioLog = usuario;
+            txbUsuario.Text = nombreUsuarioLog;
         }
 
         private void btnArticulos_Click(object sender, RoutedEventArgs e)

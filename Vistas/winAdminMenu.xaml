@@ -31,7 +31,7 @@
                     <RadioButton Content="Gestion de Categoria" FontSize="12" Height="50" Foreground="White" Style="{StaticResource BotondeMenu}" Checked="informacionClick"  HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" Name="rb5" MouseEnter="rb5_MouseEnter" Click="openCatMenu"></RadioButton>
                     <RadioButton Content="Gestion de Unidad de Medidas" FontSize="12" Height="50" Foreground="White" Style="{StaticResource BotondeMenu}" Checked="informacionClick"  VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch" Name="rb6" MouseEnter="rb6_MouseEnter" Click="openUMMenu"></RadioButton>
                 </StackPanel>
-                <TextBlock Foreground="White" Grid.Row="1" Height="24" HorizontalAlignment="Center" Margin="0,0,0,24" Name="textBlock1" Text="Ignacio Torres (Admin)" VerticalAlignment="Bottom" />
+                <TextBlock Foreground="White" Grid.Row="1" Height="24" HorizontalAlignment="Center" Margin="0,0,0,24" Name="txbUsuario" VerticalAlignment="Bottom" />
                 <Button Name="btnLogout" Content="Cerrar Sesión" Height="22" FontFamily="FreeSans" FontSize="13" Width="88" Background="#E1EF5050" BorderBrush="#001D0000" Foreground="White" ClipToBounds="True" Margin="7" Grid.Row="1" VerticalAlignment="Bottom" Click="btnLogout_Click_1" />
                 <Image Name="image1" Stretch="Fill" Source="/Vistas;component/Images/icono-usuario.png" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,54" Height="46" Width="50" />
             </Grid>

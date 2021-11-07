@@ -100,8 +100,6 @@ namespace Vistas
             {
                 this.Close();
 
-                winAdminMenu AdminMenu = new winAdminMenu();
-                AdminMenu.Show();
             }
             catch (Exception ex)
             {

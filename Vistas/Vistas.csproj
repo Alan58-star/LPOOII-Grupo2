@@ -99,6 +99,9 @@
     <Compile Include="winArticulos.xaml.cs">
       <DependentUpon>winArticulos.xaml</DependentUpon>
     </Compile>
+    <Compile Include="winAuditorMenu.xaml.cs">
+      <DependentUpon>winAuditorMenu.xaml</DependentUpon>
+    </Compile>
     <Compile Include="winBusquedaArt.xaml.cs">
       <DependentUpon>winBusquedaArt.xaml</DependentUpon>
     </Compile>
@@ -114,11 +117,17 @@
     <Compile Include="winFamilias.xaml.cs">
       <DependentUpon>winFamilias.xaml</DependentUpon>
     </Compile>
+    <Compile Include="winHistorialLogin.xaml.cs">
+      <DependentUpon>winHistorialLogin.xaml</DependentUpon>
+    </Compile>
     <Compile Include="winLogin.xaml.cs">
       <DependentUpon>winLogin.xaml</DependentUpon>
     </Compile>
     <Compile Include="winMesas.xaml.cs">
       <DependentUpon>winMesas.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="winModificacionHistorialLogin.xaml.cs">
+      <DependentUpon>winModificacionHistorialLogin.xaml</DependentUpon>
     </Compile>
     <Compile Include="winPedidos.xaml.cs">
       <DependentUpon>winPedidos.xaml</DependentUpon>
@@ -217,6 +226,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="winAuditorMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="winBusquedaArt.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -237,11 +250,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="winHistorialLogin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="winLogin.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="winMesas.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="winModificacionHistorialLogin.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

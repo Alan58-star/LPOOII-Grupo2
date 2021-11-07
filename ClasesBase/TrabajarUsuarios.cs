@@ -170,7 +170,7 @@ namespace ClasesBase
         public static DataTable login(string usuario, string password)
         {
             SqlConnection cnn = new SqlConnection(ClasesBase.Properties.Settings.Default.pasteleriaConnectionString);
-            string query = "SELECT usu_usuario, usu_password, rol_id, usu_apnombre FROM Usuario WHERE usu_usuario = '" + usuario + "' AND usu_password = '" + password + "'";
+            string query = "SELECT usu_usuario, usu_password, rol_id, usu_apnombre, usu_id FROM Usuario WHERE usu_usuario = '" + usuario + "' AND usu_password = '" + password + "'";
             SqlDataAdapter da = new SqlDataAdapter(query, cnn);
             DataTable dt = new DataTable();
             da.Fill(dt);

@@ -61,6 +61,7 @@
     <Compile Include="TrabajarArticulos.cs" />
     <Compile Include="TrabajarCategorias.cs" />
     <Compile Include="TrabajarClientes.cs" />
+    <Compile Include="TrabajarHistorialLogin.cs" />
     <Compile Include="TrabajarItemPedido.cs" />
     <Compile Include="TrabajarMesas.cs" />
     <Compile Include="TrabajarPedido.cs" />
