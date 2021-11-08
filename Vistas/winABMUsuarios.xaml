@@ -10,7 +10,10 @@
         ObjectType="{x:Type svc:TrabajarUsuarios}"
         MethodName="TraerUsuariosColeccion">
         </ObjectDataProvider>
-
+        <Style TargetType="ToolTip">
+            <Setter Property="Background" Value="Black"></Setter>
+            <Setter Property="Foreground" Value="White"></Setter>
+        </Style>
         <!--
         <CollectionViewSource
             x:Key="VISTA_USUARIO"
@@ -25,8 +28,8 @@
     <Grid>
         <Border BorderBrush="Black" BorderThickness="1" CornerRadius="10">
             <DockPanel Height="40" Name="dockPanel1" Width="auto" HorizontalAlignment="Stretch" VerticalAlignment="Top" FlowDirection="RightToLeft">
-                <Ellipse Height="15" HorizontalAlignment="Right" Name="btnClose" Fill="#FFFF4B6A" Width="15" Margin="10,0,5,0" MouseLeftButtonDown="closeWindow"/>
-                <Ellipse Height="15" HorizontalAlignment="Left" Name="btnMaximize" Fill="#EEEEEE" Width="15" Margin="5,0,5,0" MouseLeftButtonDown="minimizeWindow"/>
+                <Ellipse Height="15" ToolTip="Cerrar ventana" HorizontalAlignment="Right" Name="btnClose" Fill="#FFFF4B6A" Width="15" Margin="10,0,5,0" MouseLeftButtonDown="closeWindow"/>
+                <Ellipse Height="15" ToolTip="Maximizar ventana" HorizontalAlignment="Left" Name="btnMaximize" Fill="#EEEEEE" Width="15" Margin="5,0,5,0" MouseLeftButtonDown="minimizeWindow"/>
                 <Label Name="lblWinTitle" Content="Usuarios" Padding="20,0" HorizontalAlignment="Right" FontFamily="FreeSans" FontSize="12" VerticalContentAlignment="Center" Foreground="#EEEEEE"/>
             </DockPanel>
             <Border.Background>
@@ -59,7 +62,7 @@
                     <Label Content="🔍" Style="{StaticResource StyleLabelForm}" FontFamily="Segoe UI Emoji" HorizontalAlignment="Left"/>
                 </DockPanel>
                 -->
-                <Button Grid.Column="1" x:Name="btnAddUsr" HorizontalAlignment="Right" Content="+ Nuevo Usuario" Margin="20,0" Height="30" Width="130" Click="btn_NuevoUsuario" Style="{StaticResource ButtonFormBlack}" ></Button>
+                <Button Grid.Column="1" x:Name="btnAddUsr" HorizontalAlignment="Right" ToolTip="Agregar un nuevo usuario" Content="+ Nuevo Usuario" Margin="20,0" Height="30" Width="130" Click="btn_NuevoUsuario" Style="{StaticResource ButtonFormBlack}" ></Button>
             </Grid>
 
             <Grid Name="grdMainUsuarios" Grid.Row="1" Grid.ColumnSpan="2">
@@ -70,8 +73,8 @@
                     <ColumnDefinition Width="10*"/>
                 </Grid.ColumnDefinitions>
 
-                <Button Grid.Column="0" x:Name="btn_prev" FontSize="28" Content="&lt;" Margin="7,0" Height="5000" Width="300" Click="btn_prev_Click" Style="{StaticResource ButtonFormBlack}" BorderBrush="Transparent"/>
-                <Button Grid.Column="2" x:Name="btn_next" FontSize="28" Content=">" Margin="7,0" Height="5000" Width="300" Click="btn_next_Click" Style="{StaticResource ButtonFormBlack}" BorderBrush="Transparent"/>
+                <Button Grid.Column="0" x:Name="btn_prev" FontSize="28" ToolTip="Ir al anterior usuario" Content="&lt;" Margin="7,0" Height="5000" Width="300" Click="btn_prev_Click" Style="{StaticResource ButtonFormBlack}" BorderBrush="Transparent"/>
+                <Button Grid.Column="2" x:Name="btn_next" FontSize="28" ToolTip="Ir al siguiente usuario" Content=">" Margin="7,0" Height="5000" Width="300" Click="btn_next_Click" Style="{StaticResource ButtonFormBlack}" BorderBrush="Transparent"/>
                     
                 
                 <StackPanel x:Name="stpUsuarios" Grid.Column="1" Margin="20">
@@ -126,8 +129,8 @@
             </Grid>
 
             <DockPanel Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1">
-                <Button x:Name="btnModifUsr" Content="Actualizar Usuario" Margin="7" Height="40" Width="150" Click="btn_ModifUsuario" Style="{StaticResource ButtonFormBlack}"></Button>
-                <Button x:Name="btnDeleteusr" Content="Eliminar Usuario" Margin="7" Height="40" Width="150" Click="btn_ElimUsuario" Style="{StaticResource ButtonFormBlack}" Background="#880000" Foreground="#EEEEEE"></Button>
+                <Button x:Name="btnModifUsr" ToolTip="Actualizar el usuario seleccionado" Content="Actualizar Usuario" Margin="7" Height="40" Width="150" Click="btn_ModifUsuario" Style="{StaticResource ButtonFormBlack}"></Button>
+                <Button x:Name="btnDeleteusr" ToolTip="Eliminar el usuario seleccionado" Content="Eliminar Usuario" Margin="7" Height="40" Width="150" Click="btn_ElimUsuario" Style="{StaticResource ButtonFormBlack}" Background="#880000" Foreground="#EEEEEE"></Button>
             </DockPanel>
             
         </Grid>

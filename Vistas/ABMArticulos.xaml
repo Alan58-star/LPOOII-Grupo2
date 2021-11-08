@@ -9,14 +9,18 @@
         ObjectType="{x:Type svc:TrabajarArticulos}"
         MethodName="TraerArticulosColeccion">            
     </ObjectDataProvider>
+    <Style TargetType="ToolTip">
+        <Setter Property="Background" Value="Black"></Setter>
+        <Setter Property="Foreground" Value="White"></Setter>
+    </Style>  
     </Window.Resources>
 
     <Grid>
 
         <Border BorderBrush="Black" BorderThickness="1" CornerRadius="10">
             <DockPanel Height="40" Name="dockPanel1" Width="auto" HorizontalAlignment="Stretch" VerticalAlignment="Top" FlowDirection="RightToLeft">
-                <Ellipse Height="15" HorizontalAlignment="Right" Name="btnClose" Fill="#FFFF4B6A" Width="15" Margin="10,0,5,0" MouseLeftButtonDown="closeWindow"/>
-                <Ellipse Height="15" HorizontalAlignment="Left" Name="btnMaximize" Fill="#EEEEEE" Width="15" Margin="5,0,5,0" MouseLeftButtonDown="minimizeWindow"/>
+                <Ellipse Height="15" ToolTip="Cerrar ventana" HorizontalAlignment="Right" Name="btnClose" Fill="#FFFF4B6A" Width="15" Margin="10,0,5,0" MouseLeftButtonDown="closeWindow"/>
+                <Ellipse Height="15" ToolTip="Maximizar ventana" HorizontalAlignment="Left" Name="btnMaximize" Fill="#EEEEEE" Width="15" Margin="5,0,5,0" MouseLeftButtonDown="minimizeWindow"/>
                 <Label Name="lblWinTitle" Content="ABM de Artículos" Padding="20,0" HorizontalAlignment="Right" FontFamily="FreeSans" FontSize="12" VerticalContentAlignment="Center" Foreground="#EEEEEE"/>
             </DockPanel>
             <Border.Background>
@@ -42,16 +46,16 @@
                 </Grid.ColumnDefinitions>
 
                 <StackPanel Grid.Column="0" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="center">
-                    <Button x:Name="btnNuevoArt" Content="Nuevo" Margin="3,0" Height="30" Width="70" Click="btn_Agregar"></Button>
-                    <Button x:Name="btnModifArt" Content="Modificar" Margin="3,0" Height="30" Width="70" Click="btnModifArt_Click"></Button>
-                    <Button x:Name="btnDeleteArt" Content="Eliminar" Margin="3,0" Height="30" Width="70" Click="btnDeleteArt_Click"></Button>
-                    <Button x:Name="btnShowList" Content="Ver Lista" Margin="3,0" Height="30" Width="70" Click="btnShowList_Click"></Button>
+                    <Button x:Name="btnNuevoArt" ToolTip="Agregar un nuevo articulo" Content="Nuevo" Margin="3,0" Height="30" Width="70" Click="btn_Agregar"></Button>
+                    <Button x:Name="btnModifArt" ToolTip="Modificar el actual artículo" Content="Modificar" Margin="3,0" Height="30" Width="70" Click="btnModifArt_Click"></Button>
+                    <Button x:Name="btnDeleteArt" ToolTip="Eliminar el actual artículo" Content="Eliminar" Margin="3,0" Height="30" Width="70" Click="btnDeleteArt_Click"></Button>
+                    <Button x:Name="btnShowList" ToolTip="Ver un listado de todos los artículos" Content="Ver Lista" Margin="3,0" Height="30" Width="70" Click="btnShowList_Click"></Button>
                 </StackPanel>
                 <StackPanel Grid.Column="1" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="center">
-                    <Button x:Name="btn_first" Content="|&lt;" Margin="7,0" Height="30" Width="30" Click="btn_first_Click"></Button>
-                    <Button x:Name="btn_prev" Content="&lt;" Margin="7,0" Height="30" Width="30" Click="btn_prev_Click"></Button>
-                    <Button x:Name="btn_next" Content=">" Margin="7,0" Height="30" Width="30" Click="btn_next_Click"></Button>
-                    <Button x:Name="btn_last" Content=">|" Margin="7,0" Height="30" Width="30" Click="btn_last_Click"></Button>
+                    <Button x:Name="btn_first" ToolTip="Ir al primero" Content="|&lt;" Margin="7,0" Height="30" Width="30" Click="btn_first_Click"></Button>
+                    <Button x:Name="btn_prev" ToolTip="Retroceder una posición" Content="&lt;" Margin="7,0" Height="30" Width="30" Click="btn_prev_Click"></Button>
+                    <Button x:Name="btn_next" ToolTip="Avanzar una posición" Content=">" Margin="7,0" Height="30" Width="30" Click="btn_next_Click"></Button>
+                    <Button x:Name="btn_last" ToolTip="Ir al último" Content=">|" Margin="7,0" Height="30" Width="30" Click="btn_last_Click"></Button>
                 </StackPanel>
             </Grid>
 

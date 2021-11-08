@@ -3,12 +3,18 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"        
         xmlns:UC="clr-namespace:Vistas.Controls"
     Title="Bienvenido" Style="{StaticResource BasicWindowStyle}" WindowStyle="None" AllowsTransparency="True" Background="#00000000" Height="580" Width="424" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" MouseLeftButtonDown="moveWindow">
-    <Grid>
+    <Window.Resources>
+        <Style TargetType="ToolTip">
+            <Setter Property="Background" Value="Black"></Setter>
+            <Setter Property="Foreground" Value="White"></Setter>
+        </Style>
+    </Window.Resources>
+        <Grid>
         <Border BorderBrush="Black" BorderThickness="1" CornerRadius="10">
             <!-- Controles de Ventana -->
             <DockPanel Height="40" Name="dockPanel1" Width="auto" HorizontalAlignment="Stretch" VerticalAlignment="Top" FlowDirection="RightToLeft">
-                <Ellipse Height="15" HorizontalAlignment="Right" Name="btnClose" Fill="#FFFF4B6A" Width="15" Margin="10,0,5,0" MouseLeftButtonDown="closeWindow"/>
-                <Ellipse Height="15" HorizontalAlignment="Left" Name="btnMaximize" Fill="#EEEEEE" Width="15" Margin="5,0,5,0" MouseLeftButtonDown="minimizeWindow"/>
+                <Ellipse Height="15" ToolTip="Cerrar ventana" HorizontalAlignment="Right" Name="btnClose" Fill="#FFFF4B6A" Width="15" Margin="10,0,5,0" MouseLeftButtonDown="closeWindow"/>
+                <Ellipse Height="15" ToolTip="Minimizar ventana" HorizontalAlignment="Left" Name="btnMaximize" Fill="#EEEEEE" Width="15" Margin="5,0,5,0" MouseLeftButtonDown="minimizeWindow"/>
                 <Label Name="lblWinTitle" Content="HOLDEM - Sistema de Administración" Padding="20,0" HorizontalAlignment="Right" FontSize="12" VerticalContentAlignment="Center" Foreground="#EEEEEE"/>
             </DockPanel>
             <Border.Background>
@@ -46,8 +52,8 @@
             <PasswordBox Grid.Row="5" Name="pwdPassLogin" FontSize="16" Foreground="#EEEEEE" BorderBrush="#ffd46f" Height="35" Width="240" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="Black" GotFocus="PwdGotFocus" LostFocus="PwdLostFocus" />
             -->
 
-            <Button Grid.Row="5" Content="Iniciar Sesión" Style="{StaticResource ButtonFormBlack}" Click="login" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-            <Button Grid.Row="6" Content="Acerca de Nosotros" Style="{StaticResource ButtonFormBlack}" Click="acercaDe" Width="158" HorizontalAlignment="Center" VerticalAlignment="Top" />
+            <Button Grid.Row="5" ToolTip="Inicie sesión con las credenciales especificadas." Content="Iniciar Sesión" Style="{StaticResource ButtonFormBlack}" Click="login" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <Button Grid.Row="6" ToolTip="Conozca más acerca de nuestros servicios." Content="Acerca de Nosotros" Style="{StaticResource ButtonFormBlack}" Click="acercaDe" Width="158" HorizontalAlignment="Center" VerticalAlignment="Top" />
 
         </Grid>
     </Grid>

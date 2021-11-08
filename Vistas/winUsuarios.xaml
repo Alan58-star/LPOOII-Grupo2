@@ -9,12 +9,16 @@
             ObjectType="{x:Type svc:TrabajarUsuarios}"
             MethodName="TraerUsuario">
         </ObjectDataProvider>
+        <Style TargetType="ToolTip">
+            <Setter Property="Background" Value="Black"></Setter>
+            <Setter Property="Foreground" Value="White"></Setter>
+        </Style>
     </Window.Resources>    
     <Grid>
         <Border BorderBrush="Black" BorderThickness="1" CornerRadius="10">
             <DockPanel Height="40" Name="dockPanel1" Width="auto" HorizontalAlignment="Stretch" VerticalAlignment="Top" FlowDirection="RightToLeft">
-                <Ellipse Height="15" HorizontalAlignment="Right" Name="btnClose" Fill="#FFFF4B6A" Width="15" Margin="10,0,5,0" MouseLeftButtonDown="closeWindow"/>
-                <Ellipse Height="15" HorizontalAlignment="Left" Name="btnMaximize" Fill="#EEEEEE" Width="15" Margin="5,0,5,0" MouseLeftButtonDown="minimizeWindow"/>
+                <Ellipse Height="15" ToolTip="Cerrar ventana" HorizontalAlignment="Right" Name="btnClose" Fill="#FFFF4B6A" Width="15" Margin="10,0,5,0" MouseLeftButtonDown="closeWindow"/>
+                <Ellipse Height="15" ToolTip="Maximizar ventana" HorizontalAlignment="Left" Name="btnMaximize" Fill="#EEEEEE" Width="15" Margin="5,0,5,0" MouseLeftButtonDown="minimizeWindow"/>
                 <Label Name="lblWinTitle" Content="Alta de Nuevo Usuario" Padding="20,0" HorizontalAlignment="Right" FontFamily="FreeSans" FontSize="12" VerticalContentAlignment="Center" Foreground="#EEEEEE"/>
             </DockPanel>
             <Border.Background>
@@ -94,8 +98,8 @@
 
             </Grid>
             
-            <Button Grid.Row="1" Content="GUARDAR" Foreground="#eeeeee" FontSize="18" FontWeight="Bold" Name="btnGuardar" Click="btnGuardar_Click" Style="{StaticResource ResourceKey=tmplClientes}"/>
-            <Button Grid.Row="1" Content="ACTUALIZAR" Foreground="#eeeeee" FontSize="18" FontWeight="Bold" Name="btnEditar" Click="btnEditar_Click" Style="{StaticResource ResourceKey=tmplClientes}"/>
+            <Button Grid.Row="1" ToolTip="Guardar un nuevo usuario" Content="GUARDAR" Foreground="#eeeeee" FontSize="18" FontWeight="Bold" Name="btnGuardar" Click="btnGuardar_Click" Style="{StaticResource ResourceKey=tmplClientes}"/>
+            <Button Grid.Row="1" ToolTip="Actualizar los datos del usuario" Content="ACTUALIZAR" Foreground="#eeeeee" FontSize="18" FontWeight="Bold" Name="btnEditar" Click="btnEditar_Click" Style="{StaticResource ResourceKey=tmplClientes}"/>
 
         </Grid>
     </Grid>

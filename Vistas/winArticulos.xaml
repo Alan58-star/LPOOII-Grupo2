@@ -10,12 +10,16 @@
             MethodName="TraerArticulo">
         </ObjectDataProvider>
         <ObjectDataProvider ObjectType="{x:Type svc:TrabajarArticulos}" MethodName="traerArticulos" x:Key="list_articulos"/>
+        <Style TargetType="ToolTip">
+            <Setter Property="Background" Value="Black"></Setter>
+            <Setter Property="Foreground" Value="White"></Setter>
+        </Style>
     </Window.Resources>
     <Grid>
         <Border BorderBrush="Black" BorderThickness="1" CornerRadius="10">
             <DockPanel Height="40" Name="dockPanel1" Width="auto" HorizontalAlignment="Stretch" VerticalAlignment="Top" FlowDirection="RightToLeft">
-                <Ellipse Height="15" HorizontalAlignment="Right" Name="btnClose" Fill="#FFFF4B6A" Width="15" Margin="10,0,5,0" MouseLeftButtonDown="closeWindow"/>
-                <Ellipse Height="15" HorizontalAlignment="Left" Name="btnMaximize" Fill="#EEEEEE" Width="15" Margin="5,0,5,0" MouseLeftButtonDown="minimizeWindow"/>
+                <Ellipse Height="15" HorizontalAlignment="Right" ToolTip="Cerrar ventana" Name="btnClose" Fill="#FFFF4B6A" Width="15" Margin="10,0,5,0" MouseLeftButtonDown="closeWindow"/>
+                <Ellipse Height="15" HorizontalAlignment="Left" ToolTip="Maximizar ventana" Name="btnMaximize" Fill="#EEEEEE" Width="15" Margin="5,0,5,0" MouseLeftButtonDown="minimizeWindow"/>
                 <Label Name="lblWinTitle" Content="Alta de Nuevo Artículo" Padding="20,0" HorizontalAlignment="Right" FontFamily="FreeSans" FontSize="12" VerticalContentAlignment="Center" Foreground="#EEEEEE"/>
             </DockPanel>
             <Border.Background>
@@ -97,7 +101,7 @@
                                 <RowDefinition Height="12*" />
                             </Grid.RowDefinitions>
                             <Image Grid.Row="0" Name="imgArticulo"/>
-                            <Button Name="btnImagen" Grid.Row="1"  Content="SELECCIONAR IMAGEN" Style="{StaticResource ButtonFormBlack}" Width="160" HorizontalAlignment="Center" Click="btnImagen_Click"></Button>
+                            <Button Name="btnImagen" Grid.Row="1" ToolTip="Seleccione un archivo de imagen para su artículo" Content="SELECCIONAR IMAGEN" Style="{StaticResource ButtonFormBlack}" Width="160" HorizontalAlignment="Center" Click="btnImagen_Click"></Button>
 
                         </Grid>
         
@@ -114,8 +118,8 @@
                 
                 <!-- grid botones-->
                 <Grid Margin="5" Grid.Row="2">
-                    <Button Name="btneditart" Grid.Column="0" Click="btnEditar_Click" Content="EDITAR ARTÍCULO" Style="{StaticResource ButtonFormBlack}" Width="160" HorizontalAlignment="Center"></Button>
-                    <Button Name="btnagregarart" Grid.Column="0" Click="btnGuardar_Click" Content="AÑADIR ARTÍCULO" Style="{StaticResource ButtonFormBlack}" Width="160" HorizontalAlignment="Center"></Button>
+                    <Button Name="btneditart" Grid.Column="0" Click="btnEditar_Click" ToolTip="Editar artículo con los datos ingresados" Content="EDITAR ARTÍCULO" Style="{StaticResource ButtonFormBlack}" Width="160" HorizontalAlignment="Center"></Button>
+                    <Button Name="btnagregarart" Grid.Column="0" Click="btnGuardar_Click" ToolTip="Agregar artículo con los datos ingresados" Content="AÑADIR ARTÍCULO" Style="{StaticResource ButtonFormBlack}" Width="160" HorizontalAlignment="Center"></Button>
                 </Grid>
             </Grid>            
         </Grid>

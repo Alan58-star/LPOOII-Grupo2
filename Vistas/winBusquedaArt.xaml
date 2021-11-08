@@ -5,6 +5,10 @@
         xmlns:componentModel="clr-namespace:System.ComponentModel;assembly=WindowsBase"
         Title="winBusquedaArt" Height="600" Width="700" Style="{StaticResource MainWindowStyle}" WindowStartupLocation="CenterScreen">
     <Window.Resources>
+        <Style TargetType="ToolTip">
+            <Setter Property="Background" Value="Black"></Setter>
+            <Setter Property="Foreground" Value="White"></Setter>
+        </Style>
         <ObjectDataProvider
             x:Key="LIST_ARTICULO"
             ObjectType="{x:Type svc:TrabajarArticulos}"
@@ -26,8 +30,8 @@
     <Grid>
         <Border BorderBrush="Black" BorderThickness="1" CornerRadius="10">
             <DockPanel Height="40" Name="dockPanel1" Width="auto" HorizontalAlignment="Stretch" VerticalAlignment="Top" FlowDirection="RightToLeft">
-                <Ellipse Height="15" HorizontalAlignment="Right" Name="btnClose" Fill="#FFFF4B6A" Width="15" Margin="10,0,5,0" MouseLeftButtonDown="closeWindow"/>
-                <Ellipse Height="15" HorizontalAlignment="Left" Name="btnMaximize" Fill="#EEEEEE" Width="15" Margin="5,0,5,0" MouseLeftButtonDown="minimizeWindow"/>
+                <Ellipse Height="15" HorizontalAlignment="Right" ToolTip="Cerrar ventana" Name="btnClose" Fill="#FFFF4B6A" Width="15" Margin="10,0,5,0" MouseLeftButtonDown="closeWindow"/>
+                <Ellipse Height="15" HorizontalAlignment="Left" ToolTip="Maximizar ventana" Name="btnMaximize" Fill="#EEEEEE" Width="15" Margin="5,0,5,0" MouseLeftButtonDown="minimizeWindow"/>
                 <Label Name="lblWinTitle" Content="Listado de Artículos" Padding="20,0" HorizontalAlignment="Right" FontFamily="FreeSans" FontSize="12" VerticalContentAlignment="Center" Foreground="#EEEEEE"/>
             </DockPanel>
             <Border.Background>
@@ -73,7 +77,7 @@
                     </BlockUIContainer>
                 </FlowDocument>
             </FlowDocumentReader>
-            <Button Name="btnPrint" Content="Imprimir Lista" Style="{StaticResource ButtonFormBlack}" Click="btnPrint_Click" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="2"></Button>
+            <Button Name="btnPrint" ToolTip="Imprimir el listado de artículos actuales" Content="Imprimir Lista" Style="{StaticResource ButtonFormBlack}" Click="btnPrint_Click" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="2"></Button>
         </Grid>
     </Grid>
 </Window>

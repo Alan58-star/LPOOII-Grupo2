@@ -18,14 +18,18 @@
         >
         </CollectionViewSource>
         
+        <Style TargetType="ToolTip">
+            <Setter Property="Background" Value="Black"></Setter>
+            <Setter Property="Foreground" Value="White"></Setter>
+        </Style>
         
     </Window.Resources>
 
     <Grid>
         <Border BorderBrush="Black" BorderThickness="1" CornerRadius="10">
             <DockPanel Height="40" Name="dockPanel1" Width="auto" HorizontalAlignment="Stretch" VerticalAlignment="Top" FlowDirection="RightToLeft">
-                <Ellipse Height="15" HorizontalAlignment="Right" Name="btnClose" Fill="#FFFF4B6A" Width="15" Margin="10,0,5,0" MouseLeftButtonDown="closeWindow"/>
-                <Ellipse Height="15" HorizontalAlignment="Left" Name="btnMaximize" Fill="#EEEEEE" Width="15" Margin="5,0,5,0" MouseLeftButtonDown="minimizeWindow"/>
+                <Ellipse Height="15" HorizontalAlignment="Right" ToolTip="Cerrar ventana" Name="btnClose" Fill="#FFFF4B6A" Width="15" Margin="10,0,5,0" MouseLeftButtonDown="closeWindow"/>
+                <Ellipse Height="15" HorizontalAlignment="Left" ToolTip="Maximizar ventana" Name="btnMaximize" Fill="#EEEEEE" Width="15" Margin="5,0,5,0" MouseLeftButtonDown="minimizeWindow"/>
                 <Label Name="lblWinTitle" Content="Alta de Nuevo Pedido" Padding="20,0" HorizontalAlignment="Right" FontFamily="FreeSans" FontSize="12" VerticalContentAlignment="Center" Foreground="#EEEEEE"/>
             </DockPanel>
             <Border.Background>
@@ -65,7 +69,7 @@
             </ListView>
             
             <StackPanel Margin="20" Orientation="Horizontal" HorizontalAlignment="Center">
-                <Button Name="btnAdd" Content="+" Width="40" Click="btnAdd_Click" Style="{StaticResource ButtonFormBlack}" ></Button>
+                <Button Name="btnAdd" ToolTip="Agregar el artículo al pedido" Content="+" Width="40" Click="btnAdd_Click" Style="{StaticResource ButtonFormBlack}" ></Button>
             </StackPanel>
             <Popup Name="Dialogo" StaysOpen="True" Placement="Center" MaxWidth="800" MaxHeight="1000">
                 <Grid>
@@ -103,7 +107,7 @@
                 </ListView.View>
             </ListView>
             
-            <Button Name="btnFinish" Content="Finalizar" Margin="30" Style="{StaticResource ButtonFormBlack}" Click="btnFinish_Click"></Button>
+            <Button Name="btnFinish" ToolTip="Finalizar el pedido" Content="Finalizar" Margin="30" Style="{StaticResource ButtonFormBlack}" Click="btnFinish_Click"></Button>
             
         </StackPanel>
         

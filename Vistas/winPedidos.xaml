@@ -18,13 +18,18 @@
 
         ></CollectionViewSource>
 
+        <Style TargetType="ToolTip">
+            <Setter Property="Background" Value="Black"></Setter>
+            <Setter Property="Foreground" Value="White"></Setter>
+        </Style>
+        
     </Window.Resources>
 
     <Grid>
         <Border BorderBrush="Black" BorderThickness="1" CornerRadius="10">
             <DockPanel Height="40" Name="dockPanel1" Width="auto" HorizontalAlignment="Stretch" VerticalAlignment="Top" FlowDirection="RightToLeft">
-                <Ellipse Height="15" HorizontalAlignment="Right" Name="btnClose" Fill="#FFFF4B6A" Width="15" Margin="10,0,5,0" MouseLeftButtonDown="closeWindow"/>
-                <Ellipse Height="15" HorizontalAlignment="Left" Name="btnMaximize" Fill="#EEEEEE" Width="15" Margin="5,0,5,0" MouseLeftButtonDown="minimizeWindow"/>
+                <Ellipse Height="15" HorizontalAlignment="Right" ToolTip="Cerrar ventana" Name="btnClose" Fill="#FFFF4B6A" Width="15" Margin="10,0,5,0" MouseLeftButtonDown="closeWindow"/>
+                <Ellipse Height="15" HorizontalAlignment="Left" ToolTip="Maximizar ventana" Name="btnMaximize" Fill="#EEEEEE" Width="15" Margin="5,0,5,0" MouseLeftButtonDown="minimizeWindow"/>
                 <Label Name="lblWinTitle" Content="Alta de Nuevo Pedido" Padding="20,0" HorizontalAlignment="Right" FontFamily="FreeSans" FontSize="12" VerticalContentAlignment="Center" Foreground="#EEEEEE"/>
             </DockPanel>
             <Border.Background>
@@ -101,7 +106,7 @@
 
                     <!-- grid botones-->
                     <Grid Margin="5" Grid.Row="2">
-                        <Button Name="btnagregarPed" Grid.Column="0" Content="AÑADIR ARTÍCULO" Style="{StaticResource ButtonFormBlack}" Width="160" HorizontalAlignment="Center" Click="btnagregarPed_Click"></Button>
+                        <Button Name="btnagregarPed" ToolTip="Agregar un nuevo artículo al pedido" Grid.Column="0" Content="AÑADIR ARTÍCULO" Style="{StaticResource ButtonFormBlack}" Width="160" HorizontalAlignment="Center" Click="btnagregarPed_Click"></Button>
                     </Grid>
                 </Grid>
 
@@ -117,8 +122,8 @@
                         </GridView>
                     </ListView.View>
                 </ListView>
-                <Button IsEnabled="false" Content="Ver Ítems" Style="{StaticResource ButtonFormBlack}" Grid.Column="1" Height="45" HorizontalAlignment="Left" Margin="106,439,0,0" Name="btnAddItem" VerticalAlignment="Top" Click="btnAddItems_Click" Width="123" />
-                <Button IsEnabled="false" Content="Imprimir Pedido" Style="{StaticResource ButtonFormBlack}" Width="116"  Grid.Column="1" Height="40" HorizontalAlignment="Left" Margin="393,442,0,0" Name="btnverPedido" VerticalAlignment="Top" Click="verPedido_Click" />
+                <Button IsEnabled="false" ToolTip="Ver items del pedido" Content="Ver Ítems" Style="{StaticResource ButtonFormBlack}" Grid.Column="1" Height="45" HorizontalAlignment="Left" Margin="106,439,0,0" Name="btnAddItem" VerticalAlignment="Top" Click="btnAddItems_Click" Width="123" />
+                <Button IsEnabled="false" ToolTip="Imprimir el pedido seleccionado" Content="Imprimir Pedido" Style="{StaticResource ButtonFormBlack}" Width="116"  Grid.Column="1" Height="40" HorizontalAlignment="Left" Margin="393,442,0,0" Name="btnverPedido" VerticalAlignment="Top" Click="verPedido_Click" />
             </Grid>
 
         </Grid>

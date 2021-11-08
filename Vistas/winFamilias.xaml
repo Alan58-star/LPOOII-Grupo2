@@ -9,12 +9,16 @@
             ObjectType="{x:Type svc:TrabajarFamilias}"
             MethodName="TraerFamilia">
         </ObjectDataProvider>
+        <Style TargetType="ToolTip">
+            <Setter Property="Background" Value="Black"></Setter>
+            <Setter Property="Foreground" Value="White"></Setter>
+        </Style>
     </Window.Resources>
     <Grid>
         <Border Style="{StaticResource MainGridStyle}">
             <DockPanel Height="40" Name="dockPanel1" Width="auto" HorizontalAlignment="Stretch" VerticalAlignment="Top" FlowDirection="RightToLeft">
-                <Ellipse Height="15" HorizontalAlignment="Right" Name="btnClose" Fill="#FFFF4B6A" Width="15" Margin="10,0,5,0" MouseLeftButtonDown="closeWindow"/>
-                <Ellipse Height="15" HorizontalAlignment="Left" Name="btnMaximize" Fill="#EEEEEE" Width="15" Margin="5,0,5,0" MouseLeftButtonDown="minimizeWindow"/>
+                <Ellipse Height="15" ToolTip="Cerrar ventana" HorizontalAlignment="Right" Name="btnClose" Fill="#FFFF4B6A" Width="15" Margin="10,0,5,0" MouseLeftButtonDown="closeWindow"/>
+                <Ellipse Height="15" ToolTip="Maximizar ventana" HorizontalAlignment="Left" Name="btnMaximize" Fill="#EEEEEE" Width="15" Margin="5,0,5,0" MouseLeftButtonDown="minimizeWindow"/>
                 <Label Name="lblFamTitle" Content="Alta de Nueva Familia" Padding="20,0" HorizontalAlignment="Right" FontFamily="FreeSans" FontSize="12" VerticalContentAlignment="Center" Foreground="#EEEEEE"/>
             </DockPanel>
         </Border>
@@ -49,7 +53,7 @@
             
 
             <DockPanel Grid.Row="1">
-                <Button Content="GUARDAR" Name="btnGuardar" Click="btnGuardar_Click" HorizontalAlignment="Center" Style="{StaticResource ButtonFormBlack}"></Button>
+                <Button Content="GUARDAR" ToolTip="Guardar la familia con la descripción ingresada" Name="btnGuardar" Click="btnGuardar_Click" HorizontalAlignment="Center" Style="{StaticResource ButtonFormBlack}"></Button>
             </DockPanel>
         </Grid>
         
