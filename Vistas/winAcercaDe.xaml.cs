@@ -64,6 +64,7 @@ namespace Vistas
         {
             try
             {
+                mediaElement1.Stop();
                 winLogin login = new winLogin();
                 login.Show();
                 this.Close();
