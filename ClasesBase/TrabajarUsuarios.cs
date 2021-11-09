@@ -37,7 +37,7 @@ namespace ClasesBase
             cnn.Close();
         }
 
-        //GUARDA USUARIO EN BD
+        //MODIFICA USUARIO EN BD
         public static void edit_usuario(Usuario usuario)
         {
 

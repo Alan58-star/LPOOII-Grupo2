@@ -83,9 +83,10 @@
                 
             </Grid>
 
-            <DockPanel Grid.Row="2" Grid.ColumnSpan="2">
-                <Button Content="GUARDAR" ToolTip="Guardar el nuevo cliente" Foreground="#eeeeee" FontSize="18" FontWeight="Bold" Name="btnGuardar" Click="btnGuardar_Click" Style="{StaticResource ResourceKey=tmplClientes}"/>
-            </DockPanel>
+            
+            <Button Grid.Row="2" Content="GUARDAR" ToolTip="Guardar el nuevo cliente" Foreground="#eeeeee" FontSize="18" FontWeight="Bold" Name="btnGuardar" Click="btnGuardar_Click" Style="{StaticResource ResourceKey=tmplClientes}"/>
+            <Button Grid.Row="2" ToolTip="Actualizar los datos del cliente" Content="ACTUALIZAR" Foreground="#eeeeee" FontSize="18" FontWeight="Bold" Name="btnEditar" Click="btnEditar_Click" Style="{StaticResource ResourceKey=tmplClientes}"/>
+         
 
         </Grid>
     </Grid>

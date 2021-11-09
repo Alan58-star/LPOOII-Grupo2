@@ -20,51 +20,41 @@ namespace Vistas
     /// </summary>
     public partial class winABMUsuarios : Window
     {
-       // private CollectionViewSource usuariosColeccionFiltrada;
+        private CollectionViewSource usuariosColeccionFiltrada;
 
         public winABMUsuarios()
         {
             InitializeComponent();
-           // usuariosColeccionFiltrada = Resources["VISTA_USUARIO"] as CollectionViewSource; 
+           usuariosColeccionFiltrada = Resources["VISTA_USUARIOS"] as CollectionViewSource; 
         }
 
-        CollectionView Users;
-        ObservableCollection<Usuario> listaUsuarios;
 
-        //private void txtSearchUser_TextChanged(object sender, TextChangedEventArgs e)
-        //{
-        //    if (usuariosColeccionFiltrada != null)
-        //    {
-        //        usuariosColeccionFiltrada.Filter += eventVistaUsuario_Filter;
-        //    }
-        //}
+        private void txtSearch_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (usuariosColeccionFiltrada != null)
+            {
+                usuariosColeccionFiltrada.Filter += eventVistaUsuarios_Filter;
+            }
+        }
 
-        //private void eventVistaUsuario_Filter(object sender, FilterEventArgs e)
-        //{
-        //    Usuario usr = new Usuario();
+        private void eventVistaUsuarios_Filter(object sender, FilterEventArgs e)
+        {
+            Usuario usr = e.Item as Usuario;
 
-        //    if (usr.Usr_NombreUsuario.StartsWith(txtSearchUser.Text, StringComparison.CurrentCultureIgnoreCase))
-        //    {
-        //        e.Accepted = true;
-        //    }
-        //    else
-        //    {
-        //        e.Accepted = false;
-        //    }
-        //}
+            if (usr.Usr_NombreUsuario.StartsWith(txtSearch.Text, StringComparison.CurrentCultureIgnoreCase))
+            {
+                e.Accepted = true;
+            }
+            else
+            {
+                e.Accepted = false;
+            }
 
+        }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            cargarColeccion();
-        }
-
-        private void cargarColeccion()
-        {
-            ObjectDataProvider odp = (ObjectDataProvider)this.Resources["LIST_USUARIO"];
-            listaUsuarios = odp.Data as ObservableCollection<Usuario>;
-
-            Users = (CollectionView)CollectionViewSource.GetDefaultView(contentGrid.DataContext);
+            
         }
 
 
@@ -108,25 +98,6 @@ namespace Vistas
             }
         }
         
-        private void btn_prev_Click(object sender, RoutedEventArgs e)
-        {
-            Users.MoveCurrentToPrevious();
-            if (Users.IsCurrentBeforeFirst)
-            {
-                Users.MoveCurrentToLast();
-            }
-
-        }
-
-        private void btn_next_Click(object sender, RoutedEventArgs e)
-        {
-            Users.MoveCurrentToNext();
-            if (Users.IsCurrentAfterLast)
-            {
-                Users.MoveCurrentToFirst();
-            }
-        }
-
         private void btn_NuevoUsuario(object sender, RoutedEventArgs e)
         {
             winUsuarios newUsuario = new winUsuarios(0);
@@ -136,24 +107,29 @@ namespace Vistas
 
         private void btn_ModifUsuario(object sender, RoutedEventArgs e)
         {
-            int UserID = Convert.ToInt32(txtUsrID.Content);
-            winUsuarios editUsuario = new winUsuarios(UserID);
+            //int UserID = Convert.ToInt32(txtUsrID.Content);
+            
+            Usuario usr = (Usuario)lvgUsuarios.SelectedItem;
+            winUsuarios editUsuario = new winUsuarios(usr.Usr_Id);
             editUsuario.Show();
             this.Close();
         }
 
         private void btn_ElimUsuario(object sender, RoutedEventArgs e)
         {
-            int UserID = Convert.ToInt32(txtUsrID.Content);
+            Usuario usr = (Usuario)lvgUsuarios.SelectedItem;
+            int UserID = usr.Usr_Id;
             var confirmResult = MessageBox.Show("¿Está seguro de eliminar este usuario?", "Confirmar", MessageBoxButton.YesNo, MessageBoxImage.Exclamation);
-
+            
             if (confirmResult == MessageBoxResult.Yes)
             {
                 TrabajarUsuarios.delete_usuario(UserID);
                 MessageBox.Show("Usuario eliminado con éxito", "Usuario Eliminado", MessageBoxButton.OK, MessageBoxImage.Information);
-                (FindResource("LIST_USUARIO") as ObjectDataProvider).Refresh();
-
-                cargarColeccion();
+                
+                //lo siguiente va a actualizar los datos al crear una nueva ventana con la informacion modificada
+                winABMUsuarios winABMU = new winABMUsuarios();
+                winABMU.Show();
+                this.Close();
             }
         }
         

@@ -1,0 +1,94 @@
+﻿<Window x:Class="Vistas.winABMClientes"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:svc="clr-namespace:ClasesBase;assembly=ClasesBase"
+        xmlns:componentModel="clr-namespace:System.ComponentModel;assembly=WindowsBase"
+        Title="winABMClientes" MinHeight="520" MinWidth="800" Height="520" Width="800" Style="{StaticResource MainWindowStyle}"  WindowStartupLocation="CenterScreen" MouseLeftButtonDown="moveWindow" Loaded="Window_Loaded">
+    <Window.Resources>
+
+        <Style TargetType="ToolTip">
+            <Setter Property="Background" Value="Black"></Setter>
+            <Setter Property="Foreground" Value="White"></Setter>
+        </Style>
+        <ObjectDataProvider
+            x:Key="LIST_CLIENTES"
+            ObjectType="{x:Type svc:TrabajarClientes}"
+            MethodName="TraerClientesColeccion"
+        />
+
+        <CollectionViewSource
+            x:Key="VISTA_CLIENTES"
+            Source="{StaticResource ResourceKey=LIST_CLIENTES}"
+            Filter="eventVistaClientes_Filter">
+
+            <CollectionViewSource.SortDescriptions>
+                <componentModel:SortDescription PropertyName="Cli_Id" Direction="Descending"/>
+            </CollectionViewSource.SortDescriptions>
+        </CollectionViewSource>
+    </Window.Resources>
+    
+    <Grid>
+        <Border BorderBrush="Black" BorderThickness="1" CornerRadius="10">
+            <DockPanel Height="40" Name="dockPanel1" Width="auto" HorizontalAlignment="Stretch" VerticalAlignment="Top" FlowDirection="RightToLeft">
+                <Ellipse Height="15" ToolTip="Cerrar ventana" HorizontalAlignment="Right" Name="btnClose" Fill="#FFFF4B6A" Width="15" Margin="10,0,5,0" MouseLeftButtonDown="closeWindow"/>
+                <Ellipse Height="15" ToolTip="Maximizar ventana" HorizontalAlignment="Left" Name="btnMaximize" Fill="#EEEEEE" Width="15" Margin="5,0,5,0" MouseLeftButtonDown="minimizeWindow"/>
+                <Label Name="lblWinTitle" Content="Clientes" Padding="20,0" HorizontalAlignment="Right" FontFamily="FreeSans" FontSize="12" VerticalContentAlignment="Center" Foreground="#EEEEEE"/>
+            </DockPanel>
+            <Border.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#232323" Offset="0.6" />
+                    <GradientStop Color="#121212" Offset="0.9" />
+                    <GradientStop Color="#070707" Offset="1" />
+                </LinearGradientBrush>
+            </Border.Background>
+        </Border>
+
+        <Grid Margin="0,50,0,0" Name="contentGrid">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="11*"></RowDefinition>
+                <RowDefinition Height="19*"></RowDefinition>
+                <RowDefinition Height="54*"></RowDefinition>
+                <RowDefinition Height="16*"></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="50*"></ColumnDefinition>
+                    <ColumnDefinition Width="50*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <Label Grid.Column="0" Content="Clientes" Style="{StaticResource FormTitle}" FontSize="26" HorizontalAlignment="Left" Margin="20,0,0,10"></Label>
+                
+                <Button Grid.Column="1" x:Name="btnAddCli" HorizontalAlignment="Right" ToolTip="Agregar un nuevo cliente" Content="+ Nuevo Cliente" Margin="20,0" Height="30" Width="130" Click="btn_NuevoCliente" Style="{StaticResource ButtonFormBlack}" ></Button>
+            </Grid>
+
+            <StackPanel Grid.Row="1">
+                <Label Content="Buscar por nombre:" HorizontalAlignment="center" Style="{StaticResource StyleLabelForm}" VerticalAlignment="Center"></Label>
+                <TextBox Margin="10,0" x:Name="txtSearch" Width="200" HorizontalAlignment="Center" Style="{StaticResource StyleTextBoxForm}" TextChanged="txtSearch_TextChanged"></TextBox>
+            </StackPanel>
+
+
+            <ListView Grid.Row="2" Name="lvwClientes" Width="740" VerticalAlignment="Top" HorizontalAlignment="Center" Height="240" ItemsSource="{Binding Source= {StaticResource VISTA_CLIENTES}}" IsSynchronizedWithCurrentItem="True" Background="Black" Foreground="White" FontFamily="Century Gothic" HorizontalContentAlignment="Center" BorderBrush="Black" >
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Width="20" Header="ID" DisplayMemberBinding="{Binding Cli_Id}"/>
+                        <GridViewColumn Width="140" Header="Nombre" DisplayMemberBinding="{Binding Cli_Nombre}"/>
+                        <GridViewColumn Width="130" Header="Apellido" DisplayMemberBinding="{Binding Cli_Apellido}"/>
+                        <GridViewColumn Width="190" Header="Domicilio" DisplayMemberBinding="{Binding Cli_Domicilio}"/>
+                        <GridViewColumn Width="100" Header="Teléfono" DisplayMemberBinding="{Binding Cli_Telefono}"/>
+                        <GridViewColumn Width="150" Header="Email" DisplayMemberBinding="{Binding Cli_Email}"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+
+            <DockPanel Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1">
+                <Button x:Name="btnModifUsr" ToolTip="Actualizar el cliente seleccionado" Content="Actualizar Cliente" Margin="7" Height="40" Width="150" Click="btn_ModifCliente" Style="{StaticResource ButtonFormBlack}"></Button>
+                <Button x:Name="btnDeleteusr" ToolTip="Eliminar el cliente seleccionado" Content="Eliminar Cliente" Margin="7" Height="40" Width="150" Click="btn_ElimCliente" Style="{StaticResource ButtonFormBlack}" Background="#880000" Foreground="#EEEEEE"></Button>
+            </DockPanel>
+            
+        </Grid>
+            
+
+    </Grid>
+</Window>

@@ -142,7 +142,7 @@ namespace Vistas
 
         private void rb4_Click(object sender, RoutedEventArgs e)
         {
-            winClientes winCliente = new winClientes();
+            winABMClientes winCliente = new winABMClientes();
             winCliente.Show();
         }
 

@@ -3,25 +3,28 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:svc="clr-namespace:ClasesBase;assembly=ClasesBase"
         xmlns:componentModel="clr-namespace:System.ComponentModel;assembly=WindowsBase"
-        Title="winABMUsuarios" MinHeight="460" MinWidth="600" Height="460" Width="600" Style="{StaticResource MainWindowStyle}"  WindowStartupLocation="CenterScreen" MouseLeftButtonDown="moveWindow" Loaded="Window_Loaded">
+        Title="winABMUsuarios" MinHeight="520" MinWidth="700" Height="520" Width="700" Style="{StaticResource MainWindowStyle}"  WindowStartupLocation="CenterScreen" MouseLeftButtonDown="moveWindow" Loaded="Window_Loaded">
     <Window.Resources>
-        <ObjectDataProvider
-        x:Key="LIST_USUARIO"
-        ObjectType="{x:Type svc:TrabajarUsuarios}"
-        MethodName="TraerUsuariosColeccion">
-        </ObjectDataProvider>
+        
         <Style TargetType="ToolTip">
             <Setter Property="Background" Value="Black"></Setter>
             <Setter Property="Foreground" Value="White"></Setter>
         </Style>
-        <!--
+        <ObjectDataProvider
+            x:Key="LIST_USUARIOS"
+            ObjectType="{x:Type svc:TrabajarUsuarios}"
+            MethodName="TraerUsuariosColeccion"
+        />
+
         <CollectionViewSource
-            x:Key="VISTA_USUARIO"
-            Source="{StaticResource ResourceKey=LIST_USUARIO}"
-            Filter="eventVistaUsuario_Filter"
-            >
+            x:Key="VISTA_USUARIOS"
+            Source="{StaticResource ResourceKey=LIST_USUARIOS}"
+            Filter="eventVistaUsuarios_Filter">
+
+            <CollectionViewSource.SortDescriptions>
+                <componentModel:SortDescription PropertyName="Usr_Id" Direction="Descending"/>
+            </CollectionViewSource.SortDescriptions>
         </CollectionViewSource>
-    -->
 
     </Window.Resources>
     
@@ -41,15 +44,16 @@
             </Border.Background>
         </Border>
 
-        <Grid Margin="0,50,0,0" Name="contentGrid" DataContext="{Binding Source={StaticResource ResourceKey=LIST_USUARIO}}">
+        <Grid Margin="0,50,0,0" Name="contentGrid">
             
             <Grid.RowDefinitions>
-                <RowDefinition Height="15*"></RowDefinition>
-                <RowDefinition Height="90*"></RowDefinition>
-                <RowDefinition Height="20*"></RowDefinition>
+                <RowDefinition Height="11*"></RowDefinition>
+                <RowDefinition Height="19*"></RowDefinition>
+                <RowDefinition Height="54*"></RowDefinition>
+                <RowDefinition Height="16*"></RowDefinition>
             </Grid.RowDefinitions>
 
-            <Grid>
+            <Grid Grid.Row="0">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="50*"></ColumnDefinition>
                     <ColumnDefinition Width="50*"></ColumnDefinition>
@@ -64,71 +68,25 @@
                 -->
                 <Button Grid.Column="1" x:Name="btnAddUsr" HorizontalAlignment="Right" ToolTip="Agregar un nuevo usuario" Content="+ Nuevo Usuario" Margin="20,0" Height="30" Width="130" Click="btn_NuevoUsuario" Style="{StaticResource ButtonFormBlack}" ></Button>
             </Grid>
-
-            <Grid Name="grdMainUsuarios" Grid.Row="1" Grid.ColumnSpan="2">
-               
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="10*"/>
-                    <ColumnDefinition Width="80*"/>
-                    <ColumnDefinition Width="10*"/>
-                </Grid.ColumnDefinitions>
-
-                <Button Grid.Column="0" x:Name="btn_prev" FontSize="28" ToolTip="Ir al anterior usuario" Content="&lt;" Margin="7,0" Height="5000" Width="300" Click="btn_prev_Click" Style="{StaticResource ButtonFormBlack}" BorderBrush="Transparent"/>
-                <Button Grid.Column="2" x:Name="btn_next" FontSize="28" ToolTip="Ir al siguiente usuario" Content=">" Margin="7,0" Height="5000" Width="300" Click="btn_next_Click" Style="{StaticResource ButtonFormBlack}" BorderBrush="Transparent"/>
-                    
+            
+            <StackPanel Grid.Row="1">
+                <Label Content="Buscar por usuario:" HorizontalAlignment="center" Style="{StaticResource StyleLabelForm}" VerticalAlignment="Center"></Label>
+                <TextBox Margin="10,0" x:Name="txtSearch" Width="200" HorizontalAlignment="Center" Style="{StaticResource StyleTextBoxForm}" TextChanged="txtSearch_TextChanged"></TextBox>
+            </StackPanel>
+            
                 
-                <StackPanel x:Name="stpUsuarios" Grid.Column="1" Margin="20">
-                    <TextBlock Margin="0,15,0,0" Text="{Binding Usr_NombreUsuario}" Style="{StaticResource FormTitle}" ></TextBlock>
-                    <DockPanel Margin="50,10" HorizontalAlignment="Center">
-                        <Label Content="Nombre Real:" Style="{StaticResource StyleLabelForm}" FontWeight="Bold"></Label>
-                        <Label Content="{Binding Usr_ApellidoNombre}" Style="{StaticResource StyleLabelForm}"></Label>
-                    </DockPanel>
-
-                    <DockPanel Margin="50,0" HorizontalAlignment="Center">
-                        <Label Content="Rol:" Style="{StaticResource StyleLabelForm}" FontWeight="Bold"></Label>
-                        <Label Content="{Binding Rol.Rol_Descrip}" Style="{StaticResource StyleLabelForm}"></Label>
-                    </DockPanel>
-
-                    <DockPanel Margin="50,10" HorizontalAlignment="Center">
-                        <Label Content="ID:" Style="{StaticResource StyleLabelForm}" FontWeight="Bold"></Label>
-                        <Label x:Name="txtUsrID" Content="{Binding Usr_Id}" Style="{StaticResource StyleLabelForm}"></Label>
-                    </DockPanel>
-
-                </StackPanel>
-                
-                <!--
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition></ColumnDefinition>
-                    <ColumnDefinition></ColumnDefinition>
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition></RowDefinition>
-                    <RowDefinition></RowDefinition>
-                    <RowDefinition></RowDefinition>
-                    <RowDefinition></RowDefinition>
-                    <RowDefinition></RowDefinition>
-                    <RowDefinition></RowDefinition>
-                </Grid.RowDefinitions>
-                
-                <Label Style="{StaticResource StyleLabelForm}" FontWeight="Bold" Grid.Column="0" Grid.Row="0" Content="Nombre y Apellido" HorizontalAlignment="Center"></Label>
-                <Label Style="{StaticResource StyleLabelForm}" FontWeight="Bold" Grid.Column="0" Grid.Row="1" Content="Usuario" HorizontalAlignment="Center"></Label>
-                <Label Style="{StaticResource StyleLabelForm}" FontWeight="Bold" Grid.Column="0" Grid.Row="2" Content="Rol" HorizontalAlignment="Center"></Label>
-                <Label Style="{StaticResource StyleLabelForm}" FontWeight="Bold" Grid.Column="0" Grid.Row="3" Content="ID" HorizontalAlignment="Center"></Label>
-                <Label Style="{StaticResource StyleLabelForm}" Grid.Column="0" Grid.Row="4" Content="unused" HorizontalAlignment="Center"></Label>
-                <Label Style="{StaticResource StyleLabelForm}" Grid.Column="0" Grid.Row="5" Content="unused" HorizontalAlignment="Center"></Label>
-
-                <TextBlock Style="{StaticResource StyleLabelForm}" Text="{Binding Usr_ApellidoNombre}" Grid.Column="1" Grid.Row="0" Width="auto" Height="auto" VerticalAlignment="Center" HorizontalAlignment="Center" ></TextBlock>
-                <TextBlock Style="{StaticResource StyleLabelForm}" Text="{Binding Usr_NombreUsuario}" Grid.Column="1" Grid.Row="1" Width="auto" Height="auto" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
-                <TextBlock Style="{StaticResource StyleLabelForm}" Text="{Binding Rol.Rol_Descrip}" Grid.Column="1" Grid.Row="2" Width="auto" Height="auto" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
-                <TextBlock x:Name="txtUsrID" Style="{StaticResource StyleLabelForm}" Text="{Binding Usr_Id}" Grid.Column="1" Grid.Row="3" Width="auto" Height="auto" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
-                <TextBlock Style="{StaticResource StyleLabelForm}" Text="{Binding }" Grid.Column="1" Grid.Row="4" Width="auto" Height="auto" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
-                <TextBlock Style="{StaticResource StyleLabelForm}" Text="{Binding }" Grid.Column="1" Grid.Row="5" Height="auto" Margin="0,7" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
-                -->
-
-
-            </Grid>
-
-            <DockPanel Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1">
+                <ListView Grid.Row="2" Name="lvgUsuarios" Width="600" VerticalAlignment="Top" HorizontalAlignment="Center" Height="240" ItemsSource="{Binding Source= {StaticResource VISTA_USUARIOS}}" IsSynchronizedWithCurrentItem="True" Background="Black" Foreground="White" FontFamily="Century Gothic" HorizontalContentAlignment="Center" BorderBrush="Black" >
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Width="50" Header="ID" DisplayMemberBinding="{Binding Usr_Id}"/>
+                            <GridViewColumn Width="150" Header="Usuario" DisplayMemberBinding="{Binding Usr_NombreUsuario}"/>
+                            <GridViewColumn Width="250" Header="Apellido y nombre" DisplayMemberBinding="{Binding Usr_ApellidoNombre}"/>
+                            <GridViewColumn Width="150" Header="Rol" DisplayMemberBinding="{Binding Rol.Rol_Descrip}"/>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+            
+            <DockPanel Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1">
                 <Button x:Name="btnModifUsr" ToolTip="Actualizar el usuario seleccionado" Content="Actualizar Usuario" Margin="7" Height="40" Width="150" Click="btn_ModifUsuario" Style="{StaticResource ButtonFormBlack}"></Button>
                 <Button x:Name="btnDeleteusr" ToolTip="Eliminar el usuario seleccionado" Content="Eliminar Usuario" Margin="7" Height="40" Width="150" Click="btn_ElimUsuario" Style="{StaticResource ButtonFormBlack}" Background="#880000" Foreground="#EEEEEE"></Button>
             </DockPanel>

@@ -14,9 +14,11 @@
 
         <CollectionViewSource
             x:Key="VISTA_PEDIDO"
-            Source="{StaticResource ResourceKey=LIST_PEDIDO}"
-
-        ></CollectionViewSource>
+            Source="{StaticResource ResourceKey=LIST_PEDIDO}">
+            <CollectionViewSource.SortDescriptions>
+                <componentModel:SortDescription PropertyName="Ped_Id" Direction="Descending"/>
+            </CollectionViewSource.SortDescriptions>
+        </CollectionViewSource>
 
         <Style TargetType="ToolTip">
             <Setter Property="Background" Value="Black"></Setter>

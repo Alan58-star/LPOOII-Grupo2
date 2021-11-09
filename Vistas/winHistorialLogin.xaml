@@ -17,7 +17,7 @@
             Filter="eventVistaLogs_Filter">
 
             <CollectionViewSource.SortDescriptions>
-                <componentModel:SortDescription PropertyName="Log_Id" Direction="Ascending"/>
+                <componentModel:SortDescription PropertyName="Log_Id" Direction="Descending"/>
             </CollectionViewSource.SortDescriptions>
         </CollectionViewSource>
         <Style TargetType="ToolTip">
