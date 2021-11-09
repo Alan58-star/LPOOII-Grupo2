@@ -87,7 +87,57 @@ namespace ClasesBase
             dAdapter.Fill(dTable);
             return dTable;
         }
+        //obtener item
+        public static Item_Pedido obtener_item(int idarticulo, int idpedido)
+        {
+            SqlConnection cnn = new SqlConnection(ClasesBase.Properties.Settings.Default.pasteleriaConnectionString);
 
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = "obtener_item";
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Connection = cnn;
+            cmd.Parameters.AddWithValue("@idarticulo", idarticulo);
+            cmd.Parameters.AddWithValue("@idpedido", idpedido);
+            SqlDataAdapter ds = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            ds.Fill(dt);
+
+            Item_Pedido item = new Item_Pedido();
+           
+
+            if (dt.Rows.Count > 0)
+            {
+                DataRow row = dt.Rows[0];
+                item.Item_Ped_Id = (int)row[0];
+                item.Item_Ped_Precio = (decimal)row[1];
+                item.Item_Ped_Cantidad = (int)row[2];
+                item.Item_Ped_Importe = (decimal)row[3];
+                
+            }
+
+
+            return item;
+        }
+
+        public static void edit_item(Item_Pedido item)
+        {
+
+            SqlConnection cnn = new SqlConnection(ClasesBase.Properties.Settings.Default.pasteleriaConnectionString);
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = "modificar_item";
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Connection = cnn;
+            cmd.Parameters.AddWithValue("@iditem", item.Item_Ped_Id);
+            cmd.Parameters.AddWithValue("@precio", item.Item_Ped_Precio);
+            cmd.Parameters.AddWithValue("@cantidad", item.Item_Ped_Cantidad);
+            cmd.Parameters.AddWithValue("@importe", item.Item_Ped_Importe);
+            cmd.Parameters.AddWithValue("@ped", item.Ped_Id);
+            cmd.Parameters.AddWithValue("@art", item.Art_Id);
+            
+            cnn.Open();
+            cmd.ExecuteNonQuery();
+            cnn.Close();
+        }
         //Coleccion item pedido
         public static ObservableCollection<Item_Pedido> TraerItemsColeccion(int id)
         {

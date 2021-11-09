@@ -1,200 +1,8 @@
 ﻿<Window x:Class="Vistas.winAcercaDe"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="winAcercaDe" WindowStyle="None" AllowsTransparency="True" ResizeMode="CanResizeWithGrip" Background="Transparent" Height="auto" Width="500" WindowStartupLocation="CenterScreen" MouseLeftButtonDown="moveWindow" AllowDrop="True" Drop="Window_Drop" Loaded="Window_Loaded">
+        Title="winAcercaDe" WindowStyle="None" AllowsTransparency="True" ResizeMode="CanResizeWithGrip" Background="Transparent" Height="582" Width="500" WindowStartupLocation="CenterScreen" MinWidth="400" MinHeight="582" MouseLeftButtonDown="moveWindow" AllowDrop="True" Drop="Window_Drop" Loaded="Window_Loaded">
     <Window.Resources>
-        <Style x:Key="SliderButtonStyle" TargetType="{x:Type RepeatButton}">
-            <Setter Property="SnapsToDevicePixels" Value="true"/>
-            <Setter Property="OverridesDefaultStyle" Value="true"/>
-            <Setter Property="IsTabStop" Value="false"/>
-            <Setter Property="Focusable" Value="false"/>
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="{x:Type RepeatButton}">
-                        <Border Background="Transparent" />
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
-
-        <Style x:Key="DecreaseSliderButtonStyle" TargetType="{x:Type RepeatButton}">
-            <Setter Property="SnapsToDevicePixels" Value="true"/>
-            <Setter Property="OverridesDefaultStyle" Value="true"/>
-            <Setter Property="IsTabStop" Value="false"/>
-            <Setter Property="Focusable" Value="false"/>
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="{x:Type RepeatButton}">
-                        <Border Height="6" Background="White" CornerRadius="3" Margin="0,0,-12,0" />
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
-
-        <Style x:Key="SliderThumbStyle" TargetType="{x:Type Thumb}">
-            <Setter Property="SnapsToDevicePixels" Value="true"/>
-            <Setter Property="OverridesDefaultStyle" Value="true"/>
-            <Setter Property="Height" Value="18"/>
-            <Setter Property="Width" Value="18"/>
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="{x:Type Thumb}">
-                        <Ellipse 
-      Name="Ellipse" 
-      Fill="White"
-      Stroke="#404040"
-      StrokeThickness="1" />
-                        <ControlTemplate.Triggers>
-                            <Trigger Property="IsEnabled" Value="false">
-                                <Setter TargetName="Ellipse" Property="Fill" Value="#EEEEEE"/>
-                            </Trigger>
-                        </ControlTemplate.Triggers>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
-
-        <ControlTemplate x:Key="HorizontalSlider" TargetType="{x:Type Slider}">
-            
-            <Grid>
-                
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto" MinHeight="{TemplateBinding Slider.MinHeight}"/>
-                    <RowDefinition Height="Auto"/>
-                </Grid.RowDefinitions>
-                <TickBar 
-  Name="TopTick"
-  SnapsToDevicePixels="True" 
-  Placement="Top"
-  Fill="#404040"
-  Height="4"
-  Visibility="Collapsed" />
-                <Border 
-  Name="TrackBackground"
-  Margin="0"
-  CornerRadius="3" 
-  Height="6"
-  Grid.Row="1"
-  Background="#303030" 
-  BorderBrush="#121212"
-  BorderThickness="1" />
-                <Track Grid.Row="1" Name="PART_Track">
-                    <Track.DecreaseRepeatButton>
-                        <RepeatButton 
-        Style="{StaticResource DecreaseSliderButtonStyle}"
-        Command="Slider.DecreaseLarge" />
-                    </Track.DecreaseRepeatButton>
-                    <Track.Thumb>
-                        <Thumb Style="{StaticResource SliderThumbStyle}" />
-                    </Track.Thumb>
-                    <Track.IncreaseRepeatButton>
-                        <RepeatButton 
-      Style="{StaticResource SliderButtonStyle}"
-      Command="Slider.IncreaseLarge" />
-                    </Track.IncreaseRepeatButton>
-                </Track>
-                <TickBar 
-  Name="BottomTick"
-  SnapsToDevicePixels="True" 
-  Grid.Row="2"
-  Fill="{TemplateBinding Foreground}"
-  Placement="Bottom"
-  Height="4"
-  Visibility="Collapsed" />
-            </Grid>
-            <ControlTemplate.Triggers>
-                <Trigger Property="TickPlacement" Value="TopLeft">
-                    <Setter TargetName="TopTick" Property="Visibility" Value="Visible"/>
-                </Trigger>
-                <Trigger Property="TickPlacement" Value="BottomRight">
-                    <Setter TargetName="BottomTick" Property="Visibility" Value="Visible"/>
-                </Trigger>
-                <Trigger Property="TickPlacement" Value="Both">
-                    <Setter TargetName="TopTick" Property="Visibility" Value="Visible"/>
-                    <Setter TargetName="BottomTick" Property="Visibility" Value="Visible"/>
-                </Trigger>
-            </ControlTemplate.Triggers>
-        </ControlTemplate>
-
-        <ControlTemplate x:Key="VerticalSlider" TargetType="{x:Type Slider}">
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="Auto" MinWidth="{TemplateBinding Slider.MinWidth}"/>
-                    <ColumnDefinition Width="Auto"/>
-                </Grid.ColumnDefinitions>
-                <TickBar 
-  Name="TopTick"
-  SnapsToDevicePixels="True" 
-  Placement="Left"
-  Fill="#404040"
-  Width="4"
-  Visibility="Collapsed" />
-                <Border 
-  Name="TrackBackground"
-  Margin="0"
-  CornerRadius="2" 
-  Width="4"
-  Grid.Column="1"
-  Background="#E0E0E0" 
-  BorderBrush="#404040"
-  BorderThickness="1" />
-                <Track Grid.Column="1" Name="PART_Track">
-                    <Track.DecreaseRepeatButton>
-                        <RepeatButton 
-      Style="{StaticResource SliderButtonStyle}"
-      Command="Slider.DecreaseLarge" />
-                    </Track.DecreaseRepeatButton>
-                    <Track.Thumb>
-                        <Thumb Style="{StaticResource SliderThumbStyle}" />
-                    </Track.Thumb>
-                    <Track.IncreaseRepeatButton>
-                        <RepeatButton 
-      Style="{StaticResource SliderButtonStyle}"
-      Command="Slider.IncreaseLarge" />
-                    </Track.IncreaseRepeatButton>
-                </Track>
-                <TickBar 
-  Name="BottomTick"
-  SnapsToDevicePixels="True" 
-  Grid.Column="2"
-  Fill="{TemplateBinding Foreground}"
-  Placement="Right"
-  Width="4"
-  Visibility="Collapsed" />
-            </Grid>
-            <ControlTemplate.Triggers>
-                <Trigger Property="TickPlacement" Value="TopLeft">
-                    <Setter TargetName="TopTick" Property="Visibility" Value="Visible"/>
-                </Trigger>
-                <Trigger Property="TickPlacement" Value="BottomRight">
-                    <Setter TargetName="BottomTick" Property="Visibility" Value="Visible"/>
-                </Trigger>
-                <Trigger Property="TickPlacement" Value="Both">
-                    <Setter TargetName="TopTick" Property="Visibility" Value="Visible"/>
-                    <Setter TargetName="BottomTick" Property="Visibility" Value="Visible"/>
-                </Trigger>
-            </ControlTemplate.Triggers>
-        </ControlTemplate>
-
-        <Style TargetType="{x:Type Slider}">
-            <Setter Property="SnapsToDevicePixels" Value="true"/>
-            <Setter Property="OverridesDefaultStyle" Value="true"/>
-            <Style.Triggers>
-                <Trigger Property="Orientation" Value="Horizontal">
-                    <Setter Property="MinWidth" Value="104" />
-                    <Setter Property="MinHeight" Value="21" />
-                    <Setter Property="Template" Value="{StaticResource HorizontalSlider}" />
-                </Trigger>
-                <Trigger Property="Orientation" Value="Vertical">
-                    <Setter Property="MinWidth" Value="21" />
-                    <Setter Property="MinHeight" Value="104" />
-                    <Setter Property="Template" Value="{StaticResource VerticalSlider}" />
-                </Trigger>
-            </Style.Triggers>
-        </Style>
-
         <Style TargetType="ToolTip">
             <Setter Property="Background" Value="Black"></Setter>
             <Setter Property="Foreground" Value="White"></Setter>
@@ -218,29 +26,15 @@
         
         <Grid Margin="0,40,0,0">
             <Grid.RowDefinitions>
-                <RowDefinition Height="402*"/>
-                <RowDefinition Height="48*"/>
-                <RowDefinition Height="53*" />
+                <RowDefinition Height="80*"/>
+                <RowDefinition Height="20*"/>
             </Grid.RowDefinitions>
-            <MediaElement Height="auto"  HorizontalAlignment="center" Name="mediaElement1" VerticalAlignment="Center" Width="auto" MediaOpened="mediaElement1_MediaOpened"/>
-
-            <Slider Grid.Row="1" Margin="23,0" HorizontalAlignment="Stretch" ToolTip="Avanzar o retroceder el video" Name="slider1" VerticalAlignment="Center" Width="auto" ValueChanged="slider1_ValueChanged" />
-            <Grid Grid.Row="2" Height="auto" Name="grid1" Width="auto">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="63*" />
-                    <ColumnDefinition Width="37*" />
-                </Grid.ColumnDefinitions>
-                <StackPanel HorizontalAlignment="Left" VerticalAlignment="Center"  Orientation="Horizontal">
-                    <Button Margin="20,0" BorderBrush="Transparent" Height="auto" FontSize="25" Width="auto" ToolTip="Reproducir el contenido"  Style="{StaticResource MediaPlayerFont}" Content="a" Foreground="White" Grid.Row="1"  HorizontalAlignment="Left" Name="button1" VerticalAlignment="Top" Click="button1_Click" Background="{x:Null}" Grid.RowSpan="2"></Button>
-                    <Button BorderBrush="Transparent" Height="auto" FontSize="25" Width="auto" ToolTip="Pausar el contenido" Content="b" Grid.Row="1"  HorizontalAlignment="Left" Name="button2" VerticalAlignment="Top" Style="{StaticResource MediaPlayerFont}" Foreground="White" Background="Transparent" Click="button2_Click" Grid.RowSpan="2" />
-                    <Button Margin="20,0" BorderBrush="Transparent" Height="auto" FontSize="25" Width="auto" Style="{StaticResource MediaPlayerFont}"  ToolTip="Reiniciar el contenido" Content="g" Grid.Row="1" HorizontalAlignment="Left" Name="button3" VerticalAlignment="Top" Background="Transparent" Foreground="White" Click="button3_Click" Grid.RowSpan="2" />
-                </StackPanel>
-                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1" Orientation="Horizontal">
-                    <TextBlock Style="{StaticResource MediaPlayerFont}" Text="q" Foreground="White" FontSize="20"></TextBlock>
-                    <Slider Margin="10,0,0,0" Height="auto" HorizontalAlignment="Center" ToolTip="Control de volumen" Name="slider2" VerticalAlignment="Top" Width="100" LargeChange="0.1" Maximum="1" SmallChange="0.01" Value="1" ValueChanged="slider2_ValueChanged" Background="#FF020202" Foreground="Red" Grid.Column="1"></Slider>
-                </StackPanel>
-            </Grid>
+            <MediaElement Height="auto" HorizontalAlignment="center" Name="mediaElement1" VerticalAlignment="Top" Width="auto" MediaOpened="mediaElement1_MediaOpened"/>
+            <Button ToolTip="Reproducir el contenido" Content="Reproducir" Grid.Row="1" Height="23" HorizontalAlignment="Left" Margin="39,22,0,0" Name="button1" VerticalAlignment="Top" Width="75" Click="button1_Click" />
+            <Button ToolTip="Pausar el contenido" Content="Pausar" Grid.Row="1" Height="23" HorizontalAlignment="Left" Margin="158,19,0,0" Name="button2" VerticalAlignment="Top" Width="75" Click="button2_Click" />
+            <Button ToolTip="Reiniciar el contenido" Content="Reiniciar" Grid.Row="1" Height="23" HorizontalAlignment="Left" Margin="251,19,0,0" Name="button3" VerticalAlignment="Top" Width="75" Click="button3_Click" />
+            <Slider Grid.Row="1" Height="23" HorizontalAlignment="Left" Margin="6,71,0,0" ToolTip="Avanzar o retroceder el video" Name="slider1" VerticalAlignment="Top" Width="100" ValueChanged="slider1_ValueChanged" />
+            <Slider Grid.Row="1" Height="23" HorizontalAlignment="Left" Margin="367,18,0,0" ToolTip="Control de volumen" Name="slider2" VerticalAlignment="Top" Width="100" LargeChange="0.1" Maximum="1" SmallChange="0.01" Value="1" ValueChanged="slider2_ValueChanged" />
         </Grid>
-        <ListBox Height="100" HorizontalAlignment="Left" Margin="550,452,0,0" Name="listBox1" VerticalAlignment="Top" Width="120" />
     </Grid>
 </Window>

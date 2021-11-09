@@ -6,12 +6,5 @@
             <Setter Property="Control.FontFamily" Value="/Fonts/#FreeSans"></Setter>
         </Style.Setters>        
     </Style>
-
-
-    <Style x:Key="MediaPlayerFont">
-        <Style.Setters>
-            <Setter Property="Control.FontFamily" Value="/Fonts/#font bottons music"></Setter>
-        </Style.Setters>
-    </Style>
-
+    
 </ResourceDictionary>

@@ -66,6 +66,7 @@ namespace Vistas
             {
                 winPedidos pedido = new winPedidos();
                 pedido.Show();
+
                 this.Close();
             }
             else
