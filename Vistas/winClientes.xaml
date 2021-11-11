@@ -84,8 +84,8 @@
             </Grid>
 
             
-            <Button Grid.Row="2" Content="GUARDAR" ToolTip="Guardar el nuevo cliente" Foreground="#eeeeee" FontSize="18" FontWeight="Bold" Name="btnGuardar" Click="btnGuardar_Click" Style="{StaticResource ResourceKey=tmplClientes}"/>
-            <Button Grid.Row="2" ToolTip="Actualizar los datos del cliente" Content="ACTUALIZAR" Foreground="#eeeeee" FontSize="18" FontWeight="Bold" Name="btnEditar" Click="btnEditar_Click" Style="{StaticResource ResourceKey=tmplClientes}"/>
+            <Button Grid.Row="2" Content="GUARDAR" ToolTip="Guardar el nuevo cliente" FontWeight="Bold" Name="btnGuardar" Click="btnGuardar_Click" Style="{StaticResource ButtonFormBlack}"/>
+            <Button Grid.Row="2" ToolTip="Actualizar los datos del cliente" Content="ACTUALIZAR" FontWeight="Bold" Name="btnEditar" Click="btnEditar_Click" Style="{StaticResource ButtonFormBlack}"/>
          
 
         </Grid>

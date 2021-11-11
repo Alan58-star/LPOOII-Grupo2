@@ -5,7 +5,6 @@
     <Style TargetType="{x:Type Window}" x:Key="MainWindowStyle">
         <Setter Property="WindowStyle" Value="None"></Setter>
         <Setter Property="AllowsTransparency" Value="True"></Setter>
-        <Setter Property="ResizeMode" Value="CanResizeWithGrip"></Setter>
         <Setter Property="Background" Value="Transparent"></Setter>
         <Setter Property="FontFamily" Value="/Fonts/#FreeSans"></Setter>
     </Style>

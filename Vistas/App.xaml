@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              StartupUri="winLogin.xaml">
     <Application.Resources>
+
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="Styles/Dictionary1.xaml"></ResourceDictionary>
@@ -13,8 +14,7 @@
                 <ResourceDictionary Source="Styles/StylesWindow.xaml"></ResourceDictionary>
                 <ResourceDictionary Source="Styles/StylesFormWindow.xaml"></ResourceDictionary>
                 <ResourceDictionary Source="Styles/StylesFormGrid.xaml"></ResourceDictionary>
-                <ResourceDictionary Source="Styles/StylesValidation.xaml"></ResourceDictionary>
-                 
+                <ResourceDictionary Source="Styles/StylesValidation.xaml"></ResourceDictionary>                 
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

@@ -67,7 +67,7 @@ namespace Vistas
                 MessageBoxResult result = MessageBox.Show("¿Agregar un Pedido?", "Agregar pedido", MessageBoxButton.YesNo, MessageBoxImage.Information);
                 if (result == MessageBoxResult.Yes)
                 {
-                    winPedidos pedido = new winPedidos(Convert.ToInt32(mesa.Content.ToString()));
+                    winNuevoPedido pedido = new winNuevoPedido(Convert.ToInt32(mesa.Content.ToString()));
 
                     pedido.Show();
 

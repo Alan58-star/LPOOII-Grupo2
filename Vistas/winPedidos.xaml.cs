@@ -23,14 +23,6 @@ namespace Vistas
         public winPedidos()
         {
             InitializeComponent();
-           // Load_ComboMesas();
-            Load_ComboCliente();
-        }
-        public winPedidos(int idmesa)
-        {
-            InitializeComponent();
-            Load_TextMesa(idmesa);
-            Load_ComboCliente();
         }
 
         private void btnAddItems_Click(object sender, RoutedEventArgs e)
@@ -40,29 +32,6 @@ namespace Vistas
            
             winAltaItemPedido winAltaitemPedido = new winAltaItemPedido(ped);
             winAltaitemPedido.Show();
-        }
-
-       /* private void Load_ComboMesas()
-        {
-            var data2 = (TrabajarMesas.traerMesasHabilitadas() as System.ComponentModel.IListSource).GetList();
-            cboMesas.DisplayMemberPath = "mesa_id";
-            cboMesas.SelectedValuePath = "mesa_id";
-            cboMesas.ItemsSource = data2;
-
-        }*/
-        private void Load_TextMesa(int idmesa)
-        {
-            mesa = TrabajarMesas.obtener_mesa(idmesa);
-            txbMesas.Text = mesa.Mesa_Id.ToString();
-
-        }
-        private void Load_ComboCliente()
-        {
-            var data2 = (TrabajarClientes.traerClientes() as System.ComponentModel.IListSource).GetList();
-            cboCliente.DisplayMemberPath = "cli_apellido";
-            cboCliente.SelectedValuePath = "cli_id";
-            cboCliente.ItemsSource = data2;
-
         }
 
         private void moveWindow(object sender, MouseButtonEventArgs e)
@@ -88,43 +57,12 @@ namespace Vistas
         {
             try
             {
-                
                 this.Close();
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
                 //throw;
-            }
-        }
-
-        private void btnagregarPed_Click(object sender, RoutedEventArgs e)
-        {
-            MessageBoxResult result = MessageBox.Show("¿Desea guardar estos datos?", "Crear Pedido", MessageBoxButton.YesNo, MessageBoxImage.Question);
-            if (result == MessageBoxResult.Yes)
-            {
-                Pedido oPedido = new Pedido();
-                //oPedido.Mesa_Id = Convert.ToInt32(cboMesas.SelectedValue.ToString());
-                oPedido.Mesa_Id = mesa.Mesa_Id;
-                mesa.Mesa_Estado = "En espera";
-                TrabajarMesas.edit_mesa(mesa);
-                oPedido.Cli_Id = Convert.ToInt32(cboCliente.SelectedValue.ToString());
-                oPedido.Ped_Fecha_Emision = DateTime.Now;
-                 oPedido.Ped_Facturado = false;
-
-                oPedido.Ped_Fecha_Entrega = Convert.ToDateTime(dpFecha.SelectedDate);
-                oPedido.Ped_Comensales = Convert.ToInt32(txtComensal.Text);
-                oPedido.Usr_Id = 4;
-                Console.WriteLine(oPedido.Ped_Fecha_Entrega);
-                TrabajarPedido.add_pedido(oPedido);
-
-                MessageBox.Show("Pedido Guardado con éxito", "Datos Creados", MessageBoxButton.OK, MessageBoxImage.Information);
-                (FindResource("LIST_PEDIDO") as ObjectDataProvider).Refresh();
-                
-                txtComensal.Text = "";
-              
-                
-
             }
         }
 
@@ -147,19 +85,17 @@ namespace Vistas
             {
                 vp.Show();
                 
-            }
+            }       
+                      
            
-
-            
-            
         }
 
         private void lvwPedidos_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            
+            btnAddItem.Foreground = (Brush)(new BrushConverter().ConvertFromString("#fefefe"));
             btnAddItem.IsEnabled = true;
+            btnverPedido.Foreground = (Brush)(new BrushConverter().ConvertFromString("#fefefe"));
             btnverPedido.IsEnabled = true;
-                
         }
     }
 }

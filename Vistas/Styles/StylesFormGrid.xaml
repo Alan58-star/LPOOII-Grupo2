@@ -4,17 +4,12 @@
 
     <Style TargetType="{x:Type Border}" x:Key="MainGridStyle">
         <Setter Property="BorderBrush" Value="Black"></Setter>
-        <Setter Property="BorderThickness" Value="1"></Setter>
+        <Setter Property="BorderThickness" Value="2"></Setter>
         <Setter Property="CornerRadius" Value="10"></Setter>
-        <Setter Property="Background">
-            <Setter.Value>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="#232323" Offset="0.6" />
-                    <GradientStop Color="#121212" Offset="0.9" />
-                    <GradientStop Color="#070707" Offset="1" />
-                </LinearGradientBrush>
-            </Setter.Value>
+        <Setter Property="Background" Value="#2e2e30">
         </Setter>
     </Style>
+    
+    
 
 </ResourceDictionary>

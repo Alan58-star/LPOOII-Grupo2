@@ -12,7 +12,7 @@
 
             <Setter Property="Control.FontFamily" Value="/Fonts/#Alte Haas Grotesk"></Setter>
             <Setter Property="Control.FontSize" Value="30"></Setter>
-            <Setter Property="Control.Foreground" Value="#EEEEEE"></Setter>
+            <Setter Property="Control.Foreground" Value="#FFFFFF"></Setter>
             
         </Style.Setters>        
     </Style>
@@ -27,8 +27,8 @@
             <Setter Property="Control.HorizontalContentAlignment" Value="Center"></Setter>
             
             <Setter Property="Control.FontFamily" Value="/Fonts/#FreeSans"></Setter>
-            <Setter Property="Control.FontSize" Value="15"></Setter>
-            <Setter Property="Control.Foreground" Value="#CCCCCC"></Setter>
+            <Setter Property="Control.FontSize" Value="18"></Setter>
+            <Setter Property="Control.Foreground" Value="#EEEEEE"></Setter>
 
         </Style.Setters>
     </Style>
