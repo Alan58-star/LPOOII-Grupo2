@@ -36,7 +36,8 @@ namespace Vistas
         }
         private void cargarDocumento()
         {
-            listaItems = TrabajarItemPedido.TraerItemsColeccion(ped.Ped_Id);
+           listaItems = TrabajarItemPedido.TraerItemsColeccion(ped.Ped_Id);
+            
             lvwitems.ItemsSource = listaItems;
             txbNumeroPedido.Text = ped.Ped_Id.ToString();
             txbMozo.Text = ped.Usuario.Usr_NombreUsuario;
@@ -50,6 +51,7 @@ namespace Vistas
             txbTotal.Text = total.ToString();
 
         }
+
 
     }
 }

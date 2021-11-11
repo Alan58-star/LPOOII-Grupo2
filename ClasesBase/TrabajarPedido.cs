@@ -31,6 +31,23 @@ namespace ClasesBase
             cmd.ExecuteNonQuery();
             cnn.Close();
         }
+        public static void edit_pedido(Boolean facturado, int idpedido)
+        {
+
+            SqlConnection cnn = new SqlConnection(ClasesBase.Properties.Settings.Default.pasteleriaConnectionString);
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = "modificar_pedidoFacturado";
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Connection = cnn;
+            cmd.Parameters.AddWithValue("@idpedido", idpedido);
+            cmd.Parameters.AddWithValue("@facturado", facturado);
+         
+
+            cnn.Open();
+            cmd.ExecuteNonQuery();
+            cnn.Close();
+        }
+
         //TRAER UN SOLO PEDIDO POR ID
         public static Pedido obtener_pedido(int idpedido)
         {

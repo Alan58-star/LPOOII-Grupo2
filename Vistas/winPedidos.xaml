@@ -87,9 +87,10 @@
 
                            <Label HorizontalAlignment="Right" Content="Comensales" Name="lblComensales" Grid.Row="5" Style="{StaticResource StyleLabelForm}" Margin="0,6,10,0" />
 
-                            <ComboBox HorizontalAlignment="Left" Name="cboMesas" Grid.Column="1" Grid.Row="1" Margin="5,0" Height="23" Width="120"/>
+                            <!--<ComboBox HorizontalAlignment="Left" Name="cboMesas" Grid.Column="1" Grid.Row="1" Margin="5,0" Height="23" Width="120"/>-->
+                            <TextBlock HorizontalAlignment="Left" Name="txbMesas" Style="{StaticResource StyleLabelForm}" Grid.Column="1" Grid.Row="1" Margin="5,0" Height="23" Width="120"/>
 
-                            
+
                             <ComboBox Height="23" HorizontalAlignment="Left" Margin="5,0,0,0" Name="cboCliente" VerticalAlignment="Center" Grid.Row="3" Grid.Column="1"  Width="120" />
                             <TextBox   Width="60" Name="txtComensal" VerticalAlignment="Center"  Grid.Column="1" Margin="52,21,0,17" Grid.Row="5" Style="{StaticResource EstiloError}">
                                 
@@ -125,7 +126,7 @@
                     </ListView.View>
                 </ListView>
                 <Button IsEnabled="false" ToolTip="Ver items del pedido" Content="Ver Ítems" Style="{StaticResource ButtonFormBlack}" Grid.Column="1" Height="45" HorizontalAlignment="Left" Margin="106,439,0,0" Name="btnAddItem" VerticalAlignment="Top" Click="btnAddItems_Click" Width="123" />
-                <Button IsEnabled="false" ToolTip="Imprimir el pedido seleccionado" Content="Imprimir Pedido" Style="{StaticResource ButtonFormBlack}" Width="116"  Grid.Column="1" Height="40" HorizontalAlignment="Left" Margin="393,442,0,0" Name="btnverPedido" VerticalAlignment="Top" Click="verPedido_Click" />
+                <Button IsEnabled="false" ToolTip="Crea una factura del pedido, tambien puede ver una vista previa" Content="Facturar Pedido" Style="{StaticResource ButtonFormBlack}" Width="116"  Grid.Column="1" Height="40" HorizontalAlignment="Left" Margin="393,442,0,0" Name="btnverPedido" VerticalAlignment="Top" Click="verPedido_Click" />
             </Grid>
 
         </Grid>

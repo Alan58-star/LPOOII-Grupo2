@@ -19,10 +19,17 @@ namespace Vistas
     /// </summary>
     public partial class winPedidos : Window
     {
+        Mesa mesa = new Mesa();
         public winPedidos()
         {
             InitializeComponent();
-            Load_ComboMesas();
+           // Load_ComboMesas();
+            Load_ComboCliente();
+        }
+        public winPedidos(int idmesa)
+        {
+            InitializeComponent();
+            Load_TextMesa(idmesa);
             Load_ComboCliente();
         }
 
@@ -35,12 +42,18 @@ namespace Vistas
             winAltaitemPedido.Show();
         }
 
-        private void Load_ComboMesas()
+       /* private void Load_ComboMesas()
         {
             var data2 = (TrabajarMesas.traerMesasHabilitadas() as System.ComponentModel.IListSource).GetList();
             cboMesas.DisplayMemberPath = "mesa_id";
             cboMesas.SelectedValuePath = "mesa_id";
             cboMesas.ItemsSource = data2;
+
+        }*/
+        private void Load_TextMesa(int idmesa)
+        {
+            mesa = TrabajarMesas.obtener_mesa(idmesa);
+            txbMesas.Text = mesa.Mesa_Id.ToString();
 
         }
         private void Load_ComboCliente()
@@ -75,8 +88,7 @@ namespace Vistas
         {
             try
             {
-                winWaiterMenu wm = new winWaiterMenu();
-                wm.Show();
+                
                 this.Close();
             }
             catch (Exception ex)
@@ -92,8 +104,8 @@ namespace Vistas
             if (result == MessageBoxResult.Yes)
             {
                 Pedido oPedido = new Pedido();
-                Mesa mesa =TrabajarMesas.obtener_mesa(Convert.ToInt32(cboMesas.SelectedValue.ToString()));
-                oPedido.Mesa_Id = Convert.ToInt32(cboMesas.SelectedValue.ToString());
+                //oPedido.Mesa_Id = Convert.ToInt32(cboMesas.SelectedValue.ToString());
+                oPedido.Mesa_Id = mesa.Mesa_Id;
                 mesa.Mesa_Estado = "En espera";
                 TrabajarMesas.edit_mesa(mesa);
                 oPedido.Cli_Id = Convert.ToInt32(cboCliente.SelectedValue.ToString());
@@ -106,11 +118,12 @@ namespace Vistas
                 Console.WriteLine(oPedido.Ped_Fecha_Entrega);
                 TrabajarPedido.add_pedido(oPedido);
 
-                MessageBox.Show("Artículo Guardado con éxito", "Datos Creados", MessageBoxButton.OK, MessageBoxImage.Information);
-
+                MessageBox.Show("Pedido Guardado con éxito", "Datos Creados", MessageBoxButton.OK, MessageBoxImage.Information);
+                (FindResource("LIST_PEDIDO") as ObjectDataProvider).Refresh();
+                
                 txtComensal.Text = "";
               
-                Load_ComboMesas();
+                
 
             }
         }
@@ -119,12 +132,31 @@ namespace Vistas
         {
             Pedido ped = (Pedido)lvwPedidos.SelectedItem;
             winVistaPreviaPedido vp = new winVistaPreviaPedido(ped);
-            vp.Show();
+            MessageBoxResult result = MessageBox.Show("¿Facturar Pedido?", "Facturacion", MessageBoxButton.YesNoCancel, MessageBoxImage.Information);
+            
+            if (result == MessageBoxResult.Yes)
+            {
+                TrabajarPedido.edit_pedido(true, ped.Ped_Id);
+                ped.Mesa.Mesa_Estado = "Libre";
+                TrabajarMesas.edit_mesa(ped.Mesa);
+                (FindResource("LIST_PEDIDO") as ObjectDataProvider).Refresh();
+                vp.Show();
+                
+            }
+            else if (result == MessageBoxResult.No)
+            {
+                vp.Show();
+                
+            }
+           
+
+            
             
         }
 
         private void lvwPedidos_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            
             btnAddItem.IsEnabled = true;
             btnverPedido.IsEnabled = true;
                 

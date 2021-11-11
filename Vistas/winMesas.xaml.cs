@@ -64,10 +64,15 @@ namespace Vistas
 
             if (mesa.Style == (Style)Application.Current.Resources["BotondeMesaVerde"])
             {
-                winPedidos pedido = new winPedidos();
-                pedido.Show();
+                MessageBoxResult result = MessageBox.Show("¿Agregar un Pedido?", "Agregar pedido", MessageBoxButton.YesNo, MessageBoxImage.Information);
+                if (result == MessageBoxResult.Yes)
+                {
+                    winPedidos pedido = new winPedidos(Convert.ToInt32(mesa.Content.ToString()));
 
-                this.Close();
+                    pedido.Show();
+
+                    this.Close();
+                }
             }
             else
             {
