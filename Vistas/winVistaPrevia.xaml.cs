@@ -18,9 +18,12 @@ namespace Vistas
     /// </summary>
     public partial class winVistaPrevia : Window
     {
-        public winVistaPrevia()
+        public winVistaPrevia(CollectionViewSource coleccion)
         {
+           
             InitializeComponent();
+
+            lvwArticulos.ItemsSource = coleccion.View;
         }
 
 

@@ -4,11 +4,7 @@
         xmlns:svc="clr-namespace:ClasesBase;assembly=ClasesBase"
         Title="winVistaPrevia" Height="500" Width="600"   Style="{StaticResource MainWindowStyle}"  WindowStartupLocation="CenterScreen" MouseLeftButtonDown="moveWindow">
     <Window.Resources>
-        <ObjectDataProvider 
-            ObjectType="{x:Type svc:TrabajarArticulos}" 
-            MethodName="traerArticulos" 
-            x:Key="list_articulos"
-        />
+       
         <Style TargetType="ToolTip">
             <Setter Property="Background" Value="Black"></Setter>
             <Setter Property="Foreground" Value="White"></Setter>
@@ -36,16 +32,16 @@
                     <Paragraph Foreground="Black" Style="{StaticResource FormDescription}">Listado de Artículos</Paragraph>
                     <BlockUIContainer>
                         <ListView Name="lvwArticulos" Width="auto" Height="auto" Background="White"
-                      ItemsSource="{Binding Source={StaticResource list_articulos}}" Foreground="Black" HorizontalContentAlignment="Center" BorderBrush="Black" >
+                     Foreground="Black" HorizontalContentAlignment="Center" BorderBrush="Black" >
                             <ListView.View>
                                 <GridView>
-                                    <GridViewColumn Width="30" Header="ID" DisplayMemberBinding="{Binding Path=art_id}"/>
-                                    <GridViewColumn Width="180" Header="Descripción" DisplayMemberBinding="{Binding Path=art_descripcion}"/>
-                                    <GridViewColumn Width="40" Header="UM" DisplayMemberBinding="{Binding Path=UM_abreviatura}"/>
-                                    <GridViewColumn Width="60" Header="Precio" DisplayMemberBinding="{Binding Path=art_precio}"/>
-                                    <GridViewColumn Width="60" Header="Stock" DisplayMemberBinding="{Binding Path=art_stock}"/>
-                                    <GridViewColumn Width="90" Header="Familia" DisplayMemberBinding="{Binding Path=fam_descripcion}"/>
-                                    <GridViewColumn Width="90" Header="Categoria" DisplayMemberBinding="{Binding Path=cat_descripcion}"/>
+                                    <GridViewColumn Width="30" Header="ID" DisplayMemberBinding="{Binding Art_Id}"/>
+                                    <GridViewColumn Width="150" Header="Descripcion" DisplayMemberBinding="{Binding Art_Descrip}"/>
+                                    <GridViewColumn Width="60" Header="UM" DisplayMemberBinding="{Binding Unidad_Medida.Um_Descrip}"/>
+                                    <GridViewColumn Width="60" Header="Precio" DisplayMemberBinding="{Binding Art_Precio}"/>
+                                    <GridViewColumn Width="60" Header="Stock" DisplayMemberBinding="{Binding Art_Manejo_Stock}"/>
+                                    <GridViewColumn Width="90" Header="Familia" DisplayMemberBinding="{Binding Familia.Fam_Descrip}"/>
+                                    <GridViewColumn Width="90" Header="Categoria" DisplayMemberBinding="{Binding Categoria.Cat_Descrip}"/>
                                 </GridView>
                             </ListView.View>
                         </ListView>

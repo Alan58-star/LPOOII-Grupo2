@@ -107,7 +107,7 @@ namespace Vistas
 
                 txtComensal.Text = "";
 
-                winPedidos oWinPedidos = new winPedidos();
+                winPedidos oWinPedidos = new winPedidos(1);
                 oWinPedidos.Show();
 
             }

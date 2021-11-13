@@ -210,9 +210,11 @@ namespace Vistas
         {
 
             numMesas = listaMesas.Count;
-            
+            int limitef=0;
+
             for (int i = 0; i < fila; i++)
             {
+                limitef++;
                 for (int j = 0; j < columna; j++)
                 {
                     if (contc < numMesas)
@@ -223,16 +225,7 @@ namespace Vistas
                         
                         if (listaMesas[contc].Mesa_Estado == "Libre")
                         {
-                            /* case "Libre": return new SolidColorBrush(Colors.Green); 
-                    case "Reservada": return new SolidColorBrush(Colors.Orange); 
-                    case "Ocupada": return new SolidColorBrush(Colors.Red); 
-                    case "Pidiendo": return new SolidColorBrush(Colors.Fuchsia); 
-                    case "En espera": return new SolidColorBrush(Colors.GreenYellow); 
-                    case "Servidos": return new SolidColorBrush(Colors.Salmon); 
-                    case "Esperando Cuenta": return new SolidColorBrush(Colors.RoyalBlue); 
-                    case "Pagando": return new SolidColorBrush(Colors.Olive); */
                             btn.Style = (Style)Application.Current.Resources["BotondeMesaVerde"];
-                            
                         }
                         else if (listaMesas[contc].Mesa_Estado=="En espera"){
                             btn.Style = (Style)Application.Current.Resources["BotondeMesaEnEspera"];
@@ -279,13 +272,20 @@ namespace Vistas
                     }
                 }
             }
+            if (numMesas==25)
+            {
+           
+            }
+            else {
+                btnAdd.Content = "Agregar";
 
-            btnAdd.Content = "Agregar";
-            btnAdd.Style = (Style)Application.Current.Resources["BotonAgregar"];
-            btnAdd.Click += crearMesa;
-            grdMesas.Children.Add(btnAdd);
-            Grid.SetRow(btnAdd, rows);
-            Grid.SetColumn(btnAdd, cols);
+                btnAdd.Style = (Style)Application.Current.Resources["BotonAgregar"];
+                btnAdd.Click += crearMesa;
+                grdMesas.Children.Add(btnAdd);
+                Grid.SetRow(btnAdd, rows);
+                Grid.SetColumn(btnAdd, cols);
+            }
+
             
         }
         private void crearMesa(object sender, RoutedEventArgs e)
@@ -316,11 +316,17 @@ namespace Vistas
                 limite++;
                 if (limite >= columna)
                 {
-                    rows++;
-                    cols = 0;
-                    limite = 0;
-                    Grid.SetRow(btnAdd, rows);
-                    Grid.SetColumn(btnAdd, cols);
+                    if (numMesas==25)
+                    {
+                        MessageBox.Show("No se pueden agregar mas MESAS!","Puto",MessageBoxButton.OK,MessageBoxImage.Exclamation);
+                    }
+                    else {
+                        rows++;
+                        cols = 0;
+                        limite = 0;
+                        Grid.SetRow(btnAdd, rows);
+                        Grid.SetColumn(btnAdd, cols);
+                    }
                 }
                 contc++;
         }

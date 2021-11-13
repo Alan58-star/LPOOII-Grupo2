@@ -23,6 +23,12 @@ namespace Vistas
         public winPedidos()
         {
             InitializeComponent();
+
+        }
+        public winPedidos(int id)
+        {
+            InitializeComponent();
+            lvwPedidos.SelectedIndex=0;
         }
 
         private void btnAddItems_Click(object sender, RoutedEventArgs e)

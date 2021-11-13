@@ -25,7 +25,7 @@ namespace Vistas
         public winBusquedaArt()
         {
             InitializeComponent();
-
+             
             vistaColeccionFiltrada = Resources["VISTA_ARTICULO"] as CollectionViewSource; 
         }
 
@@ -79,12 +79,6 @@ namespace Vistas
             }
         }
 
-        private void btnVistaImpresion_Click(object sender, RoutedEventArgs e)
-        {
-            winVistaPrevia winVP = new winVistaPrevia();
-            winVP.Show();
-        }
-
 
         //codigo para sacar el id de la fila seleccionada
         private void lvwArticulos_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -94,12 +88,9 @@ namespace Vistas
 
         private void btnPrint_Click(object sender, RoutedEventArgs e)
         {
-            PrintDialog pDialog = new PrintDialog();
 
-            if (pDialog.ShowDialog() == true)
-            {
-                pDialog.PrintDocument(((IDocumentPaginatorSource)fdocArticulosPreview).DocumentPaginator, "Imprimir");
-            }
+            winVistaPrevia wn = new winVistaPrevia(vistaColeccionFiltrada);
+            wn.Show();
         }
 
     }
