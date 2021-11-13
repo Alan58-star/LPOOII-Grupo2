@@ -29,14 +29,14 @@ namespace Vistas
         {
             InitializeComponent();
             timer.Tick += new EventHandler(timer_Tick);
-            timer.Interval = new TimeSpan(0,0,2);
+            timer.Interval = new TimeSpan(0,0,4);
             timer.Start();
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             SoundPlayer sp = new SoundPlayer();
-            sp.SoundLocation = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + @"\Media\startup.wav"; // SACAR 'Directory.GetParent' AL COMPILAR EL RELEASE
+            sp.SoundLocation = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + @"\Media\SONIDO.wav"; // SACAR 'Directory.GetParent' AL COMPILAR EL RELEASE
             sp.Play();
         }
 

@@ -416,6 +416,8 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Media\SONIDO.wav" />
+    <Content Include="Media\VIDEO.mp4" />
     <Resource Include="Media\bruh.wav" />
     <Resource Include="Images\Agregar.png" />
     <Resource Include="Images\04de2e31234507.564a1d23645bf.gif" />
