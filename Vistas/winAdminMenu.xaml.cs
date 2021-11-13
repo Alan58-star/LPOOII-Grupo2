@@ -138,7 +138,6 @@ namespace Vistas
         {
             winABMUsuarios wABMUsers = new winABMUsuarios();
             wABMUsers.Show();
-            this.Close();
         }
 
         private void rb3_Click(object sender, RoutedEventArgs e)
@@ -149,19 +148,19 @@ namespace Vistas
 
         private void openFamMenu(object sender, RoutedEventArgs e)
         {
-            winFamilias winFamilias = new winFamilias();
+            winABMFamilias winFamilias = new winABMFamilias();
             winFamilias.Show();
         }
 
         private void openCatMenu(object sender, RoutedEventArgs e)
         {
-            winCategorias winCategorias = new winCategorias();
+            winABMCategorias winCategorias = new winABMCategorias();
             winCategorias.Show();
         }
 
         private void openUMMenu(object sender, RoutedEventArgs e)
         {
-            winUnidadesDeMedida winnUnidadesDeMedida = new winUnidadesDeMedida();
+            winABMUMedidas winnUnidadesDeMedida = new winABMUMedidas();
             winnUnidadesDeMedida.Show();
         }
 

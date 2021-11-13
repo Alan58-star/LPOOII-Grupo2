@@ -28,19 +28,12 @@
     </Window.Resources>
     
     <Grid>
-        <Border BorderBrush="Black" BorderThickness="1" CornerRadius="10">
+        <Border Style="{StaticResource MainGridStyle}">
             <DockPanel Height="40" Name="dockPanel1" Width="auto" HorizontalAlignment="Stretch" VerticalAlignment="Top" FlowDirection="RightToLeft">
                 <Ellipse Height="15" ToolTip="Cerrar ventana" HorizontalAlignment="Right" Name="btnClose" Fill="#FFFF4B6A" Width="15" Margin="10,0,5,0" MouseLeftButtonDown="closeWindow"/>
                 <Ellipse Height="15" ToolTip="Maximizar ventana" HorizontalAlignment="Left" Name="btnMaximize" Fill="#EEEEEE" Width="15" Margin="5,0,5,0" MouseLeftButtonDown="minimizeWindow"/>
                 <Label Name="lblWinTitle" Content="Clientes" Padding="20,0" HorizontalAlignment="Right" FontFamily="FreeSans" FontSize="12" VerticalContentAlignment="Center" Foreground="#EEEEEE"/>
             </DockPanel>
-            <Border.Background>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="#232323" Offset="0.6" />
-                    <GradientStop Color="#121212" Offset="0.9" />
-                    <GradientStop Color="#070707" Offset="1" />
-                </LinearGradientBrush>
-            </Border.Background>
         </Border>
 
         <Grid Margin="0,50,0,0" Name="contentGrid">
@@ -70,6 +63,41 @@
 
 
             <ListView Grid.Row="2" Name="lvwClientes" Width="740" VerticalAlignment="Top" HorizontalAlignment="Center" Height="240" ItemsSource="{Binding Source= {StaticResource VISTA_CLIENTES}}" IsSynchronizedWithCurrentItem="True" Background="Black" Foreground="White" FontFamily="Century Gothic" HorizontalContentAlignment="Center" BorderBrush="Black" >
+                <ListView.ItemContainerStyle>
+                    <Style TargetType="{x:Type ListViewItem}">
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type ListViewItem}">
+                                    <Border CornerRadius="2" SnapsToDevicePixels="True"  
+                                BorderThickness="{TemplateBinding BorderThickness}"   
+                                BorderBrush="{TemplateBinding BorderBrush}"   
+                                Background="{TemplateBinding Background}">
+                                        <Border Name="InnerBorder" CornerRadius="1" BorderThickness="1">
+                                            <Grid>
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition MaxHeight="11" />
+                                                    <RowDefinition />
+                                                </Grid.RowDefinitions>
+                                                <GridViewRowPresenter Grid.RowSpan="2"   
+                                            VerticalAlignment="{TemplateBinding VerticalContentAlignment}"   
+                                            SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                                            </Grid>
+                                        </Border>
+                                    </Border>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+
+                        <Style.Triggers>
+                            <Trigger Property="IsSelected" Value="true" >
+                                <Setter Property="Background" Value="#5e8eb5" />
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="Background" Value="#505157"></Setter>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </ListView.ItemContainerStyle>
                 <ListView.View>
                     <GridView>
                         <GridViewColumn Width="20" Header="ID" DisplayMemberBinding="{Binding Cli_Id}"/>

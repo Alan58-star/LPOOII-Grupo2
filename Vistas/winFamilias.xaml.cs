@@ -19,24 +19,28 @@ namespace Vistas
     /// </summary>
     public partial class winFamilias : Window
     {
-        Familia oFamilias = new Familia();
+        Familia fam;
 
-        public winFamilias()
+        public winFamilias(int fid)
         {
             InitializeComponent();
-        }
 
-        private void btnGuardar_Click(object sender, RoutedEventArgs e)
-        {
-            MessageBoxResult result = MessageBox.Show("¿Desea guardar estos datos?", "Guardar Familia", MessageBoxButton.YesNo, MessageBoxImage.Question);
-            if (result == MessageBoxResult.Yes)
+            int famID = fid;
+            if (famID == 0)
             {
-                oFamilias.Fam_Descrip = txtFamDescrip.Text;
+                btnEditar.IsEnabled = false;
+                btnEditar.Visibility = Visibility.Hidden;
+            }
+            else
+            {
+                lblFamTitle.Content = "Actualizar Familia";
+                fam = TrabajarFamilias.obtener_familia(famID);
+                lblNewFamTitle.Content = "Actualizar";
+                lblNewFamDescrip.Content = "Actualice los datos de la familia";
+                btnGuardar.IsEnabled = false;
+                btnGuardar.Visibility = Visibility.Hidden;
 
-                MessageBox.Show("Se ha añadido la siguiente familia:\nDescripción: " + oFamilias.Fam_Descrip, "¡Datos Guardados con éxito!", MessageBoxButton.OK, MessageBoxImage.Information);
-
-                txtFamDescrip.Text = "";
-
+                txtFamDescrip.Text=fam.Fam_Descrip;
             }
         }
 
@@ -75,6 +79,51 @@ namespace Vistas
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void btnGuardar_Click(object sender, RoutedEventArgs e)
+        {
+
+            MessageBoxResult result = MessageBox.Show("¿Desea guardar estos datos?", "Guardar Familia", MessageBoxButton.YesNo, MessageBoxImage.Question);
+            if (result == MessageBoxResult.Yes)
+            {
+                Familia oFamilia = new Familia();
+
+                oFamilia.Fam_Descrip = txtFamDescrip.Text;
+
+
+                TrabajarFamilias.add_familia(oFamilia);
+
+                MessageBox.Show("Familia guardada con éxito");
+
+                txtFamDescrip.Text = "";
+
+                winABMFamilias winABMF = new winABMFamilias();
+                winABMF.Show();
+                this.Close();
+            }
+        }
+
+        private void btnEditar_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBoxResult result = MessageBox.Show("¿Desea actualizar estos datos?", "Actualizar Familia", MessageBoxButton.YesNo, MessageBoxImage.Question);
+            if (result == MessageBoxResult.Yes)
+            {
+                Familia oFamilia = new Familia();
+
+                oFamilia.Fam_Id = fam.Fam_Id;
+                oFamilia.Fam_Descrip = txtFamDescrip.Text;
+
+                TrabajarFamilias.edit_familia(oFamilia);
+
+                MessageBox.Show("Familia actualizada con éxito", "Familia actualizada", MessageBoxButton.OK, MessageBoxImage.Information);
+
+                txtFamDescrip.Text = "";
+
+                winABMFamilias winABMF = new winABMFamilias();
+                winABMF.Show();
+                this.Close();
             }
         }
     }

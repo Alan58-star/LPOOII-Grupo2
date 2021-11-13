@@ -15,19 +15,12 @@
         </Style>
     </Window.Resources>
     <Grid>
-        <Border BorderBrush="Black" BorderThickness="1" CornerRadius="10">
+        <Border Style="{StaticResource MainGridStyle}">
             <DockPanel Height="40" Name="dockPanel1" Width="auto" HorizontalAlignment="Stretch" VerticalAlignment="Top" FlowDirection="RightToLeft">
                 <Ellipse Height="15" HorizontalAlignment="Right" ToolTip="Cerrar ventana" Name="btnClose" Fill="#FFFF4B6A" Width="15" Margin="10,0,5,0" MouseLeftButtonDown="closeWindow"/>
                 <Ellipse Height="15" HorizontalAlignment="Left" ToolTip="Maximizar ventana" Name="btnMaximize" Fill="#EEEEEE" Width="15" Margin="5,0,5,0" MouseLeftButtonDown="minimizeWindow"/>
                 <Label Name="lblWinTitle" Content="Alta de Nuevo Cliente" Padding="20,0" HorizontalAlignment="Right" FontFamily="FreeSans" FontSize="12" VerticalContentAlignment="Center" Foreground="#EEEEEE"/>
             </DockPanel>
-            <Border.Background>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="#232323" Offset="0.6" />
-                    <GradientStop Color="#121212" Offset="0.9" />
-                    <GradientStop Color="#070707" Offset="1" />
-                </LinearGradientBrush>
-            </Border.Background>
         </Border>
         <Grid Margin="0,40,0,0">
 

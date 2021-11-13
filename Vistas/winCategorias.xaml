@@ -36,8 +36,8 @@
                     <RowDefinition Height="80*"/>
                     <RowDefinition Height="30*"/>
                 </Grid.RowDefinitions>
-                <Label Name="lblNewCatTitle" Content="Nueva Categoría"  Style="{StaticResource FormTitle}" Grid.ColumnSpan="2" Margin="61,33,53,53" Width="263" />
-                <Label Name="lblNewCatDescrip" Content="Ingrese los datos de la Categoría"  Style="{StaticResource FormDescription}" Grid.ColumnSpan="2" Margin="77,72,69,33" Width="237" />
+                <Label Name="lblNewCatTitle" Content="Nueva Categoría"  Style="{StaticResource FormTitle}" Grid.ColumnSpan="2" HorizontalAlignment="center" Margin="0,0,0,30" Width="263" />
+                <Label Name="lblNewCatDescrip" Content="Ingrese los datos de la Categoría"  Style="{StaticResource FormDescription}" Grid.ColumnSpan="2" Margin="0,50,0,0" HorizontalAlignment="center" Width="auto" />
                 <Label Content="Descripción " Name="lblFCatDescrip" Grid.Row="1" Style="{StaticResource StyleLabelForm}" Grid.Column="0" Width="Auto" />
                 <TextBox Name="txtCatDescrip" Grid.Row="1" Grid.Column="1" DataContext="{StaticResource Data_Cat}" Style="{StaticResource EstiloError}">
                     <TextBox.Text>
@@ -46,9 +46,10 @@
                     </TextBox.Text>
                 </TextBox>
             </Grid>
-            <DockPanel Grid.Row="1">
-                <Button Content="GUARDAR" ToolTip="Guardar la nueva categoría" Name="btnGuardar" Click="btnGuardar_Click" HorizontalAlignment="Center" Style="{StaticResource ButtonFormBlack}"></Button>
-            </DockPanel>
+
+            <Button Grid.Row="2" Content="GUARDAR" ToolTip="Guardar la nueva categoría" FontWeight="Bold" Name="btnGuardar" Click="btnGuardar_Click" Style="{StaticResource ButtonFormBlack}"/>
+            <Button Grid.Row="2" ToolTip="Actualizar los datos de la categoría" Content="ACTUALIZAR" FontWeight="Bold" Name="btnEditar" Click="btnEditar_Click" Style="{StaticResource ButtonFormBlack}"/>
+
         </Grid>
     </Grid>
 </Window>

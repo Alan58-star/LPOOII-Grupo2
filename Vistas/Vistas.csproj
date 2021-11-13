@@ -88,8 +88,17 @@
       <DependentUpon>UCLogin.xaml</DependentUpon>
     </Compile>
     <Compile Include="ConversorDeEstados.cs" />
+    <Compile Include="winABMCategorias.xaml.cs">
+      <DependentUpon>winABMCategorias.xaml</DependentUpon>
+    </Compile>
     <Compile Include="winABMClientes.xaml.cs">
       <DependentUpon>winABMClientes.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="winABMFamilias.xaml.cs">
+      <DependentUpon>winABMFamilias.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="winABMUMedidas.xaml.cs">
+      <DependentUpon>winABMUMedidas.xaml</DependentUpon>
     </Compile>
     <Compile Include="winABMUsuarios.xaml.cs">
       <DependentUpon>winABMUsuarios.xaml</DependentUpon>
@@ -216,7 +225,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="winABMCategorias.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="winABMClientes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="winABMFamilias.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="winABMUMedidas.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

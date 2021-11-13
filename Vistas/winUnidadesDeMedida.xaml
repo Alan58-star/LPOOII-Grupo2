@@ -58,10 +58,12 @@
                     </TextBox.Text>
                 </TextBox>
             </Grid>
-            
-            <DockPanel Grid.Row="1">
-                <Button Content="GUARDAR" ToolTip="Guardar la unidad de medida" Name="btnGuardar" Click="btnGuardar_Click" HorizontalAlignment="Center" Style="{StaticResource ButtonFormBlack}"></Button>
-            </DockPanel>
+
+
+            <Button Grid.Row="2" Content="GUARDAR" ToolTip="Guardar la nueva UM" FontWeight="Bold" Name="btnGuardar" Click="btnGuardar_Click" Style="{StaticResource ButtonFormBlack}"/>
+            <Button Grid.Row="2" ToolTip="Actualizar los datos de la UM" Content="ACTUALIZAR" FontWeight="Bold" Name="btnEditar" Click="btnEditar_Click" Style="{StaticResource ButtonFormBlack}"/>
+
+
         </Grid>
     </Grid>
 </Window>

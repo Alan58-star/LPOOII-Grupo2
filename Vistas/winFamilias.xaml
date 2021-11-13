@@ -50,11 +50,12 @@
 
             </Grid>
 
-            
 
-            <DockPanel Grid.Row="1">
-                <Button Content="GUARDAR" ToolTip="Guardar la familia con la descripción ingresada" Name="btnGuardar" Click="btnGuardar_Click" HorizontalAlignment="Center" Style="{StaticResource ButtonFormBlack}"></Button>
-            </DockPanel>
+
+
+            <Button Grid.Row="2" Content="GUARDAR" ToolTip="Guardar la nueva familia" FontWeight="Bold" Name="btnGuardar" Click="btnGuardar_Click" Style="{StaticResource ButtonFormBlack}"/>
+            <Button Grid.Row="2" ToolTip="Actualizar los datos de la familia" Content="ACTUALIZAR" FontWeight="Bold" Name="btnEditar" Click="btnEditar_Click" Style="{StaticResource ButtonFormBlack}"/>
+
         </Grid>
         
     </Grid>

@@ -19,25 +19,27 @@ namespace Vistas
     /// </summary>
     public partial class winCategorias : Window
     {
-        Categoria oCategorias = new Categoria();
+        Categoria cat;
 
-        public winCategorias()
+        public winCategorias(int cid)
         {
             InitializeComponent();
-        }
-
-        private void btnGuardar_Click(object sender, RoutedEventArgs e)
-        {
-
-            MessageBoxResult result = MessageBox.Show("¿Desea guardar estos datos?", "Guardar Cliente", MessageBoxButton.YesNo, MessageBoxImage.Question);
-            if (result == MessageBoxResult.Yes)
+            int catID = cid;
+            if (catID == 0)
             {
-                oCategorias.Cat_Descrip = txtCatDescrip.Text;
-                
-                MessageBox.Show("Se ha añadido la siguiente categoria:\nDescripcion: " + oCategorias.Cat_Descrip, "¡Datos Guardados con éxito!", MessageBoxButton.OK, MessageBoxImage.Information);
+                btnEditar.IsEnabled = false;
+                btnEditar.Visibility = Visibility.Hidden;
+            }
+            else
+            {
+                lblCatTitle.Content = "Actualizar Categoría";
+                cat = TrabajarCategorias.obtener_categoria(catID);
+                lblNewCatTitle.Content = "Actualizar";
+                lblNewCatDescrip.Content = "Actualice los datos de la categoría";
+                btnGuardar.IsEnabled = false;
+                btnGuardar.Visibility = Visibility.Hidden;
 
-                txtCatDescrip.Text = "";
-
+                txtCatDescrip.Text = cat.Cat_Descrip;
             }
         }
 
@@ -76,6 +78,50 @@ namespace Vistas
             {
                 MessageBox.Show(ex.Message);
                 //throw;
+            }
+        }
+
+        private void btnGuardar_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBoxResult result = MessageBox.Show("¿Desea guardar estos datos?", "Guardar Categoría", MessageBoxButton.YesNo, MessageBoxImage.Question);
+            if (result == MessageBoxResult.Yes)
+            {
+                Categoria oCategoria = new Categoria();
+
+                oCategoria.Cat_Descrip = txtCatDescrip.Text;
+
+
+                TrabajarCategorias.add_categoria(oCategoria);
+
+                MessageBox.Show("Categoría guardada con éxito");
+
+                txtCatDescrip.Text = "";
+
+                winABMCategorias winABMC = new winABMCategorias();
+                winABMC.Show();
+                this.Close();
+            }
+        }
+
+        private void btnEditar_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBoxResult result = MessageBox.Show("¿Desea actualizar estos datos?", "Actualizar ´Categoría", MessageBoxButton.YesNo, MessageBoxImage.Question);
+            if (result == MessageBoxResult.Yes)
+            {
+                Categoria oCategoria = new Categoria();
+
+                oCategoria.Cat_Id = cat.Cat_Id;
+                oCategoria.Cat_Descrip = txtCatDescrip.Text;
+
+                TrabajarCategorias.edit_categoria(oCategoria);
+
+                MessageBox.Show("Categoría actualizada con éxito", "Categoría actualizada", MessageBoxButton.OK, MessageBoxImage.Information);
+
+                txtCatDescrip.Text = "";
+
+                winABMCategorias winABMC = new winABMCategorias();
+                winABMC.Show();
+                this.Close();
             }
         }
     }

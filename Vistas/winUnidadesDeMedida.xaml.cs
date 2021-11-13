@@ -19,24 +19,29 @@ namespace Vistas
     /// </summary>
     public partial class winUnidadesDeMedida : Window
     {
-        Unidad_Medida oUnidadDeMedida = new Unidad_Medida();
+        Unidad_Medida um;
 
-        public winUnidadesDeMedida()
+        public winUnidadesDeMedida(int umid)
         {
             InitializeComponent();
-        }
 
-        private void btnGuardar_Click(object sender, RoutedEventArgs e)
-        {
-
-            MessageBoxResult result = MessageBox.Show("¿Desea guardar estos datos?", "Guardar Unidades de Medida", MessageBoxButton.YesNo, MessageBoxImage.Question);
-            if (result == MessageBoxResult.Yes)
+            int umID = umid;
+            if (umID == 0)
             {
-                oUnidadDeMedida.Um_Descrip = txtUMDescrip.Text;
-                oUnidadDeMedida.Um_Abrev = txtUMAbrev.Text;
-                MessageBox.Show("Se ha añadido la siguiente Unidad de Medida:\nDescripción: " + oUnidadDeMedida.Um_Descrip + "\nAbreviatura: " + oUnidadDeMedida.Um_Abrev, "¡Datos Guardados con éxito!", MessageBoxButton.OK, MessageBoxImage.Information);
-                oUnidadDeMedida.Um_Descrip = txtUMDescrip.Text;
-                oUnidadDeMedida.Um_Abrev = txtUMAbrev.Text;
+                btnEditar.IsEnabled = false;
+                btnEditar.Visibility = Visibility.Hidden;
+            }
+            else
+            {
+                lblUMTitle.Content = "Actualizar UM";
+                um = TrabajarUM.obtener_UM(umID);
+                lblNewUMTitle.Content = "Actualizar";
+                lblNewUMDescrip.Content = "Actualice los datos de la UM";
+                btnGuardar.IsEnabled = false;
+                btnGuardar.Visibility = Visibility.Hidden;
+
+                txtUMDescrip.Text = um.Um_Descrip;
+                txtUMAbrev.Text = um.Um_Abrev;
             }
         }
 
@@ -75,6 +80,53 @@ namespace Vistas
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void btnGuardar_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBoxResult result = MessageBox.Show("¿Desea guardar estos datos?", "Guardar Unidad de medida", MessageBoxButton.YesNo, MessageBoxImage.Question);
+            if (result == MessageBoxResult.Yes)
+            {
+                Unidad_Medida oUM = new Unidad_Medida();
+
+                oUM.Um_Descrip = txtUMDescrip.Text;
+                oUM.Um_Abrev = txtUMAbrev.Text;
+
+                TrabajarUM.add_UM(oUM);
+
+                MessageBox.Show("Unidad de medida guardada con éxito");
+
+                txtUMDescrip.Text = "";
+                txtUMAbrev.Text = "";
+
+                winABMUMedidas winABMUM = new winABMUMedidas();
+                winABMUM.Show();
+                this.Close();
+            }
+        }
+
+        private void btnEditar_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBoxResult result = MessageBox.Show("¿Desea actualizar estos datos?", "Actualizar Unidad de medida", MessageBoxButton.YesNo, MessageBoxImage.Question);
+            if (result == MessageBoxResult.Yes)
+            {
+                Unidad_Medida oUM = new Unidad_Medida();
+
+                oUM.Um_Id = um.Um_Id;
+                oUM.Um_Descrip = txtUMDescrip.Text;
+                oUM.Um_Abrev = txtUMAbrev.Text;
+
+                TrabajarUM.edit_UM(oUM);
+
+                MessageBox.Show("Unidad de medida actualizada con éxito", "Unidad de medida actualizada", MessageBoxButton.OK, MessageBoxImage.Information);
+
+                txtUMAbrev.Text = "";
+                txtUMDescrip.Text = "";
+
+                winABMUMedidas winABMUM = new winABMUMedidas();
+                winABMUM.Show();
+                this.Close();
             }
         }
 

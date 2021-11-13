@@ -1,31 +1,30 @@
-﻿<Window x:Class="Vistas.winABMUsuarios"
+﻿<Window x:Class="Vistas.winABMCategorias"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:svc="clr-namespace:ClasesBase;assembly=ClasesBase"
         xmlns:componentModel="clr-namespace:System.ComponentModel;assembly=WindowsBase"
-        Title="winABMUsuarios" MinHeight="520" MinWidth="700" Height="520" Width="700" Style="{StaticResource MainWindowStyle}"  WindowStartupLocation="CenterScreen" MouseLeftButtonDown="moveWindow" Loaded="Window_Loaded">
+        Title="winABMCategorias"  MinHeight="520" MinWidth="500" Height="520" Width="500" Style="{StaticResource MainWindowStyle}"  WindowStartupLocation="CenterScreen" MouseLeftButtonDown="moveWindow" Loaded="Window_Loaded">
     <Window.Resources>
-        
+
         <Style TargetType="ToolTip">
             <Setter Property="Background" Value="Black"></Setter>
             <Setter Property="Foreground" Value="White"></Setter>
         </Style>
         <ObjectDataProvider
-            x:Key="LIST_USUARIOS"
-            ObjectType="{x:Type svc:TrabajarUsuarios}"
-            MethodName="TraerUsuariosColeccion"
+            x:Key="LIST_CATEGORIAS"
+            ObjectType="{x:Type svc:TrabajarCategorias}"
+            MethodName="TraerCategoriasColeccion"
         />
 
         <CollectionViewSource
-            x:Key="VISTA_USUARIOS"
-            Source="{StaticResource ResourceKey=LIST_USUARIOS}"
-            Filter="eventVistaUsuarios_Filter">
+            x:Key="VISTA_CATEGORIAS"
+            Source="{StaticResource ResourceKey=LIST_CATEGORIAS}"
+            Filter="eventVistaCategorias_Filter">
 
             <CollectionViewSource.SortDescriptions>
-                <componentModel:SortDescription PropertyName="Usr_Id" Direction="Descending"/>
+                <componentModel:SortDescription PropertyName="Cat_Id" Direction="Descending"/>
             </CollectionViewSource.SortDescriptions>
         </CollectionViewSource>
-
     </Window.Resources>
     
     <Grid>
@@ -33,12 +32,11 @@
             <DockPanel Height="40" Name="dockPanel1" Width="auto" HorizontalAlignment="Stretch" VerticalAlignment="Top" FlowDirection="RightToLeft">
                 <Ellipse Height="15" ToolTip="Cerrar ventana" HorizontalAlignment="Right" Name="btnClose" Fill="#FFFF4B6A" Width="15" Margin="10,0,5,0" MouseLeftButtonDown="closeWindow"/>
                 <Ellipse Height="15" ToolTip="Maximizar ventana" HorizontalAlignment="Left" Name="btnMaximize" Fill="#EEEEEE" Width="15" Margin="5,0,5,0" MouseLeftButtonDown="minimizeWindow"/>
-                <Label Name="lblWinTitle" Content="Usuarios" Padding="20,0" HorizontalAlignment="Right" FontFamily="FreeSans" FontSize="12" VerticalContentAlignment="Center" Foreground="#EEEEEE"/>
+                <Label Name="lblWinTitle" Content="Categorías" Padding="20,0" HorizontalAlignment="Right" FontFamily="FreeSans" FontSize="12" VerticalContentAlignment="Center" Foreground="#EEEEEE"/>
             </DockPanel>
         </Border>
-
         <Grid Margin="0,50,0,0" Name="contentGrid">
-            
+
             <Grid.RowDefinitions>
                 <RowDefinition Height="11*"></RowDefinition>
                 <RowDefinition Height="19*"></RowDefinition>
@@ -52,23 +50,18 @@
                     <ColumnDefinition Width="50*"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
 
-                <Label Grid.Column="0" Content="Usuarios" Style="{StaticResource FormTitle}" FontSize="26" HorizontalAlignment="Left" Margin="20,0,0,10"></Label>
-                <!-- elemento búsqueda
-                <DockPanel Grid.Column="1" HorizontalAlignment="Center">
-                    <TextBox x:Name="txtSearchUser" Height="20" Width="120" Style="{StaticResource StyleTextBoxForm}" FontSize="10" TextChanged="txtSearchUser_TextChanged" />
-                    <Label Content="🔍" Style="{StaticResource StyleLabelForm}" FontFamily="Segoe UI Emoji" HorizontalAlignment="Left"/>
-                </DockPanel>
-                -->
-                <Button Grid.Column="1" x:Name="btnAddUsr" HorizontalAlignment="Right" ToolTip="Agregar un nuevo usuario" Content="+ Nuevo Usuario" Margin="20,0" Height="30" Width="130" Click="btn_NuevoUsuario" Style="{StaticResource ButtonFormBlack}" ></Button>
+                <Label Grid.Column="0" Content="Categorías" Style="{StaticResource FormTitle}" FontSize="26" HorizontalAlignment="Left" Margin="20,0,0,10"></Label>
+
+                <Button Grid.Column="1" x:Name="btnAddCat" HorizontalAlignment="Right" ToolTip="Agregar una nueva categoría" Content="+ Nueva Categoría" Margin="20,0" Height="30" Width="140" Click="btn_NuevaCategoria" Style="{StaticResource ButtonFormBlack}" ></Button>
             </Grid>
-            
+
             <StackPanel Grid.Row="1">
-                <Label Content="Buscar por usuario:" HorizontalAlignment="center" Style="{StaticResource StyleLabelForm}" VerticalAlignment="Center"></Label>
+                <Label Content="Buscar por categoría:" HorizontalAlignment="center" Style="{StaticResource StyleLabelForm}" VerticalAlignment="Center"></Label>
                 <TextBox Margin="10,0" x:Name="txtSearch" Width="200" HorizontalAlignment="Center" Style="{StaticResource StyleTextBoxForm}" TextChanged="txtSearch_TextChanged"></TextBox>
             </StackPanel>
-            
-                
-                <ListView Grid.Row="2" Name="lvgUsuarios" Width="600" VerticalAlignment="Top" HorizontalAlignment="Center" Height="240" ItemsSource="{Binding Source= {StaticResource VISTA_USUARIOS}}" IsSynchronizedWithCurrentItem="True" Background="Black" Foreground="White" FontFamily="Century Gothic" HorizontalContentAlignment="Center" BorderBrush="Black" >
+
+
+            <ListView Grid.Row="2" Name="lvwCategorias" Width="350" VerticalAlignment="Top" HorizontalAlignment="Center" Height="240" ItemsSource="{Binding Source= {StaticResource VISTA_CATEGORIAS}}" IsSynchronizedWithCurrentItem="True" Background="Black" Foreground="White" FontFamily="Century Gothic" HorizontalContentAlignment="Center" BorderBrush="Black" >
                 <ListView.ItemContainerStyle>
                     <Style TargetType="{x:Type ListViewItem}">
                         <Setter Property="Template">
@@ -105,21 +98,19 @@
                     </Style>
                 </ListView.ItemContainerStyle>
                 <ListView.View>
-                        <GridView>
-                            <GridViewColumn Width="50" Header="ID" DisplayMemberBinding="{Binding Usr_Id}"/>
-                            <GridViewColumn Width="150" Header="Usuario" DisplayMemberBinding="{Binding Usr_NombreUsuario}"/>
-                            <GridViewColumn Width="250" Header="Apellido y nombre" DisplayMemberBinding="{Binding Usr_ApellidoNombre}"/>
-                            <GridViewColumn Width="140" Header="Rol" DisplayMemberBinding="{Binding Rol.Rol_Descrip}"/>
-                        </GridView>
-                    </ListView.View>
-                </ListView>
-            
-            <DockPanel Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1">
-                <Button x:Name="btnModifUsr" ToolTip="Actualizar el usuario seleccionado" Content="Actualizar Usuario" Margin="7" Height="40" Width="150" Click="btn_ModifUsuario" Style="{StaticResource ButtonFormBlack}"></Button>
-                <Button x:Name="btnDeleteusr" ToolTip="Eliminar el usuario seleccionado" Content="Eliminar Usuario" Margin="7" Height="40" Width="150" Click="btn_ElimUsuario" Style="{StaticResource ButtonFormBlack}" Background="#880000" Foreground="#EEEEEE"></Button>
-            </DockPanel>
-            
-        </Grid>
 
+                    <GridView>
+                        <GridViewColumn Width="100" Header="ID" DisplayMemberBinding="{Binding Cat_Id}"/>
+                        <GridViewColumn Width="240" Header="Categoría" DisplayMemberBinding="{Binding Cat_Descrip}"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+
+            <DockPanel Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1">
+                <Button x:Name="btnModifCat" ToolTip="Actualizar la categoría seleccionada" Content="Actualizar Categoría" Margin="7" Height="40" Width="150" Click="btn_ModifCategoria" Style="{StaticResource ButtonFormBlack}"></Button>
+                <Button x:Name="btnDeleteCat" ToolTip="Eliminar la categoría seleccionada" Content="Eliminar Categoría" Margin="7" Height="40" Width="150" Click="btn_ElimCategoria" Style="{StaticResource ButtonFormBlack}" Background="#880000" Foreground="#EEEEEE"></Button>
+            </DockPanel>
+
+        </Grid>
     </Grid>
 </Window>
