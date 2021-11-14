@@ -22,6 +22,7 @@ namespace Vistas
     /// </summary>
     public partial class winArticulos : Window
     {
+        String archivo, route, destino;
 
         Articulo art1 = new Articulo();
         public winArticulos(int idarticulo)
@@ -178,6 +179,7 @@ namespace Vistas
 
         private void btnImagen_Click(object sender, RoutedEventArgs e)
         {
+
             OpenFileDialog openFileDialog = new OpenFileDialog();
             openFileDialog.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.gif;*.tif;...";
          
@@ -185,15 +187,14 @@ namespace Vistas
 
             if (openFileDialog.ShowDialog() == true)
             {
-                Uri fileUri = new Uri(openFileDialog.FileName);
+                archivo = openFileDialog.FileName;
+                route = @"D:\-N-\Trabajos\3° APU\LPOO II\TRABAJO PRÁCTICO\LPOOII-Grupo2\Vistas\Images";
+                destino = System.IO.Path.Combine(route, openFileDialog.SafeFileName);
+                System.IO.File.Copy(archivo, destino, true);
+
+                Uri fileUri = new Uri(destino);
                 imgArticulo.Source = new BitmapImage(fileUri);
             }
-
         }
-
-       
-
-
-
     }
 }
