@@ -1,7 +1,7 @@
 ﻿<Window x:Class="Vistas.winConsultaMesas"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="winConsultaMesas" Height="300" Width="300" Style="{StaticResource MainWindowStyle}"  WindowStartupLocation="CenterScreen" MouseLeftButtonDown="moveWindow" MinHeight="300" MinWidth="300">
+        Title="Distribución de mesas" Height="300" Width="300" Style="{StaticResource MainWindowStyle}"  WindowStartupLocation="CenterScreen" MouseLeftButtonDown="moveWindow" MinHeight="300" MinWidth="300">
     <Window.Resources>
         <Style TargetType="ToolTip">
             <Setter Property="Background" Value="Black"></Setter>

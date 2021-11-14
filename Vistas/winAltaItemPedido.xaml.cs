@@ -152,12 +152,12 @@ namespace Vistas
             if (txtCantidad.Text == "")
             {
                 valido = false;
-                MessageBox.Show("Debe ingresar la cantidad del artículo seleccionado que desea añadir.");
+                MessageBox.Show("Debe ingresar la cantidad del artículo seleccionado que desea añadir.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 Dialogo.IsOpen = true;
                 return valido;
-            }else if (txtCantidad.Text == "0") {
+            }else if (Convert.ToInt32(txtCantidad.Text) <= 0) {
                 valido = false;
-                MessageBox.Show("La cantidad del artículo que desea añadir no puede ser igual a 0.");
+                MessageBox.Show("No puede ingresar un valor menor a 1.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 Dialogo.IsOpen = true;
                 return valido;
             }

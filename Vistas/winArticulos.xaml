@@ -88,7 +88,7 @@
                             </TextBox>
 
                         <StackPanel Grid.Row="8" VerticalAlignment="Center">
-                            <Label Content="El artículo necesita una imagen" FontSize="12" Style="{StaticResource StyleLabelForm}" HorizontalAlignment="Center"></Label>
+                            <Label Content="El artículo debe tener una imagen" FontSize="12" Style="{StaticResource StyleLabelForm}" HorizontalAlignment="Center"></Label>
                             <Button Name="btnImagen" ToolTip="Seleccione una imagen de su computadora" Content="SELECCIONAR IMAGEN" Style="{StaticResource ButtonFormBlack}" Click="btnImagen_Click"></Button>
                         </StackPanel>    
                         <Image Grid.Row="8" Grid.Column="1" Name="imgArticulo" Height="auto" HorizontalAlignment="Center"></Image>

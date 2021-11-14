@@ -29,7 +29,7 @@ namespace Vistas
         {
             InitializeComponent();
             timer.Tick += new EventHandler(timer_Tick);
-            timer.Interval = new TimeSpan(0,0,4);
+            timer.Interval = new TimeSpan(0,0,2);
             timer.Start();
         }
 

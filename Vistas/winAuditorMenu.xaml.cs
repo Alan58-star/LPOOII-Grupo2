@@ -143,7 +143,7 @@ namespace Vistas
         private void btnLogout_Click_1(object sender, RoutedEventArgs e)
         {
             winLogin WinLogin = new winLogin();
-            MessageBoxResult result = MessageBox.Show("¿Desea cerrar sesión?", "¿Salir?", MessageBoxButton.YesNo, MessageBoxImage.Question);
+            MessageBoxResult result = MessageBox.Show("¿Desea cerrar sesión?", "¿Salir?", MessageBoxButton.YesNo, MessageBoxImage.Exclamation);
             if (result == MessageBoxResult.Yes)
             {
                 WinLogin.Show();

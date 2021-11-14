@@ -25,6 +25,8 @@ namespace Vistas
         public winBusquedaArt()
         {
             InitializeComponent();
+            btnShowStock.IsEnabled = false;
+            btnShowStock.Visibility = Visibility.Hidden;
              
             vistaColeccionFiltrada = Resources["VISTA_ARTICULO"] as CollectionViewSource; 
         }
@@ -91,6 +93,24 @@ namespace Vistas
 
             winVistaPrevia wn = new winVistaPrevia(vistaColeccionFiltrada);
             wn.Show();
+        }
+
+        private void btnShowArticulos_Click(object sender, RoutedEventArgs e)
+        {
+            (FindResource("LIST_ARTICULO") as ObjectDataProvider).MethodName = "TraerArticulosColeccion";
+            btnShowArticulos.IsEnabled = false;
+            btnShowArticulos.Visibility = Visibility.Hidden;
+            btnShowStock.IsEnabled = true;
+            btnShowStock.Visibility = Visibility.Visible;
+        }
+
+        private void btnShowStock_Click(object sender, RoutedEventArgs e)
+        {
+            (FindResource("LIST_ARTICULO") as ObjectDataProvider).MethodName = "TraerColeccionConStock";
+            btnShowStock.IsEnabled = false;
+            btnShowStock.Visibility = Visibility.Hidden;
+            btnShowArticulos.IsEnabled = true;
+            btnShowArticulos.Visibility = Visibility.Visible;
         }
 
     }

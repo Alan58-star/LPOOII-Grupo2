@@ -92,7 +92,7 @@
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
-                        <Button Background="#e6d870" Margin="10,5">
+                        <Button Background="#f5db58" Margin="10,5">
                             <Grid>
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="80*" />

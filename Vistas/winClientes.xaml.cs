@@ -161,13 +161,13 @@ namespace Vistas
             if (txtApellidos.Text == "")
             {
                 valido = false;
-                MessageBox.Show("Debe ingresar el o los apellidos del cliente.");
+                MessageBox.Show("Debe ingresar el o los apellidos del cliente.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 return valido;
             }
             if (txtNombres.Text == "")
             {
                 valido = false;
-                MessageBox.Show("Debe ingresar el o los nombres del cliente.");
+                MessageBox.Show("Debe ingresar el o los nombres del cliente.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 return valido;
             }
             /*if (txtDomicilio.Text == "")
@@ -179,7 +179,7 @@ namespace Vistas
             if (txtTel.Text == "")
             {
                 valido = false;
-                MessageBox.Show("Debe ingresar el teléfono del cliente.");
+                MessageBox.Show("Debe ingresar el teléfono del cliente.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 return valido;
             }
             /*if(txtMail.Text == "")

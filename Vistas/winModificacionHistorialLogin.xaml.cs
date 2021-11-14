@@ -97,7 +97,7 @@ namespace Vistas
             if (txtDescripcion.Text == "")
             {
                 valido = false;
-                MessageBox.Show("Debe ingresar la descripción para el login seleccionado.");
+                MessageBox.Show("Debe ingresar la descripción para el login seleccionado.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 return valido;
             }
             return valido;

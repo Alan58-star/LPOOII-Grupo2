@@ -93,7 +93,7 @@
                             <Button Grid.Column="1" ToolTip="Muestra todos los pedidos registrados" x:Name="btnShowPedidos" HorizontalAlignment="Right" Margin="20,0" Style="{StaticResource ButtonFormBlack}" Click="btnShowPedidos_Click">
                                 <Button.Content>
                                     <DockPanel>
-                                        <TextBlock Text="Mostrar todos los pedidos" FontSize="14" Foreground="white"></TextBlock>
+                                        <TextBlock Text="Mostrar pedidos facturados" FontSize="14" Foreground="white"></TextBlock>
                                         <fa:ImageAwesome Icon="Eye" Height="14" Foreground="White" Margin="7,0,0,0"></fa:ImageAwesome>
                                     </DockPanel>
                                 </Button.Content>

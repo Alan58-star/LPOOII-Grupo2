@@ -141,7 +141,7 @@ namespace Vistas
             if (txtCatDescrip.Text == "")
             {
                 valido = false;
-                MessageBox.Show("Debe ingresar una descripción para la categoría.");
+                MessageBox.Show("Debe ingresar una descripción para la categoría.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 return valido;
             }
             return valido;

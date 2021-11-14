@@ -207,44 +207,53 @@ namespace Vistas
             int comboFamilia = Convert.ToInt32(cboFlia.SelectedValue);
             int comboMedida = Convert.ToInt32(cboMedida.SelectedValue);
             int comboCategoria = Convert.ToInt32(cboCategoria.SelectedValue);
-            int textoPrecio = Convert.ToInt32(txtPrecio.Text);
-            //string imagen = Convert.ToString(imgArticulo.Source);
+            decimal textoPrecio = Convert.ToDecimal(txtPrecio.Text.Replace(".",","));
+            string imagen = Convert.ToString(imgArticulo.Source);
             if( (string.IsNullOrEmpty(cboFlia.Text)) || (comboFamilia == -1) )
             {
                 valido = false;
-                MessageBox.Show("Debe seleccionar una familia para el artículo.");
+                MessageBox.Show("Debe seleccionar una familia para el artículo.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 return valido;
             }
             if( (string.IsNullOrEmpty(cboMedida.Text)) || (comboMedida == -1) )
             {
                 valido = false;
-                MessageBox.Show("Debe seleccionar una unidad de medida para el artículo.");
+                MessageBox.Show("Debe seleccionar una unidad de medida para el artículo.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 return valido;
             }
             if( (string.IsNullOrEmpty(cboCategoria.Text)) || (comboCategoria == -1) )
             {
                 valido = false;
-                MessageBox.Show("Debe seleccionar una categoría para el artículo.");
+                MessageBox.Show("Debe seleccionar una categoría para el artículo.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 return valido;
             }
             if( textoPrecio == 0 )
             {
                 valido = false;
-                MessageBox.Show("Debe ingresar el precio del artículo.");
+                MessageBox.Show("Debe ingresar el precio del artículo.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 return valido;
             }
+
+            if (textoPrecio < 0)
+            {
+                valido = false;
+                MessageBox.Show("El precio no puede ser un valor negativo.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return valido;
+            }
+
             if(txtDescripcion.Text == "")
             {
                 valido = false;
-                MessageBox.Show("Debe ingresar una descripción del artículo.");
+                MessageBox.Show("Debe ingresar una descripción del artículo.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 return valido;
             }
-            /*if(imagen == "")
+
+            if(imagen == "")
             {
                 valido = false;
-                MessageBox.Show("Debe ingresar una imágen del artículo.");
+                MessageBox.Show("Debe ingresar una imagen del artículo.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 return valido;
-            }*/
+            }
             return valido;
         }
     }

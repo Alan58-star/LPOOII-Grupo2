@@ -318,7 +318,7 @@ namespace Vistas
                 {
                     if (numMesas==25)
                     {
-                        MessageBox.Show("No se pueden agregar mas MESAS!","Puto",MessageBoxButton.OK,MessageBoxImage.Exclamation);
+                        MessageBox.Show("No se pueden agregar más mesas.","Límite de mesas alcanzado",MessageBoxButton.OK,MessageBoxImage.Exclamation);
                     }
                     else {
                         rows++;
@@ -338,7 +338,10 @@ namespace Vistas
             mesa=TrabajarMesas.obtener_mesa(id);
             mesa.Mesa_Estado = Convert.ToString(cmbEstadoMesas.SelectedValue);
             TrabajarMesas.edit_mesa(mesa);
-            
+
+            winMesas refresh = new winMesas();
+            refresh.Show();
+            this.Close();
         }
 
         private void btnCancelar_Click(object sender, RoutedEventArgs e)

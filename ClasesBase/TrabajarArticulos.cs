@@ -87,6 +87,22 @@ namespace ClasesBase
             SqlConnection cnn = new SqlConnection(ClasesBase.Properties.Settings.Default.pasteleriaConnectionString);
 
             SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = "listar_articulos";
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Connection = cnn;
+
+            SqlDataAdapter ds = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            ds.Fill(dt);
+            return dt;
+        }
+
+        //TRAE ARTICULOS CON STOCK
+        public static DataTable traerArticulosConStock()
+        {
+            SqlConnection cnn = new SqlConnection(ClasesBase.Properties.Settings.Default.pasteleriaConnectionString);
+
+            SqlCommand cmd = new SqlCommand();
             cmd.CommandText = "listar_articulos_con_stock";
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Connection = cnn;
@@ -234,6 +250,52 @@ namespace ClasesBase
 
                 listaArticulos.Add(art);
             }            
+            return listaArticulos;
+        }
+
+        public ObservableCollection<Articulo> TraerColeccionConStock()
+        {
+            DataTable dt = traerArticulosConStock();
+
+            ObservableCollection<Articulo> listaArticulos = new ObservableCollection<Articulo>();
+
+            Familia oFamilia = new Familia(1, "Bebidas");
+            Categoria oCategoria = new Categoria(1, "si");
+            Unidad_Medida oUM = new Unidad_Medida(1, "Litros", "L");
+
+            //listaArticulos.Add(new Articulo(1, "descripcion", 1, 2, 450, true, oFamilia, oCategoria, oUM));
+            //listaArticulos.Add(new Articulo(2, "descripcion", 1, 2, 430, true, oFamilia, oCategoria, oUM));
+            //listaArticulos.Add(new Articulo(3, "descripcion", 1, 2, 420, true, oFamilia, oCategoria, oUM));
+            //listaArticulos.Add(new Articulo(4, "descripcion", 1, 2, 410, true, oFamilia, oCategoria, oUM));
+            //listaArticulos.Add(new Articulo(5, "descripcion", 1, 2, 470, true, oFamilia, oCategoria, oUM));
+
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                Articulo art = new Articulo();
+                art.Art_Id = Convert.ToInt32(dt.Rows[i]["art_id"]);
+                art.Art_Descrip = dt.Rows[i]["art_descripcion"].ToString();
+                art.Art_Precio = Convert.ToDecimal(dt.Rows[i]["art_precio"]);
+                art.Art_Manejo_Stock = Convert.ToBoolean(dt.Rows[i]["art_stock"]);
+                art.Art_Imagen = dt.Rows[i]["art_imagen"].ToString();
+
+                Categoria cat = new Categoria();
+                cat.Cat_Id = Convert.ToInt32(dt.Rows[i]["cat_id"]);
+                cat.Cat_Descrip = dt.Rows[i]["cat_descripcion"].ToString();
+                art.Categoria = cat;
+
+                Unidad_Medida Um = new Unidad_Medida();
+                Um.Um_Id = Convert.ToInt32(dt.Rows[i]["UM_id"]);
+                Um.Um_Descrip = dt.Rows[i]["UM_descripcion"].ToString();
+                Um.Um_Abrev = dt.Rows[i]["UM_abreviatura"].ToString();
+                art.Unidad_Medida = Um;
+
+                Familia fam = new Familia();
+                fam.Fam_Id = Convert.ToInt32(dt.Rows[i]["fam_id"]);
+                fam.Fam_Descrip = dt.Rows[i]["fam_descripcion"].ToString();
+                art.Familia = fam;
+
+                listaArticulos.Add(art);
+            }
             return listaArticulos;
         }
 

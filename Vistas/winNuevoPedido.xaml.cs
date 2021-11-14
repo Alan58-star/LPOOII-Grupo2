@@ -126,19 +126,26 @@ namespace Vistas
             if (dpFecha.SelectedDate == null)
             {
                 valido = false;
-                MessageBox.Show("Debe seleccionar la fecha de entrega del pedido.");
+                MessageBox.Show("Debe seleccionar la fecha de entrega del pedido.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 return valido;
             }
             if ((string.IsNullOrEmpty(cboCliente.Text)) || (comboCliente == -1))
             {
                 valido = false;
-                MessageBox.Show("Debe seleccionar el cliente al que le corresponde el pedido");
+                MessageBox.Show("Debe seleccionar el cliente al que le corresponde el pedido.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 return valido;
             }
+            if (Convert.ToInt32(txtComensal.Text) <= 0)
+            {
+                valido = false;
+                MessageBox.Show("Debe ingresar 1 o más comensales", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return valido;
+            }
+
             if(txtComensal.Text == "")
             {
                 valido = false;
-                MessageBox.Show("Debe ingresar la cantidad de comensales.");
+                MessageBox.Show("Debe ingresar la cantidad de comensales.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 return valido;
             }
             return valido;

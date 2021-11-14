@@ -142,7 +142,7 @@ namespace Vistas
             if (txtFamDescrip.Text == "")
             {
                 valido = false;
-                MessageBox.Show("Debe ingresar una descripción para la familia.");
+                MessageBox.Show("Debe ingresar una descripción para la familia.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 return valido;
             }
             return valido;

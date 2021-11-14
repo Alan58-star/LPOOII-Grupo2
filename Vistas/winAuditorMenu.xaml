@@ -36,7 +36,7 @@
                     <RadioButton ToolTip="Acceder al modulo de gestión de usuarios" Height="55" Foreground="White" Style="{StaticResource BotondeMenu}" Checked="informacionClick" Name="rb2" MouseEnter="rb2_MouseEnter" Click="openUsrMenu">
                         <RadioButton.Content>
                             <DockPanel Margin="0,0,0,0">
-                                <fa:ImageAwesome Icon="PencilSquareOutline" Foreground="#ffd46f" Height="18" Margin="0,0,10,0"></fa:ImageAwesome>
+                                <fa:ImageAwesome Icon="User" Foreground="#ffd46f" Height="18" Margin="0,0,10,0"></fa:ImageAwesome>
                                 <TextBlock Foreground="White" FontSize="18" Text="Usuarios"></TextBlock>
                             </DockPanel>
                         </RadioButton.Content>

@@ -1,7 +1,7 @@
 ﻿<Window x:Class="Vistas.winModificacionHistorialLogin"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="winModificacionHistorialLogin" MinHeight="500" MinWidth="400" Height="500" Width="400" Style="{StaticResource MainWindowStyle}"  WindowStartupLocation="CenterScreen" MouseLeftButtonDown="moveWindow" Loaded="Window_Loaded">
+        Title="Actualizar Log" MinHeight="500" MinWidth="400" Height="500" Width="400" Style="{StaticResource MainWindowStyle}"  WindowStartupLocation="CenterScreen" MouseLeftButtonDown="moveWindow" Loaded="Window_Loaded">
     <Window.Resources>
         <Style TargetType="ToolTip">
             <Setter Property="Background" Value="Black"></Setter>
@@ -13,7 +13,7 @@
             <DockPanel Height="40" Name="dockPanel1" Width="auto" HorizontalAlignment="Stretch" VerticalAlignment="Top" FlowDirection="RightToLeft">
                 <Ellipse Height="15" ToolTip="Cerrar ventana" HorizontalAlignment="Right" Name="btnClose" Fill="#FFFF4B6A" Width="15" Margin="10,0,5,0" MouseLeftButtonDown="closeWindow"/>
                 <Ellipse Height="15" ToolTip="Minimizar ventana" HorizontalAlignment="Left" Name="btnMaximize" Fill="#EEEEEE" Width="15" Margin="5,0,5,0" MouseLeftButtonDown="minimizeWindow"/>
-                <Label Name="lblWinTitle" Content="Actualizar log" Padding="20,0" HorizontalAlignment="Right" FontFamily="FreeSans" FontSize="12" VerticalContentAlignment="Center" Foreground="#EEEEEE"/>
+                <Label Name="lblWinTitle" Content="Actualizar Log" Padding="20,0" HorizontalAlignment="Right" FontFamily="FreeSans" FontSize="12" VerticalContentAlignment="Center" Foreground="#EEEEEE"/>
             </DockPanel>
         </Border>
 
@@ -25,7 +25,7 @@
             </Grid.RowDefinitions>
 
             <Label Name="lblNewArtTitle" Width="auto" Content="Actualizar Log" VerticalAlignment="Top" Margin="0,20,0,0" Style="{StaticResource FormTitle}" Grid.ColumnSpan="2" Height="50" />
-            <Label Name="lblNewArtDescrip" Content="Ingrese los datos del Log" VerticalAlignment="Bottom" Style="{StaticResource FormDescription}" Grid.ColumnSpan="2" Margin="53,0,53,20" Width="237" />
+            <Label Name="lblNewArtDescrip" Content="Ingrese los datos del Log" VerticalAlignment="Center" Style="{StaticResource FormDescription}" HorizontalAlignment="Center" Margin="45,62,45,32" />
 
             <Label Grid.Row="1" VerticalAlignment="Top" Content="Descripción del Log:" Name="label6" Style="{StaticResource StyleLabelForm}" HorizontalAlignment="Center" Margin="10,4,10,0" Grid.RowSpan="2" />
             <TextBox Grid.Row="1" Style="{StaticResource EstiloError}" Name="txtDescripcion" 
@@ -33,7 +33,7 @@
                
             </TextBox>
 
-            <Button Grid.Row="2" ToolTip="Actualizar descripción del log" Content="Actualizar" Style="{StaticResource ButtonFormBlack}" Grid.Column="1" Height="30" HorizontalAlignment="Center" Name="btnActualizar" VerticalAlignment="Bottom" Width="100" Click="btnActualizar_Click" />
+            <Button Grid.Row="2" ToolTip="Actualizar descripción del log" Content="Actualizar" Style="{StaticResource ButtonFormBlack}" Grid.Column="1" HorizontalAlignment="Center" Name="btnActualizar" VerticalAlignment="Bottom" Click="btnActualizar_Click" />
 
         </Grid>
         </Grid>

@@ -1,9 +1,10 @@
 ﻿<Window x:Class="Vistas.winBusquedaArt"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:fa="http://schemas.fontawesome.io/icons/"
         xmlns:svc="clr-namespace:ClasesBase;assembly=ClasesBase"
         xmlns:componentModel="clr-namespace:System.ComponentModel;assembly=WindowsBase"
-        Title="winBusquedaArt" Height="600" Width="700" Style="{StaticResource MainWindowStyle}" WindowStartupLocation="CenterScreen">
+        Title="Listado de Artículos" Height="600" Width="700" Style="{StaticResource MainWindowStyle}" WindowStartupLocation="CenterScreen">
     <Window.Resources>
         <Style TargetType="ToolTip">
             <Setter Property="Background" Value="Black"></Setter>
@@ -12,7 +13,7 @@
         <ObjectDataProvider
             x:Key="LIST_ARTICULO"
             ObjectType="{x:Type svc:TrabajarArticulos}"
-            MethodName="TraerArticulosColeccion"
+            MethodName="TraerColeccionConStock"
         />
         
         <CollectionViewSource
@@ -45,7 +46,39 @@
             </Grid.RowDefinitions>
             
             <StackPanel Grid.Row="0">
-                <Label Content="Listado de Artículos" HorizontalAlignment="center" VerticalAlignment="Center" Style="{StaticResource FormTitle}"></Label>
+                <Grid Grid.Row="0" Margin="0,0,0,14">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="50*"></ColumnDefinition>
+                        <ColumnDefinition Width="50*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+
+                    <DockPanel Grid.Column="0" Margin="20,0" HorizontalAlignment="Left" VerticalAlignment="Center">
+                        <fa:ImageAwesome Icon="List" Height="20" Foreground="White" Margin="7,0"></fa:ImageAwesome>
+                        <Label Content="Listado de Artículos" Style="{StaticResource FormTitle}" FontSize="20"></Label>
+                    </DockPanel>
+                    <!-- elemento búsqueda
+                <DockPanel Grid.Column="1" HorizontalAlignment="Center">
+                    <TextBox x:Name="txtSearchUser" Height="20" Width="120" Style="{StaticResource StyleTextBoxForm}" FontSize="10" TextChanged="txtSearchUser_TextChanged" />
+                    <Label Content="🔍" Style="{StaticResource StyleLabelForm}" FontFamily="Segoe UI Emoji" HorizontalAlignment="Left"/>
+                </DockPanel>
+                -->
+                    <Button Grid.Column="1" ToolTip="Muestra todos los artículos existentes" x:Name="btnShowArticulos" HorizontalAlignment="Right" Margin="20,0" Style="{StaticResource ButtonFormBlack}" Click="btnShowArticulos_Click">
+                        <Button.Content>
+                            <DockPanel>
+                                <TextBlock Text="Mostrar artículos sin stock" FontSize="14" Foreground="white"></TextBlock>
+                                <fa:ImageAwesome Icon="Eye" Height="14" Foreground="White" Margin="7,0,0,0"></fa:ImageAwesome>
+                            </DockPanel>
+                        </Button.Content>
+                    </Button>
+                    <Button Grid.Column="1" ToolTip="Oculta los artículos sin stock" x:Name="btnShowStock" HorizontalAlignment="Right" Margin="20,0" Style="{StaticResource ButtonFormBlack}" Click="btnShowStock_Click">
+                        <Button.Content>
+                            <DockPanel>
+                                <TextBlock Text="Ocultar artículos sin stock" FontSize="14" Foreground="white"></TextBlock>
+                                <fa:ImageAwesome Icon="EyeSlash" Height="16" Foreground="White" Margin="7,0,0,0"></fa:ImageAwesome>
+                            </DockPanel>
+                        </Button.Content>
+                    </Button>
+                </Grid>
                 <Label Content="Ingrese la Descripción del Artículo:" HorizontalAlignment="center" Style="{StaticResource StyleLabelForm}" VerticalAlignment="Center"></Label>
                 <TextBox Margin="10" x:Name="txtSearch" Width="200" HorizontalAlignment="Center" Style="{StaticResource StyleTextBoxForm}" TextChanged="txtSearch_TextChanged"></TextBox>
             </StackPanel>

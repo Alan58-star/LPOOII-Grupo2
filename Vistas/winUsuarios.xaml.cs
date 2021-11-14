@@ -175,31 +175,31 @@ namespace Vistas
             if (txtApellidoNombre.Text == "")
             {
                 valido = false;
-                MessageBox.Show("Debe ingresar el apellido y nombre del usuario.");
+                MessageBox.Show("Debe ingresar el apellido y nombre del usuario.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 return valido;
             }
             if (txtUsuario.Text == "")
             {
                 valido = false;
-                MessageBox.Show("Debe ingresar el nombre de usuario que usará para ingresar en el sistema.");
+                MessageBox.Show("Debe ingresar el nombre de usuario que usará para ingresar en el sistema.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 return valido;
             }
             if (txtPassword.Text == "")
             {
                 valido = false;
-                MessageBox.Show("Debe ingresar la contraseña que usará el usuario para ingresar en el sistema.");
+                MessageBox.Show("Debe ingresar la contraseña que usará el usuario para ingresar en el sistema.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 return valido;
             }
             if (txtPassword.Text.Length < 8)
             {
                 valido = false;
-                MessageBox.Show("La contraseña debe tener como mínimo 8 caractéres.");
+                MessageBox.Show("La contraseña debe tener como mínimo 8 caractéres.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 return valido;
             }
             if ((string.IsNullOrEmpty(cboRol.Text)) || (comboRol == -1))
             {
                 valido = false;
-                MessageBox.Show("Debe seleccionar el rol que tendrá el usuario en el sistema.");
+                MessageBox.Show("Debe seleccionar el rol que tendrá el usuario en el sistema.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 return valido;
             }
             return valido;
