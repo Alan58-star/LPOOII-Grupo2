@@ -80,7 +80,7 @@ namespace Vistas
         {
             Pedido ped = (Pedido)lvwPedidos.SelectedItem;
             winVistaPreviaPedido vp = new winVistaPreviaPedido(ped);
-            MessageBoxResult result = MessageBox.Show("¿Facturar Pedido?", "Facturacion", MessageBoxButton.YesNoCancel, MessageBoxImage.Information);
+            MessageBoxResult result = MessageBox.Show("¿Facturar Pedido?", "Realizar Factura", MessageBoxButton.YesNo, MessageBoxImage.Information);
             
             if (result == MessageBoxResult.Yes)
             {

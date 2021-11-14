@@ -5,7 +5,7 @@
         xmlns:fa="http://schemas.fontawesome.io/icons/"
         xmlns:componentModel="clr-namespace:System.ComponentModel;assembly=WindowsBase"
         
-        Title="winPedidos" Height="556" Width="600"  Style="{StaticResource MainWindowStyle}" WindowStartupLocation="CenterScreen" MouseLeftButtonDown="moveWindow">
+        Title="Listado de Pedidos" Height="556" Width="600"  Style="{StaticResource MainWindowStyle}" WindowStartupLocation="CenterScreen" MouseLeftButtonDown="moveWindow">
 
     <Window.Resources>
         <ObjectDataProvider
@@ -72,7 +72,7 @@
                 </Grid>
 
                 <Border CornerRadius="5" Grid.Column="1" Margin="7,0">
-                    <StackPanel>
+                    <StackPanel Height="441">
 
                         <Grid Grid.Row="0" Margin="0,0,0,14">
                             <Grid.ColumnDefinitions>
@@ -90,11 +90,25 @@
                     <Label Content="🔍" Style="{StaticResource StyleLabelForm}" FontFamily="Segoe UI Emoji" HorizontalAlignment="Left"/>
                 </DockPanel>
                 -->
-                            <Button Grid.Column="1" ToolTip="Muestra todos los pedidos registrados" x:Name="btnShowPedidos" HorizontalAlignment="Right" Content="Mostrar todos los pedidos" Margin="20,0" Style="{StaticResource ButtonFormBlack}" Click="btnShowPedidos_Click"></Button>
-                            <Button Grid.Column="1" ToolTip="Muestra sólo los pedidos no facturados" x:Name="btnShowNoFac" HorizontalAlignment="Right" Content="Mostrar pedidos no facturados" Margin="20,0" Style="{StaticResource ButtonFormBlack}" Click="btnShowNoFac_Click"></Button>
+                            <Button Grid.Column="1" ToolTip="Muestra todos los pedidos registrados" x:Name="btnShowPedidos" HorizontalAlignment="Right" Margin="20,0" Style="{StaticResource ButtonFormBlack}" Click="btnShowPedidos_Click">
+                                <Button.Content>
+                                    <DockPanel>
+                                        <TextBlock Text="Mostrar todos los pedidos" FontSize="14" Foreground="white"></TextBlock>
+                                        <fa:ImageAwesome Icon="Eye" Height="14" Foreground="White" Margin="7,0,0,0"></fa:ImageAwesome>
+                                    </DockPanel>
+                                </Button.Content>
+                            </Button>
+                            <Button Grid.Column="1" ToolTip="Oculta todos los pedidoes facturados" x:Name="btnShowNoFac" HorizontalAlignment="Right" Margin="20,0" Style="{StaticResource ButtonFormBlack}" Click="btnShowNoFac_Click">
+                                <Button.Content>
+                                    <DockPanel>
+                                        <TextBlock Text="Ocultar pedidos facturados" FontSize="14" Foreground="white"></TextBlock>
+                                        <fa:ImageAwesome Icon="EyeSlash" Height="16" Foreground="White" Margin="7,0,0,0"></fa:ImageAwesome>
+                                    </DockPanel>
+                                </Button.Content>
+                            </Button>
                         </Grid>
 
-                        <ListView ItemsSource="{Binding Source={StaticResource VISTA_PEDIDO}}" Name="lvwPedidos" Grid.Column="1" Background="#232323" Foreground="White" HorizontalContentAlignment="Center" BorderBrush="Black" VerticalAlignment="Top" SelectionChanged="lvwPedidos_SelectionChanged" Width="auto" Height="300" Margin="7,0">
+                        <ListView ItemsSource="{Binding Source={StaticResource VISTA_PEDIDO}}" Name="lvwPedidos" Grid.Column="1" Background="#232325" Foreground="White" HorizontalContentAlignment="Center" BorderBrush="Black" VerticalAlignment="Top" SelectionChanged="lvwPedidos_SelectionChanged" Width="auto" Height="320" Margin="7,0">
                             <ListView.ItemContainerStyle>
                                 <Style TargetType="{x:Type ListViewItem}">
                                     <Setter Property="Template">

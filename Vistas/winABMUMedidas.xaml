@@ -4,7 +4,7 @@
         xmlns:fa="http://schemas.fontawesome.io/icons/"        
         xmlns:svc="clr-namespace:ClasesBase;assembly=ClasesBase"
         xmlns:componentModel="clr-namespace:System.ComponentModel;assembly=WindowsBase"
-        Title="winABMUMedidas"  MinHeight="520" MinWidth="500" Height="520" Width="500" Style="{StaticResource MainWindowStyle}"  WindowStartupLocation="CenterScreen" MouseLeftButtonDown="moveWindow" Loaded="Window_Loaded">
+        Title="Unidades de Medida"  MinHeight="520" MinWidth="500" Height="520" Width="500" Style="{StaticResource MainWindowStyle}"  WindowStartupLocation="CenterScreen" MouseLeftButtonDown="moveWindow" Loaded="Window_Loaded">
     <Window.Resources>
 
         <Style TargetType="ToolTip">
@@ -33,7 +33,7 @@
             <DockPanel Height="40" Name="dockPanel1" Width="auto" HorizontalAlignment="Stretch" VerticalAlignment="Top" FlowDirection="RightToLeft">
                 <Ellipse Height="15" ToolTip="Cerrar ventana" HorizontalAlignment="Right" Name="btnClose" Fill="#FFFF4B6A" Width="15" Margin="10,0,5,0" MouseLeftButtonDown="closeWindow"/>
                 <Ellipse Height="15" ToolTip="Maximizar ventana" HorizontalAlignment="Left" Name="btnMaximize" Fill="#EEEEEE" Width="15" Margin="5,0,5,0" MouseLeftButtonDown="minimizeWindow"/>
-                <Label Name="lblWinTitle" Content="Unidades de medida" Padding="20,0" HorizontalAlignment="Right" FontFamily="FreeSans" FontSize="12" VerticalContentAlignment="Center" Foreground="#EEEEEE"/>
+                <Label Name="lblWinTitle" Content="Unidades de Medida" Padding="20,0" HorizontalAlignment="Right" FontFamily="FreeSans" FontSize="12" VerticalContentAlignment="Center" Foreground="#EEEEEE"/>
             </DockPanel>
            
         </Border>
@@ -70,7 +70,7 @@
             </StackPanel>
 
 
-            <ListView Grid.Row="2" Name="lvwUM" Width="350" VerticalAlignment="Top" HorizontalAlignment="Center" Height="240" ItemsSource="{Binding Source= {StaticResource VISTA_UM}}" IsSynchronizedWithCurrentItem="True" Background="#232323" Foreground="White" HorizontalContentAlignment="Center" BorderBrush="Black" >
+            <ListView Grid.Row="2" Name="lvwUM" Width="350" VerticalAlignment="Top" HorizontalAlignment="Center" Height="240" ItemsSource="{Binding Source= {StaticResource VISTA_UM}}" IsSynchronizedWithCurrentItem="True" Background="#232325" Foreground="White" HorizontalContentAlignment="Center" BorderBrush="Black" >
                 <ListView.ItemContainerStyle>
                     <Style TargetType="{x:Type ListViewItem}">
                         <Setter Property="Template">

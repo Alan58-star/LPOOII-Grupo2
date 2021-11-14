@@ -129,7 +129,7 @@ namespace Vistas
 
             if (confirmResult == MessageBoxResult.Yes)
             {
-                MessageBox.Show("Articulo eliminado con éxito", "Confirmar", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                MessageBox.Show("Articulo eliminado con éxito", "Confirmar", MessageBoxButton.OK, MessageBoxImage.Information);
                 TrabajarArticulos.delete_articulo(idarticulo);
                 (FindResource("LIST_ARTICULO") as ObjectDataProvider).Refresh();
                 

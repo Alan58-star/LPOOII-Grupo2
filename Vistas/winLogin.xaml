@@ -39,7 +39,7 @@
                
             </Grid.RowDefinitions>
 
-            <Image Grid.Row="0" Margin="30" Name="imgLogo" Height="auto" Width="auto" Source="/Vistas;component/Images/holdemlogo.png" />
+            <Image Grid.Row="0" Margin="20" Name="imgLogo" Height="auto" Width="auto" Source="/Vistas;component/Images/holdemlogo.png" />
 
             <TextBlock Grid.Row="1" Name="tblWelcome" Text="Bienvenido" FontSize="56" Style="{StaticResource FormTitle}" />
             <TextBlock Grid.Row="2" Name="tblWelcomeInfo" Text="Por favor, introduzca sus credenciales para ingresar" FontSize="16" Foreground="#BFBFBF" VerticalAlignment="Center" HorizontalAlignment="Center" />
@@ -52,8 +52,8 @@
             <PasswordBox Grid.Row="5" Name="pwdPassLogin" FontSize="16" Foreground="#EEEEEE" BorderBrush="#ffd46f" Height="35" Width="240" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="Black" GotFocus="PwdGotFocus" LostFocus="PwdLostFocus" />
             -->
 
-            <Button Grid.Row="5" ToolTip="Inicie sesión con las credenciales especificadas." Content="Iniciar Sesión" Style="{StaticResource ButtonFormBlack}" Click="login" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-            <Button Grid.Row="6" ToolTip="Conozca más acerca de nuestros servicios." Content="Acerca de Nosotros" Style="{StaticResource ButtonFormBlack}" Click="acercaDe" Width="158" HorizontalAlignment="Center" VerticalAlignment="Top" />
+            <Button Grid.Row="5" ToolTip="Inicie sesión con las credenciales especificadas." Content="INICIAR SESIÓN" Style="{StaticResource ButtonFormBlack}" Click="login" FontSize="17" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <Button Grid.Row="6" ToolTip="Conozca más acerca de nuestros servicios." Content="Acerca de Nosotros" Style="{StaticResource ButtonFormBlack}" Click="acercaDe" VerticalAlignment="Center"  HorizontalAlignment="Center" />
 
         </Grid>
     </Grid>

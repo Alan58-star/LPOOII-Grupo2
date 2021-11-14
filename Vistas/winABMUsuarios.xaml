@@ -4,7 +4,7 @@
         xmlns:svc="clr-namespace:ClasesBase;assembly=ClasesBase"
         xmlns:fa="http://schemas.fontawesome.io/icons/"        
         xmlns:componentModel="clr-namespace:System.ComponentModel;assembly=WindowsBase"
-        Title="winABMUsuarios" MinHeight="520" MinWidth="700" Height="520" Width="700" Style="{StaticResource MainWindowStyle}"  WindowStartupLocation="CenterScreen" MouseLeftButtonDown="moveWindow" Loaded="Window_Loaded">
+        Title="Usuarios" MinHeight="520" MinWidth="700" Height="520" Width="700" Style="{StaticResource MainWindowStyle}"  WindowStartupLocation="CenterScreen" MouseLeftButtonDown="moveWindow" Loaded="Window_Loaded">
     <Window.Resources>
         
         <Style TargetType="ToolTip">

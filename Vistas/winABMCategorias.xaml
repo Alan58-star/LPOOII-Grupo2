@@ -4,7 +4,7 @@
         xmlns:fa="http://schemas.fontawesome.io/icons/"        
         xmlns:svc="clr-namespace:ClasesBase;assembly=ClasesBase"
         xmlns:componentModel="clr-namespace:System.ComponentModel;assembly=WindowsBase"
-        Title="winABMCategorias"  MinHeight="520" MinWidth="500" Height="520" Width="500" Style="{StaticResource MainWindowStyle}"  WindowStartupLocation="CenterScreen" MouseLeftButtonDown="moveWindow" Loaded="Window_Loaded">
+        Title="Categorías"  MinHeight="520" MinWidth="500" Height="520" Width="500" Style="{StaticResource MainWindowStyle}"  WindowStartupLocation="CenterScreen" MouseLeftButtonDown="moveWindow" Loaded="Window_Loaded">
     <Window.Resources>
 
         <Style TargetType="ToolTip">
@@ -68,7 +68,7 @@
             </StackPanel>
 
 
-            <ListView Grid.Row="2" Name="lvwCategorias" Width="300" VerticalAlignment="Top" HorizontalAlignment="Center" Height="230" ItemsSource="{Binding Source= {StaticResource VISTA_CATEGORIAS}}" IsSynchronizedWithCurrentItem="True" Background="#232323"  Foreground="White" HorizontalContentAlignment="Center" BorderBrush="Black" >
+            <ListView Grid.Row="2" Name="lvwCategorias" Width="300" VerticalAlignment="Top" HorizontalAlignment="Center" Height="230" ItemsSource="{Binding Source= {StaticResource VISTA_CATEGORIAS}}" IsSynchronizedWithCurrentItem="True" Background="#232325"  Foreground="White" HorizontalContentAlignment="Center" BorderBrush="Black" >
                 <ListView.ItemContainerStyle>
                     <Style TargetType="{x:Type ListViewItem}">
                         <Setter Property="Template">

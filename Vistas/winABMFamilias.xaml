@@ -68,7 +68,7 @@
             </StackPanel>
 
 
-            <ListView Grid.Row="2" Name="lvwFamilias" Width="300" VerticalAlignment="Top" HorizontalAlignment="Center" Height="230" ItemsSource="{Binding Source= {StaticResource VISTA_FAMILIAS}}" IsSynchronizedWithCurrentItem="True" Background="#232323" Foreground="White" HorizontalContentAlignment="Center" BorderBrush="Black" >
+            <ListView Grid.Row="2" Name="lvwFamilias" Width="300" VerticalAlignment="Top" HorizontalAlignment="Center" Height="230" ItemsSource="{Binding Source= {StaticResource VISTA_FAMILIAS}}" IsSynchronizedWithCurrentItem="True" Background="#232325" Foreground="White" HorizontalContentAlignment="Center" BorderBrush="Black" >
                 <ListView.ItemContainerStyle>
                     <Style TargetType="{x:Type ListViewItem}">
                         <Setter Property="Template">
