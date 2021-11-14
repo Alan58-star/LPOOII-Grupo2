@@ -203,12 +203,24 @@ namespace Vistas
 
         private bool validarCampos()
         {
+            bool result = txtPrecio.Text.Any(x => !char.IsLetter(x));
             bool valido = true;
+            decimal textoPrecio;
             int comboFamilia = Convert.ToInt32(cboFlia.SelectedValue);
             int comboMedida = Convert.ToInt32(cboMedida.SelectedValue);
             int comboCategoria = Convert.ToInt32(cboCategoria.SelectedValue);
-            decimal textoPrecio = Convert.ToDecimal(txtPrecio.Text.Replace(".",","));
+            if (result)
+            {
+                textoPrecio = Convert.ToDecimal(txtPrecio.Text.Replace(".", ","));
+            }
+            else {
+                valido = false;
+                MessageBox.Show("Debe ingresar el precio del artículo.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                txtPrecio.Text = "";                
+                return valido;
+            }
             string imagen = Convert.ToString(imgArticulo.Source);
+            
             if( (string.IsNullOrEmpty(cboFlia.Text)) || (comboFamilia == -1) )
             {
                 valido = false;
@@ -227,17 +239,11 @@ namespace Vistas
                 MessageBox.Show("Debe seleccionar una categoría para el artículo.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 return valido;
             }
-            if( textoPrecio == 0 )
+            if( textoPrecio <= 0 )
             {
                 valido = false;
-                MessageBox.Show("Debe ingresar el precio del artículo.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                return valido;
-            }
-
-            if (textoPrecio < 0)
-            {
-                valido = false;
-                MessageBox.Show("El precio no puede ser un valor negativo.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Ingrese un precio valido.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                txtPrecio.Text = "";                
                 return valido;
             }
 
@@ -245,6 +251,7 @@ namespace Vistas
             {
                 valido = false;
                 MessageBox.Show("Debe ingresar una descripción del artículo.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                txtPrecio.Text = "";                
                 return valido;
             }
 

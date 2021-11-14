@@ -10,7 +10,7 @@
         <ObjectDataProvider
             x:Key="LIST_ARTICULO"
             ObjectType="{x:Type svc:TrabajarArticulos}"
-            MethodName="TraerArticulosColeccion"
+            MethodName="TraerColeccionConStock"
         />
         
         <CollectionViewSource

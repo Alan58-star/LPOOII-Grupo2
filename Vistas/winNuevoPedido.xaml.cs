@@ -122,7 +122,20 @@ namespace Vistas
         private bool validarCampos()
         {
             bool valido = true;
+            bool result = txtComensal.Text.Any(x => !char.IsLetter(x));
             int comboCliente = Convert.ToInt32(cboCliente.SelectedValue);
+            int textoComensales;
+            if (result)
+            {
+                textoComensales = Convert.ToInt32(txtComensal.Text);
+            }
+            else
+            {
+                valido = false;
+                MessageBox.Show("Debe ingresar la cantidad de comensales.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                txtComensal.Text = "";
+                return valido;
+            }
             if (dpFecha.SelectedDate == null)
             {
                 valido = false;
@@ -139,13 +152,7 @@ namespace Vistas
             {
                 valido = false;
                 MessageBox.Show("Debe ingresar 1 o más comensales", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                return valido;
-            }
-
-            if(txtComensal.Text == "")
-            {
-                valido = false;
-                MessageBox.Show("Debe ingresar la cantidad de comensales.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                txtComensal.Text = "";
                 return valido;
             }
             return valido;

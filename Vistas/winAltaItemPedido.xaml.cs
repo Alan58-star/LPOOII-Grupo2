@@ -148,16 +148,32 @@ namespace Vistas
         {
             Dialogo.IsOpen = false;
             bool valido = true;
+            int cantidadArt;
+            bool result = txtCantidad.Text.Any(x => !char.IsLetter(x));
             //int cantidadReal = Convert.ToInt32(txtCantidad.Text);
+            if (result)
+            {
+                cantidadArt = Convert.ToInt32(txtCantidad.Text);
+            }
+            else
+            {
+                valido = false;
+                MessageBox.Show("Debe ingresar una cantidad válida.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                txtCantidad.Text = "";
+                Dialogo.IsOpen = true;
+                return valido;
+            }
             if (txtCantidad.Text == "")
             {
                 valido = false;
                 MessageBox.Show("Debe ingresar la cantidad del artículo seleccionado que desea añadir.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                txtCantidad.Text = "";
                 Dialogo.IsOpen = true;
                 return valido;
             }else if (Convert.ToInt32(txtCantidad.Text) <= 0) {
                 valido = false;
                 MessageBox.Show("No puede ingresar un valor menor a 1.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                txtCantidad.Text = "";
                 Dialogo.IsOpen = true;
                 return valido;
             }
