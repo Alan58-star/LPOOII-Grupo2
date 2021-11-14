@@ -25,6 +25,8 @@ namespace Vistas
         public winAdminMenu()
         {
             InitializeComponent();
+            window.Width = SystemParameters.MaximizedPrimaryScreenWidth;
+            window.Height = SystemParameters.MaximizedPrimaryScreenHeight;
             ocultarGrid();
             rb1.IsChecked = true;
             logoholdem.Visibility = System.Windows.Visibility.Visible;
@@ -33,6 +35,8 @@ namespace Vistas
         public winAdminMenu(string usuario, int idUsuario)
         {
             InitializeComponent();
+            window.Width = SystemParameters.MaximizedPrimaryScreenWidth;
+            window.Height = SystemParameters.MaximizedPrimaryScreenHeight;
             ocultarGrid();
             rb1.IsChecked = true;
             logoholdem.Visibility = System.Windows.Visibility.Visible;
@@ -123,8 +127,8 @@ namespace Vistas
         private void btnLogout_Click_1(object sender, RoutedEventArgs e)
         {
             winLogin WinLogin = new winLogin();
-            MessageBoxResult result = MessageBox.Show("Cerrar Sesion", "¿Salir?", MessageBoxButton.OKCancel, MessageBoxImage.Exclamation);
-            if (result == MessageBoxResult.OK)
+            MessageBoxResult result = MessageBox.Show("¿Desea cerrar sesión?", "¿Salir?", MessageBoxButton.YesNo, MessageBoxImage.Exclamation);
+            if (result == MessageBoxResult.Yes)
             {
                 WinLogin.Show();
                 this.Close();

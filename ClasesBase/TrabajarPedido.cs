@@ -117,6 +117,21 @@ namespace ClasesBase
             return dt;
         }
 
+        public static DataTable traer_no_facturados()
+        {
+            SqlConnection cnn = new SqlConnection(ClasesBase.Properties.Settings.Default.pasteleriaConnectionString);
+
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = "mostrar_no_facturados";
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Connection = cnn;
+
+            SqlDataAdapter ds = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            ds.Fill(dt);
+            return dt;
+        }
+
 
         //CARGA MESAS EN COMBO BOX
         public static DataTable list_mesas()
@@ -189,6 +204,50 @@ namespace ClasesBase
                 ped.Cliente = cli;
                 ped.Mesa = mesa;
                 
+                listaPedido.Add(ped);
+            }
+
+            return listaPedido;
+        }
+
+        public ObservableCollection<Pedido> TraerNoFacturadosColeccion()
+        {
+            DataTable dt = traer_no_facturados();
+
+            ObservableCollection<Pedido> listaPedido = new ObservableCollection<Pedido>();
+
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                Pedido ped = new Pedido();
+                ped.Ped_Id = Convert.ToInt32(dt.Rows[i]["ped_id"]);
+                ped.Ped_Fecha_Emision = Convert.ToDateTime(dt.Rows[i]["ped_fechaEmision"]);
+                ped.Ped_Fecha_Entrega = Convert.ToDateTime(dt.Rows[i]["ped_fechaEntrega"]);
+                ped.Ped_Facturado = Convert.ToBoolean(dt.Rows[i]["ped_facturado"]);
+                ped.Ped_Comensales = Convert.ToInt32(dt.Rows[i]["ped_comensales"]);
+
+                Usuario usu = new Usuario();
+                usu.Usr_Id = Convert.ToInt32(dt.Rows[i]["usu_id"]);
+                usu.Usr_NombreUsuario = dt.Rows[i]["usu_usuario"].ToString();
+                usu.Usr_ApellidoNombre = dt.Rows[i]["usu_apnombre"].ToString();
+                usu.Rol_Id = Convert.ToInt32(dt.Rows[i]["rol_id"]);
+
+                Cliente cli = new Cliente();
+                cli.Cli_Id = Convert.ToInt32(dt.Rows[i]["cli_id"]);
+                cli.Cli_Apellido = dt.Rows[i]["cli_apellido"].ToString();
+                cli.Cli_Nombre = dt.Rows[i]["cli_nombre"].ToString();
+                cli.Cli_Domicilio = dt.Rows[i]["cli_domicilio"].ToString();
+                cli.Cli_Telefono = dt.Rows[i]["cli_telefono"].ToString();
+                cli.Cli_Email = dt.Rows[i]["cli_email"].ToString();
+
+                Mesa mesa = new Mesa();
+                mesa.Mesa_Id = Convert.ToInt32(dt.Rows[i]["mesa_id"]);
+                mesa.Mesa_Posicion = Convert.ToInt32(dt.Rows[i]["mesa_posicion"]);
+                mesa.Mesa_Estado = dt.Rows[i]["mesa_estado"].ToString();
+
+                ped.Usuario = usu;
+                ped.Cliente = cli;
+                ped.Mesa = mesa;
+
                 listaPedido.Add(ped);
             }
 

@@ -1,21 +1,7 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    <ControlTemplate x:Key="TextBoxErrorTemplate">
-        <DockPanel>
-            <Ellipse DockPanel.Dock="Right" Margin="2,0" Width="10" Height="10">
-                <Ellipse.Fill>
-                    <LinearGradientBrush>
-                        <GradientStop Color="#11FF1111" Offset="0" />
-                        <GradientStop Color="#FFFF0000" Offset="1" />
-                    </LinearGradientBrush>
-                </Ellipse.Fill>
-            </Ellipse>
-            <AdornedElementPlaceholder />
-        </DockPanel>
-    </ControlTemplate>
-    
+      
     <Style x:Key="EstiloError" TargetType="TextBox" BasedOn="{StaticResource ResourceKey=StyleTextBoxForm}">
-        <Setter Property="Validation.ErrorTemplate" Value="{StaticResource TextBoxErrorTemplate}" />
         <Style.Triggers>
             <Trigger Property="Validation.HasError" Value="True">
                 <Setter Property="ToolTip">
@@ -23,6 +9,7 @@
                         <Binding Path="(Validation.Errors)[0].ErrorContent" RelativeSource="{x:Static RelativeSource.Self}" />
                     </Setter.Value>
                 </Setter>
+                <Setter Property="BorderBrush" Value="#000000"></Setter>
             </Trigger>
         </Style.Triggers>
     </Style>

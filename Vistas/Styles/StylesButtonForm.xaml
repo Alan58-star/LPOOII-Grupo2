@@ -68,10 +68,83 @@
         
     </ControlTemplate>
 
+    <ControlTemplate x:Key="btnRed" TargetType="{x:Type Button}">
+        <Border x:Name="brdButton"
+            Background="#c73a3a" 
+            BorderBrush="#631313" 
+            BorderThickness="1" 
+            CornerRadius="7" 
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            Width="auto"
+            Padding="7,0"
+            Height="40"
+            Cursor="Hand"
+            >
+            <Grid>
+                <Grid.RowDefinitions>
+
+                </Grid.RowDefinitions>
+                <ContentPresenter Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center"></ContentPresenter>
+            </Grid>
+        </Border>
+
+        <ControlTemplate.Triggers>
+            <Trigger Property="IsMouseOver" Value="true">
+                <Setter Property="Background" Value="#b32929" TargetName="brdButton"></Setter>
+            </Trigger>
+        </ControlTemplate.Triggers>
+
+    </ControlTemplate>
+
+    <ControlTemplate x:Key="btnLogout" TargetType="{x:Type Button}">
+        <Border x:Name="brdButton"
+            Background="#EF5050" 
+            BorderBrush="#BA3030" 
+            BorderThickness="1" 
+            CornerRadius="7" 
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            Width="auto"
+            Padding="7,0"
+            Height="40"
+            Cursor="Hand"
+            >
+            <Grid>
+                <Grid.RowDefinitions>
+
+                </Grid.RowDefinitions>
+                <ContentPresenter Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center"></ContentPresenter>
+            </Grid>
+        </Border>
+
+        <ControlTemplate.Triggers>
+            <Trigger Property="IsMouseOver" Value="true">
+                <Setter Property="Background" Value="#d42c2c" TargetName="brdButton"></Setter>
+            </Trigger>
+        </ControlTemplate.Triggers>
+
+    </ControlTemplate>
+
     <Style x:Key="ButtonFormBlack" TargetType="Button">
+        <Setter Property="FontWeight" Value="Bold"/>
         <Setter Property="Foreground" Value="#fefefe"/>
         <Setter Property="FontSize" Value="14"/>
         <Setter Property="Template" Value="{StaticResource ResourceKey=btnClientes}"/>
     </Style>
-    
+
+    <Style x:Key="ButtonFormRed" TargetType="Button">
+        <Setter Property="FontWeight" Value="Bold"/>
+        <Setter Property="Foreground" Value="#fefefe"/>
+        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="Template" Value="{StaticResource ResourceKey=btnRed}"/>
+    </Style>
+
+    <Style x:Key="ButtonLogout" TargetType="Button">
+        <Setter Property="FontWeight" Value="Bold"/>
+        <Setter Property="Foreground" Value="#ffffff"/>
+        <Setter Property="FontSize" Value="16"/>
+        <Setter Property="Template" Value="{StaticResource ResourceKey=btnLogout}"/>
+    </Style>
+
 </ResourceDictionary>

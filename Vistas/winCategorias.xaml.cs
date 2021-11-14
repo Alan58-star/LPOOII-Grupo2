@@ -72,6 +72,8 @@ namespace Vistas
         {
             try
             {
+                winABMCategorias cat = new winABMCategorias();
+                cat.Show();
                 Close();
             }
             catch (Exception ex)
@@ -93,7 +95,7 @@ namespace Vistas
 
                 TrabajarCategorias.add_categoria(oCategoria);
 
-                MessageBox.Show("Categoría guardada con éxito");
+                MessageBox.Show("Categoría guardada con éxito", "Categoría agregada", MessageBoxButton.OK, MessageBoxImage.Information);
 
                 txtCatDescrip.Text = "";
 
@@ -105,7 +107,7 @@ namespace Vistas
 
         private void btnEditar_Click(object sender, RoutedEventArgs e)
         {
-            MessageBoxResult result = MessageBox.Show("¿Desea actualizar estos datos?", "Actualizar ´Categoría", MessageBoxButton.YesNo, MessageBoxImage.Question);
+            MessageBoxResult result = MessageBox.Show("¿Desea actualizar estos datos?", "Actualizar Categoría", MessageBoxButton.YesNo, MessageBoxImage.Question);
             if (result == MessageBoxResult.Yes)
             {
                 Categoria oCategoria = new Categoria();

@@ -49,6 +49,8 @@ namespace Vistas
         {
             try
             {
+                winABMUMedidas ums = new winABMUMedidas();
+                ums.Show();
                 Close();
             }
             catch (Exception ex)
@@ -95,7 +97,7 @@ namespace Vistas
 
                 TrabajarUM.add_UM(oUM);
 
-                MessageBox.Show("Unidad de medida guardada con éxito");
+                MessageBox.Show("Unidad de medida guardada con éxito", "Unidad de Medida Agregada", MessageBoxButton.OK, MessageBoxImage.Information);
 
                 txtUMDescrip.Text = "";
                 txtUMAbrev.Text = "";
@@ -119,7 +121,7 @@ namespace Vistas
 
                 TrabajarUM.edit_UM(oUM);
 
-                MessageBox.Show("Unidad de medida actualizada con éxito", "Unidad de medida actualizada", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show("Unidad de medida actualizada con éxito", "Unidad de Medida actualizada", MessageBoxButton.OK, MessageBoxImage.Information);
 
                 txtUMAbrev.Text = "";
                 txtUMDescrip.Text = "";

@@ -1,7 +1,8 @@
 ﻿<Window x:Class="Vistas.winWaiterMenu"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Menú de Administrador - NOMBRE DE LA EMPRESA" WindowStyle="None" Height="464" Width="833" Background="#FF313131" AllowsTransparency="True" MinWidth="833" MouseLeftButtonDown="moveWindow" MinHeight="464" WindowState="Normal"  Topmost="False" WindowStartupLocation="CenterScreen">
+        xmlns:fa="http://schemas.fontawesome.io/icons/"        
+        Title="Menú de Mozo - HOLDEM SISTEMA DE GESTIÓN" x:Name="window" WindowStyle="None" Style="{StaticResource MainWindowStyle}" WindowStartupLocation="CenterScreen">
     <Window.Resources>
         <Style TargetType="ToolTip">
             <Setter Property="Background" Value="Black"></Setter>
@@ -9,13 +10,13 @@
         </Style>
     </Window.Resources> 
     <Grid>
-        <DockPanel Height="40" Name="dockPanel1" Width="auto" HorizontalAlignment="Stretch" VerticalAlignment="Top" FlowDirection="RightToLeft">
-            <Ellipse Height="15" ToolTip="Cerrar ventana" HorizontalAlignment="Right" Name="btnClose" Fill="#FFFF4B6A" Width="15" Margin="10,0,5,0" MouseLeftButtonDown="closeWindow"/>
-            <Ellipse Height="15" ToolTip="Maximizar ventana" HorizontalAlignment="Left" Name="btnMaximize" Fill="#EEEEEE" Width="15" Margin="5,0,5,0"  MouseLeftButtonDown="minimizeWindow"/>
-            <Label Name="lblWinTitle" Content="HOLDEM - Sistema de Administración" Padding="20,0" HorizontalAlignment="Right" FontFamily="FreeSans" FontSize="12" VerticalContentAlignment="Center" Foreground="#EEEEEE"/>
-        </DockPanel>
-        <!--menú superior-->
-        <!--Grid de menú principal-->
+        <Border Style="{StaticResource MainGridStyle}">
+            <DockPanel Height="40" Name="dockPanel1" Width="auto" HorizontalAlignment="Stretch" VerticalAlignment="Top" FlowDirection="RightToLeft">
+                <Ellipse Height="15" ToolTip="Cerrar" HorizontalAlignment="Right" Name="btnClose" Fill="#FFFF4B6A" Width="15" Margin="10,0,5,0" MouseLeftButtonDown="btnLogout_Click_1"/>
+                <Ellipse Height="15" ToolTip="Mininmizar" HorizontalAlignment="Left" Name="btnMaximize" Fill="#EEEEEE" Width="15" Margin="5,0,5,0" MouseLeftButtonDown="minimizeWindow"/>
+                <Label Name="lblWinTitle" Content="Menú de Mozo - HOLDEM SISTEMA DE GESTIÓN" Padding="20,0" HorizontalAlignment="Right" FontFamily="FreeSans" FontSize="12" VerticalContentAlignment="Center" Foreground="#EEEEEE"/>
+            </DockPanel>
+        </Border>
         <Grid HorizontalAlignment="Stretch" Margin="0,40,0,0" Name="mainGrid" VerticalAlignment="Stretch" Height="auto" Width="auto">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="208*" MaxWidth="220" />
@@ -23,48 +24,64 @@
             </Grid.ColumnDefinitions>
 
             <!--Grid Botones-->
-            <Grid Grid.ColumnSpan="1" Background="#FF393939">
+            <Grid>
 
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="325*" />
-                    <RowDefinition Height="100*" />
-                </Grid.RowDefinitions>
+                <Border CornerRadius="5" Background="#FF393939" HorizontalAlignment="Stretch" Margin="3">
+
+                </Border>
+                
                 <StackPanel Orientation="Vertical" VerticalAlignment="Top" MinWidth="0" Height="325">
-                    <RadioButton ToolTip="Volver al inicio" Content="Inicio" FontSize="20" Height="50" Foreground="White" Style="{StaticResource BotondeMenu}" Checked="informacionClick" Name="rb1" MouseEnter="rb1_MouseEnter"></RadioButton>
-                    <RadioButton ToolTip="Acceder al módulo de gestión de pedidos" Content="Gestion de Pedidos" FontSize="12" Height="50" Foreground="White" Style="{StaticResource BotondeMenu}" Checked="informacionClick" Name="rb2" MouseEnter="rb2_MouseEnter" Click="rb2_Click"></RadioButton>
-                    <RadioButton ToolTip="Acceder al módulo de gestión de mesas" Content="Gestion de Mesas" FontSize="12" Height="50" Foreground="White" Style="{StaticResource BotondeMenu}" Checked="informacionClick" Name="rb3" MouseEnter="rb3_MouseEnter" Click="rb3_Click"></RadioButton>
-                    <RadioButton ToolTip="Acceder al módulo de gestión de clientes" Content="Gestion de Clientes" FontSize="12" Height="50" Foreground="White" Style="{StaticResource BotondeMenu}" Checked="informacionClick"  HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" Name="rb4" MouseEnter="rb4_MouseEnter" Click="rb4_Click"></RadioButton>
+                    <RadioButton Content="Inicio"  FontWeight="Bold" FontSize="30" Height="70" Padding="0,10,0,0" Foreground="White" Style="{StaticResource BotondeMenu}" Checked="informacionClick" Name="rb1" MouseEnter="rb1_MouseEnter"></RadioButton>
+                    <RadioButton ToolTip="Acceder al módulo de gestión de pedidos" Height="55" Foreground="White" Style="{StaticResource BotondeMenu}" Checked="informacionClick" Name="rb2" MouseEnter="rb2_MouseEnter" Click="rb2_Click">
+                        <RadioButton.Content>
+                            <DockPanel Margin="2,0,0,0">
+                                <fa:ImageAwesome Icon="PencilSquareOutline" Foreground="#ffd46f" Height="16" Margin="0,0,13,0"></fa:ImageAwesome>
+                                <TextBlock Foreground="White" FontSize="18" Text="Pedidos"></TextBlock>
+                            </DockPanel>
+                        </RadioButton.Content>
+                    </RadioButton>
+                    <RadioButton ToolTip="Acceder al módulo de gestión de mesas" Height="55" Foreground="White" Style="{StaticResource BotondeMenu}" Checked="informacionClick" Name="rb3" MouseEnter="rb3_MouseEnter" Click="rb3_Click">
+                        <RadioButton.Content>
+                            <DockPanel Margin="2,0,0,0">
+                                <fa:ImageAwesome Icon="Cutlery" Foreground="#ffd46f" Height="18" Margin="0,0,20,0"></fa:ImageAwesome>
+                                <TextBlock Foreground="White" FontSize="18" Text="Mesas"></TextBlock>
+                            </DockPanel>
+                        </RadioButton.Content>
+                    </RadioButton>
+                    <RadioButton ToolTip="Acceder al módulo de gestión de clientes" Height="55" Foreground="White" Style="{StaticResource BotondeMenu}" Checked="informacionClick"  HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" Name="rb4" MouseEnter="rb4_MouseEnter" Click="rb4_Click">
+                        <RadioButton.Content>
+                            <DockPanel Margin="2,0,0,0">
+                                <fa:ImageAwesome Icon="AddressBookOutline" Foreground="#ffd46f" Height="18" Margin="0,0,20,0"></fa:ImageAwesome>
+                                <TextBlock Foreground="White" FontSize="18" Text="Clientes"></TextBlock>
+                            </DockPanel>
+                        </RadioButton.Content>
+                    </RadioButton>
                 </StackPanel>
-                <TextBlock Foreground="White" Grid.Row="1" Height="24" HorizontalAlignment="Center" Margin="0,0,0,24" Name="txbUsuario" VerticalAlignment="Bottom" />
-                <Button Name="btnLogout" ToolTip="Cerrar la actual sesión" Content="Cerrar Sesión" Height="22" FontFamily="FreeSans" FontSize="13" Width="88" Background="#E1EF5050" BorderBrush="#001D0000" Foreground="White" ClipToBounds="True" Margin="7" Grid.Row="1" VerticalAlignment="Bottom" Click="btnLogout_Click_1" />
-                <Image Name="image1" Stretch="Fill" Source="/Vistas;component/Images/icono-usuario.png" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,54" Height="46" Width="50" />
+                <StackPanel Grid.Row="1" Margin="10,30" VerticalAlignment="Bottom">
+                    <TextBlock Foreground="White" Height="24" FontSize="16" HorizontalAlignment="Center" Name="txbUsuario" Margin="0,10"/>
+                    <Button Name="btnLogout" ToolTip="Cerrar la actual sesión" Width="auto" Style="{StaticResource ButtonLogout}" Background="#E1EF5050" BorderBrush="#001D0000" Foreground="White" Grid.Row="1" HorizontalAlignment="Center" Click="btnLogout_Click_1">
+                        <Button.Content>
+                            <DockPanel Margin="3">
+                                <fa:ImageAwesome Icon="SignOut" Foreground="white" Height="12" Margin="5,0" VerticalAlignment="Center"></fa:ImageAwesome>
+                                <TextBlock Text="Cerrar Sesión" Foreground="white" FontSize="14" VerticalAlignment="Center"></TextBlock>
+                            </DockPanel>
+                        </Button.Content>
+                    </Button>
+                </StackPanel>
             </Grid>
             <Image Name="logoholdem" Source="/Vistas;component/Images/holdemlogo.png" Stretch="Uniform" Width="Auto" HorizontalAlignment="Center" Height="Auto" VerticalAlignment="Center" Grid.Column="1" Margin="90,0" Opacity="1" />
 
             <!--Grid de Gestion de Pedidos-->
             <Grid Grid.Column="1" Name="griditem">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="92*" />
-                    <RowDefinition Height="333*" />
-                </Grid.RowDefinitions>
-                <TextBlock  Name="textBlock2" Text="PEDIDO" Foreground="White" FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                <Image Name="imgPedidos" Source="/Vistas;component/Images/pedidos.png" Stretch="Uniform" Width="Auto" HorizontalAlignment="Center" Height="Auto" VerticalAlignment="Center" Grid.Column="1" Margin="90,0" Opacity="1" />
             </Grid>
 
             <Grid Grid.Column="1" Name="grdMesa">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="92*" />
-                    <RowDefinition Height="333*" />
-                </Grid.RowDefinitions>
-                <TextBlock  Name="txtMesa" Text="MESA" Foreground="White" FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                <Image Name="imgMesas" Source="/Vistas;component/Images/mesas.png" Stretch="Uniform" Width="Auto" HorizontalAlignment="Center" Height="Auto" VerticalAlignment="Center" Grid.Column="1" Margin="90,0" Opacity="1" />
             </Grid>
 
             <Grid Grid.Column="1" Name="grdCliente">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="92*" />
-                    <RowDefinition Height="333*" />
-                </Grid.RowDefinitions>
-                <TextBlock  Name="txtCliente" Text="CLIENTES" Foreground="White" FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Center" />
-               
+                <Image Name="imgClientes" Source="/Vistas;component/Images/clientes.png" Stretch="Uniform" Width="Auto" HorizontalAlignment="Center" Height="Auto" VerticalAlignment="Center" Grid.Column="1" Margin="90,0" Opacity="1" />
             </Grid>
 
             

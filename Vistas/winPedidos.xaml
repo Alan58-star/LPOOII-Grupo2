@@ -11,7 +11,7 @@
         <ObjectDataProvider
             x:Key="LIST_PEDIDO"
             ObjectType="{x:Type svc:TrabajarPedido}"
-            MethodName="TraerPedidosColeccion"
+            MethodName="TraerNoFacturadosColeccion"
         />
 
         <CollectionViewSource
@@ -38,7 +38,7 @@
             </DockPanel>
         </Border>
 
-        <Grid Margin="0,0,0,40">
+        <Grid Margin="0,0,0,12">
             <Grid x:Name="lGrid" Margin="0,60,0,10">
 
                 <Grid.ColumnDefinitions>
@@ -71,17 +71,66 @@
                     <!-- grid botones-->
                 </Grid>
 
-                <Border CornerRadius="5" Grid.Column="1" Background="#363739" Margin="7,0">
+                <Border CornerRadius="5" Grid.Column="1" Margin="7,0">
                     <StackPanel>
 
-                        <DockPanel HorizontalAlignment="Left">
-                            <fa:ImageAwesome Icon="ThList" VerticalAlignment="Center" Foreground="#eeeeee" HorizontalAlignment="Center" Height="14" Margin="14,0"/>
+                        <Grid Grid.Row="0" Margin="0,0,0,14">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="50*"></ColumnDefinition>
+                                <ColumnDefinition Width="50*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
 
-                            <TextBlock FontWeight="Bold" Grid.Column="1" VerticalAlignment="Top" Margin="0,20,0,0" FontSize="20" Style="{StaticResource StyleLabelForm}" Text="Listado de Pedidos" HorizontalAlignment="Left"></TextBlock>
+                            <DockPanel Grid.Column="0" Margin="20,0" HorizontalAlignment="Left" VerticalAlignment="Center">
+                                <fa:ImageAwesome Icon="PencilSquareOutline" Height="27" Foreground="White" Margin="7,0"></fa:ImageAwesome>
+                                <Label Content="Pedidos" Style="{StaticResource FormTitle}" FontSize="26"></Label>
+                            </DockPanel>
+                            <!-- elemento búsqueda
+                <DockPanel Grid.Column="1" HorizontalAlignment="Center">
+                    <TextBox x:Name="txtSearchUser" Height="20" Width="120" Style="{StaticResource StyleTextBoxForm}" FontSize="10" TextChanged="txtSearchUser_TextChanged" />
+                    <Label Content="🔍" Style="{StaticResource StyleLabelForm}" FontFamily="Segoe UI Emoji" HorizontalAlignment="Left"/>
+                </DockPanel>
+                -->
+                            <Button Grid.Column="1" ToolTip="Muestra todos los pedidos registrados" x:Name="btnShowPedidos" HorizontalAlignment="Right" Content="Mostrar todos los pedidos" Margin="20,0" Style="{StaticResource ButtonFormBlack}" Click="btnShowPedidos_Click"></Button>
+                            <Button Grid.Column="1" ToolTip="Muestra sólo los pedidos no facturados" x:Name="btnShowNoFac" HorizontalAlignment="Right" Content="Mostrar pedidos no facturados" Margin="20,0" Style="{StaticResource ButtonFormBlack}" Click="btnShowNoFac_Click"></Button>
+                        </Grid>
 
-                        </DockPanel>
+                        <ListView ItemsSource="{Binding Source={StaticResource VISTA_PEDIDO}}" Name="lvwPedidos" Grid.Column="1" Background="#232323" Foreground="White" HorizontalContentAlignment="Center" BorderBrush="Black" VerticalAlignment="Top" SelectionChanged="lvwPedidos_SelectionChanged" Width="auto" Height="300" Margin="7,0">
+                            <ListView.ItemContainerStyle>
+                                <Style TargetType="{x:Type ListViewItem}">
+                                    <Setter Property="Template">
+                                        <Setter.Value>
+                                            <ControlTemplate TargetType="{x:Type ListViewItem}">
+                                                <Border CornerRadius="2" SnapsToDevicePixels="True"  
+                                BorderThickness="{TemplateBinding BorderThickness}"   
+                                BorderBrush="{TemplateBinding BorderBrush}"   
+                                Background="{TemplateBinding Background}">
+                                                    <Border Name="InnerBorder" CornerRadius="1" BorderThickness="1">
+                                                        <Grid>
+                                                            <Grid.RowDefinitions>
+                                                                <RowDefinition MaxHeight="11" />
+                                                                <RowDefinition />
+                                                            </Grid.RowDefinitions>
+                                                            <GridViewRowPresenter Grid.RowSpan="2"   
+                                            VerticalAlignment="{TemplateBinding VerticalContentAlignment}"   
+                                            SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                                                        </Grid>
+                                                    </Border>
+                                                </Border>
+                                            </ControlTemplate>
+                                        </Setter.Value>
+                                    </Setter>
 
-                        <ListView ItemsSource="{Binding Source={StaticResource VISTA_PEDIDO}}" Name="lvwPedidos" Grid.Column="1" Background="#232323" Foreground="White" HorizontalContentAlignment="Center" BorderBrush="Black" VerticalAlignment="Top" Height="284" SelectionChanged="lvwPedidos_SelectionChanged" Width="auto" Margin="7,0">
+                                    <Style.Triggers>
+                                        <Trigger Property="IsSelected" Value="true" >
+                                            <Setter Property="Background" Value="#5e8eb5" />
+                                        </Trigger>
+                                        <Trigger Property="IsMouseOver" Value="true">
+                                            <Setter Property="Background" Value="#505157"></Setter>
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </ListView.ItemContainerStyle>
+
                             <ListView.View>
                                 <GridView>
                                     <GridViewColumn Width="30" Header="ID" DisplayMemberBinding="{Binding Ped_Id}"/>
@@ -94,8 +143,8 @@
                             </ListView.View>
                         </ListView>
                         <DockPanel Margin="20" HorizontalAlignment="Center">
-                            <Button Foreground="#aaaaaa" IsEnabled="false" ToolTip="Ver items del pedido" Content="Ver Ítems" Style="{StaticResource ButtonFormBlack}" Grid.Column="1"  HorizontalAlignment="Left" Name="btnAddItem" VerticalAlignment="Top" Click="btnAddItems_Click" Width="123" />
-                            <Button Foreground="#aaaaaa" IsEnabled="false" ToolTip="Crea una factura del pedido, tambien puede ver una vista previa" Content="Facturar Pedido" Style="{StaticResource ButtonFormBlack}" Width="116"  Grid.Column="1" Height="40" HorizontalAlignment="Left" Name="btnverPedido" VerticalAlignment="Top" Click="verPedido_Click" />
+                            <Button Foreground="#aaaaaa" IsEnabled="false" ToolTip="Ver items del pedido" Content="Ver Ítems" Style="{StaticResource ButtonFormBlack}" Grid.Column="1" Margin="7,0" HorizontalAlignment="Left" Name="btnAddItem" VerticalAlignment="Top" Click="btnAddItems_Click"/>
+                            <Button Foreground="#aaaaaa" IsEnabled="false" ToolTip="Crea una factura del pedido, tambien puede ver una vista previa" Content="Facturar Pedido" Margin="7,0" Style="{StaticResource ButtonFormBlack}" Grid.Column="1" HorizontalAlignment="Left" Name="btnverPedido" VerticalAlignment="Top" Click="verPedido_Click" />
 
                         </DockPanel>
                     </StackPanel>

@@ -47,12 +47,12 @@
                         <Label HorizontalAlignment="Right" Grid.Row="3" Content="Fecha de Entrega:" Name="label3" Style="{StaticResource StyleLabelForm}" />
                         <Label HorizontalAlignment="Right" Grid.Row="4" Content="Cliente:" Name="lblCategoria" Style="{StaticResource StyleLabelForm}" />
 
-                        <Label HorizontalAlignment="Right" Content="Comensales" Name="lblComensales" Grid.Row="5" Style="{StaticResource StyleLabelForm}" Margin="0,6,10,0" />
+                        <Label HorizontalAlignment="Right" Content="Comensales" Name="lblComensales" Grid.Row="5" Style="{StaticResource StyleLabelForm}" />
 
                         <!--<ComboBox HorizontalAlignment="Left" Name="cboMesas" Grid.Column="1" Grid.Row="1" Margin="5,0" Height="23" Width="120"/>-->
                         <TextBlock HorizontalAlignment="Left" Name="txbMesas" Style="{StaticResource StyleLabelForm}" Grid.Column="1" Grid.Row="2" VerticalAlignment="Center" Height="23" Width="120"/>
-                        <DatePicker Grid.Column="1" Grid.Row="3" Height="25" HorizontalAlignment="Left"  Name="dpFecha" VerticalAlignment="Center" Width="115" Margin="10,22,0,17" />
-                        <ComboBox Height="23" HorizontalAlignment="Left" Margin="5,0,0,0" Name="cboCliente" VerticalAlignment="Center" Grid.Row="4" Grid.Column="1"  Width="120" />
+                        <DatePicker Grid.Column="1" Grid.Row="3" Height="25" HorizontalAlignment="Left"  Name="dpFecha" VerticalAlignment="Center" Width="126" Margin="10,0"/>
+                        <ComboBox Height="23" HorizontalAlignment="Left" Margin="10,0" Name="cboCliente" VerticalAlignment="Center" Grid.Row="4" Grid.Column="1"  Width="120" />
                         <TextBox   Width="60" Name="txtComensal" VerticalAlignment="Center"  Grid.Column="1" HorizontalAlignment="Left" Grid.Row="5" Style="{StaticResource EstiloError}">
 
                         </TextBox>
@@ -68,7 +68,7 @@
                 </Grid>
             </Grid>
             
-            <Button Name="btnagregarPed" ToolTip="Agregar un nuevo artículo al pedido" Grid.Column="0" Content="AÑADIR ARTÍCULO" Style="{StaticResource ButtonFormBlack}" Width="160" HorizontalAlignment="Center" Click="btnagregarPed_Click"></Button>
+            <Button Name="btnagregarPed" ToolTip="Registrar el Pedido" Grid.Column="0" Content="REGISTRAR PEDIDO" Style="{StaticResource ButtonFormBlack}" Width="160" HorizontalAlignment="Center" Click="btnagregarPed_Click"></Button>
 
         </StackPanel>
 

@@ -48,6 +48,8 @@ namespace Vistas
         {
             try
             {
+                winABMFamilias familias = new winABMFamilias();
+                familias.Show();
                 Close();
             }
             catch (Exception ex)

@@ -27,6 +27,7 @@ namespace Vistas
         public winNuevoPedido(int idmesa)
         {
             InitializeComponent();
+            dpFecha.BlackoutDates.AddDatesInPast();
             Load_TextMesa(idmesa);
             Load_ComboCliente();
         }
@@ -109,6 +110,7 @@ namespace Vistas
 
                 winPedidos oWinPedidos = new winPedidos(1);
                 oWinPedidos.Show();
+                this.Close();
 
             }
         }

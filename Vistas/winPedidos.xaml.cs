@@ -23,11 +23,15 @@ namespace Vistas
         public winPedidos()
         {
             InitializeComponent();
+            btnShowNoFac.IsEnabled = false;
+            btnShowNoFac.Visibility = Visibility.Hidden;
 
         }
         public winPedidos(int id)
         {
             InitializeComponent();
+            btnShowNoFac.IsEnabled = false;
+            btnShowNoFac.Visibility = Visibility.Hidden;
             lvwPedidos.SelectedIndex=0;
         }
 
@@ -102,6 +106,24 @@ namespace Vistas
             btnAddItem.IsEnabled = true;
             btnverPedido.Foreground = (Brush)(new BrushConverter().ConvertFromString("#fefefe"));
             btnverPedido.IsEnabled = true;
+        }
+
+        private void btnShowPedidos_Click(object sender, RoutedEventArgs e)
+        {
+            (FindResource("LIST_PEDIDO") as ObjectDataProvider).MethodName = "TraerPedidosColeccion";
+            btnShowPedidos.IsEnabled = false;
+            btnShowPedidos.Visibility = Visibility.Hidden;
+            btnShowNoFac.IsEnabled = true;
+            btnShowNoFac.Visibility = Visibility.Visible;
+        }
+
+        private void btnShowNoFac_Click(object sender, RoutedEventArgs e)
+        {
+            (FindResource("LIST_PEDIDO") as ObjectDataProvider).MethodName = "TraerNoFacturadosColeccion";
+            btnShowNoFac.IsEnabled = false;
+            btnShowNoFac.Visibility = Visibility.Hidden;
+            btnShowPedidos.IsEnabled = true;
+            btnShowPedidos.Visibility = Visibility.Visible;
         }
     }
 }

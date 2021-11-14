@@ -7,9 +7,9 @@
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="RadioButton">
-                        <Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Background="{TemplateBinding Background}">
-                            <TextBlock Text="{TemplateBinding Content}" VerticalAlignment="Center" Margin="35,0,0,0">
-                            </TextBlock>
+                        <Grid VerticalAlignment="Stretch" Background="{TemplateBinding Background}">
+                            <Label Foreground="White" Content="{TemplateBinding Content}" VerticalAlignment="Center" Margin="35,0,0,0">
+                            </Label>
                         </Grid>
                     </ControlTemplate>
                 </Setter.Value>
@@ -30,7 +30,7 @@
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
-                        <Button Background="Green" Margin="10,5">
+                        <Button Background="#8df78d" Margin="10,5">
                             <Grid>
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="80*" />
@@ -50,7 +50,7 @@
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
-                        <Button Background="Tomato" Margin="10,5">
+                        <Button Background="#fa6761" Margin="10,5">
                             <Grid>
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="80*" />
@@ -70,7 +70,7 @@
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
-                        <Button Background="GreenYellow" Margin="10,5">
+                        <Button Background="#a4a6b3" Margin="10,5">
                             <Grid>
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="80*" />
@@ -92,7 +92,7 @@
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
-                        <Button Background="Olive" Margin="10,5">
+                        <Button Background="#e6d870" Margin="10,5">
                             <Grid>
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="80*" />
@@ -113,7 +113,7 @@
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
-                        <Button Background="RoyalBlue" Margin="10,5">
+                        <Button Background="#78a0ff" Margin="10,5">
                             <Grid>
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="80*" />
@@ -133,7 +133,7 @@
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
-                        <Button Background="Salmon" Margin="10,5">
+                        <Button Background="#ffa154" Margin="10,5">
                             <Grid>
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="80*" />
@@ -153,7 +153,7 @@
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
-                        <Button Background="Fuchsia" Margin="10,5">
+                        <Button Background="#ae77d4" Margin="10,5">
                             <Grid>
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="80*" />
@@ -173,7 +173,7 @@
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
-                        <Button Background="Orange" Margin="10,5">
+                        <Button Background="#51ad45" Margin="10,5">
                             <Grid>
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="80*" />

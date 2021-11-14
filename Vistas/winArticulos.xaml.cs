@@ -34,9 +34,10 @@ namespace Vistas
                 btneditart.Visibility = Visibility.Hidden;
             }
             else {
-                lblWinTitle.Content = "Editar Artículo";
+                lblWinTitle.Content = "Actualización de Artículo";
+                lblNewArtDescrip.Content = "Modifique los datos del Artículo";
                 art1 = TrabajarArticulos.obtener_articulo(idarticulo);
-                lblNewArtTitle.Content = "Editar Artículos";
+                lblNewArtTitle.Content = "Actualizar Artículo";
                 btnagregarart.IsEnabled = false;
                 btnagregarart.Visibility = Visibility.Hidden;
 
@@ -53,7 +54,6 @@ namespace Vistas
             }
         }
 
-        
 
         private void btnGuardar_Click(object sender, RoutedEventArgs e)
         {

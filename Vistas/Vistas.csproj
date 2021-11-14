@@ -57,6 +57,9 @@
     <StartupObject>
     </StartupObject>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>favicon.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="FontAwesome.WPF, Version=4.7.0.37774, Culture=neutral, PublicKeyToken=0758b07a11a4f466, processorArchitecture=MSIL">
       <HintPath>..\packages\FontAwesome.WPF.4.7.0.9\lib\net40\FontAwesome.WPF.dll</HintPath>
@@ -417,6 +420,16 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Media\SONIDO.wav" />
+    <Resource Include="Images\articulos.png" />
+    <Resource Include="Images\categorias.png" />
+    <Resource Include="Images\clientes.png" />
+    <Resource Include="Images\familia.png" />
+    <Resource Include="Images\mesas.png" />
+    <Resource Include="Images\pedidos.png" />
+    <Resource Include="Images\ums.png" />
+    <Resource Include="Images\usuarios.png" />
+    <Resource Include="Images\historial.png" />
+    <Resource Include="favicon.ico" />
     <Content Include="Media\VIDEO.mp4" />
     <Resource Include="Media\bruh.wav" />
     <Resource Include="Images\Agregar.png" />

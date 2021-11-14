@@ -24,11 +24,21 @@ namespace Vistas
         public winAuditorMenu()
         {
             InitializeComponent();
+            ocultarGrid();
+            window.Width = SystemParameters.MaximizedPrimaryScreenWidth;
+            window.Height = SystemParameters.MaximizedPrimaryScreenHeight;
+            rb1.IsChecked = true;
+            logoholdem.Visibility = System.Windows.Visibility.Visible;
         }
 
         public winAuditorMenu(string usuario, int idUsuario)
         {
             InitializeComponent();
+            ocultarGrid();
+            window.Width = SystemParameters.MaximizedPrimaryScreenWidth;
+            window.Height = SystemParameters.MaximizedPrimaryScreenHeight;
+            rb1.IsChecked = true;
+            logoholdem.Visibility = System.Windows.Visibility.Visible;
             idUsuarioLog = idUsuario;
             nombreUsuarioLog = usuario;
             txbUsuario.Text = nombreUsuarioLog;
@@ -88,18 +98,33 @@ namespace Vistas
             }
         }
 
+
+        private void ocultarGrid()
+        {
+            logoholdem.Visibility = System.Windows.Visibility.Collapsed;
+            gridUsuarios.Visibility = System.Windows.Visibility.Collapsed;
+            grdLogs.Visibility = System.Windows.Visibility.Collapsed;
+
+        }
+
         private void rb1_MouseEnter(object sender, MouseEventArgs e)
         {
+            ocultarGrid();
+            logoholdem.Visibility = System.Windows.Visibility.Visible;
             rb1.IsChecked = true;
         }
 
         private void rb2_MouseEnter(object sender, MouseEventArgs e)
         {
+            ocultarGrid();
+            gridUsuarios.Visibility = System.Windows.Visibility.Visible;
             rb2.IsChecked = true;
         }
 
         private void rb3_MouseEnter(object sender, MouseEventArgs e)
         {
+            ocultarGrid();
+            grdLogs.Visibility = System.Windows.Visibility.Visible;
             rb3.IsChecked = true;
         }
 
@@ -118,8 +143,8 @@ namespace Vistas
         private void btnLogout_Click_1(object sender, RoutedEventArgs e)
         {
             winLogin WinLogin = new winLogin();
-            MessageBoxResult result = MessageBox.Show("Cerrar Sesion", "¿Salir?", MessageBoxButton.OKCancel, MessageBoxImage.Exclamation);
-            if (result == MessageBoxResult.OK)
+            MessageBoxResult result = MessageBox.Show("¿Desea cerrar sesión?", "¿Salir?", MessageBoxButton.YesNo, MessageBoxImage.Question);
+            if (result == MessageBoxResult.Yes)
             {
                 WinLogin.Show();
                 this.Close();
