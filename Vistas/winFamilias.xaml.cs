@@ -86,47 +86,66 @@ namespace Vistas
 
         private void btnGuardar_Click(object sender, RoutedEventArgs e)
         {
-
-            MessageBoxResult result = MessageBox.Show("¿Desea guardar estos datos?", "Guardar Familia", MessageBoxButton.YesNo, MessageBoxImage.Question);
-            if (result == MessageBoxResult.Yes)
+            if (validarCampos())
             {
-                Familia oFamilia = new Familia();
+                MessageBoxResult result = MessageBox.Show("¿Desea guardar estos datos?", "Guardar Familia", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                if (result == MessageBoxResult.Yes)
+                {
+                    Familia oFamilia = new Familia();
 
-                oFamilia.Fam_Descrip = txtFamDescrip.Text;
+                    oFamilia.Fam_Descrip = txtFamDescrip.Text;
 
 
-                TrabajarFamilias.add_familia(oFamilia);
+                    TrabajarFamilias.add_familia(oFamilia);
 
-                MessageBox.Show("Familia guardada con éxito");
+                    MessageBox.Show("Familia guardada con éxito");
 
-                txtFamDescrip.Text = "";
+                    txtFamDescrip.Text = "";
 
-                winABMFamilias winABMF = new winABMFamilias();
-                winABMF.Show();
-                this.Close();
+                    winABMFamilias winABMF = new winABMFamilias();
+                    winABMF.Show();
+                    this.Close();
+                }
             }
+            
         }
 
         private void btnEditar_Click(object sender, RoutedEventArgs e)
         {
-            MessageBoxResult result = MessageBox.Show("¿Desea actualizar estos datos?", "Actualizar Familia", MessageBoxButton.YesNo, MessageBoxImage.Question);
-            if (result == MessageBoxResult.Yes)
+            if (validarCampos())
             {
-                Familia oFamilia = new Familia();
+                MessageBoxResult result = MessageBox.Show("¿Desea actualizar estos datos?", "Actualizar Familia", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                if (result == MessageBoxResult.Yes)
+                {
+                    Familia oFamilia = new Familia();
 
-                oFamilia.Fam_Id = fam.Fam_Id;
-                oFamilia.Fam_Descrip = txtFamDescrip.Text;
+                    oFamilia.Fam_Id = fam.Fam_Id;
+                    oFamilia.Fam_Descrip = txtFamDescrip.Text;
 
-                TrabajarFamilias.edit_familia(oFamilia);
+                    TrabajarFamilias.edit_familia(oFamilia);
 
-                MessageBox.Show("Familia actualizada con éxito", "Familia actualizada", MessageBoxButton.OK, MessageBoxImage.Information);
+                    MessageBox.Show("Familia actualizada con éxito", "Familia actualizada", MessageBoxButton.OK, MessageBoxImage.Information);
 
-                txtFamDescrip.Text = "";
+                    txtFamDescrip.Text = "";
 
-                winABMFamilias winABMF = new winABMFamilias();
-                winABMF.Show();
-                this.Close();
+                    winABMFamilias winABMF = new winABMFamilias();
+                    winABMF.Show();
+                    this.Close();
+                }
             }
+            
+        }
+
+        private bool validarCampos()
+        {
+            bool valido = true;
+            if (txtFamDescrip.Text == "")
+            {
+                valido = false;
+                MessageBox.Show("Debe ingresar una descripción para la familia.");
+                return valido;
+            }
+            return valido;
         }
     }
 }

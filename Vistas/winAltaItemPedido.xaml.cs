@@ -100,32 +100,37 @@ namespace Vistas
 
         private void btnGuardarCant_Click(object sender, RoutedEventArgs e)
         {
-            Articulo art = (Articulo)lvwArticulos.SelectedItems[0];
-            item=TrabajarItemPedido.obtener_item(art.Art_Id,ped.Ped_Id);
-            if (item.Item_Ped_Id != 0)
+            if (validarCampos())
             {
-                item.Art_Id = art.Art_Id;
-                item.Ped_Id = ped.Ped_Id;
-                item.Item_Ped_Cantidad = Convert.ToInt32(txtCantidad.Text) + item.Item_Ped_Cantidad;
+                Articulo art = (Articulo)lvwArticulos.SelectedItems[0];
+                item = TrabajarItemPedido.obtener_item(art.Art_Id, ped.Ped_Id);
+                if (item.Item_Ped_Id != 0)
+                {
+                    item.Art_Id = art.Art_Id;
+                    item.Ped_Id = ped.Ped_Id;
+                    item.Item_Ped_Cantidad = Convert.ToInt32(txtCantidad.Text) + item.Item_Ped_Cantidad;
 
-                item.Item_Ped_Importe = art.Art_Precio * item.Item_Ped_Cantidad; 
-                TrabajarItemPedido.edit_item(item);
+                    item.Item_Ped_Importe = art.Art_Precio * item.Item_Ped_Cantidad;
+                    TrabajarItemPedido.edit_item(item);
+                }
+                else
+                {
+                    item.Art_Id = art.Art_Id;
+                    item.Ped_Id = ped.Ped_Id;
+                    item.Item_Ped_Precio = art.Art_Precio;
+                    item.Item_Ped_Cantidad = Convert.ToInt32(txtCantidad.Text);
+                    item.Item_Ped_Importe = art.Art_Precio * item.Item_Ped_Cantidad;
+                    TrabajarItemPedido.add_item_pedido(item);
+                }
+
+
+
+                cargarColeccion();
+                txtCantidad.Text = "";
+
+                Dialogo.IsOpen = false;
             }
-            else {
-                item.Art_Id = art.Art_Id;
-                item.Ped_Id = ped.Ped_Id;
-                item.Item_Ped_Precio = art.Art_Precio;
-                item.Item_Ped_Cantidad = Convert.ToInt32(txtCantidad.Text);
-                item.Item_Ped_Importe = art.Art_Precio * item.Item_Ped_Cantidad;
-                TrabajarItemPedido.add_item_pedido(item);
-            }
-          
             
-            
-            cargarColeccion();
-            txtCantidad.Text = "";
-            
-            Dialogo.IsOpen = false;
         }
         private void btnCancelarCant_Click(object sender, RoutedEventArgs e)
         {
@@ -137,6 +142,26 @@ namespace Vistas
         private void btnFinish_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        private bool validarCampos()
+        {
+            Dialogo.IsOpen = false;
+            bool valido = true;
+            //int cantidadReal = Convert.ToInt32(txtCantidad.Text);
+            if (txtCantidad.Text == "")
+            {
+                valido = false;
+                MessageBox.Show("Debe ingresar la cantidad del artículo seleccionado que desea añadir.");
+                Dialogo.IsOpen = true;
+                return valido;
+            }else if (txtCantidad.Text == "0") {
+                valido = false;
+                MessageBox.Show("La cantidad del artículo que desea añadir no puede ser igual a 0.");
+                Dialogo.IsOpen = true;
+                return valido;
+            }
+            return valido;
         }
        
 

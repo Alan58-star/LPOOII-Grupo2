@@ -75,16 +75,32 @@ namespace Vistas
 
         private void btnActualizar_Click(object sender, RoutedEventArgs e)
         {
-            MessageBoxResult result = MessageBox.Show("¿Desea actualizar estos datos?", "Actualizar Log", MessageBoxButton.YesNo, MessageBoxImage.Question);
-            if (result == MessageBoxResult.Yes)
+            if (validarCampos())
             {
-                TrabajarHistorialLogin.edit_log(logNew.Log_Id, txtDescripcion.Text);
+                MessageBoxResult result = MessageBox.Show("¿Desea actualizar estos datos?", "Actualizar Log", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                if (result == MessageBoxResult.Yes)
+                {
+                    TrabajarHistorialLogin.edit_log(logNew.Log_Id, txtDescripcion.Text);
 
-                MessageBox.Show("Log actualizado con éxito", "Usuario actualizado", MessageBoxButton.OK, MessageBoxImage.Information);       
+                    MessageBox.Show("Log actualizado con éxito", "Usuario actualizado", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+                winHistorialLogin winHLog = new winHistorialLogin();
+                winHLog.Show();
+                this.Close();
             }
-            winHistorialLogin winHLog = new winHistorialLogin();
-            winHLog.Show();
-            this.Close();
+            
+        }
+
+        private bool validarCampos()
+        {
+            bool valido = true;
+            if (txtDescripcion.Text == "")
+            {
+                valido = false;
+                MessageBox.Show("Debe ingresar la descripción para el login seleccionado.");
+                return valido;
+            }
+            return valido;
         }
 
     }

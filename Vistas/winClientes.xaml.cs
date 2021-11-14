@@ -50,33 +50,36 @@ namespace Vistas
 
         private void btnGuardar_Click(object sender, RoutedEventArgs e)
         {
-
-            MessageBoxResult result = MessageBox.Show("¿Desea guardar estos datos?", "Guardar Cliente", MessageBoxButton.YesNo, MessageBoxImage.Question);
-            if (result == MessageBoxResult.Yes)
+            if (validarCampos())
             {
-                Cliente oCliente = new Cliente();
+                MessageBoxResult result = MessageBox.Show("¿Desea guardar estos datos?", "Guardar Cliente", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                if (result == MessageBoxResult.Yes)
+                {
+                    Cliente oCliente = new Cliente();
 
-                oCliente.Cli_Apellido = txtApellidos.Text;
-                oCliente.Cli_Nombre = txtNombres.Text;
-                oCliente.Cli_Telefono = txtTel.Text;
-                oCliente.Cli_Domicilio = txtDomicilio.Text;
-                oCliente.Cli_Email = txtMail.Text;
+                    oCliente.Cli_Apellido = txtApellidos.Text;
+                    oCliente.Cli_Nombre = txtNombres.Text;
+                    oCliente.Cli_Telefono = txtTel.Text;
+                    oCliente.Cli_Domicilio = txtDomicilio.Text;
+                    oCliente.Cli_Email = txtMail.Text;
 
 
-                TrabajarClientes.add_cliente(oCliente);
+                    TrabajarClientes.add_cliente(oCliente);
 
-                MessageBox.Show("Cliente guardado con éxito");
+                    MessageBox.Show("Cliente guardado con éxito");
 
-                txtApellidos.Text = "";
-                txtNombres.Text = "";
-                txtDomicilio.Text = "";
-                txtTel.Text = "";
-                txtMail.Text = "";
+                    txtApellidos.Text = "";
+                    txtNombres.Text = "";
+                    txtDomicilio.Text = "";
+                    txtTel.Text = "";
+                    txtMail.Text = "";
 
-                winABMClientes winABMC = new winABMClientes();
-                winABMC.Show();
-                this.Close();
+                    winABMClientes winABMC = new winABMClientes();
+                    winABMC.Show();
+                    this.Close();
+                }
             }
+            
         }
         private void moveWindow(object sender, MouseButtonEventArgs e)
         {
@@ -120,32 +123,72 @@ namespace Vistas
 
         private void btnEditar_Click(object sender, RoutedEventArgs e)
         {
-            MessageBoxResult result = MessageBox.Show("¿Desea actualizar estos datos?", "Actualizar Cliente", MessageBoxButton.YesNo, MessageBoxImage.Question);
-            if (result == MessageBoxResult.Yes)
+            if (validarCampos())
             {
-                Cliente oCliente = new Cliente();
+                MessageBoxResult result = MessageBox.Show("¿Desea actualizar estos datos?", "Actualizar Cliente", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                if (result == MessageBoxResult.Yes)
+                {
+                    Cliente oCliente = new Cliente();
 
-                oCliente.Cli_Id = cli.Cli_Id;
-                oCliente.Cli_Nombre = txtNombres.Text;
-                oCliente.Cli_Apellido = txtApellidos.Text;
-                oCliente.Cli_Domicilio = txtDomicilio.Text;
-                oCliente.Cli_Telefono = txtTel.Text;
-                oCliente.Cli_Email = txtMail.Text;
+                    oCliente.Cli_Id = cli.Cli_Id;
+                    oCliente.Cli_Nombre = txtNombres.Text;
+                    oCliente.Cli_Apellido = txtApellidos.Text;
+                    oCliente.Cli_Domicilio = txtDomicilio.Text;
+                    oCliente.Cli_Telefono = txtTel.Text;
+                    oCliente.Cli_Email = txtMail.Text;
 
-                TrabajarClientes.edit_cliente(oCliente);
+                    TrabajarClientes.edit_cliente(oCliente);
 
-                MessageBox.Show("Cliente actualizado con éxito", "Cliente actualizado", MessageBoxButton.OK, MessageBoxImage.Information);
+                    MessageBox.Show("Cliente actualizado con éxito", "Cliente actualizado", MessageBoxButton.OK, MessageBoxImage.Information);
 
-                txtApellidos.Text = "";
-                txtNombres.Text = "";
-                txtDomicilio.Text = "";
-                txtTel.Text = "";
-                txtMail.Text = "";
+                    txtApellidos.Text = "";
+                    txtNombres.Text = "";
+                    txtDomicilio.Text = "";
+                    txtTel.Text = "";
+                    txtMail.Text = "";
 
-                winABMClientes winABMC = new winABMClientes();
-                winABMC.Show();
-                this.Close();
+                    winABMClientes winABMC = new winABMClientes();
+                    winABMC.Show();
+                    this.Close();
+                }
             }
+            
+        }
+
+        private bool validarCampos()
+        {
+            bool valido = true;
+            if (txtApellidos.Text == "")
+            {
+                valido = false;
+                MessageBox.Show("Debe ingresar el o los apellidos del cliente.");
+                return valido;
+            }
+            if (txtNombres.Text == "")
+            {
+                valido = false;
+                MessageBox.Show("Debe ingresar el o los nombres del cliente.");
+                return valido;
+            }
+            /*if (txtDomicilio.Text == "")
+            {
+                valido = false;
+                MessageBox.Show("Debe ingresar el domicilio del cliente.");
+                return valido;
+            }*/
+            if (txtTel.Text == "")
+            {
+                valido = false;
+                MessageBox.Show("Debe ingresar el teléfono del cliente.");
+                return valido;
+            }
+            /*if(txtMail.Text == "")
+            {
+                valido = false;
+                MessageBox.Show("Debe ingresar el correo electrónico del cliente.");
+                return valido;
+            }*/
+            return valido;
         }
 
        

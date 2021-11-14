@@ -98,7 +98,7 @@
                                     </DockPanel>
                                 </Button.Content>
                             </Button>
-                            <Button Grid.Column="1" ToolTip="Oculta todos los pedidoes facturados" x:Name="btnShowNoFac" HorizontalAlignment="Right" Margin="20,0" Style="{StaticResource ButtonFormBlack}" Click="btnShowNoFac_Click">
+                            <Button Grid.Column="1" ToolTip="Oculta todos los pedidos facturados" x:Name="btnShowNoFac" HorizontalAlignment="Right" Margin="20,0" Style="{StaticResource ButtonFormBlack}" Click="btnShowNoFac_Click">
                                 <Button.Content>
                                     <DockPanel>
                                         <TextBlock Text="Ocultar pedidos facturados" FontSize="14" Foreground="white"></TextBlock>
@@ -157,8 +157,8 @@
                             </ListView.View>
                         </ListView>
                         <DockPanel Margin="20" HorizontalAlignment="Center">
-                            <Button Foreground="#aaaaaa" IsEnabled="false" ToolTip="Ver items del pedido" Content="Ver Ítems" Style="{StaticResource ButtonFormBlack}" Grid.Column="1" Margin="7,0" HorizontalAlignment="Left" Name="btnAddItem" VerticalAlignment="Top" Click="btnAddItems_Click"/>
-                            <Button Foreground="#aaaaaa" IsEnabled="false" ToolTip="Crea una factura del pedido, tambien puede ver una vista previa" Content="Facturar Pedido" Margin="7,0" Style="{StaticResource ButtonFormBlack}" Grid.Column="1" HorizontalAlignment="Left" Name="btnverPedido" VerticalAlignment="Top" Click="verPedido_Click" />
+                            <Button Foreground="#aaaaaa" IsEnabled="false" ToolTip="Ver items del pedido seleccionado" Content="Ver Ítems" Style="{StaticResource ButtonFormBlack}" Grid.Column="1" Margin="7,0" HorizontalAlignment="Left" Name="btnAddItem" VerticalAlignment="Top" Click="btnAddItems_Click"/>
+                            <Button Foreground="#aaaaaa" IsEnabled="false" ToolTip="Ver una vista previa de la facturación del pedido" Content="Facturar Pedido" Margin="7,0" Style="{StaticResource ButtonFormBlack}" Grid.Column="1" HorizontalAlignment="Left" Name="btnverPedido" VerticalAlignment="Top" Click="verPedido_Click" />
 
                         </DockPanel>
                     </StackPanel>

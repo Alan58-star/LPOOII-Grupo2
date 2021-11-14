@@ -25,9 +25,12 @@ namespace Vistas
 
         private void btnAceptar_Click(object sender, RoutedEventArgs e)
         {
-            winMesas winMesas = new winMesas(Convert.ToInt32(txtNroMesas.Text.ToString()));
-            winMesas.Show();
-            this.Close();
+            if (validarCampos())
+            {
+                winMesas winMesas = new winMesas(Convert.ToInt32(txtNroMesas.Text.ToString()));
+                winMesas.Show();
+                this.Close();
+            }   
         }
 
         private void closeWindow(object sender, MouseButtonEventArgs e)
@@ -67,6 +70,18 @@ namespace Vistas
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private bool validarCampos()
+        {
+            bool valido = true;
+            if (txtNroMesas.Text == "")
+            {
+                valido = false;
+                MessageBox.Show("Debe ingresar el número de mesas que desea.");
+                return valido;
+            }
+            return valido;
         }
     }
 }

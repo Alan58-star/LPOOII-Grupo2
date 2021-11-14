@@ -33,6 +33,7 @@ namespace Vistas
             {
                 btneditart.IsEnabled = false;
                 btneditart.Visibility = Visibility.Hidden;
+                //txtPrecio.Text = "";
             }
             else {
                 lblWinTitle.Content = "Actualización de Artículo";
@@ -58,33 +59,34 @@ namespace Vistas
 
         private void btnGuardar_Click(object sender, RoutedEventArgs e)
         {
-            
-            MessageBoxResult result = MessageBox.Show("¿Desea guardar estos datos?", "Crear Artículo", MessageBoxButton.YesNo, MessageBoxImage.Question);
-            if (result == MessageBoxResult.Yes)
+            //validarCampos();
+            if (validarCampos())
             {
-                Articulo oArticulo = new Articulo();
-                oArticulo.Fam_Id = Convert.ToInt32(cboFlia.SelectedValue.ToString());
-                oArticulo.Art_Precio = Convert.ToDecimal(txtPrecio.Text.Replace(".",","));
-                oArticulo.Um_Id = Convert.ToInt32(cboMedida.SelectedValue.ToString());
-                oArticulo.Cat_Id = Convert.ToInt32(cboCategoria.SelectedValue.ToString());
-                oArticulo.Art_Descrip = txtDescripcion.Text;
+                MessageBoxResult result = MessageBox.Show("¿Desea guardar estos datos?", "Crear Artículo", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                if (result == MessageBoxResult.Yes)
+                {
+                    Articulo oArticulo = new Articulo();
+                    oArticulo.Fam_Id = Convert.ToInt32(cboFlia.SelectedValue.ToString());
+                    oArticulo.Art_Precio = Convert.ToDecimal(txtPrecio.Text.Replace(".", ","));
+                    oArticulo.Um_Id = Convert.ToInt32(cboMedida.SelectedValue.ToString());
+                    oArticulo.Cat_Id = Convert.ToInt32(cboCategoria.SelectedValue.ToString());
+                    oArticulo.Art_Descrip = txtDescripcion.Text;
 
-                if (chkStock.IsChecked == true) oArticulo.Art_Manejo_Stock = true;
-                else oArticulo.Art_Manejo_Stock = false;
-                oArticulo.Art_Imagen = imgArticulo.Source.ToString();
-                TrabajarArticulos.add_articulo(oArticulo);
+                    if (chkStock.IsChecked == true) oArticulo.Art_Manejo_Stock = true;
+                    else oArticulo.Art_Manejo_Stock = false;
+                    oArticulo.Art_Imagen = imgArticulo.Source.ToString();
+                    TrabajarArticulos.add_articulo(oArticulo);
 
-                MessageBox.Show("Artículo Guardado con éxito", "Datos Creados", MessageBoxButton.OK, MessageBoxImage.Information);
+                    MessageBox.Show("Artículo Guardado con éxito", "Datos Creados", MessageBoxButton.OK, MessageBoxImage.Information);
 
-                txtDescripcion.Text = "";
-                txtPrecio.Text = "";
-                chkStock.IsChecked = false;
-                cboCategoria.SelectedItem = null;
-                cboFlia.SelectedItem = null;
-                cboMedida.SelectedItem = null;
-
+                    txtDescripcion.Text = "";
+                    txtPrecio.Text = "";
+                    chkStock.IsChecked = false;
+                    cboCategoria.SelectedItem = null;
+                    cboFlia.SelectedItem = null;
+                    cboMedida.SelectedItem = null;
+                }
             }
-
         }
         private void moveWindow(object sender, MouseButtonEventArgs e)
         {
@@ -155,26 +157,28 @@ namespace Vistas
 
         private void btnEditar_Click(object sender, RoutedEventArgs e)
         {
-
-            MessageBoxResult result = MessageBox.Show("¿Desea actualizar estos datos?", "Actualizar Artículo", MessageBoxButton.YesNo, MessageBoxImage.Question);
-            if (result == MessageBoxResult.Yes)
+            if (validarCampos())
             {
-                Articulo oArticulo1 = new Articulo();
-                oArticulo1.Art_Id = art1.Art_Id;
-                oArticulo1.Fam_Id = Convert.ToInt32(cboFlia.SelectedValue.ToString());
-                oArticulo1.Art_Precio = Convert.ToDecimal(txtPrecio.Text.Replace(".",","));
-                oArticulo1.Um_Id = Convert.ToInt32(cboMedida.SelectedValue.ToString());
-                oArticulo1.Cat_Id = Convert.ToInt32(cboCategoria.SelectedValue.ToString());
-                oArticulo1.Art_Descrip = txtDescripcion.Text;
+                MessageBoxResult result = MessageBox.Show("¿Desea actualizar estos datos?", "Actualizar Artículo", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                if (result == MessageBoxResult.Yes)
+                {
+                    Articulo oArticulo1 = new Articulo();
+                    oArticulo1.Art_Id = art1.Art_Id;
+                    oArticulo1.Fam_Id = Convert.ToInt32(cboFlia.SelectedValue.ToString());
+                    oArticulo1.Art_Precio = Convert.ToDecimal(txtPrecio.Text.Replace(".", ","));
+                    oArticulo1.Um_Id = Convert.ToInt32(cboMedida.SelectedValue.ToString());
+                    oArticulo1.Cat_Id = Convert.ToInt32(cboCategoria.SelectedValue.ToString());
+                    oArticulo1.Art_Descrip = txtDescripcion.Text;
 
-                if (chkStock.IsChecked == true) oArticulo1.Art_Manejo_Stock = true;
-                else oArticulo1.Art_Manejo_Stock = false;
-                oArticulo1.Art_Imagen = imgArticulo.Source.ToString();
-                TrabajarArticulos.edit_articulo(oArticulo1);
+                    if (chkStock.IsChecked == true) oArticulo1.Art_Manejo_Stock = true;
+                    else oArticulo1.Art_Manejo_Stock = false;
+                    oArticulo1.Art_Imagen = imgArticulo.Source.ToString();
+                    TrabajarArticulos.edit_articulo(oArticulo1);
 
-                MessageBox.Show("Artículo actualizado con éxito", "Datos Actualizados", MessageBoxButton.OK, MessageBoxImage.Information);
+                    MessageBox.Show("Artículo actualizado con éxito", "Datos Actualizados", MessageBoxButton.OK, MessageBoxImage.Information);
 
-            }
+                }
+            }  
         }
 
         private void btnImagen_Click(object sender, RoutedEventArgs e)
@@ -195,6 +199,53 @@ namespace Vistas
                 Uri fileUri = new Uri(destino);
                 imgArticulo.Source = new BitmapImage(fileUri);
             }
+        }
+
+        private bool validarCampos()
+        {
+            bool valido = true;
+            int comboFamilia = Convert.ToInt32(cboFlia.SelectedValue);
+            int comboMedida = Convert.ToInt32(cboMedida.SelectedValue);
+            int comboCategoria = Convert.ToInt32(cboCategoria.SelectedValue);
+            int textoPrecio = Convert.ToInt32(txtPrecio.Text);
+            //string imagen = Convert.ToString(imgArticulo.Source);
+            if( (string.IsNullOrEmpty(cboFlia.Text)) || (comboFamilia == -1) )
+            {
+                valido = false;
+                MessageBox.Show("Debe seleccionar una familia para el artículo.");
+                return valido;
+            }
+            if( (string.IsNullOrEmpty(cboMedida.Text)) || (comboMedida == -1) )
+            {
+                valido = false;
+                MessageBox.Show("Debe seleccionar una unidad de medida para el artículo.");
+                return valido;
+            }
+            if( (string.IsNullOrEmpty(cboCategoria.Text)) || (comboCategoria == -1) )
+            {
+                valido = false;
+                MessageBox.Show("Debe seleccionar una categoría para el artículo.");
+                return valido;
+            }
+            if( textoPrecio == 0 )
+            {
+                valido = false;
+                MessageBox.Show("Debe ingresar el precio del artículo.");
+                return valido;
+            }
+            if(txtDescripcion.Text == "")
+            {
+                valido = false;
+                MessageBox.Show("Debe ingresar una descripción del artículo.");
+                return valido;
+            }
+            /*if(imagen == "")
+            {
+                valido = false;
+                MessageBox.Show("Debe ingresar una imágen del artículo.");
+                return valido;
+            }*/
+            return valido;
         }
     }
 }

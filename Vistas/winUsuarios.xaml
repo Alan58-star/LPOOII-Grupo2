@@ -18,7 +18,7 @@
         <Border Style="{StaticResource MainGridStyle}">
             <DockPanel Height="40" Name="dockPanel1" Width="auto" HorizontalAlignment="Stretch" VerticalAlignment="Top" FlowDirection="RightToLeft">
                 <Ellipse Height="15" ToolTip="Cerrar ventana" HorizontalAlignment="Right" Name="btnClose" Fill="#FFFF4B6A" Width="15" Margin="10,0,5,0" MouseLeftButtonDown="closeWindow"/>
-                <Ellipse Height="15" ToolTip="Maximizar ventana" HorizontalAlignment="Left" Name="btnMaximize" Fill="#EEEEEE" Width="15" Margin="5,0,5,0" MouseLeftButtonDown="minimizeWindow"/>
+                <Ellipse Height="15" ToolTip="Minimizar ventana" HorizontalAlignment="Left" Name="btnMaximize" Fill="#EEEEEE" Width="15" Margin="5,0,5,0" MouseLeftButtonDown="minimizeWindow"/>
                 <Label Name="lblWinTitle" Content="Alta de Nuevo Usuario" Padding="20,0" HorizontalAlignment="Right" FontFamily="FreeSans" FontSize="12" VerticalContentAlignment="Center" Foreground="#EEEEEE"/>
             </DockPanel>
         </Border>
@@ -91,7 +91,7 @@
 
             </Grid>
 
-            <Button Grid.Row="1" FontWeight="Bold" ToolTip="Guardar un nuevo usuario" Content="GUARDAR" Name="btnGuardar" Click="btnGuardar_Click" Style="{StaticResource ButtonFormBlack}"/>
+            <Button Grid.Row="1" FontWeight="Bold" ToolTip="Guardar un nuevo usuario con los datos ingresados" Content="GUARDAR" Name="btnGuardar" Click="btnGuardar_Click" Style="{StaticResource ButtonFormBlack}"/>
             <Button Grid.Row="1" FontWeight="bold" ToolTip="Actualizar los datos del usuario" Content="ACTUALIZAR" Name="btnEditar" Click="btnEditar_Click" Style="{StaticResource ButtonFormBlack}"/>
 
         </Grid>

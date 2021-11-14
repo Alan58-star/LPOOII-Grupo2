@@ -53,6 +53,11 @@
     <Compile Include="Historial_Login.cs" />
     <Compile Include="Item_Pedido.cs" />
     <Compile Include="Mesa.cs" />
+    <Compile Include="pasteleriaDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>pasteleriaDataSet1.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Pedido.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
@@ -78,6 +83,17 @@
     <None Include="app.config" />
     <None Include="ClassDiagram.cd" />
     <None Include="packages.config" />
+    <None Include="pasteleriaDataSet1.xsc">
+      <DependentUpon>pasteleriaDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="pasteleriaDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>pasteleriaDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="pasteleriaDataSet1.xss">
+      <DependentUpon>pasteleriaDataSet1.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

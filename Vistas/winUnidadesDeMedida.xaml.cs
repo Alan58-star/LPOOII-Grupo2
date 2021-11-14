@@ -87,49 +87,74 @@ namespace Vistas
 
         private void btnGuardar_Click(object sender, RoutedEventArgs e)
         {
-            MessageBoxResult result = MessageBox.Show("¿Desea guardar estos datos?", "Guardar Unidad de medida", MessageBoxButton.YesNo, MessageBoxImage.Question);
-            if (result == MessageBoxResult.Yes)
+            if(validarCampos())
             {
-                Unidad_Medida oUM = new Unidad_Medida();
+                MessageBoxResult result = MessageBox.Show("¿Desea guardar estos datos?", "Guardar Unidad de medida", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                if (result == MessageBoxResult.Yes)
+                {
+                    Unidad_Medida oUM = new Unidad_Medida();
 
-                oUM.Um_Descrip = txtUMDescrip.Text;
-                oUM.Um_Abrev = txtUMAbrev.Text;
+                    oUM.Um_Descrip = txtUMDescrip.Text;
+                    oUM.Um_Abrev = txtUMAbrev.Text;
 
-                TrabajarUM.add_UM(oUM);
+                    TrabajarUM.add_UM(oUM);
 
-                MessageBox.Show("Unidad de medida guardada con éxito", "Unidad de Medida Agregada", MessageBoxButton.OK, MessageBoxImage.Information);
+                    MessageBox.Show("Unidad de medida guardada con éxito", "Unidad de Medida Agregada", MessageBoxButton.OK, MessageBoxImage.Information);
 
-                txtUMDescrip.Text = "";
-                txtUMAbrev.Text = "";
+                    txtUMDescrip.Text = "";
+                    txtUMAbrev.Text = "";
 
-                winABMUMedidas winABMUM = new winABMUMedidas();
-                winABMUM.Show();
-                this.Close();
-            }
+                    winABMUMedidas winABMUM = new winABMUMedidas();
+                    winABMUM.Show();
+                    this.Close();
+                }
+            } 
         }
 
         private void btnEditar_Click(object sender, RoutedEventArgs e)
         {
-            MessageBoxResult result = MessageBox.Show("¿Desea actualizar estos datos?", "Actualizar Unidad de medida", MessageBoxButton.YesNo, MessageBoxImage.Question);
-            if (result == MessageBoxResult.Yes)
+            if(validarCampos())
             {
-                Unidad_Medida oUM = new Unidad_Medida();
+                MessageBoxResult result = MessageBox.Show("¿Desea actualizar estos datos?", "Actualizar Unidad de medida", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                if (result == MessageBoxResult.Yes)
+                {
+                    Unidad_Medida oUM = new Unidad_Medida();
 
-                oUM.Um_Id = um.Um_Id;
-                oUM.Um_Descrip = txtUMDescrip.Text;
-                oUM.Um_Abrev = txtUMAbrev.Text;
+                    oUM.Um_Id = um.Um_Id;
+                    oUM.Um_Descrip = txtUMDescrip.Text;
+                    oUM.Um_Abrev = txtUMAbrev.Text;
 
-                TrabajarUM.edit_UM(oUM);
+                    TrabajarUM.edit_UM(oUM);
 
-                MessageBox.Show("Unidad de medida actualizada con éxito", "Unidad de Medida actualizada", MessageBoxButton.OK, MessageBoxImage.Information);
+                    MessageBox.Show("Unidad de medida actualizada con éxito", "Unidad de Medida actualizada", MessageBoxButton.OK, MessageBoxImage.Information);
 
-                txtUMAbrev.Text = "";
-                txtUMDescrip.Text = "";
+                    txtUMAbrev.Text = "";
+                    txtUMDescrip.Text = "";
 
-                winABMUMedidas winABMUM = new winABMUMedidas();
-                winABMUM.Show();
-                this.Close();
+                    winABMUMedidas winABMUM = new winABMUMedidas();
+                    winABMUM.Show();
+                    this.Close();
+                }
             }
+            
+        }
+
+        private bool validarCampos()
+        {
+            bool valido = true;
+            if (txtUMDescrip.Text == "")
+            {
+                valido = false;
+                MessageBox.Show("Debe ingresar una descripción para la unidad de medida.");
+                return valido;
+            }
+            if (txtUMAbrev.Text == "")
+            {
+                valido = false;
+                MessageBox.Show("Debe ingresar una abreviatura para la unidad de medida.");
+                return valido;
+            }
+            return valido;
         }
 
     }

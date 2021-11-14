@@ -30,7 +30,7 @@
         <Border Style="{StaticResource MainGridStyle}">
             <DockPanel Height="40" Name="dockPanel1" Width="auto" HorizontalAlignment="Stretch" VerticalAlignment="Top" FlowDirection="RightToLeft">
                 <Ellipse Height="15" HorizontalAlignment="Right" ToolTip="Cerrar ventana" Name="btnClose" Fill="#FFFF4B6A" Width="15" Margin="10,0,5,0" MouseLeftButtonDown="closeWindow"/>
-                <Ellipse Height="15" HorizontalAlignment="Left" ToolTip="Maximizar ventana" Name="btnMaximize" Fill="#EEEEEE" Width="15" Margin="5,0,5,0" MouseLeftButtonDown="minimizeWindow"/>
+                <Ellipse Height="15" HorizontalAlignment="Left" ToolTip="Minimizar ventana" Name="btnMaximize" Fill="#EEEEEE" Width="15" Margin="5,0,5,0" MouseLeftButtonDown="minimizeWindow"/>
                 <Label Name="lblWinTitle" Content="Rellene el Pedido" Padding="20,0" HorizontalAlignment="Right" FontFamily="FreeSans" FontSize="12" VerticalContentAlignment="Center" Foreground="#EEEEEE"/>
             </DockPanel>
         </Border>
@@ -97,7 +97,7 @@
             </ListView>
             
             <StackPanel Margin="20" Orientation="Horizontal" HorizontalAlignment="Center">
-                <Button Name="btnAdd" ToolTip="Agregar el artículo al pedido" Padding="5" Click="btnAdd_Click" Style="{StaticResource ButtonFormBlack}" >
+                <Button Name="btnAdd" ToolTip="Agregar el artículo seleccionado al pedido" Padding="5" Click="btnAdd_Click" Style="{StaticResource ButtonFormBlack}" >
                     <Button.Content>
                         <fa:ImageAwesome Icon="Plus" VerticalAlignment="Center" Foreground="#eeeeee" HorizontalAlignment="Center" Height="20" Margin="14,0"></fa:ImageAwesome>
                     </Button.Content>
@@ -124,8 +124,8 @@
 
                         </TextBox>
                         <DockPanel Grid.Row="2" Margin="5,10" HorizontalAlignment="Center" VerticalAlignment="Center">
-                            <Button Content="GUARDAR" Name="btnGuardarCant"  HorizontalAlignment="Center" Style="{StaticResource ButtonFormBlack}" Click="btnGuardarCant_Click"></Button>
-                            <Button Content="CANCELAR" Name="btnCancelarCant"  HorizontalAlignment="Center" Style="{StaticResource ButtonFormBlack}" Click="btnCancelarCant_Click"></Button>
+                            <Button ToolTip="Guardar la cantidad especificada" Content="GUARDAR" Name="btnGuardarCant"  HorizontalAlignment="Center" Style="{StaticResource ButtonFormBlack}" Click="btnGuardarCant_Click"></Button>
+                            <Button ToolTip="Cancelar la operación" Content="CANCELAR" Name="btnCancelarCant"  HorizontalAlignment="Center" Style="{StaticResource ButtonFormBlack}" Click="btnCancelarCant_Click"></Button>
 
                         </DockPanel>
                     </Grid>

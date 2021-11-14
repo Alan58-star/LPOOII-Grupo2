@@ -68,7 +68,7 @@
                 </Grid>
             </Grid>
             
-            <Button Name="btnagregarPed" ToolTip="Registrar el Pedido" Grid.Column="0" Content="REGISTRAR PEDIDO" Style="{StaticResource ButtonFormBlack}" Width="160" HorizontalAlignment="Center" Click="btnagregarPed_Click"></Button>
+            <Button Name="btnagregarPed" ToolTip="Registrar el nuevo pedido con los datos cargados" Grid.Column="0" Content="REGISTRAR PEDIDO" Style="{StaticResource ButtonFormBlack}" Width="160" HorizontalAlignment="Center" Click="btnagregarPed_Click"></Button>
 
         </StackPanel>
 

@@ -90,30 +90,34 @@ namespace Vistas
 
         private void btnGuardar_Click(object sender, RoutedEventArgs e)
         {
-            MessageBoxResult result = MessageBox.Show("¿Desea guardar estos datos?", "Guardar Usuario", MessageBoxButton.YesNo, MessageBoxImage.Question);
-            if (result == MessageBoxResult.Yes)
+            if (validarCampos())
             {
-                Usuario oUsuario = new Usuario();
+                MessageBoxResult result = MessageBox.Show("¿Desea guardar estos datos?", "Guardar Usuario", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                if (result == MessageBoxResult.Yes)
+                {
+                    Usuario oUsuario = new Usuario();
 
-                oUsuario.Usr_ApellidoNombre = txtApellidoNombre.Text;
-                oUsuario.Usr_NombreUsuario = txtUsuario.Text;
-                oUsuario.Usr_Password = txtPassword.Text;
-                oUsuario.Rol_Id = Convert.ToInt32(cboRol.SelectedValue.ToString());
+                    oUsuario.Usr_ApellidoNombre = txtApellidoNombre.Text;
+                    oUsuario.Usr_NombreUsuario = txtUsuario.Text;
+                    oUsuario.Usr_Password = txtPassword.Text;
+                    oUsuario.Rol_Id = Convert.ToInt32(cboRol.SelectedValue.ToString());
 
 
-                TrabajarUsuarios.add_usuario(oUsuario);
+                    TrabajarUsuarios.add_usuario(oUsuario);
 
-                MessageBox.Show("Usuario guardado con éxito","Usuario añadido", MessageBoxButton.OK, MessageBoxImage.Information);
+                    MessageBox.Show("Usuario guardado con éxito", "Usuario añadido", MessageBoxButton.OK, MessageBoxImage.Information);
 
-                txtApellidoNombre.Text = "";
-                txtPassword.Text = "";
-                txtUsuario.Text = "";
-                cboRol.SelectedItem = null;
+                    txtApellidoNombre.Text = "";
+                    txtPassword.Text = "";
+                    txtUsuario.Text = "";
+                    cboRol.SelectedItem = null;
 
-                winABMUsuarios winABMU = new winABMUsuarios();
-                winABMU.Show();
-                this.Close();
+                    winABMUsuarios winABMU = new winABMUsuarios();
+                    winABMU.Show();
+                    this.Close();
+                } 
             }
+            
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -133,31 +137,72 @@ namespace Vistas
 
         private void btnEditar_Click(object sender, RoutedEventArgs e)
         {
-            MessageBoxResult result = MessageBox.Show("¿Desea actualizar estos datos?", "Actualizar Usuario", MessageBoxButton.YesNo, MessageBoxImage.Question);
-            if (result == MessageBoxResult.Yes)
+            if (validarCampos())
             {
-                Usuario oUsuario = new Usuario();
+                MessageBoxResult result = MessageBox.Show("¿Desea actualizar estos datos?", "Actualizar Usuario", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                if (result == MessageBoxResult.Yes)
+                {
+                    Usuario oUsuario = new Usuario();
 
-                oUsuario.Usr_Id = user.Usr_Id;
-                oUsuario.Usr_ApellidoNombre = txtApellidoNombre.Text;
-                oUsuario.Usr_NombreUsuario = txtUsuario.Text;
-                oUsuario.Usr_Password = txtPassword.Text;
-                oUsuario.Rol_Id = Convert.ToInt32(cboRol.SelectedValue.ToString());
+                    oUsuario.Usr_Id = user.Usr_Id;
+                    oUsuario.Usr_ApellidoNombre = txtApellidoNombre.Text;
+                    oUsuario.Usr_NombreUsuario = txtUsuario.Text;
+                    oUsuario.Usr_Password = txtPassword.Text;
+                    oUsuario.Rol_Id = Convert.ToInt32(cboRol.SelectedValue.ToString());
 
 
-                TrabajarUsuarios.edit_usuario(oUsuario);
+                    TrabajarUsuarios.edit_usuario(oUsuario);
 
-                MessageBox.Show("Usuario actualizado con éxito", "Usuario actualizado", MessageBoxButton.OK, MessageBoxImage.Information);
+                    MessageBox.Show("Usuario actualizado con éxito", "Usuario actualizado", MessageBoxButton.OK, MessageBoxImage.Information);
 
-                txtApellidoNombre.Text = "";
-                txtPassword.Text = "";
-                txtUsuario.Text = "";
-                cboRol.SelectedItem = null;
+                    txtApellidoNombre.Text = "";
+                    txtPassword.Text = "";
+                    txtUsuario.Text = "";
+                    cboRol.SelectedItem = null;
 
-                winABMUsuarios winABMU = new winABMUsuarios();
-                winABMU.Show();
-                this.Close();
+                    winABMUsuarios winABMU = new winABMUsuarios();
+                    winABMU.Show();
+                    this.Close();
+                } 
             }
+            
+        }
+
+        private bool validarCampos()
+        {
+            bool valido = true;
+            int comboRol = Convert.ToInt32(cboRol.SelectedValue);
+            if (txtApellidoNombre.Text == "")
+            {
+                valido = false;
+                MessageBox.Show("Debe ingresar el apellido y nombre del usuario.");
+                return valido;
+            }
+            if (txtUsuario.Text == "")
+            {
+                valido = false;
+                MessageBox.Show("Debe ingresar el nombre de usuario que usará para ingresar en el sistema.");
+                return valido;
+            }
+            if (txtPassword.Text == "")
+            {
+                valido = false;
+                MessageBox.Show("Debe ingresar la contraseña que usará el usuario para ingresar en el sistema.");
+                return valido;
+            }
+            if (txtPassword.Text.Length < 8)
+            {
+                valido = false;
+                MessageBox.Show("La contraseña debe tener como mínimo 8 caractéres.");
+                return valido;
+            }
+            if ((string.IsNullOrEmpty(cboRol.Text)) || (comboRol == -1))
+            {
+                valido = false;
+                MessageBox.Show("Debe seleccionar el rol que tendrá el usuario en el sistema.");
+                return valido;
+            }
+            return valido;
         }
     }
 }

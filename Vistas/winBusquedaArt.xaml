@@ -99,7 +99,7 @@
                     </GridView>
                 </ListView.View>
             </ListView>
-            <Button Name="btnPrint" ToolTip="Imprimir el listado de artículos actuales" Content="Imprimir Lista" Style="{StaticResource ButtonFormBlack}" Click="btnPrint_Click" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="2"></Button>
+            <Button Name="btnPrint" ToolTip="Imprime un listado con los artículos actuales" Content="Imprimir Lista" Style="{StaticResource ButtonFormBlack}" Click="btnPrint_Click" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="2"></Button>
         </Grid>
     </Grid>
 </Window>

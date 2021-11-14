@@ -86,33 +86,62 @@ namespace Vistas
 
         private void btnagregarPed_Click(object sender, RoutedEventArgs e)
         {
-            MessageBoxResult result = MessageBox.Show("¿Desea guardar estos datos?", "Crear Pedido", MessageBoxButton.YesNo, MessageBoxImage.Question);
-            if (result == MessageBoxResult.Yes)
+            if (validarCampos())
             {
-                Pedido oPedido = new Pedido();
-                //oPedido.Mesa_Id = Convert.ToInt32(cboMesas.SelectedValue.ToString());
-                oPedido.Mesa_Id = mesa.Mesa_Id;
-                mesa.Mesa_Estado = "En espera";
-                TrabajarMesas.edit_mesa(mesa);
-                oPedido.Cli_Id = Convert.ToInt32(cboCliente.SelectedValue.ToString());
-                oPedido.Ped_Fecha_Emision = DateTime.Now;
-                oPedido.Ped_Facturado = false;
+                MessageBoxResult result = MessageBox.Show("¿Desea guardar estos datos?", "Crear Pedido", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                if (result == MessageBoxResult.Yes)
+                {
+                    Pedido oPedido = new Pedido();
+                    //oPedido.Mesa_Id = Convert.ToInt32(cboMesas.SelectedValue.ToString());
+                    oPedido.Mesa_Id = mesa.Mesa_Id;
+                    mesa.Mesa_Estado = "En espera";
+                    TrabajarMesas.edit_mesa(mesa);
+                    oPedido.Cli_Id = Convert.ToInt32(cboCliente.SelectedValue.ToString());
+                    oPedido.Ped_Fecha_Emision = DateTime.Now;
+                    oPedido.Ped_Facturado = false;
 
-                oPedido.Ped_Fecha_Entrega = Convert.ToDateTime(dpFecha.SelectedDate);
-                oPedido.Ped_Comensales = Convert.ToInt32(txtComensal.Text);
-                oPedido.Usr_Id = 4;
-                Console.WriteLine(oPedido.Ped_Fecha_Entrega);
-                TrabajarPedido.add_pedido(oPedido);
+                    oPedido.Ped_Fecha_Entrega = Convert.ToDateTime(dpFecha.SelectedDate);
+                    oPedido.Ped_Comensales = Convert.ToInt32(txtComensal.Text);
+                    oPedido.Usr_Id = 4;
+                    Console.WriteLine(oPedido.Ped_Fecha_Entrega);
+                    TrabajarPedido.add_pedido(oPedido);
 
-                MessageBox.Show("Pedido Guardado con éxito", "Datos Creados", MessageBoxButton.OK, MessageBoxImage.Information);
+                    MessageBox.Show("Pedido Guardado con éxito", "Datos Creados", MessageBoxButton.OK, MessageBoxImage.Information);
 
-                txtComensal.Text = "";
+                    txtComensal.Text = "";
 
-                winPedidos oWinPedidos = new winPedidos(1);
-                oWinPedidos.Show();
-                this.Close();
+                    winPedidos oWinPedidos = new winPedidos(1);
+                    oWinPedidos.Show();
+                    this.Close();
 
+                }
             }
+            
+        }
+
+        private bool validarCampos()
+        {
+            bool valido = true;
+            int comboCliente = Convert.ToInt32(cboCliente.SelectedValue);
+            if (dpFecha.SelectedDate == null)
+            {
+                valido = false;
+                MessageBox.Show("Debe seleccionar la fecha de entrega del pedido.");
+                return valido;
+            }
+            if ((string.IsNullOrEmpty(cboCliente.Text)) || (comboCliente == -1))
+            {
+                valido = false;
+                MessageBox.Show("Debe seleccionar el cliente al que le corresponde el pedido");
+                return valido;
+            }
+            if(txtComensal.Text == "")
+            {
+                valido = false;
+                MessageBox.Show("Debe ingresar la cantidad de comensales.");
+                return valido;
+            }
+            return valido;
         }
     }
 

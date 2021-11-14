@@ -64,7 +64,7 @@
                         <Label HorizontalAlignment="Right" Content="Precio:" Name="label4" Grid.Row="4" Style="{StaticResource StyleLabelForm}" />
                             <Label HorizontalAlignment="Right" Content="Stock:" Name="label5" Grid.Row="5" Style="{StaticResource StyleLabelForm}"  />
                             <CheckBox Margin="6" HorizontalAlignment="Left" Name="chkStock" VerticalAlignment="Center" Grid.Row="5" Grid.Column="1" />
-                            <TextBox Width="120" Name="txtPrecio" VerticalAlignment="Center"  Grid.Column="1" Margin="6,9,0,7" Grid.Row="4" DataContext="{StaticResource Data_Articulo}" Style="{StaticResource EstiloError}">
+                            <TextBox Width="120" Name="txtPrecio" VerticalAlignment="Center"  Grid.Column="1" Margin="6,9,0,7" Grid.Row="4" DataContext="{StaticResource Data_Articulo}" Style="{StaticResource EstiloError}" MaxLength="0">
                                 <TextBox.Text>
                                     <Binding Path="Art_Precio" UpdateSourceTrigger="PropertyChanged"
                                  ValidatesOnExceptions="true" ValidatesOnDataErrors="true"></Binding>

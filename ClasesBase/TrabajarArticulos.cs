@@ -87,7 +87,7 @@ namespace ClasesBase
             SqlConnection cnn = new SqlConnection(ClasesBase.Properties.Settings.Default.pasteleriaConnectionString);
 
             SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = "listar_articulos";
+            cmd.CommandText = "listar_articulos_con_stock";
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Connection = cnn;
 

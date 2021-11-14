@@ -85,46 +85,66 @@ namespace Vistas
 
         private void btnGuardar_Click(object sender, RoutedEventArgs e)
         {
-            MessageBoxResult result = MessageBox.Show("¿Desea guardar estos datos?", "Guardar Categoría", MessageBoxButton.YesNo, MessageBoxImage.Question);
-            if (result == MessageBoxResult.Yes)
+            if (validarCampos())
             {
-                Categoria oCategoria = new Categoria();
+                MessageBoxResult result = MessageBox.Show("¿Desea guardar estos datos?", "Guardar Categoría", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                if (result == MessageBoxResult.Yes)
+                {
+                    Categoria oCategoria = new Categoria();
 
-                oCategoria.Cat_Descrip = txtCatDescrip.Text;
+                    oCategoria.Cat_Descrip = txtCatDescrip.Text;
 
 
-                TrabajarCategorias.add_categoria(oCategoria);
+                    TrabajarCategorias.add_categoria(oCategoria);
 
-                MessageBox.Show("Categoría guardada con éxito", "Categoría agregada", MessageBoxButton.OK, MessageBoxImage.Information);
+                    MessageBox.Show("Categoría guardada con éxito", "Categoría agregada", MessageBoxButton.OK, MessageBoxImage.Information);
 
-                txtCatDescrip.Text = "";
+                    txtCatDescrip.Text = "";
 
-                winABMCategorias winABMC = new winABMCategorias();
-                winABMC.Show();
-                this.Close();
+                    winABMCategorias winABMC = new winABMCategorias();
+                    winABMC.Show();
+                    this.Close();
+                }
             }
+            
         }
 
         private void btnEditar_Click(object sender, RoutedEventArgs e)
         {
-            MessageBoxResult result = MessageBox.Show("¿Desea actualizar estos datos?", "Actualizar Categoría", MessageBoxButton.YesNo, MessageBoxImage.Question);
-            if (result == MessageBoxResult.Yes)
+            if (validarCampos())
             {
-                Categoria oCategoria = new Categoria();
+                MessageBoxResult result = MessageBox.Show("¿Desea actualizar estos datos?", "Actualizar Categoría", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                if (result == MessageBoxResult.Yes)
+                {
+                    Categoria oCategoria = new Categoria();
 
-                oCategoria.Cat_Id = cat.Cat_Id;
-                oCategoria.Cat_Descrip = txtCatDescrip.Text;
+                    oCategoria.Cat_Id = cat.Cat_Id;
+                    oCategoria.Cat_Descrip = txtCatDescrip.Text;
 
-                TrabajarCategorias.edit_categoria(oCategoria);
+                    TrabajarCategorias.edit_categoria(oCategoria);
 
-                MessageBox.Show("Categoría actualizada con éxito", "Categoría actualizada", MessageBoxButton.OK, MessageBoxImage.Information);
+                    MessageBox.Show("Categoría actualizada con éxito", "Categoría actualizada", MessageBoxButton.OK, MessageBoxImage.Information);
 
-                txtCatDescrip.Text = "";
+                    txtCatDescrip.Text = "";
 
-                winABMCategorias winABMC = new winABMCategorias();
-                winABMC.Show();
-                this.Close();
+                    winABMCategorias winABMC = new winABMCategorias();
+                    winABMC.Show();
+                    this.Close();
+                }
             }
+            
+        }
+
+        private bool validarCampos()
+        {
+            bool valido = true;
+            if (txtCatDescrip.Text == "")
+            {
+                valido = false;
+                MessageBox.Show("Debe ingresar una descripción para la categoría.");
+                return valido;
+            }
+            return valido;
         }
     }
 }

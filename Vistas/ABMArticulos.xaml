@@ -39,7 +39,7 @@
                 <Button Grid.Column="1" x:Name="btnNuevoArt" HorizontalAlignment="Right" ToolTip="Agregar un nuevo artículo" Content="+ Nuevo Artículo" Margin="20,0" Style="{StaticResource ButtonFormBlack}" Click="btn_Agregar"></Button>
             </Grid>
             <DockPanel HorizontalAlignment="Stretch" Height="400" Margin="0,10,0,0">
-                <Button Width="80" BorderBrush="Transparent" Background="Transparent" Height="300" Margin="0,20" Style="{StaticResource ButtonFormBlackOld}" Click="btn_prev_Click">
+                <Button ToolTip="Ver el anterior artículo" Width="80" BorderBrush="Transparent" Background="Transparent" Height="300" Margin="0,20" Style="{StaticResource ButtonFormBlackOld}" Click="btn_prev_Click">
                     <Button.Content>
                         <fa:ImageAwesome Icon="ChevronLeft" Margin="18" Foreground="#fefefe" ></fa:ImageAwesome>
                     </Button.Content>
@@ -89,7 +89,7 @@
                     </DockPanel>
                 </Grid>
                 
-                <Button Width="80" Height="300" BorderBrush="Transparent" Background="Transparent" HorizontalAlignment="Right" Margin="0,20" Style="{StaticResource ButtonFormBlackOld}" Click="btn_next_Click">
+                <Button ToolTip="Ver el siguiente artículo" Width="80" Height="300" BorderBrush="Transparent" Background="Transparent" HorizontalAlignment="Right" Margin="0,20" Style="{StaticResource ButtonFormBlackOld}" Click="btn_next_Click">
                     <Button.Content>
                         <fa:ImageAwesome Icon="ChevronRight" Margin="18" Foreground="#fefefe" ></fa:ImageAwesome>
                     </Button.Content>
@@ -106,7 +106,7 @@
                     <Button.Content>
                         <DockPanel>
                             <fa:ImageAwesome Icon="AngleDoubleLeft" Foreground="white" Height="12"></fa:ImageAwesome>
-                            <TextBlock Text="Ir al primer artículo" Foreground="white" FontSize="14" Margin="10,0"></TextBlock>
+                            <TextBlock ToolTip="Muestra el primer artículo" Text="Ir al primer artículo" Foreground="white" FontSize="14" Margin="10,0"></TextBlock>
                         </DockPanel>                        
                     </Button.Content>
                 </Button>
@@ -115,7 +115,7 @@
                     <Button.Content>
                         <DockPanel>
                             <fa:ImageAwesome Icon="List" Height="14" Foreground="White" Margin="0,0,10,0"></fa:ImageAwesome>
-                            <TextBlock Text="Ver lista de artículos" FontSize="14" Foreground="white"></TextBlock>
+                            <TextBlock ToolTip="Muestra todos los artículos en forma de lista" Text="Ver lista de artículos" FontSize="14" Foreground="white"></TextBlock>
                         </DockPanel>
                     </Button.Content>
                 </Button>
@@ -123,7 +123,7 @@
                 <Button Grid.Column="2" Style="{StaticResource ButtonFormBlack}" HorizontalAlignment="Right" Click="btn_last_Click">
                     <Button.Content>
                         <DockPanel>
-                            <TextBlock Text="Ir al último artículo" Foreground="white" FontSize="14" Margin="10,0"></TextBlock>                        
+                            <TextBlock ToolTip="Muestra el último artículo" Text="Ir al último artículo" Foreground="white" FontSize="14" Margin="10,0"></TextBlock>                        
                             <fa:ImageAwesome Icon="AngleDoubleRight" Foreground="white" Height="12"></fa:ImageAwesome></DockPanel>                        
                     </Button.Content>
                 </Button>
@@ -133,7 +133,7 @@
                     <Button.Content>
                         <DockPanel>
                             <fa:ImageAwesome Icon="Pencil" Height="14" Foreground="White" Margin="0,0,7,0"></fa:ImageAwesome>
-                            <TextBlock Text="Actualizar Artículo" FontSize="14" Foreground="white"></TextBlock>
+                            <TextBlock ToolTip="Actualizar los datos del artículo actual" Text="Actualizar Artículo" FontSize="14" Foreground="white"></TextBlock>
                         </DockPanel>
                     </Button.Content>
                 </Button>
@@ -141,7 +141,7 @@
                    <Button.Content>
                         <DockPanel>
                             <fa:ImageAwesome Icon="Trash" Height="14" Foreground="White" Margin="0,0,7,0"></fa:ImageAwesome>
-                            <TextBlock Text="Eliminar Artículo" FontSize="14" Foreground="white"></TextBlock>
+                            <TextBlock ToolTip="Elimina el artículo actual" Text="Eliminar Artículo" FontSize="14" Foreground="white"></TextBlock>
                         </DockPanel>
                     </Button.Content>
                 </Button>
