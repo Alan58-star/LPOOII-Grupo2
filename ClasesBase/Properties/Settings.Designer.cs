@@ -26,9 +26,9 @@ namespace ClasesBase.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=.\\SQLEXPRESS;AttachDbFilename=\"D:\\DESCARGAS\\3er Año APU\\2do Cuatrimes" +
-            "tre\\LPOO II\\LPOOII-Grupo2\\pasteleria.mdf\";Integrated Security=True;Connect Timeo" +
-            "ut=30;User Instance=True")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=.\\SQLEXPRESS;AttachDbFilename=\"C:\\Program Files (x86)\\Holdem Inc\\Hold" +
+            "em - Sistema de Gestión\\Database\\pasteleria.mdf\";Integrated Security=True;Connec" +
+            "t Timeout=30;User Instance=True")]
         public string pasteleriaConnectionString {
             get {
                 return ((string)(this["pasteleriaConnectionString"]));

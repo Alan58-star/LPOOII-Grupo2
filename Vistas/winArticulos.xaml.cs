@@ -192,7 +192,7 @@ namespace Vistas
             if (openFileDialog.ShowDialog() == true)
             {
                 archivo = openFileDialog.FileName;
-                route = @"D:\-N-\Trabajos\3° APU\LPOO II\TRABAJO PRÁCTICO\LPOOII-Grupo2\Vistas\Images";
+                route = @"C:\Program Files (x86)\Holdem Inc\Holdem - Sistema de Gestión\Images";
                 destino = System.IO.Path.Combine(route, openFileDialog.SafeFileName);
                 System.IO.File.Copy(archivo, destino, true);
 

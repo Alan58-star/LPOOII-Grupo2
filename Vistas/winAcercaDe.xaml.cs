@@ -124,7 +124,7 @@ namespace Vistas
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            string name = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + @"\Media\VIDEO.mp4"; //Obteniendo la ruta del dispositivo, independientemente de dónde se ejecute
+            string name = Directory.GetCurrentDirectory() + @"\Media\VIDEO.mp4"; //Obteniendo la ruta del dispositivo, independientemente de dónde se ejecute
             mediaElement1.Source = new Uri(name);
 
             mediaElement1.LoadedBehavior = MediaState.Manual;

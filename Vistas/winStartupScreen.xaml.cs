@@ -36,7 +36,7 @@ namespace Vistas
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             SoundPlayer sp = new SoundPlayer();
-            sp.SoundLocation = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + @"\Media\SONIDO.wav"; // SACAR 'Directory.GetParent' AL COMPILAR EL RELEASE
+            sp.SoundLocation = Directory.GetCurrentDirectory() + @"\Media\SONIDO.wav"; // SACAR 'Directory.GetParent' AL COMPILAR EL RELEASE
             sp.Play();
         }
 
