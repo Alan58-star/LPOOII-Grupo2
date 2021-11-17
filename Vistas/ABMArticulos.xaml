@@ -45,7 +45,7 @@
                     </Button.Content>
                 </Button>
                 
-                <Image Margin="30,0,30,0" Name="imgArticulo" Source="{Binding Art_Imagen}" Stretch="Fill" VerticalAlignment="Center" Height="auto" Width="270" />
+                <Image Margin="30,0,30,0" Name="imgArticulo" Source="{Binding Art_Imagen}" Stretch="Fill" VerticalAlignment="Center" Height="250" Width="270" />
 
                 <Grid Width="300" Margin="0,40">
                     <Grid.RowDefinitions>
@@ -58,7 +58,7 @@
                         <RowDefinition Height="20*"></RowDefinition>
                     </Grid.RowDefinitions>
                     <!---->
-                    <TextBlock Grid.Row="0" Text="{Binding Art_Descrip}" Style="{StaticResource FormTitle}"></TextBlock>
+                    <TextBlock Grid.Row="0" Text="{Binding Art_Descrip}" FontSize="26" Style="{StaticResource FormTitle}"></TextBlock>
                     <DockPanel Grid.Row="1">
                         <fa:ImageAwesome Icon="Dollar" Foreground="White" Height="20" Margin="30,0,10,0"></fa:ImageAwesome>
                         <TextBlock Grid.Row="1" HorizontalAlignment="Left" Text="{Binding Art_Precio}" Style="{StaticResource FormDescription}"></TextBlock>

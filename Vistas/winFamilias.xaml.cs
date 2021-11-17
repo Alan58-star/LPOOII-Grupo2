@@ -98,7 +98,7 @@ namespace Vistas
 
                     TrabajarFamilias.add_familia(oFamilia);
 
-                    MessageBox.Show("Familia guardada con éxito");
+                    MessageBox.Show("Familia guardada con éxito", "Familia agregada", MessageBoxButton.OK, MessageBoxImage.Information);
 
                     txtFamDescrip.Text = "";
 

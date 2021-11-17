@@ -126,7 +126,7 @@
                     <Button.Content>
                         <DockPanel>
                             <fa:ImageAwesome Icon="Trash" Height="14" Foreground="White" Margin="0,0,7,0"></fa:ImageAwesome>
-                            <TextBlock Text="Eliminar Familia" FontSize="14" Foreground="white"></TextBlock>
+                            <TextBlock Text="Eliminar Categoría" FontSize="14" Foreground="white"></TextBlock>
                         </DockPanel>
                     </Button.Content>
                 </Button>

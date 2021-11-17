@@ -66,7 +66,7 @@ namespace Vistas
 
                     TrabajarClientes.add_cliente(oCliente);
 
-                    MessageBox.Show("Cliente guardado con éxito");
+                    MessageBox.Show("Cliente guardado con éxito", "Cliente añadido", MessageBoxButton.OK, MessageBoxImage.Information);
 
                     txtApellidos.Text = "";
                     txtNombres.Text = "";

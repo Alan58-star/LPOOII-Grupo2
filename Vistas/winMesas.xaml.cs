@@ -295,12 +295,11 @@ namespace Vistas
                 mesa.Mesa_Estado = "Libre";
                 mesa.Mesa_Posicion = cols;
                 TrabajarMesas.add_mesa(mesa);
-                Console.WriteLine(listaMesas[contc-1].Mesa_Id);
                 cargarColeccion();
                 Button btnMesa = new Button();
 
                
-                btnMesa.Content = "Mesa " + listaMesas[contc].Mesa_Id;
+                btnMesa.Content = listaMesas[contc].Mesa_Id.ToString();
                 if (listaMesas[contc].Mesa_Estado == "Libre")
                 {
                     btnMesa.Style = (Style)Application.Current.Resources["BotondeMesaVerde"];

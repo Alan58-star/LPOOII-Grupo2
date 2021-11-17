@@ -5,7 +5,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClasesBase", "ClasesBase\Cl
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vistas", "Vistas\Vistas.csproj", "{53A784FF-8946-4356-A8BE-C54B5CC93741}"
 EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "HoldemSetup", "..\HoldemSetup\HoldemSetup.vdproj", "{C0559674-CBF0-49FC-9D84-BDD4896567D1}"
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "HoldemSetupx64", "HoldemSetupx64\HoldemSetupx64.vdproj", "{42ACBB78-D58D-49ED-BC4D-4857D633996E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -37,12 +37,12 @@ Global
 		{53A784FF-8946-4356-A8BE-C54B5CC93741}.Release|Mixed Platforms.Build.0 = Release|x86
 		{53A784FF-8946-4356-A8BE-C54B5CC93741}.Release|x86.ActiveCfg = Release|x86
 		{53A784FF-8946-4356-A8BE-C54B5CC93741}.Release|x86.Build.0 = Release|x86
-		{C0559674-CBF0-49FC-9D84-BDD4896567D1}.Debug|Any CPU.ActiveCfg = Debug
-		{C0559674-CBF0-49FC-9D84-BDD4896567D1}.Debug|Mixed Platforms.ActiveCfg = Debug
-		{C0559674-CBF0-49FC-9D84-BDD4896567D1}.Debug|x86.ActiveCfg = Debug
-		{C0559674-CBF0-49FC-9D84-BDD4896567D1}.Release|Any CPU.ActiveCfg = Release
-		{C0559674-CBF0-49FC-9D84-BDD4896567D1}.Release|Mixed Platforms.ActiveCfg = Release
-		{C0559674-CBF0-49FC-9D84-BDD4896567D1}.Release|x86.ActiveCfg = Release
+		{42ACBB78-D58D-49ED-BC4D-4857D633996E}.Debug|Any CPU.ActiveCfg = Debug
+		{42ACBB78-D58D-49ED-BC4D-4857D633996E}.Debug|Mixed Platforms.ActiveCfg = Debug
+		{42ACBB78-D58D-49ED-BC4D-4857D633996E}.Debug|x86.ActiveCfg = Debug
+		{42ACBB78-D58D-49ED-BC4D-4857D633996E}.Release|Any CPU.ActiveCfg = Release
+		{42ACBB78-D58D-49ED-BC4D-4857D633996E}.Release|Mixed Platforms.ActiveCfg = Release
+		{42ACBB78-D58D-49ED-BC4D-4857D633996E}.Release|x86.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

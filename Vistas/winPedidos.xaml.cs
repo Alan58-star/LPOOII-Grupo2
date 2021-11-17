@@ -37,11 +37,17 @@ namespace Vistas
 
         private void btnAddItems_Click(object sender, RoutedEventArgs e)
         {
-            
-            Pedido ped = (Pedido)lvwPedidos.SelectedItem;
-           
-            winAltaItemPedido winAltaitemPedido = new winAltaItemPedido(ped);
-            winAltaitemPedido.Show();
+            try
+            {
+                Pedido ped = (Pedido)lvwPedidos.SelectedItem;
+
+                winAltaItemPedido winAltaitemPedido = new winAltaItemPedido(ped);
+                winAltaitemPedido.Show();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Seleccione un Pedido", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
         private void moveWindow(object sender, MouseButtonEventArgs e)
